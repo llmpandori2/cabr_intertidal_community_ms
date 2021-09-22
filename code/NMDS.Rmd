@@ -5,8 +5,13 @@ editor_options:
   chunk_output_type: console
 ---
 #NMDS of all species together
-
+LP edits: 
+- Removed unnecessary code
+- Streamlined # of different datasets (shorebird1 vs shorebird2 etc. condensed to be shorebird)
 ```{r setup, include=FALSE}
+
+# no need to set wd if in a project on your computer cloned from github
+# i have changed the file extensions to work with the project and should work across computers
 
 #setwd("~/Desktop/CNP_internship/LS_Data")
 
@@ -29,33 +34,16 @@ library(labdsv) #hellinger transformation
 ##### load data #####
 
 #shorebird data
-shorebird<-read_excel("Shorebird_People_Data/Shorebird_People_Data.xlsx")
-
-# transect data (doesn't need alignment - spp consistent throughout)
-transect <- read_excel('RI_Long_Term_Data/Line_transect_summary_20210413.xlsx')
+shorebird<-read_excel("data/Shorebird_People_Data/Shorebird_People_Data.xlsx")
 
 # target data (needs alignment - spp lists differ by year)
-target <- read_excel('RI_Long_Term_Data/Photoplot_summary_by_plot_20210414.xlsx')
+target <- read_excel('data/RI_Long_Term_Data/Photoplot_summary_by_plot_20210414.xlsx')
 
 # alignment info for target data 
-align <- read_csv('TGT_all.csv')
+align <- read_csv('data/TGT_all.csv')
 # see RI_Species_Alighment_Feb21.R for methods
 # summary: took species lists for 1990 and 2000, applied to all unique spp.
 
-# timed search
-timed_search <- read_excel("RI_Long_Term_Data/TimedSearch_plot_counts_20210413.xlsx")
-
-# abiotic data
-# sea surface temp from SIO Pier
-sst <- read_csv("SIO_TEMP.csv", 
-                skip = 26)
-
-# tide predictions from tbone tides
-tide <- read_csv("tbone_tides_hourly_1990_2026.csv", 
-                 col_types = cols(datetime = col_datetime(format = "%m/%d/%Y %H:%M")))
-
-# southern oscillation index from NOAA NCEI
-soi <- read_excel("SOI_Data_NOAA_NCEI_1990_2020.xlsx")
 ```
 
 ```{r}
@@ -65,29 +53,8 @@ cabrsites <- c('CAB1', 'CAB2', 'CAB3')
 zonelist <- c('CHT', unique(target$Zone)[1:4])
 zonenames <- c('Balanus/Chthamalus', 'Tetraclita rubescens', 'Mussel', 'Silvetia compressa', 'Pollicipes polymerus')
 targetlist <- c('CHTBAL', 'TETRUB', 'MUSSEL', 'SILCOM', 'POLPOL')
-currentyear <- lubridate::year(Sys.Date())
 
-# facilitate looping over year groups for reporting. make list of years based on current year. 
-tenyrs <- c((currentyear - 11):(currentyear - 2))
-fiveyrs <- c((currentyear - 6):(currentyear - 1))
-allyrs <- c(1990:(currentyear - 1))
-
-# theme arguments
-lltheme_heatmap <- theme_bw() + theme(text = element_text(size = 12),
-                 # add more space between panels
-                 panel.spacing = unit(1, 'lines'),
-                 # no background to wrap panels
-                 strip.background = element_blank(),
-                 strip.text = element_text(size = 12, hjust = 0),
-                 # panel labels outside x axis labels
-                 strip.placement = 'outside',
-                 # adjust x axis labels
-                 axis.text.y = element_text(size = 11, color = 'black'),
-                 axis.text.x = element_text(size = 11, angle = 45, hjust = 1, color = 'black'),
-                 panel.grid.major = element_blank(),
-                 panel.grid.minor = element_blank(),
-                 legend.position = 'bottom')
-
+# theme
 lltheme <- theme_bw() + theme(text = element_text(size = 12),
                  # add more space between panels
                  panel.spacing = unit(1, 'lines'),
@@ -108,7 +75,7 @@ lltheme <- theme_bw() + theme(text = element_text(size = 12),
 shorebird$Year=format(shorebird$SurveyDate, "%Y")
 
 #filter for just people
-shorebird2<- ungroup(shorebird) %>% 
+shorebird<- ungroup(shorebird) %>% 
   mutate(SurveyYear=year(SurveyDate))%>%
   filter(DataType=="People")%>%
   group_by(SurveyYear, ZoneClass) %>% #separate by year and zone
@@ -129,6 +96,8 @@ shorebird2<- ungroup(shorebird) %>%
 target <- 
   # add generic codes to this set, along with formatted scientific names
   left_join(target, align, by = 'SpeciesCode') %>%
+  # only get cabr sites
+  filter(SiteCode %in% cabrsites) %>%
   # get rid of old scientific name (align has better one)
   select(-c(Scientific_name.x)) %>%
   # rename scientific name column
@@ -143,44 +112,18 @@ target <-
   # only get unique rows (removes duplicates)
   distinct()
 
-unique(target$ZoneName)==unique(shorebird2$ZoneName)
+unique(target$ZoneName)==unique(shorebird$ZoneName)
 
-# summarize by 2 methods: all and 1990 (1990-present)
+#### group by categories in 1990 ####
 
-# make list of all possible spp names and codes from target dataset
-spplist <- align %>%
-  select(SpeciesCode, Scientific_name) %>%
-  distinct()
-
-# all categories
-target_all <- target %>%
-  group_by(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code, SpeciesCode, Scientific_name) %>%
-  summarise(cover = sum(N))
-
-
-# get total # of pts surveyed per plot in each site/spp/year/season (range = 89-104)
-target_summary <- target_all %>%
-  group_by(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code) %>% 
-  summarise(points = sum(cover))
-
-# merge w target dataset (to calculate % cover)
-target_all <- 
-  # align # pts per plot with target 
-  left_join(target_all, target_summary) %>%
-  # calculate % cover (range of # pts is 89 - 104)
-  group_by(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code, SpeciesCode, Scientific_name) %>%
-  mutate(pct_cover = (cover/points)*100) %>%
-  # streamline dataset
-  select(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code, SpeciesCode, Scientific_name, pct_cover) 
-
-#################################
-
-# repeat process for 1990
+# get sum of number of points for each species
 target_1990 <- target %>%
   group_by(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code, Code_1990) %>%
   summarise(cover = sum(N))
 
-target_1990<- left_join(target_1990, target_summary) %>%
+# get number of points/quadrat to calculate% cover
+
+target_1990 <- left_join(target_1990, target_summary) %>%
   group_by(SiteCode, ZoneName, SiteName, SurveyYear, Zone, Plot_num, Plot_code, Code_1990) %>%
   mutate(pct_cover = (cover/points)*100) %>%
   select(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code, Code_1990, pct_cover) %>%
