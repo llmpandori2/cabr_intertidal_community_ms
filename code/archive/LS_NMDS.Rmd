@@ -1,0 +1,572 @@
+---
+title: "Untitled"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+#NMDS separated by plot type
+
+```{r setup, include=FALSE}
+#setwd("~/Desktop/CNP_internship/LS_Data")
+##### packages #####
+library(readxl)
+library(tidyverse)
+library(janitor)
+library(ggdark)
+library(Hmisc)
+library(broom)
+library(viridis)
+library(lubridate)
+library(vegan) #for RDA
+library(ggpubr)
+library(rstatix)
+library(broom)
+library(purrr)
+library(labdsv) #hellinger transformation
+
+##### load data #####
+# LP - i changed the paths for these to work with my setup
+#shorebird data
+shorebird<-read_excel("Shorebird_People_Data/Shorebird_People_Data.xlsx")
+
+# transect data (doesn't need alignment - spp consistent throughout)
+transect <- read_excel('RI_Long_Term_Data/Line_transect_summary_20210413.xlsx')
+
+# target data (needs alignment - spp lists differ by year)
+target <- read_excel('RI_Long_Term_Data/Photoplot_summary_by_plot_20210414.xlsx')
+
+# alignment info for target data 
+align <- read_csv('TGT_all.csv')
+# see RI_Species_Alighment_Feb21.R for methods
+# summary: took species lists for 1990 and 2000, applied to all unique spp.
+
+# timed search
+# timed_search <- read_excel("RI_Long_Term_Data/TimedSearch_plot_counts_20210413.xlsx")
+
+# abiotic data
+# sea surface temp from SIO Pier
+sst <- read_csv("SIO_TEMP.csv", 
+                skip = 26)
+
+# tide predictions from tbone tides
+tide <- read_csv("tbone_tides_hourly_1990_2026.csv", 
+                 col_types = cols(datetime = col_datetime(format = "%m/%d/%Y %H:%M")))
+
+# southern oscillation index from NOAA NCEI
+soi <- read_excel("SOI_Data_NOAA_NCEI_1990_2020.xlsx")
+```
+
+```{r}
+##### presets #####
+# lists of commonly filtered-for items
+cabrsites <- c('CAB1', 'CAB2', 'CAB3') 
+zonelist <- c('CHT', unique(target$Zone)[1:4])
+zonenames <- c('Balanus/Chthamalus', 'Tetraclita rubescens', 'Mussel', 'Silvetia compressa', 'Pollicipes polymerus')
+targetlist <- c('CHTBAL', 'TETRUB', 'MUSSEL', 'SILCOM', 'POLPOL')
+currentyear <- lubridate::year(Sys.Date())
+
+# facilitate looping over year groups for reporting. make list of years based on current year. 
+tenyrs <- c((currentyear - 11):(currentyear - 2))
+fiveyrs <- c((currentyear - 6):(currentyear - 1))
+allyrs <- c(1990:(currentyear - 1))
+
+# theme arguments
+lltheme_heatmap <- theme_bw() + theme(text = element_text(size = 12),
+                 # add more space between panels
+                 panel.spacing = unit(1, 'lines'),
+                 # no background to wrap panels
+                 strip.background = element_blank(),
+                 strip.text = element_text(size = 12, hjust = 0),
+                 # panel labels outside x axis labels
+                 strip.placement = 'outside',
+                 # adjust x axis labels
+                 axis.text.y = element_text(size = 11, color = 'black'),
+                 axis.text.x = element_text(size = 11, angle = 45, hjust = 1, color = 'black'),
+                 panel.grid.major = element_blank(),
+                 panel.grid.minor = element_blank(),
+                 legend.position = 'bottom')
+
+lltheme <- theme_bw() + theme(text = element_text(size = 12),
+                 # add more space between panels
+                 panel.spacing = unit(1, 'lines'),
+                 # no background to wrap panels
+                 strip.background = element_blank(),
+                 strip.text = element_text(size = 12, hjust = 0),
+                 # panel labels outside x axis labels
+                 strip.placement = 'outside',
+                 # adjust x axis labels
+                 axis.text.y = element_text(size = 11),
+                 axis.text.x = element_text(size = 11, angle = 45, hjust = 1))
+```
+
+```{r}
+######## tidy: shorebird data #####
+
+#add column with just years
+shorebird$Year=format(shorebird$SurveyDate, "%Y")
+
+#filter for just people
+shorebird2<- ungroup(shorebird) %>% 
+  mutate(SurveyYear=year(SurveyDate))%>%
+  filter(DataType=="People")%>%
+  group_by(SurveyYear, ZoneClass) %>% #separate by year and zone
+  summarise(people=mean(DataCount)) %>% #get average counts
+  mutate(ZoneName= paste('Zone', ZoneClass),
+         Panel = if_else(ZoneName == 'Zone I', 'A', 
+                         if_else(ZoneName == 'Zone II', 'B', 'C'))) %>%
+  mutate(ZoneName = paste('(', Panel, ') ', ZoneName, sep = '')) %>%
+  select(-c(Panel))%>%
+  drop_na()
+```
+
+```{r}
+##### tidy: photoplot #####
+# adapted from B. Hong's 2019-2021 Annual Report Code
+
+# keep target raw, retains plot-level data, and tidy
+target <- target %>%
+#********************** filter seasons for fall only for balanced sampling******
+  filter(SeasonName == 'Fall') %>%
+  # filter for relevant sites (my data still had other sites - YMMV)
+  filter(SiteCode %in% cabrsites) %>%
+  # add generic codes to this set, along with formatted scientific names
+  left_join(., select(align, -c(Scientific_name)), by = 'SpeciesCode') %>%
+  # make plot number a numeric column
+  mutate(Plot_num = parse_number(substr(Plot_code, 6,6))) %>%
+  # add zone/site column
+  mutate(ZoneName = paste('Zone', substr(SiteName, 10, 12)),
+         Panel = if_else(SiteName == 'Cabrillo I', 'A', 
+                         if_else(SiteName == 'Cabrillo II', 'B', 'C'))) %>%
+  mutate(ZoneName = paste('(', Panel, ') ', ZoneName, sep='')) %>%
+  # only get unique rows (removes duplicates)
+  distinct()
+
+unique(target$ZoneName) == unique(shorebird2$ZoneName)
+
+# summarize by 2 methods: all and 1990 (1990-present)
+
+# make list of all possible spp names and codes from target dataset
+spplist <- align %>%
+  select(SpeciesCode, Scientific_name) %>%
+  distinct()
+
+# all categories
+target_all <- target %>%
+  group_by(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code, SpeciesCode, Scientific_name) %>%
+  summarise(cover = sum(N))
+
+
+# get total # of pts surveyed per plot in each site/spp/year/season (range = 89-104)
+target_summary <- target_all %>%
+  group_by(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code) %>% 
+  summarise(points = sum(cover))
+
+# merge w target dataset (to calculate % cover)
+target_all <- 
+  # align # pts per plot with target 
+  left_join(target_all, target_summary) %>%
+  # calculate % cover (range of # pts is 89 - 104)
+  group_by(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code, SpeciesCode, Scientific_name) %>%
+  mutate(pct_cover = (cover/points)*100) %>%
+  # streamline dataset
+  select(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code, SpeciesCode, Scientific_name, pct_cover) 
+
+#################################
+
+# repeat process for 1990
+target_1990 <- target %>%
+  group_by(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code, Code_1990) %>%
+  summarise(cover = sum(N))
+
+target_1990<- left_join(target_1990, target_summary) %>%
+  group_by(SiteCode, ZoneName, SiteName, SurveyYear, Zone, Plot_num, Plot_code, Code_1990) %>%
+  mutate(pct_cover = (cover/points)*100) %>%
+  select(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code, Code_1990, pct_cover) %>%
+  rename(SpeciesCode = Code_1990) %>%
+  filter(SiteName %in% c("Cabrillo I", "Cabrillo II", "Cabrillo III"))
+
+# join spp names to 1990 data
+target_1990 <- left_join(target_1990, spplist)
+
+# remove extras
+#remove(target_summary, align, spplist, target)
+
+unique(target_1990$ZoneName)
+
+target_90_home <- target_1990 %>%
+filter(SiteCode %in% cabrsites) %>%
+# filter to only tgt spp in their own plots
+filter((Zone == 'CHT' & SpeciesCode %in% c('TETRUB', 'CHTBAL')) |
+(Zone == 'MYT' & SpeciesCode == 'MUSSEL') |
+(Zone == 'SIL' & SpeciesCode == 'SILCOM') |
+(Zone == 'POL' & SpeciesCode == 'POLPOL')) %>%
+# get mean + SE cover for each yr
+group_by(ZoneName, SurveyYear, Zone, SpeciesCode, Scientific_name) %>%
+summarise(Cover_mean = mean(pct_cover), #keep if want each year to have 1 point
+Cover_SE = sd(pct_cover)/sqrt(length(pct_cover)))
+
+
+#******** This is the start of LP edits ***************************************
+# I think the issue here is that the target_wide doesn't include all species in the target plots, only the target species.
+# I suggest having different matrices for different target species (one NMDS/Permanova for each plot type - mussels, barancles, etc. - just like in the linear models - the difference here is that we're using a species assemblage in the plots instead of a single species).
+
+# get avg pct cover per year for all 1990 spp - to be // in replication level to people data (annual counts)
+target_1990_summary <- target_1990 %>%
+  ungroup() %>%
+  group_by(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Scientific_name) %>%
+  summarise(Mean_cover = mean(pct_cover))
+
+
+#rotate from long to wide
+target_wide <- target_1990_summary %>%
+  # ungroup target_1990 to prevent calc errors
+  ungroup() %>%
+  # pivot wider, filling in blanks with 0's (data don't have 0's added at the moment)
+  pivot_wider(., names_from = Scientific_name, values_from = Mean_cover, values_fill = 0)
+
+# realized there's some columns without target species/plot ID'ed (can comment this out/remove later)
+#View(target_wide %>% filter(is.na(Zone)))
+# none have any % cover...so we'll delete for now
+target_wide <- filter(target_wide, Zone %in% zonelist)
+
+# there's a value for the `NA` column with a percent cover of 26 - investigate
+# oooh - stephanocystis was coded incorrectly (STESPP instead of STEDIO. I have added this to the TGT_all.csv and fixed it in the database - this should fix things. I'll send you an updated version.
+
+# original code follows this comment, replaced by above
+# target_wide<- spread(target_1990, Scientific_name, Cover_mean)%>%
+  # mutate_all(~replace(., is.na(.), 0))
+
+#combine shorebird2? and target_wide
+target_shore<-left_join(target_wide, shorebird2[,-c(2)], by = c('ZoneName', 'SurveyYear'))%>%
+  drop_na() %>%
+  # get rid of NA column (filled with 0's)
+  select(-c(`NA`))
+```
+
+```{r}
+#separate out people/year from target_shore (can use : to get integers between two values)
+environ<-target_shore[c(1:5,15)] #tree
+
+#separate out species matrix, including linking factors
+species<-target_shore[c(1:14)] #bird
+```
+
+# LP Permanova/NMDS Suggestion
+I suggest having a different model for each plot type (like the linear models) b/c diffs between plot types swamp other effects. 
+I have done an example with silvetia plots here
+#silvetia
+```{r}
+### Create 3 matrices: species, environment and identifier columns
+
+# species matrix (think of this matrix like a single spp in the linear models)
+sil.species <- target_shore %>%
+  filter(Zone == 'SIL') %>%
+  select(-c(SiteCode:Zone, people))
+
+# environmental factors matrix (want to test for effects of zone, people, year - like single-spp linear models)
+sil.env <- target_shore %>%
+  filter(Zone == 'SIL') %>%
+  select(SiteName, SurveyYear, people)
+
+# identifier column matrix 
+sil.id <- target_shore %>%
+  filter(Zone == 'SIL') %>%
+  select(SiteCode:Zone)
+
+### Run NMDS (this is directly from your code - well written!) 
+# I think your model may have had insufficient data b/c, when using the home plot data, there was only one spp per plot
+speciesMDS<-metaMDS(sil.species, distance= "bray", k = 2, trymax = 35, autotransform = T)
+
+NMDS1<-speciesMDS$points[,1]
+NMDS2<-speciesMDS$points[,2]
+species.plot<-cbind(sil.id, NMDS1, NMDS2)
+
+p<-ggplot(species.plot, aes(NMDS1, NMDS2, color = ZoneName))+
+  stat_ellipse(type='t',size = 1)+ ##draws 95% confidence interval ellipses
+  theme_minimal()+
+  geom_text(data=species.plot, aes(NMDS1, NMDS2, label = ZoneName), position=position_jitter(.35))+
+  annotate("text", x=min(NMDS1), y=min(NMDS2), label=paste('Stress =',round(speciesMDS$stress,3))) #add stress to plot
+p
+# plot works well :)
+
+# run permanova 
+species.dist<-vegdist(sil.species, method='bray')
+
+species.div<-adonis2(species.dist ~ ZoneName, data = sil.id, permutations = 999, method='bray')
+species.div
+
+#make matrix
+species.matrix<-as.matrix(species[,5:9])
+
+#standardize with sqrt
+species.mat<-sqrt(sil.species)
+
+# test env drivers next
+fit<-envfit(speciesMDS, sil.env)
+arrow<-data.frame(fit$vectors$arrows,R = fit$vectors$r, P = fit$vectors$pvals)
+arrow$FG <- rownames(arrow)
+arrow.p<-filter(arrow, P <= 0.05)
+
+penvironsil<-ggplot(data=species.plot, aes(NMDS1, NMDS2))+
+  geom_point(data=species.plot, aes(NMDS1, NMDS2, color=ZoneName),position=position_jitter(.1))+##separates overlapping points
+  stat_ellipse(aes(fill=ZoneName), alpha=.2,type='t',size =1, geom="polygon")+ ##changes shading on ellipses
+  theme_minimal()+
+  geom_segment(data=arrow.p, aes(x=0, y=0, xend=NMDS1, yend=NMDS2, label=FG, lty=FG), arrow=arrow(length=unit(.2, "cm")*arrow.p$R))+ ##add arrows (scaled by R-squared value)
+  labs(title="Silvetia")
+penvironsil
+```
+
+#mussels
+```{r}
+### Create 3 matrices: species, environment and identifier columns
+
+# species matrix (think of this matrix like a single spp in the linear models)
+mus.species <- target_shore %>%
+  filter(Zone == 'MYT') %>%
+  select(-c(SiteCode:Zone, people))
+
+# environmental factors matrix (want to test for effects of zone, people, year - like single-spp linear models)
+mus.env <- target_shore %>%
+  filter(Zone == 'MYT') %>%
+  select(SiteName, SurveyYear, people)
+
+# identifier column matrix 
+mus.id <- target_shore %>%
+  filter(Zone == 'MYT') %>%
+  select(SiteCode:Zone)
+
+### Run NMDS (this is directly from your code - well written!) 
+# I think your model may have had insufficient data b/c, when using the home plot data, there was only one spp per plot
+musMDS<-metaMDS(mus.species, distance= "bray", k = 2, trymax = 35, autotransform = T)
+
+NMDS1<-musMDS$points[,1]
+NMDS2<-musMDS$points[,2]
+species.plot<-cbind(sil.id, NMDS1, NMDS2)
+
+p<-ggplot(species.plot, aes(NMDS1, NMDS2, color = ZoneName))+
+  stat_ellipse(type='t',size = 1)+ ##draws 95% confidence interval ellipses
+  theme_minimal()+
+  geom_text(data=species.plot, aes(NMDS1, NMDS2, label = ZoneName), position=position_jitter(.35))+
+  annotate("text", x=min(NMDS1), y=min(NMDS2), label=paste('Stress =',round(speciesMDS$stress,3))) #add stress to plot
+p
+# plot works well :)
+
+# run permanova 
+species.dist<-vegdist(mus.species, method='bray')
+
+species.div<-adonis2(species.dist ~ ZoneName, data = mus.id, permutations = 999, method='bray')
+species.div
+
+#make matrix
+species.matrix<-as.matrix(species[,5:9])
+
+#standardize with sqrt
+species.mat<-sqrt(mus.species)
+
+# test env drivers next
+#try to fit environmental variables, can't get fit to work. "Missing value where TRUE/FALSE needed" error. Might be issue with NAs.
+fit<-envfit(speciesMDS, mus.env)
+arrow<-data.frame(fit$vectors$arrows,R = fit$vectors$r, P = fit$vectors$pvals)
+arrow$FG <- rownames(arrow)
+arrow.p<-filter(arrow, P <= 0.05)
+
+penvironmus<-ggplot(data=species.plot, aes(NMDS1, NMDS2))+
+  geom_point(data=species.plot, aes(NMDS1, NMDS2, color=ZoneName),position=position_jitter(.1))+##separates overlapping points
+  stat_ellipse(aes(fill=ZoneName), alpha=.2,type='t',size =1, geom="polygon")+ ##changes shading on ellipses
+  theme_minimal()+
+  geom_segment(data=arrow.p, aes(x=0, y=0, xend=NMDS1, yend=NMDS2, label=FG, lty=FG), arrow=arrow(length=unit(.2, "cm")*arrow.p$R))+##add arrows (scaled by R-squared value)
+  labs(title="Mussel")
+penvironmus
+
+```
+
+#barnacles
+```{r}
+### Create 3 matrices: species, environment and identifier columns
+
+# species matrix (think of this matrix like a single spp in the linear models)
+barn.species <- target_shore %>%
+  filter(Zone == 'CHT') %>%
+  select(-c(SiteCode:Zone, people))
+
+# environmental factors matrix (want to test for effects of zone, people, year - like single-spp linear models)
+barn.env <- target_shore %>%
+  filter(Zone == 'CHT') %>%
+  select(SiteName, SurveyYear, people)
+
+# identifier column matrix 
+barn.id <- target_shore %>%
+  filter(Zone == 'CHT') %>%
+  select(SiteCode:Zone)
+
+### Run NMDS (this is directly from your code - well written!) 
+# I think your model may have had insufficient data b/c, when using the home plot data, there was only one spp per plot
+musMDS<-metaMDS(barn.species, distance= "bray", k = 2, trymax = 35, autotransform = T)
+
+NMDS1<-musMDS$points[,1]
+NMDS2<-musMDS$points[,2]
+species.plot<-cbind(sil.id, NMDS1, NMDS2)
+
+p<-ggplot(species.plot, aes(NMDS1, NMDS2, color = ZoneName))+
+  stat_ellipse(type='t',size = 1)+ ##draws 95% confidence interval ellipses
+  theme_minimal()+
+  geom_text(data=species.plot, aes(NMDS1, NMDS2, label = ZoneName), position=position_jitter(.35))+
+  annotate("text", x=min(NMDS1), y=min(NMDS2), label=paste('Stress =',round(speciesMDS$stress,3))) #add stress to plot
+p
+# plot works well :)
+
+# run permanova 
+species.dist<-vegdist(barn.species, method='bray')
+
+species.div<-adonis2(species.dist ~ ZoneName, data = barn.id, permutations = 999, method='bray')
+species.div
+
+#make matrix
+species.matrix<-as.matrix(species[,5:9])
+
+#standardize with sqrt
+species.mat<-sqrt(barn.species)
+
+# test env drivers next
+#try to fit environmental variables, can't get fit to work. "Missing value where TRUE/FALSE needed" error. Might be issue with NAs.
+fit<-envfit(speciesMDS, barn.env)
+arrow<-data.frame(fit$vectors$arrows,R = fit$vectors$r, P = fit$vectors$pvals)
+arrow$FG <- rownames(arrow)
+arrow.p<-filter(arrow, P <= 0.05)
+
+penvironbarn<-ggplot(data=species.plot, aes(NMDS1, NMDS2))+
+  geom_point(data=species.plot, aes(NMDS1, NMDS2, color=ZoneName),position=position_jitter(.1))+##separates overlapping points
+  stat_ellipse(aes(fill=ZoneName), alpha=.2,type='t',size =1, geom="polygon")+ ##changes shading on ellipses
+  theme_minimal()+
+  geom_segment(data=arrow.p, aes(x=0, y=0, xend=NMDS1, yend=NMDS2, label=FG, lty=FG), arrow=arrow(length=unit(.2, "cm")*arrow.p$R))+##add arrows (scaled by R-squared value)
+  labs(title="Barnacles")
+penvironbarn
+```
+
+#tetrub- going to be the same as CHT
+```{r}
+### Create 3 matrices: species, environment and identifier columns
+
+# species matrix (think of this matrix like a single spp in the linear models)
+tet.species <- target_shore %>%
+  filter(Zone == 'CHT') %>%
+  select(-c(SiteCode:Zone, people))
+
+# environmental factors matrix (want to test for effects of zone, people, year - like single-spp linear models)
+tet.env <- target_shore %>%
+  filter(Zone == 'CHT') %>%
+  select(SiteName, SurveyYear, people)
+
+# identifier column matrix 
+tet.id <- target_shore %>%
+  filter(Zone == 'CHT') %>%
+  select(SiteCode:Zone)
+
+### Run NMDS (this is directly from your code - well written!) 
+# I think your model may have had insufficient data b/c, when using the home plot data, there was only one spp per plot
+musMDS<-metaMDS(tet.species, distance= "bray", k = 2, trymax = 35, autotransform = T)
+
+NMDS1<-musMDS$points[,1]
+NMDS2<-musMDS$points[,2]
+species.plot<-cbind(sil.id, NMDS1, NMDS2)
+
+p<-ggplot(species.plot, aes(NMDS1, NMDS2, color = ZoneName))+
+  stat_ellipse(type='t',size = 1)+ ##draws 95% confidence interval ellipses
+  theme_minimal()+
+  geom_text(data=species.plot, aes(NMDS1, NMDS2, label = ZoneName), position=position_jitter(.35))+
+  annotate("text", x=min(NMDS1), y=min(NMDS2), label=paste('Stress =',round(speciesMDS$stress,3))) #add stress to plot
+p
+# plot works well :)
+
+# run permanova 
+species.dist<-vegdist(tet.species, method='bray')
+
+species.div<-adonis2(species.dist ~ ZoneName, data = tet.id, permutations = 999, method='bray')
+species.div
+
+#make matrix
+species.matrix<-as.matrix(species[,5:9])
+
+#standardize with sqrt
+species.mat<-sqrt(tet.species)
+
+# test env drivers next
+#try to fit environmental variables, can't get fit to work. "Missing value where TRUE/FALSE needed" error. Might be issue with NAs.
+fit<-envfit(speciesMDS, tet.env)
+arrow<-data.frame(fit$vectors$arrows,R = fit$vectors$r, P = fit$vectors$pvals)
+arrow$FG <- rownames(arrow)
+arrow.p<-filter(arrow, P <= 0.05)
+
+penvirontet<-ggplot(data=species.plot, aes(NMDS1, NMDS2))+
+  geom_point(data=species.plot, aes(NMDS1, NMDS2, color=ZoneName),position=position_jitter(.1))+##separates overlapping points
+  stat_ellipse(aes(fill=ZoneName), alpha=.2,type='t',size =1, geom="polygon")+ ##changes shading on ellipses
+  theme_minimal()+
+  geom_segment(data=arrow.p, aes(x=0, y=0, xend=NMDS1, yend=NMDS2, label=FG, lty=FG), arrow=arrow(length=unit(.2, "cm")*arrow.p$R))+##add arrows (scaled by R-squared value)
+  labs(title="Barnacles")
+penvirontet
+
+```
+
+#polpol
+```{r}
+### Create 3 matrices: species, environment and identifier columns
+
+# species matrix (think of this matrix like a single spp in the linear models)
+pol.species <- target_shore %>%
+  filter(Zone == 'POL') %>%
+  select(-c(SiteCode:Zone, people))
+
+# environmental factors matrix (want to test for effects of zone, people, year - like single-spp linear models)
+pol.env <- target_shore %>%
+  filter(Zone == 'POL') %>%
+  select(SiteName, SurveyYear, people)
+
+# identifier column matrix 
+pol.id <- target_shore %>%
+  filter(Zone == 'POL') %>%
+  select(SiteCode:Zone)
+
+### Run NMDS (this is directly from your code - well written!) 
+# I think your model may have had insufficient data b/c, when using the home plot data, there was only one spp per plot
+musMDS<-metaMDS(pol.species, distance= "bray", k = 2, trymax = 35, autotransform = T)
+
+NMDS1<-musMDS$points[,1]
+NMDS2<-musMDS$points[,2]
+species.plot<-cbind(sil.id, NMDS1, NMDS2)
+
+p<-ggplot(species.plot, aes(NMDS1, NMDS2, color = ZoneName))+
+  stat_ellipse(type='t',size = 1)+ ##draws 95% confidence interval ellipses
+  theme_minimal()+
+  geom_text(data=species.plot, aes(NMDS1, NMDS2, label = ZoneName), position=position_jitter(.35))+
+  annotate("text", x=min(NMDS1), y=min(NMDS2), label=paste('Stress =',round(speciesMDS$stress,3))) #add stress to plot
+p
+# plot works well :)
+
+# run permanova 
+species.dist<-vegdist(pol.species, method='bray')
+
+species.div<-adonis2(species.dist ~ ZoneName, data = pol.id, permutations = 999, method='bray')
+species.div
+
+#make matrix
+species.matrix<-as.matrix(species[,5:9])
+
+#standardize with sqrt
+species.mat<-sqrt(pol.species)
+
+# test env drivers next
+#try to fit environmental variables, can't get fit to work. "Missing value where TRUE/FALSE needed" error. Might be issue with NAs.
+fit<-envfit(speciesMDS, pol.env)
+arrow<-data.frame(fit$vectors$arrows,R = fit$vectors$r, P = fit$vectors$pvals)
+arrow$FG <- rownames(arrow)
+arrow.p<-filter(arrow, P <= 0.05)
+
+penvironpol<-ggplot(data=species.plot, aes(NMDS1, NMDS2))+
+  geom_point(data=species.plot, aes(NMDS1, NMDS2, color=ZoneName),position=position_jitter(.1))+##separates overlapping points
+  stat_ellipse(aes(fill=ZoneName), alpha=.2,type='t',size =1, geom="polygon")+ ##changes shading on ellipses
+  theme_minimal()+
+  geom_segment(data=arrow.p, aes(x=0, y=0, xend=NMDS1, yend=NMDS2, label=FG, lty=FG), arrow=arrow(length=unit(.2, "cm")*arrow.p$R))+##add arrows (scaled by R-squared value)
+  labs(title="Pollicipes")
+penvironpol
+
+```

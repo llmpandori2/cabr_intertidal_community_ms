@@ -1,0 +1,113 @@
+---
+title: "5/24/2021 Biodiversity"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r packages}
+library(readxl)
+library(tidyverse)
+library(janitor)
+library(ggdark)
+library(Hmisc)
+library(broom)
+library(viridis)
+library(ggplot2)
+library(car) #levenes
+library(vegan) #for rda
+
+#look through Lauren's github
+#combine people and richness by year/ zone and try regression for it.
+
+#finding papers and reading. biodiversity/trampling vs public access 
+```
+
+```{r biodiversity}
+setwd("~/Desktop/CNP_internship/LS_Data")
+
+biodiversity<-read_excel("RI_Biodiversity_Data/neya_suresh_kumar_CABR_data_20210316.xlsx",sheet=5) 
+shorebird<-read_excel("Shorebird_People_Data/Shorebird_People_Data.xlsx")
+glimpse(biodiversity)
+```
+
+#richness
+```{r}
+#filter out 0s from "number_of_hits"
+bio<- biodiversity %>% 
+  filter(number_of_hits!=0)
+
+#get richness by year and zone
+richness <- bio %>%
+  group_by(intertidal_sitename, year) %>%
+  summarise(species_count = length(unique(species_lump)))
+
+ggplot(richness, aes(year, species_count, color=intertidal_sitename))+
+  geom_point()+
+  theme_bw()
+
+#is richness sig diff across years and sites? poisson glm because count data and continuous predictors- but only 1 predictor is continuous?
+
+rich<-glm(species_count~year+intertidal_sitename, data=richness, family=poisson())
+summary(rich)
+#no sig diff. Not overdispersed since residual deviance is less than df. 
+```
+
+#percent cover
+```{r}
+#subset out percent cover>1 b/c lots of small counts
+cover<-biodiversity[which(biodiversity$percent_cover>10),]
+
+#treat year as categorical instead of continuous
+cover$year<-as.factor(cover$year)
+
+#Graph % cover over time, what species were present in which zones.
+ggplot(data = cover) + 
+  geom_tile(mapping = aes(x = year, y = fct_reorder(species_lump, percent_cover), fill = percent_cover)) +
+  scale_fill_viridis(name = 'Percent cover') + 
+  facet_wrap(~ intertidal_sitename, nrow = 1) + 
+  xlab('Year and Zone') + 
+  ylab('Species name')
+
+#compare across years in both zones
+ggplot(data = cover) + 
+  geom_tile(mapping = aes(x = year, y = fct_reorder(species_lump, percent_cover), fill = percent_cover)) +
+  scale_fill_viridis(name = 'Percent cover') + 
+  xlab('Year') + 
+  ylab('Species name')
+
+#compare by zones
+ggplot(data = cover) + 
+  geom_tile(mapping = aes(x = intertidal_sitename, y = fct_reorder(species_lump, percent_cover), fill = percent_cover)) +
+  scale_fill_viridis(name = 'Percent cover') + 
+  xlab('Zone') + 
+  ylab('Species name')
+
+#choose species that changed the most (calculate % change of species year to year) 
+```
+
+#combine average visitor count with biodiversity based on year and zone
+```{r}
+average$year<-average$Year
+average$zone<-average$ZoneClass
+glimpse(biodiversity)
+
+#convert cabrillo I to just I and III in new column to merge datasets
+biodiversity$zone[biodiversity$intertidal_sitename=="Cabrillo I"] <- "I"
+biodiversity$zone[biodiversity$intertidal_sitename=="Cabrillo III"] <- "III"
+
+#combine average people and biodiversity based on year and zone
+combine<-merge(average, biodiversity, by=c("year","zone"))
+
+combine$year<-as.numeric(combine$year) #change variables to numeric for scaling
+combine$MeanCount<-as.numeric(combine$MeanCount) #change variables to numeric for scaling
+
+pca_data<-combine[,c("species_lump","year","MeanCount","number_of_hits","percent_cover")]
+pca_data$zone<-as.factor(pca_data$zone)
+
+bio.center=scale()
+
+pca<-rda()
+summary(pca)
+
+```

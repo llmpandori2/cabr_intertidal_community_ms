@@ -1,0 +1,806 @@
+---
+title: "LS_combine shorebird and target data"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+#################################################
+# Title: Report Figures & Stats - 2020-2021
+# Purpose: adapted from clean-up code, figures for annual report & 10 yr
+# Author: LP
+# Created: 4/14/21
+# Last edited: 4/27/21
+##################################################
+##### packages #####
+library(readxl)
+library(tidyverse)
+library(janitor)
+library(ggdark)
+library(Hmisc)
+library(broom)
+library(viridis)
+library(lubridate)
+library(vegan) #for RDA
+library(ggpubr)
+library(rstatix)
+library(broom)
+library(purrr)
+library(labdsv) #hellinger transformation
+
+##### load data #####
+
+#shorebird data
+shorebird<-read_excel("Shorebird_People_Data/Shorebird_People_Data.xlsx")
+
+# transect data (doesn't need alignment - spp consistent throughout)
+transect <- read_excel('RI_Long_Term_Data/Line_transect_summary_20210413.xlsx')
+
+# target data (needs alignment - spp lists differ by year)
+target <- read_excel('RI_Long_Term_Data/Photoplot_summary_by_plot_20210414.xlsx')
+
+# alignment info for target data 
+align <- read_csv('TGT_all.csv')
+# see RI_Species_Alighment_Feb21.R for methods
+# summary: took species lists for 1990 and 2000, applied to all unique spp.
+
+# timed search
+timed_search <- read_excel("RI_Long_Term_Data/TimedSearch_plot_counts_20210413.xlsx")
+
+# abiotic data
+# sea surface temp from SIO Pier
+sst <- read_csv("SIO_TEMP.csv", 
+                skip = 26)
+
+# tide predictions from tbone tides
+tide <- read_csv("tbone_tides_hourly_1990_2026.csv", 
+                 col_types = cols(datetime = col_datetime(format = "%m/%d/%Y %H:%M")))
+
+# southern oscillation index from NOAA NCEI
+soi <- read_excel("SOI_Data_NOAA_NCEI_1990_2020.xlsx")
+```
+
+```{r}
+##### presets #####
+# lists of commonly filtered-for items
+cabrsites <- c('CAB1', 'CAB2', 'CAB3') 
+zonelist <- c('CHT', unique(target$Zone)[1:4])
+zonenames <- c('Balanus/Chthamalus', 'Tetraclita rubescens', 'Mussel', 'Silvetia compressa', 'Pollicipes polymerus')
+targetlist <- c('CHTBAL', 'TETRUB', 'MUSSEL', 'SILCOM', 'POLPOL')
+currentyear <- lubridate::year(Sys.Date())
+
+# facilitate looping over year groups for reporting. make list of years based on current year. 
+tenyrs <- c((currentyear - 11):(currentyear - 2))
+fiveyrs <- c((currentyear - 6):(currentyear - 1))
+allyrs <- c(1990:(currentyear - 1))
+
+# theme arguments
+lltheme_heatmap <- theme_bw() + theme(text = element_text(size = 12),
+                 # add more space between panels
+                 panel.spacing = unit(1, 'lines'),
+                 # no background to wrap panels
+                 strip.background = element_blank(),
+                 strip.text = element_text(size = 12, hjust = 0),
+                 # panel labels outside x axis labels
+                 strip.placement = 'outside',
+                 # adjust x axis labels
+                 axis.text.y = element_text(size = 11, color = 'black'),
+                 axis.text.x = element_text(size = 11, angle = 45, hjust = 1, color = 'black'),
+                 panel.grid.major = element_blank(),
+                 panel.grid.minor = element_blank(),
+                 legend.position = 'bottom')
+
+lltheme <- theme_bw() + theme(text = element_text(size = 12),
+                 # add more space between panels
+                 panel.spacing = unit(1, 'lines'),
+                 # no background to wrap panels
+                 strip.background = element_blank(),
+                 strip.text = element_text(size = 12, hjust = 0),
+                 # panel labels outside x axis labels
+                 strip.placement = 'outside',
+                 # adjust x axis labels
+                 axis.text.y = element_text(size = 11),
+                 axis.text.x = element_text(size = 11, angle = 45, hjust = 1))
+```
+
+```{r}
+######## tidy: shorebird data #####
+
+#add column with just years
+shorebird$Year=format(shorebird$SurveyDate, "%Y")
+
+#filter for just people
+shorebird2<- ungroup(shorebird) %>% 
+  mutate(SurveyYear=year(SurveyDate))%>%
+  filter(DataType=="People")%>%
+  group_by(SurveyYear, ZoneClass) %>% #separate by year and zone
+  summarise(people=mean(DataCount)) %>% #get average counts
+  mutate(ZoneName= paste('Zone', ZoneClass),
+         Panel = if_else(ZoneName == 'Zone I', 'A', 
+                         if_else(ZoneName == 'Zone II', 'B', 'C'))) %>%
+  mutate(ZoneName = paste('(', Panel, ') ', ZoneName, sep = '')) %>%
+  select(-c(Panel))%>%
+  drop_na()
+```
+
+```{r}
+##### tidy: transect ######
+# adapted from B. Hong's 2019-2021 Annual Report Code
+
+# tidy 
+transect <- transect %>%
+  # remove duplicated rows (not present as of SP20 data)
+  distinct() %>%
+  # combine PHYOVE (overstory) and PHYUND (understory) to PHYALL
+  mutate(
+    SpeciesCode = if_else(SpeciesCode %in% c('PHYOVE', 'PHYUND'), 'PHYALL', SpeciesCode),
+    Scientific_name = if_else(Scientific_name %in% c('Phyllospadix spp', 'Phyllospadix torreyi (understory)'), 'Seagrass', 
+    if_else(Scientific_name == 'Egregia menziesii', 'Boa kelp', Scientific_name))) %>%
+  # capitalize first letter of strings
+  mutate(Scientific_name = str_to_sentence(Scientific_name)) %>%
+  # calculate new totals/% cover with new category
+  group_by(SiteCode, SiteName, SurveyYear, Season, SeasonName, SurveyDate, Transect, SpeciesCode, Scientific_name, TotalPoints) %>%
+  summarise(points = sum(N)) %>%
+  # calculate new % cover
+  mutate(pct_cover = (points/TotalPoints)*100)
+
+# further tidy spp names/category specification, etc.
+red_turf_spp <- c('ARTCOR', 'OTHRED')
+
+transect2 <-   transect %>%
+  filter(SiteCode %in% cabrsites) %>% 
+  filter(!is.na(Transect)) %>%
+  filter((Transect %in% c(1:2) & SpeciesCode %in% red_turf_spp) |
+           (Transect %in% c(3:4) & SpeciesCode == 'PHYALL') |
+           (Transect %in% c(5:6) & SpeciesCode == 'EGRMEN')) %>%
+  # add transect type column
+  mutate(Zone = if_else(Transect %in% 1:2, 'Red algal turf', 
+                        if_else(Transect %in% 3:4, 'Phyllospadix', 'Egregia'))) %>%
+  # add zone/site column
+  mutate(ZoneName = paste('Zone', substr(SiteName, 10, 12)),
+         Panel = if_else(SiteName == 'Cabrillo I', 'A', 
+                         if_else(SiteName == 'Cabrillo II', 'B', 'C'))) %>%
+  mutate(ZoneName = paste('(', Panel, ') ',ZoneName, sep = '')) %>%
+  select(-c(Panel))
+
+```
+
+```{r}
+##### tidy: photoplot #####
+# adapted from B. Hong's 2019-2021 Annual Report Code
+
+# keep target raw, retains plot-level data, and tidy
+target <- 
+  # add generic codes to this set, along with formatted scientific names
+  left_join(target, align, by = 'SpeciesCode') %>%
+  # get rid of old scientific name (align has better one)
+  select(-c(Scientific_name.x)) %>%
+  # rename scientific name column
+  rename(Scientific_name = Scientific_name.y) %>%
+  # make plot number a numeric column
+  mutate(Plot_num = parse_number(substr(Plot_code, 6,6))) %>%
+  # add zone/site column
+  mutate(ZoneName = paste('Zone', substr(SiteName, 10, 12)),
+         Panel = if_else(SiteName == 'Cabrillo I', 'A', 
+                         if_else(SiteName == 'Cabrillo II', 'B', 'C'))) %>%
+  mutate(ZoneName = paste('(', Panel, ') ', ZoneName, sep='')) %>%
+  # only get unique rows (removes duplicates)
+  distinct()
+
+unique(target$ZoneName)==unique(shorebird2$ZoneName)
+
+# summarize by 2 methods: all and 1990 (1990-present)
+
+# make list of all possible spp names and codes from target dataset
+spplist <- align %>%
+  select(SpeciesCode, Scientific_name) %>%
+  distinct()
+
+# all categories
+target_all <- target %>%
+  group_by(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code, SpeciesCode, Scientific_name) %>%
+  summarise(cover = sum(N))
+
+
+# get total # of pts surveyed per plot in each site/spp/year/season (range = 89-104)
+target_summary <- target_all %>%
+  group_by(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code) %>% 
+  summarise(points = sum(cover))
+
+# merge w target dataset (to calculate % cover)
+target_all <- 
+  # align # pts per plot with target 
+  left_join(target_all, target_summary) %>%
+  # calculate % cover (range of # pts is 89 - 104)
+  group_by(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code, SpeciesCode, Scientific_name) %>%
+  mutate(pct_cover = (cover/points)*100) %>%
+  # streamline dataset
+  select(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code, SpeciesCode, Scientific_name, pct_cover) 
+
+##########################################################################
+
+
+# repeat process for 1990
+target_1990 <- target %>%
+  group_by(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code, Code_1990) %>%
+  summarise(cover = sum(N))
+
+target_1990<- left_join(target_1990, target_summary) %>%
+  group_by(SiteCode, ZoneName, SiteName, SurveyYear, Zone, Plot_num, Plot_code, Code_1990) %>%
+  mutate(pct_cover = (cover/points)*100) %>%
+  select(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code, Code_1990, pct_cover) %>%
+  rename(SpeciesCode = Code_1990) %>%
+  filter(SiteName %in% c("Cabrillo I", "Cabrillo II", "Cabrillo III"))
+
+# join spp names to 1990 data
+target_1990 <- left_join(target_1990, spplist)
+
+# remove extras
+#remove(target_summary, align, spplist, target)
+
+unique(target_1990$ZoneName)
+
+target_90_home <- target_1990 %>%
+filter(SiteCode %in% cabrsites) %>%
+# filter to only tgt spp in their own plots
+filter((Zone == 'CHT' & SpeciesCode %in% c('TETRUB', 'CHTBAL')) |
+(Zone == 'MYT' & SpeciesCode == 'MUSSEL') |
+(Zone == 'SIL' & SpeciesCode == 'SILCOM') |
+(Zone == 'POL' & SpeciesCode == 'POLPOL')) %>%
+# get mean + SE cover for each yr
+group_by(ZoneName, SurveyYear, Zone, SpeciesCode, Scientific_name) %>%
+summarise(Cover_mean = mean(pct_cover), #keep if want each year to have 1 point
+Cover_SE = sd(pct_cover)/sqrt(length(pct_cover)))
+```
+
+#try regressions with target_90_home
+```{r}
+ggplot(data = target_90_home, mapping = aes(x = SurveyYear, y = Cover_mean, color=Scientific_name)) +
+  geom_point()+
+  geom_smooth(method="lm", se=F)+
+  facet_wrap(~Scientific_name)
+         
+#for(i in 1:length(list of species)) {function for it to repeat}
+#for(i in 1:length(Scientific_name)) {lm(Cover_mean~SurveyYear)} #for 1 through the end of the species list, do a linear regression for each species 
+
+#map(data, function) 
+map(target_90_home, lm(Cover_mean~SurveyYear)) #using purrr package
+#make dataframe "nested"
+
+#collapse dataframe into columns of things you want to repeat function of
+target_90_home%>%
+  group_by(Scientific_name) %>%
+  nest()%>%
+  mutate(model=map(data, ~lm(.$Cover_mean~.$SurveyYear)), #make new column "model", put linear model in column "model"
+  summary=map(model, glance))%>%  #make summary column to glimpse model, when make new model, change glance to call summary of diff type of model
+  unnest(Scientific_name, data, summary) %>% #un nest and get pvalues (unpack results of model)
+  select(c(Scientific_name:Cover_SE, r.squared, p.value)) %>% #filter for things we want (scientiifc name through cover, pvalue, r2)
+ggplot(data = ., mapping = aes(x = SurveyYear, y = Cover_mean, color=Scientific_name)) + 
+  #inherit previous dataset 
+  geom_smooth(method = 'lm', se = FALSE) +
+  geom_point() +
+  geom_text(mapping = aes(x = 2000, y = 80, label = paste('R² =', round(r.squared, digits = 2), ' P =', scales::pvalue(p.value))), size = 3) + #paste r2 and pvalue at point on graph
+  facet_wrap(~Scientific_name) #+
+ # lltheme_wide
+
+#use additive models (lm-> other linear model) for all? maybe not polpol/bal
+
+```
+
+#not needed
+```{r}
+###combine shorebird and photoplot data
+
+#use target_1990 dataset from plots. Converted all species back to 1990 classifications.
+
+#have to fix zonename for target_1990 to match shorebird 2
+
+#subset target_1990 to only 3 zones
+#target_1990_sub<- target_1990[target_1990$ZoneName %in% c("(A) Zone  I", "(B) Zone  II", "(C) Zone  III"), ] %>%
+#  mutate(ZoneName=paste(substr(ZoneName, 1, 9), substr(ZoneName, 11, nchar(ZoneName)))) #start at character 1, end at character 9
+
+#change name of shorebird ZoneName from Cabrillo to Zone
+#shorebird2<-shorebird2 %>% 
+  #mutate(ZoneName = replace(ZoneName, which(ZoneName == "(A) Cabrillo I"), "(A) Zone I")) %>%
+  #mutate(ZoneName = replace(ZoneName, which(ZoneName == "(B) Cabrillo II"), "(B) Zone II")) %>%
+  #mutate(ZoneName = replace(ZoneName, which(ZoneName == "(C) Cabrillo III"), "(C) Zone III"))
+
+#shorebird3<- shorebird2%>%
+ # mutate(SurveyYear=as.numeric(SurveyYear))%>%
+  #mutate(ZoneName = paste('Zone', ZoneClass),
+        # Panel = if_else(ZoneName == 'Zone  I', 'A', 
+       #                  if_else(ZoneName == 'Zone  II', 'B', 'C'))) %>%
+  #mutate(ZoneName = paste('(', Panel, ') ', ZoneName, sep=''))%>%
+ # mutate_all(~replace(., is.na(.), 0))
+
+
+#unique(shorebird2$SiteName)==unique(target_1990_sub$SiteName)
+```
+
+#RDA on combined people and target data
+```{r}
+unique(target_wide$ZoneName)==unique(shorebird2$ZoneName)
+
+#rotate from long to wide
+target_wide<- spread(target_90_home, Scientific_name, Cover_mean)%>%
+  mutate_all(~replace(., is.na(.), 0))
+
+#combine shorebird3 and target_wide
+target_shore<-left_join(target_wide, shorebird2[,-c(2)])%>%
+  drop_na()
+
+#take out zone from characteristics 
+character=with(target_shore, cbind(people, SurveyYear))
+
+#remove columns with all 0s
+#hits=target_wide[, colSums(target_wide != 0) > 0]
+
+#take out only percent cover columns
+percent_cover=target_shore[,c(6:10)]
+
+#try hellinger trans on percent cover since many 0s
+covertrans<-hellinger(percent_cover)
+
+#center and scale hit data
+hits.center=scale(percent_cover, center=T, scale=T)
+
+#center and scale characteristics data
+characeristics.scale=as.data.frame(scale(character, center=T, scale=T))
+
+#run rda with centered hit data as a function of people count and year
+rda=rda(hits.center~people+SurveyYear, data=characeristics.scale)
+anova(rda) #pvalue=0.001
+
+anova(rda, by="term") #people pvalue=0.001, year pvalue=0.001
+
+#add zone in as categorical variable
+characeristics.scale$ZoneName=target_shore$ZoneName
+
+#run rda with centered hit data as a function of people count, year, and zone
+rda.zone=rda(covertrans~people+SurveyYear+ZoneName, data=characeristics.scale)
+anova(rda.zone) #pvalue=0.001
+anova(rda.zone, by="term") #people pvalue=0.001, year pvalue=0.003, zone pvalue=0.009
+anova(rda.zone, by="axis") #RDA1 pvalue=0.001, RDA2 pvalue=0.009, RDA3 pvalue=0.772
+
+```
+
+#attempts at plotting rda
+```{r}
+#graph ordination plot
+plot=plot(rda.zone, scaling=1, type='n',main="Count (scaling=1)",cex.axis=1.5, cex.lab=2, cex.main=2,display=c('sites','species','bp')) #make blank plot #display=c('sites','species','bp')) #bp=biplot arrows, species=column, row=sites
+legend('bottomright',legend=c('Row','Characteristics','Species'),pch=c(20,NA,NA), col=c('black','red','blue'), lty=c(0,1,1),cex=1) #add legend
+points(plot, what='sites', arrows=F, pch=20, cex=1) #add  row points
+text(plot, what='sites',cex=1, adj=1.1) #label rows
+text(plot, what='species', cex=.5, col='blue', arrows=F) #add species
+text(plot, what='biplot',col='red', lwd=2, cex=1) #add red arrow predictors
+```
+
+#quick ancova
+```{r}
+#attempt at assumptions. doesn't look linear-> transform? or try non linear model?
+ggscatter(
+  target_shore, x = "SurveyYear", y = "pct_cover",
+  color = "Scientific_name", add = "reg.line"
+  )+
+  stat_regline_equation(
+    aes(label =  paste(..eq.label.., ..rr.label.., sep = "~~~~"), color = Scientific_name)
+    )+
+  facet_wrap(~Scientific_name)
+
+#doesn't work
+#aov <- target_shore %>% anova_test(pct_cover ~ SurveyYear + people+ZoneClass)
+#get_anova_table(res.aov)
+
+model1 <- aov(pct_cover~SurveyYear+people+ZoneClass, data=target_shore)
+summary(model1)
+
+model2 <- aov(pct_cover~people+SurveyYear+ZoneClass, data=target_shore)
+summary(model2)
+
+model3 <- aov(pct_cover~ZoneClass+SurveyYear+people, data=target_shore)
+summary(model3)
+
+#survey year significant across all. people marginally significant in last model
+
+#with interaction? no sig interaction between survey year and people
+model4 <- aov(pct_cover~ZoneClass+SurveyYear*people, data=target_shore)
+summary(model4)
+
+#no sig interaction between zone and people
+model5 <- aov(pct_cover~ZoneClass*people+SurveyYear, data=target_shore)
+summary(model5)
+```
+
+#try PCA? b/c not really environmental variables
+```{r}
+#can calculate euclidean distance between sites based on crab abundance. 
+#site 1 and 3 share same set up species but have bigger euclidean diff 
+#PCoA is subset of principal coordinates analysis 
+
+#use coordinate b/c data not continuous
+
+#percent_cover
+sites=target_shore[c(1:3, 11)]
+
+dis.euc=dist(percent_cover, 'euclidean')
+#tell it what kind of distance you want to calculate-> euclidean. 
+head(dis.euc) #matrix of euclidean distance values
+
+euc.pco=cmdscale(dis.euc, eig=T) #use distance matrix to fit PCoA model. 160 coordinate axes b/c limited to whatever dimension has the fewest values. Return the eigan values 
+
+barplot(euc.pco$eig[1:10], xlab="Coordinate axis #", ylab="Eigenvalue", main="Euclidean distance")
+
+autoplot(euc.pco)#8 possible values so possibly leads to grouping. 
+
+#convert cover class into presence/absence, if cover class>0 convert to 1s. To say species was present or absent. then calculate binary distance matrix. Throwing away some info but may help remove weights of highly abundant species that could dominate ordination of sites. 
+dis.bin=dist(percent_cover, 'binary')
+bin.pco=cmdscale(dis.bin, eig=T)
+#now larger spread among sites. so have diff sets of species present or absent within them. Less clustering than euclidean and manhattan distance. 
+
+#get other info about the sites
+#map some of the variables onto ordination plots to see if those characteristics cause the spread in points. 
+
+ef=envfit(bin.pco, sites)
+plot(bin.pco$points) #plot ordination plot first, to look at how environmental data map onto PC plot
+plot(ef) #add arrows that represent site variables from the envfit function
+
+#can see how diff environmental variables map on to resulting ordination of different sites. Elevation has long vector pointing 45 degrees so maybe associated with variation on PC1 and PC2. Slope points straight up, short arrow, may have some association with spread on sites along PC2 but not really PC1. principal coordinate axis represents the subset of species that we're analyzing. Species present/absent was value you're measuring. If you look at what species are contribution to the PC axis might find one species drives differences in sites on first axis. Differences in sites could be related to changes in elevation (points in bottom right share same elevation values). 
+
+#assume correlation not causality cause elevation not included in model 
+
+#env fit assumes gradient is linear (make sure appropriate for variable). Length of vector plots in opposite corners are different elevation from each other. Short vectors= not a lot of differentiation of dots on plot based on aspect value numbers. 
+
+ordisurf(bin.pco, sites$people) #doesn't assume linear relationship in site variable. Fits generalized additive model between elevation and ordination. Looking at same dots (underlying ordination) but fits curved values. there is pattern in terms of how sites differentiate from each other but not perfect linear relationship b/c lines are curved. Previous linear gradient with env fit wasn't ideal. 
+```
+
+#Principal components analysis
+```{r}
+#reduce dimensionality of a multivariate dataset. can combine two highly correlated variables into one compound variable and simplify number of response variables. 
+
+#plot line, put another axis perpendicular, tilt so that make up new axes in graph and call them component 1 and 2. Location driven by contribution of width and height. 
+
+#Percentage of variation explained by component 1=73.24%. component 2=26.76%. so add up to 100%. Component 1 explains most variation, component 2 next largest amount of variation. will end up with as many axes as number of original number variables. 
+#loadings= height and width have equal loadings on component 1. Have opposite loadings on component 2 but same magnitude. PC1 explains most variation in the data so loadings will change. 
+
+target_pca<-prcomp(target_shore[, c(-1,-2,-3,-4,-5,-11)], center=T, scale.=T)
+summary(target_pca) #PC1 should always have highest variation explained, then pc2, then pc3. PC1, 2, 3 are not that far from each other. When distill down original 6 variables about city, can reduce down to 2-4 principal components instead of 6 variables that explain majority of variation in dataset. 
+
+screeplot(target_pca) #height of bars indicates amount of variance contained in each component. can see drop off in amount of variation for each PC. 
+
+target_pca #component 1 driven mainly by manufacturing and pop size. PC2 driven mainly by precipitation and precipitation days. Axis one is driven by manufacturing and population, axis 2 driven by precipitaiton and precipitation days so those four variables play large role. 
+
+#can take contribution for manufacturing and put it into zscore equation. Small values=little contribution to overall score. PCA often used as descriptive technique, not hypothesis-testing. Presented in graph usually. Show how replicates are differentiated in euclidean space, can emphasize which replicates are similar or different. If two quadrats have similar response to variables then will be close together on PCA plot. 
+
+biplot(target_pca, cex=c(1,1.3), xlab="PC1", ylab="PC2") #can see precip and predays go up b/c along PC2, manufacture points right b/c PC1. seattle buffalo on positive end of precipitation arrow. Angle between arrows represent correlation of two variables. smaller angles=highly correlated. Pointing in horizontal direction=contributing more to PC1 instead of PC2. 
+
+library(factoextra)
+
+fviz_pca_var(target_pca) #closer arrows are to the grey circle= more contribution. If arrow was dead on on axis and goes all the way out, then only contributes to PC1 and strongly drives what is happening in pc1. Short=not contributing a lot to the 2 PCAs shown. PC1 and PC2 do most of explaining of variation so focus on those. 
+
+var=get_pca_var(target_pca)
+var$coord #look at magnitude of arrows. shows relative contributions of each variables. 
+var$cos2 #estimate of quality of variables. 
+var$contrib #higher contribution value=higher number. If variables contribute to later PCs then less important in dataset. 
+
+autoplot(target_pca, data=target_shore, colour="ZoneName", loadings=T, size=3, loadings.label=T, loadings.label.size=5, label=T, label.vjust=-.84) #separate cities based on regions. Region wasn't used in PCA but can color by region. 
+
+fviz_pca_ind(target_pca, col.ind=target_shore$ZoneName, addEllipses = T, mean.point=T, ellipse.type="confidence")
+#get confidence ellipses around group means. cities differ a lot in response to PC2, driven by seattle being outlier. 
+``` 
+
+#####multiple regression of individual species#####
+
+#mussel
+```{r}
+#mussels
+mussel <- target_shore[ which(target_shore$Zone=='MYT'), ] #species code=mussel
+
+#check if linear relationship between % cover and year, people, zone
+scatter.smooth(mussel$SurveyYear, mussel$Mussel)
+yearmodel<-lm(Mussel~SurveyYear, data=mussel)
+summary(yearmodel) #pvalue=0.0337
+
+scatter.smooth(mussel$people, mussel$Mussel)
+peoplemodel<-lm(Mussel~people, data=mussel)
+summary(peoplemodel) #pvalue=5.728e-8 
+
+zonemodel<-aov(Mussel~ZoneName, data=mussel) #categorical
+summary(zonemodel) #5.01e-11
+
+musselglm<-glm(Mussel~SurveyYear+people+ZoneName, data=mussel)
+plot(musselglm) #deviates from normality and heteroscedastic? 
+#log transform
+logmusselglm<-glm(log(Mussel+1)~SurveyYear+people+ZoneName, data=mussel) 
+summary(logmusselglm) #survey year pvalue=0.001829, people=0.94, Zone II=0.000322, Zone III=0.000379. Survey year and zone significant effect on mussel percent cover
+
+#without year
+musselyear<-glm(log(Mussel+1)~people+ZoneName, data=mussel)
+summary(musselyear) #people=0.224, Zone II=1.01e-05, Zone III=8.43e-06. Same results
+
+ggplot(mussel, aes(x=SurveyYear, y=Mussel, color=ZoneName))+
+  geom_line()+ #mussel cover higher in zone 1, opposite pattern as zone 2 and 3
+  theme_classic()+
+  labs(x="Year",y="Mussel percent cover",color="Zone")
+
+ggplot(mussel, aes(x=people, y=Mussel, color=ZoneName))+
+  geom_line() #zones separated distinctly by # of people
+
+
+#biodiversity on x
+ggplot(mussel, aes(x=ZoneName, y=Mussel))
+```
+
+#barnacles
+```{r}
+#barnacles 
+barn <- target_shore[ which(target_shore$SpeciesCode=='CHTBAL'), ] #species code=chthamalus, balanus
+
+#check if linear relationship between % cover and year, people, zone
+scatter.smooth(barn$SurveyYear, barn$`Balanus/Chthamalus`)
+yearmodel<-lm(`Balanus/Chthamalus`~SurveyYear, data=barn)
+summary(yearmodel) #pvalue=0.0001019
+
+scatter.smooth(barn$people, barn$`Balanus/Chthamalus`)
+peoplemodel<-lm(`Balanus/Chthamalus`~people, data=barn)
+summary(peoplemodel) #pvalue=7.721e-06 
+
+zonemodel<-aov(`Balanus/Chthamalus`~ZoneName, data=barn) #categorical
+summary(zonemodel) #1.19e-09
+library(lme4)
+barnglm<-lmer(`Balanus/Chthamalus`~SurveyYear+people+(1|ZoneName), data=barn)
+plot(barnglm) #looks normal and equal variances, no need to log transform
+
+summary(barnglm) #survey year pvalue=3.36e-07, people=0.652089, Zone II=0.386473, Zone III=0.000308. Survey year and zone III significant effect on barn percent cover
+anova(barnglm)
+#withoutyear
+barnyear<-glm(`Balanus/Chthamalus`~SurveyYear+people+ZoneName, data=barn)
+summary(barnyear) #non sig without year. 
+
+ggplot(barn, aes(x=SurveyYear, y=`Balanus/Chthamalus`, color=ZoneName))+
+  geom_line() #similar barn cover across zones and years. Zone III has highest % cover, lowest number of people
+
+ggplot(barn, aes(x=people, y=`Balanus/Chthamalus`, color=ZoneName))+
+  geom_line() #zones separated distinctly by # of people
+```
+
+#tetrub
+```{r}
+#tetrub
+tetrub <- target_shore[ which(target_shore$SpeciesCode=='TETRUB'), ] #species code=tetraclita rubescens 
+
+#check if linear relationship between % cover and year, people, zone
+scatter.smooth(tetrub$SurveyYear, tetrub$`Tetraclita rubescens`)
+yearmodel<-lm(`Tetraclita rubescens`~SurveyYear, data=tetrub)
+summary(yearmodel) #pvalue=0.1534 NOT LINEAR RELATIONSHIP parabolic
+
+scatter.smooth(tetrub$people, tetrub$`Tetraclita rubescens`)
+peoplemodel<-lm(`Tetraclita rubescens`~people, data=tetrub)
+summary(peoplemodel) #pvalue=0.3718 NOT LINEAR RELATIONSHIP 
+
+zonemodel<-aov(`Tetraclita rubescens`~ZoneName, data=tetrub) #categorical
+summary(zonemodel) #0.0121 
+
+#non linear relationship so generalized linear model. Count data?? So poisson family???
+
+#generalized additive models
+library(mgcv)
+tetrub$tetrub<-tetrub$`Tetraclita rubescens`
+tetrubgam<-gam(tetrub~SurveyYear+people+ZoneName, data=tetrub)
+plot(tetrubgam) #looks relatively normal and equal variances
+
+summary(tetrubgam) #survey year pvalue=0.000555, people=6.68e-07, Zone II=5.50e-07, Zone III=9.62e-09. All variables have highly significant effect on tetrub percent cover with general additive model
+
+tetrubyear<-gam(tetrub~people+ZoneName, data=tetrub)
+summary(tetrubyear) #All sig. People=9.14e-05, Zone II=5.51e-05, Zone III=1.69e-06
+
+ggplot(tetrub, aes(x=SurveyYear, y=`Tetraclita rubescens`, color=ZoneName))+
+  geom_line() #similar tetrub cover across zones and years. Zone III has highest % cover, lowest number of people
+
+ggplot(tetrub, aes(x=people, y=`Tetraclita rubescens`, color=ZoneName))+
+  geom_line() #zones separated distinctly by # of people
+```
+
+#polpol
+```{r}
+#pollicipes polymerus
+polpol <- target_shore[ which(target_shore$SpeciesCode=='POLPOL'), ] #species code=tetraclita rubescens 
+
+#check if linear relationship between % cover and year, people, zone
+scatter.smooth(polpol$SurveyYear, polpol$`Pollicipes polymerus`)
+yearmodel<-lm(`Pollicipes polymerus`~SurveyYear, data=polpol)
+summary(yearmodel) #pvalue=0.02278
+
+scatter.smooth(polpol$people, polpol$`Pollicipes polymerus`)
+peoplemodel<-lm(`Pollicipes polymerus`~people, data=polpol)
+summary(peoplemodel) #pvalue=7.75e-09 
+
+zonemodel<-aov(`Pollicipes polymerus`~ZoneName, data=polpol) #categorical
+summary(zonemodel) #2.87e-14 
+
+polpolglm<-glm(`Pollicipes polymerus`~SurveyYear+people+ZoneName, data=polpol)
+plot(polpolglm) #looks relatively normal and equal variances
+
+summary(polpolglm) #survey year pvalue=0.01363, people=0.39989, Zone II=0.00050, Zone III=1.87e-05. Year and zone sig affect polpol % cover, not people. 
+
+polpolyear<-glm(`Pollicipes polymerus`~people+ZoneName, data=polpol)
+summary(polpolyear)
+
+ggplot(polpol, aes(x=SurveyYear, y=`Pollicipes polymerus`, color=ZoneName))+
+  geom_line() #highest polpol in zone 1, then zone II, then zone III. No distinct pattern across years
+
+ggplot(polpol, aes(x=people, y=`Pollicipes polymerus`, color=ZoneName))+
+  geom_line() #zones separated distinctly by # of people
+
+```
+
+#silcom
+```{r}
+#Silvetia compressa
+silcom <- target_shore[ which(target_shore$SpeciesCode=='SILCOM'), ]
+
+#check if linear relationship between % cover and year, people, zone
+scatter.smooth(silcom$SurveyYear, silcom$`Silvetia compressa`)
+yearmodel<-lm(`Silvetia compressa`~SurveyYear, data=silcom)
+summary(yearmodel) #pvalue=1.03e-12
+
+scatter.smooth(silcom$people, silcom$`Silvetia compressa`)
+peoplemodel<-lm(`Silvetia compressa`~people, data=silcom)
+summary(peoplemodel) #pvalue=1.727e-06 
+
+zonemodel<-aov(`Silvetia compressa`~ZoneName, data=silcom) #categorical
+summary(zonemodel) #0.00195
+
+silcomglm<-glm(`Silvetia compressa`~SurveyYear+people+ZoneName, data=silcom)
+plot(silcomglm) #looks relatively normal and equal variances
+
+summary(silcomglm) #survey year pvalue=3.34e-13, people=0.0564, Zone II=0.8216, Zone III=0.5766. Year only sig affects silvetia % cover, barely people, not zones. 
+
+silcomyear<-glm(`Silvetia compressa`~people+ZoneName, data=silcom)
+summary(silcomyear)
+
+ggplot(silcom, aes(x=SurveyYear, y=`Silvetia compressa`, color=ZoneName))+
+  geom_line() #silvetia decreased across years, starting to increase at end. Overall higher in zone 3, then 2, then 1
+
+ggplot(silcom, aes(x=people, y=`Silvetia compressa`, color=ZoneName))+
+  geom_line() #zones separated distinctly by # of people
+
+```
+
+#####NMDS for each species
+
+#mussels
+```{r}
+#run
+mussel.nmds=metaMDS(mussel[,c(-1,-3,-4,-5,-6,-8,-9,-10)],distance='bray', k=2,trace=0) 
+mussel.nmds #stress=0.02, below 0.2 so good. 0-0.1 are best.
+
+#change habitat to factor
+mussel$ZoneName<-as.factor(mussel$ZoneName)
+
+#plot sites only (no species)
+p1=ordiplot(mussel.nmds, type='none',main=paste0('stress= ', round(mussel.nmds$stress, dig=3))) #manually extracting stress values 
+
+#make color matrix
+cols=c('dodgerblue', 'plum','red','blue','green','black')
+
+points(p1, what='sites',pch=20,col=cols[mussel$ZoneName]) # plot points for sites
+
+#add legend using colors
+legend('topright',legend=levels(mussel$ZoneName),col=cols,pch=20,cex=0.75,title="Habitat")
+
+#other legend option
+#legend('topright',legend=c("Box-Ironbark","Foothills Woodland","Gipps.Manna","Mixed","Montane Forest","River Red Gum"),col=cols,pch=20,cex=0.75,title="Habitat")
+
+#add colored ellipses
+ordiellipse(p1, kind='ehull', draw='polygon', groups=mussel$ZoneName, col=cols, label=FALSE)
+```
+
+#barnacles
+```{r}
+#run
+barn.nmds=metaMDS(barn[,c(-1,-3,-4,-5,-7,-8,-9)],distance='bray', k=2,trace=0) 
+barn.nmds #stress=0.03, below 0.2 so good. 0-0.1 are best.
+
+#change habitat to factor
+barn$ZoneName<-as.factor(barn$ZoneName)
+
+#plot sites only (no species)
+p1=ordiplot(barn.nmds, type='none',main=paste0('stress= ', round(barn.nmds$stress, dig=3))) #manually extracting stress values 
+
+#make color matrix
+cols=c('dodgerblue', 'plum','red','blue','green','black')
+
+points(p1, what='sites',pch=20,col=cols[barn$ZoneName]) # plot points for sites
+
+#add legend using colors
+legend('topright',legend=levels(barn$ZoneName),col=cols,pch=20,cex=0.75,title="Habitat")
+
+#other legend option
+#legend('topright',legend=c("Box-Ironbark","Foothills Woodland","Gipps.Manna","Mixed","Montane Forest","River Red Gum"),col=cols,pch=20,cex=0.75,title="Habitat")
+
+#add colored ellipses
+ordiellipse(p1, kind='ehull', draw='polygon', groups=barn$ZoneName, col=cols, label=FALSE)
+```
+
+#tetrub
+```{r}
+#run
+tetrub.nmds=metaMDS(tetrub[,c(-1,-3,-4,-5,-6,-7,-8,-9)],distance='bray', k=2,trace=0) 
+tetrub.nmds #stress=0.03, below 0.2 so good. 0-0.1 are best.
+
+#change habitat to factor
+tetrub$ZoneName<-as.factor(tetrub$ZoneName)
+
+#plot sites only (no species)
+p1=ordiplot(tetrub.nmds, type='none',main=paste0('stress= ', round(tetrub.nmds$stress, dig=3))) #manually extracting stress values 
+
+#make color matrix
+cols=c('dodgerblue', 'plum','red','blue','green','black')
+
+points(p1, what='sites',pch=20,col=cols[tetrub$ZoneName]) # plot points for sites
+
+#add legend using colors
+legend('topright',legend=levels(tetrub$ZoneName),col=cols,pch=20,cex=0.75,title="Habitat")
+
+#other legend option
+#legend('topright',legend=c("Box-Ironbark","Foothills Woodland","Gipps.Manna","Mixed","Montane Forest","River Red Gum"),col=cols,pch=20,cex=0.75,title="Habitat")
+
+#add colored ellipses
+ordiellipse(p1, kind='ehull', draw='polygon', groups=tetrub$ZoneName, col=cols, label=FALSE)
+```
+
+#polpol
+```{r}
+#run
+polpol.nmds=metaMDS(polpol[,c(-1,-3,-4,-5,-6,-7,-9,-10)],distance='bray', k=2,trace=0) 
+polpol.nmds #stress=0.03, below 0.2 so good. 0-0.1 are best.
+
+#change habitat to factor
+polpol$ZoneName<-as.factor(polpol$ZoneName)
+
+#plot sites only (no species)
+p1=ordiplot(polpol.nmds, type='none',main=paste0('stress= ', round(polpol.nmds$stress, dig=3))) #manually extracting stress values 
+
+#make color matrix
+cols=c('dodgerblue', 'plum','red','blue','green','black')
+
+points(p1, what='sites',pch=20,col=cols[polpol$ZoneName]) # plot points for sites
+
+#add legend using colors
+legend('topright',legend=levels(polpol$ZoneName),col=cols,pch=20,cex=0.75,title="Habitat")
+
+#other legend option
+#legend('topright',legend=c("Box-Ironbark","Foothills Woodland","Gipps.Manna","Mixed","Montane Forest","River Red Gum"),col=cols,pch=20,cex=0.75,title="Habitat")
+
+#add colored ellipses
+ordiellipse(p1, kind='ehull', draw='polygon', groups=polpol$ZoneName, col=cols, label=FALSE)
+```
+
+#silcom
+```{r}
+#run
+silcom.nmds=metaMDS(silcom[,c(-1,-3,-4,-5,-6,-7,-8,-10)],distance='bray', k=2,trace=0) 
+silcom.nmds #stress=0.02, below 0.2 so good. 0-0.1 are best.
+
+#change habitat to factor
+silcom$ZoneName<-as.factor(silcom$ZoneName)
+
+#plot sites only (no species)
+p1=ordiplot(silcom.nmds, type='none',main=paste0('stress= ', round(silcom.nmds$stress, dig=3))) #manually extracting stress values 
+
+#make color matrix
+cols=c('dodgerblue', 'plum','red','blue','green','black')
+
+points(p1, what='sites',pch=20,col=cols[silcom$ZoneName]) # plot points for sites
+
+#add legend using colors
+legend('topright',legend=levels(silcom$ZoneName),col=cols,pch=20,cex=0.75,title="Habitat")
+
+#other legend option
+#legend('topright',legend=c("Box-Ironbark","Foothills Woodland","Gipps.Manna","Mixed","Montane Forest","River Red Gum"),col=cols,pch=20,cex=0.75,title="Habitat")
+
+#add colored ellipses
+ordiellipse(p1, kind='ehull', draw='polygon', groups=silcom$ZoneName, col=cols, label=FALSE)
+```
+
