@@ -17,6 +17,7 @@ LP edits:
 
 ##### packages #####
 library(readxl)
+library(grDevices)
 library(tidyverse)
 library(janitor)
 library(ggdark)
@@ -55,17 +56,29 @@ zonenames <- c('Balanus/Chthamalus', 'Tetraclita rubescens', 'Mussel', 'Silvetia
 targetlist <- c('CHTBAL', 'TETRUB', 'MUSSEL', 'SILCOM', 'POLPOL')
 
 # theme
-lltheme <- theme_bw() + theme(text = element_text(size = 12),
-                 # add more space between panels
-                 panel.spacing = unit(1, 'lines'),
-                 # no background to wrap panels
-                 strip.background = element_blank(),
-                 strip.text = element_text(size = 12, hjust = 0),
-                 # panel labels outside x axis labels
-                 strip.placement = 'outside',
-                 # adjust x axis labels
-                 axis.text.y = element_text(size = 11),
-                 axis.text.x = element_text(size = 11, angle = 45, hjust = 1))
+lltheme_dark <- dark_theme_bw() + theme(text = element_text(size = 12),
+                              # add more space between panels
+                              panel.spacing = unit(1, 'lines'),
+                              # no background to wrap panels
+                              strip.background = element_blank(),
+                              strip.text = element_text(size = 12, hjust = 0),
+                              # panel labels outside x axis labels
+                              strip.placement = 'outside',
+                              # adjust x axis labels
+                              axis.text.y = element_text(size = 12),
+                              axis.text.x = element_text(size = 12, angle = 45, hjust = 1))
+
+lltheme_light <- theme_bw() + theme(text = element_text(size = 12),
+                              # add more space between panels
+                              panel.spacing = unit(1, 'lines'),
+                              # no background to wrap panels
+                              strip.background = element_blank(),
+                              strip.text = element_text(size = 12, hjust = 0),
+                              # panel labels outside x axis labels
+                              strip.placement = 'outside',
+                              # adjust x axis labels
+                              axis.text.y = element_text(size = 12),
+                              axis.text.x = element_text(size = 12, angle = 45, hjust = 1))
 ```
 
 ```{r}
@@ -122,8 +135,12 @@ target_1990 <- target %>%
   summarise(cover = sum(N))
 
 # get number of points/quadrat to calculate% cover
+target_summary <- target %>%
+  group_by(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code) %>% 
+  summarise(points = sum(N))
 
-target_1990 <- left_join(target_1990, target_summary) %>%
+
+target_1990 <- left_join(target_1990, target_summary, by = c("SiteCode", "SiteName", "ZoneName", "SurveyYear", "Zone", "Plot_num", "Plot_code")) %>%
   group_by(SiteCode, ZoneName, SiteName, SurveyYear, Zone, Plot_num, Plot_code, Code_1990) %>%
   mutate(pct_cover = (cover/points)*100) %>%
   select(SiteCode, SiteName, ZoneName, SurveyYear, Zone, Plot_num, Plot_code, Code_1990, pct_cover) %>%
@@ -131,16 +148,20 @@ target_1990 <- left_join(target_1990, target_summary) %>%
   filter(SiteName %in% c("Cabrillo I", "Cabrillo II", "Cabrillo III"))
 
 # join spp names to 1990 data
-target_1990 <- left_join(target_1990, spplist)
+spplist <- align %>%
+  select(SpeciesCode, Scientific_name) %>%
+  distinct()
+
+target_1990 <- left_join(target_1990, spplist, by = "SpeciesCode")
 
 target_1990_1<-target_1990[,-c(6:8)]
 
 # remove extras
-#remove(target_summary, align, spplist, target)
+remove(target_summary, align, spplist, target)
 
-unique(target_1990$ZoneName)
-
-target_90_home <- target_1990 %>%
+# get cover of species in their "home" plots
+# for line plots and trend lines of home spp over time and vs people
+target_90_home <- ungroup(target_1990) %>%
 filter(SiteCode %in% cabrsites) %>%
 # filter to only tgt spp in their own plots
 filter((Zone == 'CHT' & SpeciesCode %in% c('TETRUB', 'CHTBAL')) |
@@ -153,16 +174,91 @@ summarise(Cover_mean = mean(pct_cover), #keep if want each year to have 1 point
 Cover_SE = sd(pct_cover)/sqrt(length(pct_cover)))
 
 #rotate from long to wide
-target_wide<- spread(target_1990, c(Plot_code, SurveyYear, ZoneName, SiteName))%>%
-  mutate_all(~replace(., is.na(.), 0))
-
 target_new <- select(target_1990, -Scientific_name) %>% pivot_wider(names_from = SpeciesCode, values_from = pct_cover)%>%
-  mutate_all(~replace(., is.na(.), 0))
+  mutate_all(~replace(., is.na(.), 0)) %>%
+  # remove blank "na" column
+  select(-`NA`)
 
-#combine shorebird3 and target_wide
-target_shore<-left_join(target_new, shorebird2[,-c(2)])%>%
+#combine shorebird data and wide format target spp abundance data
+target_shore<-left_join(target_new, shorebird[,-c(2)], by = c("ZoneName", "SurveyYear"))%>%
   drop_na()
 ```
+
+## Regression approach
+
+Goal - assess relationships between visitation and year on target spp abundance
+Approach - gam (spp abundance ~ year + visitation + zone)
+Results - 
+
+```{r Target spp gam approach}
+# get grand means and join w/ plot data
+target_90_home <- left_join(left_join(target_90_home, 
+                            target_90_home %>% group_by(SpeciesCode)%>%
+                            summarise(grand_mean = mean(Cover_mean)), 
+                            by = c('SpeciesCode')),
+                    # join with bird data
+                  select(shorebird, -ZoneClass)) %>%
+                  # first word of scientific name
+                  mutate(Scientific_name = case_when(
+                         Scientific_name == 'Mussel' ~ 'Mytilus',
+                         TRUE ~ word(Scientific_name)),
+                  # remove panel letters from zones (i.e. (A))
+                  ZoneName = substr(ZoneName, 5, nchar(ZoneName)))
+
+# write function to run GAM (cover ~ year + people + zone) for each spp
+gam_fn <- function(spp_name, outputname) {
+  
+  # subset data 
+  gam_data <- target_90_home %>%
+    filter(Scientific_name == spp_name) 
+  
+  # run GAM
+  gam_mod <- gam(Cover_mean ~ s(SurveyYear) + s(people) + s(ZoneName), data = gam_data)
+  
+  # 
+  
+  
+}
+
+    # save plots to assess model fit
+    # https://data.library.virginia.edu/diagnostic-plots/
+    grDevices::pdf(file = paste('figures/GAM_', gsub('/', '', spp_list[i]), '.pdf', sep = ''))
+    plot(gam_mod)
+    dev.off()
+    
+    
+
+
+
+
+# plot figures (uses ggdark theme) - over time with grand mean
+# panel plot for annual report
+
+base_lineplot_function <- function(lightdark, grandmean_yesno, error_yesno) {
+  
+ggplot(data = target_90_home,
+       mapping = aes(x = SurveyYear, y = Cover_mean, group = ZoneName)) + 
+  geom_hline(aes(yintercept = grand_mean), linetype = 'dashed', color = 'white') + 
+  geom_linerange(mapping = aes(x = SurveyYear, 
+                               ymin = (Cover_mean - Cover_SE),
+                               ymax = (Cover_mean + Cover_SE)),
+                 color = 'gray70', size = 1) +
+  geom_line(aes(color = ZoneName), size = 1) + 
+  geom_point(aes(color = ZoneName), size = 2) + 
+  scale_color_viridis(discrete = TRUE, begin = 0.4, end = 1, name = 'Site') +
+  xlab('Year') + 
+  ylab('Percent cover') +
+  facet_wrap(~Scientific_name, scales = 'free_y') + 
+  coord_cartesian(xlim = c(1990, 2020)) + 
+  scale_x_continuous(breaks = c(1990, 1995, 2000, 2005, 2010, 2015, 2020))  +
+  lltheme_light
+
+ggsave('figures/Photoplot_TimeSeries_GrandMean.png', dpi = 600, width = 12)
+
+# dark theme plot
+
+```
+
 
 ```{r}
 #separate out people/year from target_shore
