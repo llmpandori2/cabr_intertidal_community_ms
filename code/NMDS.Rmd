@@ -19,6 +19,8 @@ LP edits:
 library(readxl)
 library(grDevices)
 library(tidyverse)
+    
+    library(patchwork)
 library(janitor)
 library(ggdark)
 library(Hmisc)
@@ -187,11 +189,11 @@ target_shore<-left_join(target_new, shorebird[,-c(2)], by = c("ZoneName", "Surve
 ## Regression approach
 
 Goal - assess relationships between visitation and year on target spp abundance
-Approach - gam (spp abundance ~ year + visitation + zone)
+Approach - generalized additive model (spp abundance ~ year + visitation + zone)
 Results - 
 
 ```{r Target spp gam approach}
-# get grand means and join w/ plot data
+### get grand means and join w/ plot data
 target_90_home <- left_join(left_join(target_90_home, 
                             target_90_home %>% group_by(SpeciesCode)%>%
                             summarise(grand_mean = mean(Cover_mean)), 
@@ -205,28 +207,99 @@ target_90_home <- left_join(left_join(target_90_home,
                   # remove panel letters from zones (i.e. (A))
                   ZoneName = substr(ZoneName, 5, nchar(ZoneName)))
 
-# write function to run GAM (cover ~ year + people + zone) for each spp
-gam_fn <- function(spp_name, outputname) {
+### write loop to run GAM across sites + target species
+
+# make output df for GAM results
+gam_output <- 
+gam_output <- tibble(ZoneName = NA,
+                     Scientific_name = NA,
+                     `Adjusted R²` = NA,
+                     `Deviance explained` = NA,
+                      N = NA,
+                     `Intercept - P` = NA,
+                     `Year - F` = NA,
+                     `Year - P` = NA,
+                     `People - F` = NA,
+                     `People - P` = NA)
+
+# make list of sites and spp to loop across
+spp_list <- unique(target_90_home$Scientific_name) 
+site_list <- unique(target_90_home$ZoneName)
+
+# nested loop (i is for row # in table, j is for sites and k is for target taxa)
+for (i in seq(1:15)){
+  for(j in 1:length(site_list)) {
+    for(k in 1:length(spp_list)){
+      
+    # subset relevant data 
+    gam_data <- target_90_home %>%
+    filter(Scientific_name == spp_list[k] & 
+           ZoneName == site_list[j])
+    
+    # run model
+    gam_mod <- gam(Cover_mean ~ s(SurveyYear) + s(people), data = gam_data)
+    
+    # put relevant summary info in output table 
+    gam_output$ZoneName[i] <- site_list[j]
+    gam_output$Scientific_name[i] <- spp_list[k]
+    gam_output$N[i] <- nrow(gam_data)
+    gam_output$`Deviance explained`[i] <- summary(gam_mod)$dev.expl
+    gam_output$`Adjusted R²`[i] <- summary(gam_mod)$r.sq
+    gam_output$`Intercept - P`[i] <- summary(gam_mod)$p.table[,4]
+    gam_output$`Year - F`[i] <- summary(gam_mod)$s.table[1,3]
+    gam_output$`Year - P`[i] <- summary(gam_mod)$s.table[1,4]
+    gam_output$`People - F`[i] <- summary(gam_mod)$s.table[2,3]
+    gam_output$`People - P`[i] <- summary(gam_mod)$s.table[2,4]
+                
+    # plot results (2 panels - one for people and one for year)
+    p1 <- ggplot(data = gam_data,
+           mapping = aes(x = SurveyYear, y = Cover_mean)) + 
+            geom_point(color = 'black') + 
+            xlab('Year') + 
+            ylab('Percent cover') + 
+            ggtitle(paste('GAM Result for', spp_list[k], 'in', site_list[j]), 
+              subtitle = paste('Abundance over time (P = ', scales::pvalue(gam_output$`Year - P`[i]),
+                             ', F = ', round(gam_output$`Year - F`[i], digits = 2), 
+                             ', N = ', gam_output$N, ')', sep = '')) +
+            lltheme_light
+    
+    # if gam is significant, add in line
+    if(gam_output$`Year - P`[i] <= 0.05) { 
+      p1 <- p1 + geom_smooth(method = 'loess') }
+    
+    
+    p2 <- ggplot(data = gam_data,
+           mapping = aes(x = people, y = Cover_mean)) + 
+            geom_point(color = 'black') + 
+            xlab('Mean visitor count') + 
+            ylab('Percent cover') + 
+            ggtitle(paste('GAM Result for', spp_list[k], 'in', site_list[j]), 
+              subtitle = paste('Abundance as a function of visitation (P = ', scales::pvalue(gam_output$`People - P`[i]),
+                             ', F = ', round(gam_output$`People - F`[i], digits = 2), 
+                             ', N = ', gam_output$N, ')', sep = '')) +
+            lltheme_light
+    
+      # add line if GAM significant for people vs cover
+      if(gam_output$`People - P`[i] <= 0.05) { 
+      p2 <- p2 + geom_smooth(method = 'loess') }
+
+    p3 <- p1 + p2
+      
+    ggsave(filename = paste('figures/GAM/gam_cover_people_time_', 
+                 gsub('/', '', spp_list[k]), '_',
+                 gsub(' ', '', site_list[j]), '.png', sep = ''),
+           plot = p3,
+           width = 12)
   
-  # subset data 
-  gam_data <- target_90_home %>%
-    filter(Scientific_name == spp_name) 
-  
-  # run GAM
-  gam_mod <- gam(Cover_mean ~ s(SurveyYear) + s(people) + s(ZoneName), data = gam_data)
-  
-  # 
-  
-  
+    }
+  }
 }
 
-    # save plots to assess model fit
-    # https://data.library.virginia.edu/diagnostic-plots/
-    grDevices::pdf(file = paste('figures/GAM_', gsub('/', '', spp_list[i]), '.pdf', sep = ''))
-    plot(gam_mod)
-    dev.off()
-    
-    
+remove(p1, p2, p3, site_list, spp_list, gam_data, gam_mod)
+
+# make a pretty table using gam_output
+
+
 
 
 
