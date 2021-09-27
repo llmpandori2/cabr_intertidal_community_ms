@@ -19,8 +19,7 @@ LP edits:
 library(readxl)
 library(grDevices)
 library(tidyverse)
-    
-    library(patchwork)
+library(patchwork)
 library(janitor)
 library(ggdark)
 library(Hmisc)
@@ -210,10 +209,10 @@ target_90_home <- left_join(left_join(target_90_home,
 ### write loop to run GAM across sites + target species
 
 # make output df for GAM results
-gam_output <- 
-gam_output <- tibble(ZoneName = NA,
-                     Scientific_name = NA,
-                     `Adjusted R²` = NA,
+gam_output <- tibble(ZoneName = target_90_home$ZoneName,
+                     Scientific_name = target_90_home$Scientific_name) %>%
+              distinct() %>%
+              mutate(`Adjusted R²` = NA,
                      `Deviance explained` = NA,
                       N = NA,
                      `Intercept - P` = NA,
@@ -222,26 +221,18 @@ gam_output <- tibble(ZoneName = NA,
                      `People - F` = NA,
                      `People - P` = NA)
 
-# make list of sites and spp to loop across
-spp_list <- unique(target_90_home$Scientific_name) 
-site_list <- unique(target_90_home$ZoneName)
+# nested loop (i is for row # in gam_output table)
+for (i in 1:nrow(gam_output)) {
 
-# nested loop (i is for row # in table, j is for sites and k is for target taxa)
-for (i in seq(1:15)){
-  for(j in 1:length(site_list)) {
-    for(k in 1:length(spp_list)){
-      
     # subset relevant data 
     gam_data <- target_90_home %>%
-    filter(Scientific_name == spp_list[k] & 
-           ZoneName == site_list[j])
+    filter(Scientific_name == gam_output$Scientific_name[i] & 
+           ZoneName == gam_output$ZoneName[i])
     
     # run model
     gam_mod <- gam(Cover_mean ~ s(SurveyYear) + s(people), data = gam_data)
     
     # put relevant summary info in output table 
-    gam_output$ZoneName[i] <- site_list[j]
-    gam_output$Scientific_name[i] <- spp_list[k]
     gam_output$N[i] <- nrow(gam_data)
     gam_output$`Deviance explained`[i] <- summary(gam_mod)$dev.expl
     gam_output$`Adjusted R²`[i] <- summary(gam_mod)$r.sq
@@ -257,7 +248,8 @@ for (i in seq(1:15)){
             geom_point(color = 'black') + 
             xlab('Year') + 
             ylab('Percent cover') + 
-            ggtitle(paste('GAM Result for', spp_list[k], 'in', site_list[j]), 
+            ggtitle(paste('GAM Result for', gam_data$Scientific_name[i], 'in',
+                          gam_data$ZoneName[i]), 
               subtitle = paste('Abundance over time (P = ', scales::pvalue(gam_output$`Year - P`[i]),
                              ', F = ', round(gam_output$`Year - F`[i], digits = 2), 
                              ', N = ', gam_output$N, ')', sep = '')) +
@@ -273,7 +265,8 @@ for (i in seq(1:15)){
             geom_point(color = 'black') + 
             xlab('Mean visitor count') + 
             ylab('Percent cover') + 
-            ggtitle(paste('GAM Result for', spp_list[k], 'in', site_list[j]), 
+            ggtitle(paste('GAM Result for', gam_data$Scientific_name[i]
+                          , 'in', gam_data$ZoneName[i]), 
               subtitle = paste('Abundance as a function of visitation (P = ', scales::pvalue(gam_output$`People - P`[i]),
                              ', F = ', round(gam_output$`People - F`[i], digits = 2), 
                              ', N = ', gam_output$N, ')', sep = '')) +
@@ -286,56 +279,110 @@ for (i in seq(1:15)){
     p3 <- p1 + p2
       
     ggsave(filename = paste('figures/GAM/gam_cover_people_time_', 
-                 gsub('/', '', spp_list[k]), '_',
-                 gsub(' ', '', site_list[j]), '.png', sep = ''),
+                 gsub('/', '', gam_data$Scientific_name[i]), '_',
+                 gsub(' ', '', gam_data$ZoneName[i]), '.png', sep = ''),
            plot = p3,
            width = 12)
-  
-    }
-  }
 }
 
-remove(p1, p2, p3, site_list, spp_list, gam_data, gam_mod)
+# clean up environment
+remove(p1, p2, p3, site_list, spp_list, gam_data, gam_mod, i)
 
-# make a pretty table using gam_output
+# make a formatted table using gam_output and the gt package
+gt::gtsave(gam_output %>%
+  mutate(`Intercept - P` = scales::pvalue(`Intercept - P`),
+         `Year - P` = scales::pvalue(`Year - P`),
+         `People - P` = scales::pvalue(`People - P`),
+         `Adjusted R²` = round(`Adjusted R²`, digits = 2),
+         `Deviance explained` = round(`Deviance explained`, digits = 2),
+         `Year - F` = round(`Year - F`, digits = 2),
+         `People - F` = round(`People - F`, digits = 2)) %>%
+  rename(Site = ZoneName, `Target spp.` = Scientific_name) %>%
+  gt::gt() %>%
+    gt::fmt_percent(columns = `Deviance explained`, decimals = 0) %>%
+    gt::cols_align(align = 'center', columns = `Intercept - P`:`People - P`),
+  'figures/GAM/gam_table.png')
 
+# add GAM info to dataset and make paneled plots for spp over time
+target_90_home <- left_join(target_90_home, gam_output, 
+                             by = c("ZoneName", "Scientific_name"))
 
+# make paneled plot (panels are spp)  
+# cover as a function of survey year
 
+gam_time_fig <- function(dataset, savename) {
 
-
-
-# plot figures (uses ggdark theme) - over time with grand mean
-# panel plot for annual report
-
-base_lineplot_function <- function(lightdark, grandmean_yesno, error_yesno) {
-  
-ggplot(data = target_90_home,
-       mapping = aes(x = SurveyYear, y = Cover_mean, group = ZoneName)) + 
-  geom_hline(aes(yintercept = grand_mean), linetype = 'dashed', color = 'white') + 
-  geom_linerange(mapping = aes(x = SurveyYear, 
-                               ymin = (Cover_mean - Cover_SE),
-                               ymax = (Cover_mean + Cover_SE)),
-                 color = 'gray70', size = 1) +
-  geom_line(aes(color = ZoneName), size = 1) + 
-  geom_point(aes(color = ZoneName), size = 2) + 
+ggplot(data = dataset,
+       mapping = aes(x = SurveyYear, y = Cover_mean, color = ZoneName)) + 
+  geom_point(size = 2) +
+  # only show smooth lines for significant relationships from GAM
+  geom_smooth(data = filter(dataset, `Year - P` <= 0.05),
+              mapping = aes(x = SurveyYear, y = Cover_mean,
+                            color = ZoneName, fill = ZoneName),
+              method = 'loess') +
+  # put info (r2 and pval) for each in color in text
+  geom_text(data = select(ungroup(dataset), ZoneName, Scientific_name, 
+                   `Deviance explained`, `Year - P`) %>% distinct() %>%
+              mutate(Value = case_when(ZoneName == "Zone I" ~ 100,
+                                       ZoneName == "Zone II" ~ 93,
+                                       ZoneName == "Zone III" ~ 86)), 
+            mapping = aes(x = 1991, y = Value, 
+                          label = paste('P =', scales::pvalue(`Year - P`))),
+            hjust = 0) +
   scale_color_viridis(discrete = TRUE, begin = 0.4, end = 1, name = 'Site') +
+  scale_fill_viridis(discrete = TRUE, begin = 0.4, end = 1, name = 'Site') +
   xlab('Year') + 
   ylab('Percent cover') +
-  facet_wrap(~Scientific_name, scales = 'free_y') + 
-  coord_cartesian(xlim = c(1990, 2020)) + 
+  facet_wrap(~Scientific_name) + 
+  coord_cartesian(xlim = c(1990, 2020), ylim = c(0,100)) + 
   scale_x_continuous(breaks = c(1990, 1995, 2000, 2005, 2010, 2015, 2020))  +
-  lltheme_light
+  lltheme_dark + 
+  theme(strip.text = element_text(face = "italic"))
+  
+  ggsave(paste('figures/GAM/all_panels_', savename, '.png', sep = ''), width = 12)
+}
 
-ggsave('figures/Photoplot_TimeSeries_GrandMean.png', dpi = 600, width = 12)
+# make for all 
+gam_time_fig(target_90_home, 'time')
 
-# dark theme plot
+# make for 4 types of spp for graph
+gam_time_fig(filter(target_90_home, SpeciesCode != 'TETRUB'), 'no_tet')
 
+
+# plot people x cover figure
+ggplot(data = target_90_home,
+       mapping = aes(x = people, y = Cover_mean, color = ZoneName)) + 
+  geom_point(size = 2) +
+  # only show smooth lines for significant relationships from GAM
+  geom_smooth(data = filter(target_90_home, `People - P` <= 0.05),
+              mapping = aes(x = people, y = Cover_mean,
+                            color = ZoneName, fill = ZoneName),
+              method = 'loess') +
+  # put info (r2 and pval) for each in color in text
+  geom_text(data = select(ungroup(target_90_home), ZoneName, Scientific_name, 
+                   `Deviance explained`, `People - P`) %>% distinct() %>%
+              mutate(Value = case_when(ZoneName == "Zone I" ~ 100,
+                                       ZoneName == "Zone II" ~ 93,
+                                       ZoneName == "Zone III" ~ 86)), 
+            mapping = aes(x = 0, y = Value, 
+                          label = paste('P =', scales::pvalue(`People - P`))),
+            hjust = 0) +
+  scale_color_viridis(discrete = TRUE, begin = 0.4, end = 1, name = 'Site') +
+  scale_fill_viridis(discrete = TRUE, begin = 0.4, end = 1, name = 'Site') +
+  xlab('Number of visitors') + 
+  ylab('Percent cover') +
+  facet_wrap(~Scientific_name) + 
+  coord_cartesian(ylim = c(0,100)) + 
+  lltheme_dark + 
+  theme(strip.text = element_text(face = "italic"))
+  
+  ggsave('figures/GAM/all_panels_people.png', width = 12)  
 ```
 
 
 ```{r}
 #separate out people/year from target_shore
-environ<-target_shore[c(1,2,3,4,5,18)] #tree
+environ<-target_shore[c(1,2,3,4,5,17)] #tree
 
 #separate out species matrix, including linking factors
 species<-target_shore[c(1,2,3,8,9,10,11,12,13,14,15,16)] #bird
@@ -345,7 +392,7 @@ species<-target_shore[c(1,2,3,8,9,10,11,12,13,14,15,16)] #bird
 #permanova- following rpubs.com/collnell/manova
 
 #make matrix
-species.matrix<-as.matrix(species[,5:9])
+species.matrix<-as.matrix(species[,4:12])
 
 #standardize with sqrt
 species.mat<-sqrt(species.matrix)
@@ -360,8 +407,48 @@ dispersion<-betadisper(species.dist, group=species$ZoneName)
 permutest(dispersion) #pvalue=0.678
 
 plot(dispersion, hull=F, ellipse=T) #just zone III shows up
+# note from LP - i saw all zones, but it took a while to show up
 ```
 
+
+```{r LP Suggestion PERMANOVA}
+# let's run these parallel to the GAM analyses - running a separate model for each plot type
+# does spp makeup of plots vary across zone and visitation?
+
+# https://archetypalecology.wordpress.com/2018/02/21/permutational-multivariate-analysis-of-variance-permanova-in-r-preliminary/
+
+# output from loop
+
+# list to loop across (plot types)
+spp_list <- unique(target_shore$Zone)
+
+for(i in 1:length(spp_list)) {
+  
+  # filter for spp i
+  dist_data <- target_shore %>%
+    filter(Zone == spp_list[i])
+  
+  # get distance matrix
+  dist_matrix <- vegdist(select(ungroup(dist_data), BARESUB:NOMATCH), method='bray')
+  
+  # conduct PERMANOVA (is makeup different across zones and visitation and year?)
+  dist_mod <- adonis2(select(ungroup(dist_data), BARESUB:NOMATCH) ~ ZoneName + people + SurveyYear, data = dist_data)
+  # different across zones, people and interaction (zones differ in visitation)
+  
+  # put results in table and save
+  results <- tibble(Term = c('Zone', 'Visitation', 'Year', 'Residual', 'Total'),
+                    `Deg. of freedom` = dist_mod$Df,
+                    `Sum of squares` = round(dist_mod$SumOfSqs, digits = 2),
+                    `F-value` = round(dist_mod$F, digits = 2),
+                    `P-value` = dist_mod$`Pr(>F)`) %>%
+            gt::gt() %>%
+            gt::gtsave(paste('figures/PERMANOVA/permanova_result_',spp_list[i] ,'.png', sep = ''))
+
+# add more things to this loop :)
+  
+}
+
+```
 #NMDS
 #zone 3 NMDS
 ```{r}
