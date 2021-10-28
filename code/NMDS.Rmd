@@ -4,6 +4,7 @@ output: html_document
 editor_options: 
   chunk_output_type: console
 ---
+#ls was here
 #NMDS of all species together
 LP edits: 
 - Removed unnecessary code
