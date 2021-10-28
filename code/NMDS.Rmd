@@ -57,17 +57,17 @@ zonenames <- c('Balanus/Chthamalus', 'Tetraclita rubescens', 'Mussel', 'Silvetia
 targetlist <- c('CHTBAL', 'TETRUB', 'MUSSEL', 'SILCOM', 'POLPOL')
 
 # theme
-lltheme_dark <- dark_theme_bw() + theme(text = element_text(size = 12),
+lltheme_dark <- dark_theme_bw() + theme(text = element_text(size = 20),
                               # add more space between panels
                               panel.spacing = unit(1, 'lines'),
                               # no background to wrap panels
                               strip.background = element_blank(),
-                              strip.text = element_text(size = 12, hjust = 0),
+                              strip.text = element_text(size = 20, hjust = 0),
                               # panel labels outside x axis labels
                               strip.placement = 'outside',
                               # adjust x axis labels
-                              axis.text.y = element_text(size = 12),
-                              axis.text.x = element_text(size = 12, angle = 45, hjust = 1))
+                              axis.text.y = element_text(size = 20),
+                              axis.text.x = element_text(size = 20, angle = 45, hjust = 1))
 
 lltheme_light <- theme_bw() + theme(text = element_text(size = 12),
                               # add more space between panels
@@ -165,7 +165,7 @@ remove(target_summary, align, spplist, target)
 target_90_home <- ungroup(target_1990) %>%
 filter(SiteCode %in% cabrsites) %>%
 # filter to only tgt spp in their own plots
-filter((Zone == 'CHT' & SpeciesCode %in% c('TETRUB', 'CHTBAL')) |
+filter((Zone == 'CHT' & SpeciesCode == 'CHTBAL') |
 (Zone == 'MYT' & SpeciesCode == 'MUSSEL') |
 (Zone == 'SIL' & SpeciesCode == 'SILCOM') |
 (Zone == 'POL' & SpeciesCode == 'POLPOL')) %>%
@@ -304,8 +304,30 @@ gt::gtsave(gam_output %>%
   'figures/GAM/gam_table.png')
 
 # add GAM info to dataset and make paneled plots for spp over time
-target_90_home <- left_join(target_90_home, gam_output, 
-                             by = c("ZoneName", "Scientific_name"))
+target_90_home2 <- left_join(target_90_home, gam_output, 
+                             by = c("ZoneName", "Scientific_name")) %>%
+# add common names for figs 
+  mutate(CommonName = case_when(
+    Scientific_name == 'Balanus/Chthamalus' ~ 'Acorn barnacle',
+    Scientific_name == 'Mytilus' ~ 'Mussel', 
+    Scientific_name == 'Silvetia' ~ 'Golden rockweed',
+    Scientific_name == 'Pollicipes' ~ 'Goose barnacle'
+  )) %>%
+# add numbers for factor order in paneled figs
+  mutate(Fct_num = case_when (
+    Scientific_name == 'Balanus/Chthamalus' ~ 1,
+    Scientific_name == 'Mytilus' ~ 2, 
+    Scientific_name == 'Silvetia' ~ 4,
+    Scientific_name == 'Pollicipes' ~ 3
+  )) %>%
+  arrange(Fct_num)
+
+target_90_home2$CommonName <- factor(target_90_home2$CommonName, 
+                                     levels = c('Acorn barnacle',
+                                                'Mussel', 
+                                                'Goose barnacle',
+                                                'Golden rockweed'))
+
 
 # make paneled plot (panels are spp)  
 # cover as a function of survey year
@@ -313,7 +335,74 @@ target_90_home <- left_join(target_90_home, gam_output,
 gam_time_fig <- function(dataset, savename) {
 
 ggplot(data = dataset,
-       mapping = aes(x = SurveyYear, y = Cover_mean, color = ZoneName)) + 
+       mapping = aes(x = SurveyYear, y = Cover_mean, color = CommonName, group = ZoneName)) + 
+  geom_point(size = 2) +
+  # only show smooth lines for significant relationships from GAM
+  geom_smooth(data = filter(dataset, `Year - P` <= 0.05),
+              mapping = aes(x = SurveyYear, y = Cover_mean,
+                            color = CommonName, fill = CommonName),
+              method = 'loess') +
+  # put info (r2 and pval) for each in color in text
+  geom_text(data = select(ungroup(dataset), ZoneName, CommonName, 
+                    `Deviance explained`, `Year - P`) %>% distinct() %>%
+               mutate(Value = case_when(ZoneName == "Zone I" ~ 100,
+                                        ZoneName == "Zone II" ~ 93,
+                                        ZoneName == "Zone III" ~ 86)), 
+             mapping = aes(x = 1991, y = Value, 
+                           label = paste('P =', scales::pvalue(`Year - P`))),
+             hjust = 0) +
+  #scale_color_viridis(discrete = TRUE, begin = 0.4, end = 1, name = 'Site') +
+  #scale_fill_viridis(discrete = TRUE, begin = 0.4, end = 1, name = 'Site') +
+  xlab('Year') + 
+  ylab('Percent cover') +
+  facet_wrap(~CommonName, scales = 'free_y') + 
+  coord_cartesian(xlim = c(1990, 2020), ylim = c(0,100)) + 
+  scale_x_continuous(breaks = c(1990, 1995, 2000, 2005, 2010, 2015, 2020))  +
+  lltheme_dark +
+  theme(legend.position = 'none')
+  # if using scientific names for strip/facet text
+  # + theme(strip.text = element_text(face = "italic"))
+  
+  ggsave(paste('figures/GAM/all_panels_commonname', savename, '.png', sep = ''), width = 12)
+  }
+
+# make for Z1 only
+
+gam_time_fig(filter(target_90_home2, ZoneName == 'Zone I'), 'time2')
+
+# now make for people 
+ggplot(data = filter(target_90_home2, ZoneName == 'Zone I'),
+       mapping = aes(x = people, y = Cover_mean, color = CommonName)) + 
+  geom_point(size = 2) +
+  # only show smooth lines for significant relationships from GAM
+  geom_smooth(data = filter(target_90_home2, ZoneName == 'Zone I' & `People - P` <= 0.05),
+              mapping = aes(x = people, y = Cover_mean,
+                            color = CommonName, fill = CommonName),
+              method = 'loess') +
+  # put info (r2 and pval) for each in color in text
+  geom_text(data = select(ungroup(filter(target_90_home2, ZoneName == 'Zone I')), 
+                          CommonName, `Deviance explained`, `People - P`) %>%
+              distinct(),
+            mapping = aes(x = 0, y = 100, 
+                          label = paste('P =', scales::pvalue(`People - P`))),
+            hjust = 0) +
+  #scale_color_viridis(discrete = TRUE, begin = 0.4, end = 1, name = 'Site') +
+  #scale_fill_viridis(discrete = TRUE, begin = 0.4, end = 1, name = 'Site') +
+  xlab('Number of visitors') + 
+  ylab('Percent cover') +
+  facet_wrap(~CommonName) + 
+  coord_cartesian(ylim = c(0,100)) + 
+  lltheme_dark + 
+  theme(legend.position = 'none')
+  #theme(strip.text = element_text(face = "italic"))
+  
+  ggsave(paste('figures/GAM/all_panels_commonname2_people.png'), width = 12)
+
+
+
+# all zones (color by spp) like LS
+ggplot(data = target_90_home,
+       mapping = aes(x = SurveyYear, y = Cover_mean, color = CommonName)) + 
   geom_point(size = 2) +
   # only show smooth lines for significant relationships from GAM
   geom_smooth(data = filter(dataset, `Year - P` <= 0.05),
@@ -329,24 +418,14 @@ ggplot(data = dataset,
             mapping = aes(x = 1991, y = Value, 
                           label = paste('P =', scales::pvalue(`Year - P`))),
             hjust = 0) +
-  scale_color_viridis(discrete = TRUE, begin = 0.4, end = 1, name = 'Site') +
-  scale_fill_viridis(discrete = TRUE, begin = 0.4, end = 1, name = 'Site') +
   xlab('Year') + 
   ylab('Percent cover') +
-  facet_wrap(~Scientific_name) + 
+  facet_wrap(~CommonName) + 
   coord_cartesian(xlim = c(1990, 2020), ylim = c(0,100)) + 
   scale_x_continuous(breaks = c(1990, 1995, 2000, 2005, 2010, 2015, 2020))  +
-  lltheme_dark + 
-  theme(strip.text = element_text(face = "italic"))
+  lltheme_dark
   
   ggsave(paste('figures/GAM/all_panels_', savename, '.png', sep = ''), width = 12)
-}
-
-# make for all 
-gam_time_fig(target_90_home, 'time')
-
-# make for 4 types of spp for graph
-gam_time_fig(filter(target_90_home, SpeciesCode != 'TETRUB'), 'no_tet')
 
 
 # plot people x cover figure
