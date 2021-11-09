@@ -31,33 +31,33 @@ library(labdsv) #hellinger transformation
 #load data
 ```{r}
 #shorebird data
-shorebird<-read_excel("Shorebird_People_Data/Shorebird_People_Data.xlsx")
+shorebird<-read_excel("data/Shorebird_People_Data/Shorebird_People_Data.xlsx")
 
 # transect data (doesn't need alignment - spp consistent throughout)
-transect <- read_excel('RI_Long_Term_Data/Line_transect_summary_20210413.xlsx')
+transect <- read_excel('data/RI_Long_Term_Data/Line_transect_summary_20210413.xlsx')
 
 # target data (needs alignment - spp lists differ by year)
-target <- read_excel('RI_Long_Term_Data/Photoplot_summary_by_plot_20210414.xlsx')
+target <- read_excel('data/RI_Long_Term_Data/Photoplot_summary_by_plot_20210414.xlsx')
 
 # alignment info for target data 
-align <- read_csv('TGT_all.csv')
+align <- read_csv('data/TGT_all.csv')
 # see RI_Species_Alighment_Feb21.R for methods
 # summary: took species lists for 1990 and 2000, applied to all unique spp.
 
 # timed search
-timed_search <- read_excel("RI_Long_Term_Data/TimedSearch_plot_counts_20210413.xlsx")
+timed_search <- read_excel("data/RI_Long_Term_Data/TimedSearch_plot_counts_20210413.xlsx")
 
 # abiotic data
 # sea surface temp from SIO Pier
-sst <- read_csv("SIO_TEMP.csv", 
+sst <- read_csv("data/SIO_TEMP.csv", 
                 skip = 26)
 
 # tide predictions from tbone tides
-tide <- read_csv("tbone_tides_hourly_1990_2026.csv", 
+tide <- read_csv("data/tbone_tides_hourly_1990_2026.csv", 
                  col_types = cols(datetime = col_datetime(format = "%m/%d/%Y %H:%M")))
 
 # southern oscillation index from NOAA NCEI
-soi <- read_excel("SOI_Data_NOAA_NCEI_1990_2020.xlsx")
+soi <- read_excel("data/SOI_Data_NOAA_NCEI_1990_2020.xlsx")
 ```
 
 #presets
@@ -262,6 +262,7 @@ view(target_1990)
 richness<-target_1990%>%
   filter(Zone=="CHT" & ZoneName=="(A) Zone I") %>% #filter by cht and z1
   group_by(SurveyYear, Plot_num)%>%
+  filter(pct_cover>0)%>%
   summarise(rich=length(unique(target_1990$SpeciesCode)))
 
 unique(target_1990$SpeciesCode)
