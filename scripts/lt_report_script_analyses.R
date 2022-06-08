@@ -6,6 +6,14 @@
 # Last edited: 5/2/22
 ##################################################
 
+##### packages #####
+library(ggdark)     # dark field versions of ggplot2 themes
+library(janitor)    # snake case col names and remove duplicates
+library(broom)      # glance fn for linregs
+library(calecopal)  # color palettes
+library(ggrepel)    # flying labels 
+library(tidyverse)  # tidyverse packages
+
 ##### places & themes #####
 # 3 color palette
 ecopal_3 <- c(cal_palette('chaparral3')[4], cal_palette('bigsur')[5], 
@@ -40,22 +48,14 @@ dark_theme <- dark_theme_bw() + base_theme
 
 remove(base_theme)
 
-##### packages #####
-library(ggdark)     # dark field versions of ggplot2 themes
-library(janitor)    # snake case col names and remove duplicates
-library(broom)      # glance fn for linregs
-library(calecopal)  # color palettes
-library(ggrepel)    # flying labels 
-library(tidyverse)  # tidyverse packages
-
 ##### load data #####
 
 # get list of tidy data files from wrangling output folder
-files <- list.files ('D:/LP_Files/RStudio_Files/cabr_ri/data/lt_trend_report_tidy_data/', full.names = TRUE) 
+files <- list.files ('D:/LP_Files/RStudio_Files/cabr_intertidal_community_ms/data/lt_trend_report_tidy_data/', full.names = TRUE) 
 
 # loop to read csv files from folder and assign them to file name without path and '.csv'
 for(i in 1:length(files)) {
-assign(gsub('.csv', '', gsub('D:/LP_Files/RStudio_Files/cabr_ri/data/lt_trend_report_tidy_data/', '', files[i])), read_csv(files[i]))
+assign(gsub('.csv', '', gsub('D:/LP_Files/RStudio_Files/cabr_intertidal_community_ms/data/lt_trend_report_tidy_data/', '', files[i])), read_csv(files[i]))
 }
 
 # remove files list from environment
