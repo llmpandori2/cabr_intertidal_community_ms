@@ -5,6 +5,10 @@
 # Session Data files
 .RData
 
+# data files for wrangling script
+/data/crosswalk
+/data/MEDN_RI_DB_Jan21
+
 # User-specific files
 .Ruserdata
 
