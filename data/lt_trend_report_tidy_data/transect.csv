@@ -1,0 +1,2119 @@
+type,survey_year,transect_number,taxa_code,scientific_name,pct_cover,zone
+Egregia,1990,5,EGRMEN,Egregia menziesii,32.9,Zone I
+Egregia,1990,5,PHYALL,Phyllospadix spp,4.3999999999999995,Zone I
+Egregia,1990,6,EGRMEN,Egregia menziesii,0.8999999999999999,Zone I
+Egregia,1990,6,PHYALL,Phyllospadix spp,87.5,Zone I
+Egregia,1991,5,EGRMEN,Egregia menziesii,43,Zone I
+Egregia,1991,5,PHYALL,Phyllospadix spp,19.1,Zone I
+Egregia,1991,6,EGRMEN,Egregia menziesii,64.3,Zone I
+Egregia,1991,6,PHYALL,Phyllospadix spp,18.5,Zone I
+Egregia,1991,6,SARMUT,Sargassum muticum,3,Zone I
+Egregia,1992,6,EGRMEN,Egregia menziesii,45.2,Zone I
+Egregia,1992,6,PHYALL,Phyllospadix spp,29.2,Zone I
+Egregia,1992,5,EGRMEN,Egregia menziesii,20.4,Zone I
+Egregia,1992,5,PHYALL,Phyllospadix spp,51.5,Zone I
+Egregia,1993,5,EGRMEN,Egregia menziesii,5.7,Zone I
+Egregia,1993,5,PHYALL,Phyllospadix spp,67.80000000000001,Zone I
+Egregia,1993,6,EGRMEN,Egregia menziesii,16.7,Zone I
+Egregia,1993,6,PHYALL,Phyllospadix spp,21.2,Zone I
+Egregia,1993,6,SARMUT,Sargassum muticum,22.1,Zone I
+Egregia,1994,5,PHYALL,Phyllospadix spp,90.60000000000001,Zone I
+Egregia,1994,6,EGRMEN,Egregia menziesii,12,Zone I
+Egregia,1994,6,HALCYS,Halidrys dioica/cystoseira spp,44.6,Zone I
+Egregia,1994,6,PHYALL,Phyllospadix spp,30.9,Zone I
+Egregia,1995,5,PHYALL,Phyllospadix spp,93.5,Zone I
+Egregia,1995,6,EGRMEN,Egregia menziesii,32.6,Zone I
+Egregia,1995,6,HALCYS,Halidrys dioica/cystoseira spp,21.099999999999998,Zone I
+Egregia,1995,6,PHYALL,Phyllospadix spp,33,Zone I
+Egregia,1996,5,PHYALL,Phyllospadix spp,89.9,Zone I
+Egregia,1996,6,EGRMEN,Egregia menziesii,3.2,Zone I
+Egregia,1996,6,PHYALL,Phyllospadix spp,56.8,Zone I
+Egregia,1996,6,SARMUT,Sargassum muticum,21.4,Zone I
+Egregia,1997,6,PHYALL,Phyllospadix spp,45.800000000000004,Zone I
+Egregia,1997,5,PHYALL,Phyllospadix spp,81.69999999999999,Zone I
+Egregia,1998,5,PHYALL,Phyllospadix spp,87.4,Zone I
+Egregia,1998,6,EGRMEN,Egregia menziesii,2.9000000000000004,Zone I
+Egregia,1998,6,HALCYS,Halidrys dioica/cystoseira spp,12.7,Zone I
+Egregia,1998,6,PHYALL,Phyllospadix spp,51.4,Zone I
+Egregia,1999,6,EGRMEN,Egregia menziesii,30.5,Zone I
+Egregia,1999,6,PHYALL,Phyllospadix spp,59.699999999999996,Zone I
+Egregia,1999,5,EGRMEN,Egregia menziesii,44.800000000000004,Zone I
+Egregia,1999,5,PHYALL,Phyllospadix spp,51.4,Zone I
+Egregia,2000,5,EGRMEN,Egregia menziesii,11,Zone I
+Egregia,2000,5,PHYALL,Phyllospadix spp,65,Zone I
+Egregia,2000,6,EGRMEN,Egregia menziesii,45,Zone I
+Egregia,2000,6,HALCYS,Halidrys dioica/cystoseira spp,8,Zone I
+Egregia,2000,6,PHYALL,Phyllospadix spp,42,Zone I
+Egregia,2001,6,EGRMEN,Egregia menziesii,22,Zone I
+Egregia,2001,6,PHYALL,Phyllospadix spp,41,Zone I
+Egregia,2001,5,PHYALL,Phyllospadix spp,72,Zone I
+Egregia,2002,5,PHYALL,Phyllospadix spp,90,Zone I
+Egregia,2002,6,PHYALL,Phyllospadix spp,63,Zone I
+Egregia,2003,5,ARTCOR,Articulated corallines,2,Zone I
+Egregia,2003,5,OTHRED,Other red algae,10,Zone I
+Egregia,2003,5,PHYALL,Phyllospadix spp,87,Zone I
+Egregia,2003,5,ROCK,Bare rock,1,Zone I
+Egregia,2003,6,EGRMEN,Egregia menziesii,7.000000000000001,Zone I
+Egregia,2003,6,HALCYS,Halidrys dioica/cystoseira spp,27,Zone I
+Egregia,2003,6,OTHRED,Other red algae,6,Zone I
+Egregia,2003,6,PHYALL,Phyllospadix spp,57.99999999999999,Zone I
+Egregia,2003,6,ROCK,Bare rock,1,Zone I
+Egregia,2003,6,UNIDEN,Unidentified,1,Zone I
+Egregia,2004,5,ARTCOR,Articulated corallines,2,Zone I
+Egregia,2004,5,EGRMEN,Egregia menziesii,1,Zone I
+Egregia,2004,5,OTHRED,Other red algae,3,Zone I
+Egregia,2004,5,PHYALL,Phyllospadix spp,94,Zone I
+Egregia,2004,6,ARTCOR,Articulated corallines,1,Zone I
+Egregia,2004,6,EGRMEN,Egregia menziesii,6,Zone I
+Egregia,2004,6,HALCYS,Halidrys dioica/cystoseira spp,23,Zone I
+Egregia,2004,6,OTHRED,Other red algae,8,Zone I
+Egregia,2004,6,PHYALL,Phyllospadix spp,56.99999999999999,Zone I
+Egregia,2004,6,ROCK,Bare rock,5,Zone I
+Egregia,2005,5,ARTCOR,Articulated corallines,6,Zone I
+Egregia,2005,5,OTHRED,Other red algae,4,Zone I
+Egregia,2005,5,PHYALL,Phyllospadix spp,89,Zone I
+Egregia,2005,5,SAND,Sand,1,Zone I
+Egregia,2005,6,ARTCOR,Articulated corallines,5,Zone I
+Egregia,2005,6,EGRMEN,Egregia menziesii,13,Zone I
+Egregia,2005,6,HALCYS,Halidrys dioica/cystoseira spp,6,Zone I
+Egregia,2005,6,OTHBRO,Other brown algae,2,Zone I
+Egregia,2005,6,OTHGRE,Other green algae,2,Zone I
+Egregia,2005,6,OTHRED,Other red algae,4,Zone I
+Egregia,2005,6,PHYALL,Phyllospadix spp,68,Zone I
+Egregia,2006,5,ARTCOR,Articulated corallines,5,Zone I
+Egregia,2006,5,EGRMEN,Egregia menziesii,22,Zone I
+Egregia,2006,5,OTHRED,Other red algae,4,Zone I
+Egregia,2006,5,PHYALL,Phyllospadix spp,69,Zone I
+Egregia,2006,6,ARTCOR,Articulated corallines,7.000000000000001,Zone I
+Egregia,2006,6,EGRMEN,Egregia menziesii,20,Zone I
+Egregia,2006,6,HALCYS,Halidrys dioica/cystoseira spp,2,Zone I
+Egregia,2006,6,OTHRED,Other red algae,7.000000000000001,Zone I
+Egregia,2006,6,PHYALL,Phyllospadix spp,63,Zone I
+Egregia,2006,6,ROCK,Bare rock,1,Zone I
+Egregia,2007,5,ARTCOR,Articulated corallines,6,Zone I
+Egregia,2007,5,OTHRED,Other red algae,17,Zone I
+Egregia,2007,5,PHYALL,Phyllospadix spp,75,Zone I
+Egregia,2007,5,ROCK,Bare rock,1,Zone I
+Egregia,2007,5,SAND,Sand,1,Zone I
+Egregia,2007,6,ARTCOR,Articulated corallines,5,Zone I
+Egregia,2007,6,CRUCOR,Crustose corallines,1,Zone I
+Egregia,2007,6,EGRMEN,Egregia menziesii,3,Zone I
+Egregia,2007,6,HALCYS,Halidrys dioica/cystoseira spp,5,Zone I
+Egregia,2007,6,OTHRED,Other red algae,19,Zone I
+Egregia,2007,6,PHYALL,Phyllospadix spp,65,Zone I
+Egregia,2007,6,ROCK,Bare rock,2,Zone I
+Egregia,2008,5,ARTCOR,Articulated corallines,12,Zone I
+Egregia,2008,5,OTHRED,Other red algae,12,Zone I
+Egregia,2008,5,PHYALL,Phyllospadix spp,72,Zone I
+Egregia,2008,5,ROCK,Bare rock,1,Zone I
+Egregia,2008,5,SAND,Sand,1,Zone I
+Egregia,2008,5,UNIDEN,Unidentified,2,Zone I
+Egregia,2008,6,EGRMEN,Egregia menziesii,30,Zone I
+Egregia,2008,6,OTHRED,Other red algae,9,Zone I
+Egregia,2008,6,PHYALL,Phyllospadix spp,61,Zone I
+Egregia,2009,5,ARTCOR,Articulated corallines,5,Zone I
+Egregia,2009,5,EGRMEN,Egregia menziesii,2,Zone I
+Egregia,2009,5,OTHRED,Other red algae,11,Zone I
+Egregia,2009,5,PHYALL,Phyllospadix spp,79,Zone I
+Egregia,2009,5,ROCK,Bare rock,2,Zone I
+Egregia,2009,5,SAND,Sand,1,Zone I
+Egregia,2009,6,EGRMEN,Egregia menziesii,6,Zone I
+Egregia,2009,6,OTHRED,Other red algae,9,Zone I
+Egregia,2009,6,PHYALL,Phyllospadix spp,79,Zone I
+Egregia,2010,5,ARTCOR,Articulated corallines,4,Zone I
+Egregia,2010,5,OTHRED,Other red algae,15,Zone I
+Egregia,2010,5,PHYALL,Phyllospadix spp,77,Zone I
+Egregia,2010,5,SAND,Sand,4,Zone I
+Egregia,2010,6,EGRMEN,Egregia menziesii,16,Zone I
+Egregia,2010,6,OTHBRO,Other brown algae,4,Zone I
+Egregia,2010,6,OTHRED,Other red algae,2,Zone I
+Egregia,2010,6,PHYALL,Phyllospadix spp,69,Zone I
+Egregia,2010,6,ROCK,Bare rock,7.000000000000001,Zone I
+Egregia,2011,5,EGRMEN,Egregia menziesii,28.999999999999996,Zone I
+Egregia,2011,5,OTHBRO,Other brown algae,3,Zone I
+Egregia,2011,5,OTHRED,Other red algae,8,Zone I
+Egregia,2011,5,PHYALL,Phyllospadix spp,59,Zone I
+Egregia,2011,5,ROCK,Bare rock,1,Zone I
+Egregia,2011,6,EGRMEN,Egregia menziesii,30,Zone I
+Egregia,2011,6,OTHBRO,Other brown algae,2,Zone I
+Egregia,2011,6,OTHRED,Other red algae,1,Zone I
+Egregia,2011,6,PHYALL,Phyllospadix spp,64,Zone I
+Egregia,2012,6,EGRMEN,Egregia menziesii,14.000000000000002,Zone I
+Egregia,2012,6,OTHBRO,Other brown algae,5,Zone I
+Egregia,2012,6,OTHRED,Other red algae,9,Zone I
+Egregia,2012,6,PHYALL,Phyllospadix spp,68,Zone I
+Egregia,2012,6,ROCK,Bare rock,3,Zone I
+Egregia,2012,6,SARMUT,Sargassum muticum,1,Zone I
+Egregia,2012,5,EGRMEN,Egregia menziesii,10,Zone I
+Egregia,2012,5,OTHRED,Other red algae,32,Zone I
+Egregia,2012,5,PHYALL,Phyllospadix spp,56.00000000000001,Zone I
+Egregia,2012,5,ROCK,Bare rock,1,Zone I
+Egregia,2012,5,SAND,Sand,1,Zone I
+Egregia,2013,5,EGRMEN,Egregia menziesii,69,Zone I
+Egregia,2013,5,OTHRED,Other red algae,9,Zone I
+Egregia,2013,5,PHYALL,Phyllospadix spp,19,Zone I
+Egregia,2013,5,ROCK,Bare rock,3,Zone I
+Egregia,2013,6,EGRMEN,Egregia menziesii,62,Zone I
+Egregia,2013,6,OTHRED,Other red algae,4,Zone I
+Egregia,2013,6,PHYALL,Phyllospadix spp,26,Zone I
+Egregia,2014,5,ARTCOR,Articulated corallines,8,Zone I
+Egregia,2014,5,CRUCOR,Crustose corallines,1,Zone I
+Egregia,2014,5,EGRMEN,Egregia menziesii,3,Zone I
+Egregia,2014,5,OTHBRO,Other brown algae,3,Zone I
+Egregia,2014,5,OTHRED,Other red algae,17,Zone I
+Egregia,2014,5,PHYALL,Phyllospadix spp,61,Zone I
+Egregia,2014,5,ROCK,Bare rock,4,Zone I
+Egregia,2014,5,SAND,Sand,2,Zone I
+Egregia,2014,5,SARMUT,Sargassum muticum,1,Zone I
+Egregia,2014,6,ARTCOR,Articulated corallines,1,Zone I
+Egregia,2014,6,CRUCOR,Crustose corallines,1,Zone I
+Egregia,2014,6,EGRMEN,Egregia menziesii,14.000000000000002,Zone I
+Egregia,2014,6,OTHBRO,Other brown algae,1,Zone I
+Egregia,2014,6,OTHRED,Other red algae,6,Zone I
+Egregia,2014,6,PHYALL,Phyllospadix spp,67,Zone I
+Egregia,2014,6,ROCK,Bare rock,7.000000000000001,Zone I
+Egregia,2014,6,SAND,Sand,1,Zone I
+Egregia,2014,6,SARMUT,Sargassum muticum,2,Zone I
+Egregia,2015,5,ARTCOR,Articulated corallines,8,Zone I
+Egregia,2015,5,OTHBRO,Other brown algae,9,Zone I
+Egregia,2015,5,OTHRED,Other red algae,15,Zone I
+Egregia,2015,5,PHYALL,Phyllospadix spp,64,Zone I
+Egregia,2015,5,SAND,Sand,4,Zone I
+Egregia,2015,6,EGRMEN,Egregia menziesii,5,Zone I
+Egregia,2015,6,OTHRED,Other red algae,5,Zone I
+Egregia,2015,6,PHYALL,Phyllospadix spp,69,Zone I
+Egregia,2015,6,ROCK,Bare rock,17,Zone I
+Egregia,2016,5,ARTCOR,Articulated corallines,1,Zone I
+Egregia,2016,5,OTHRED,Other red algae,13,Zone I
+Egregia,2016,5,PHYALL,Phyllospadix spp,82,Zone I
+Egregia,2016,5,ROCK,Bare rock,3,Zone I
+Egregia,2016,6,ARTCOR,Articulated corallines,4,Zone I
+Egregia,2016,6,CRUCOR,Crustose corallines,2,Zone I
+Egregia,2016,6,EGRMEN,Egregia menziesii,11,Zone I
+Egregia,2016,6,NONCRU,Non-coralline crust,1,Zone I
+Egregia,2016,6,OTHRED,Other red algae,16,Zone I
+Egregia,2016,6,PHRCAL,Phragmatopoma californica,1,Zone I
+Egregia,2016,6,PHYALL,Phyllospadix spp,55.00000000000001,Zone I
+Egregia,2016,6,ROCK,Bare rock,4,Zone I
+Egregia,2016,6,SAND,Sand,1,Zone I
+Egregia,2017,5,OTHRED,Other red algae,8,Zone I
+Egregia,2017,5,PHYALL,Phyllospadix spp,91,Zone I
+Egregia,2017,5,ROCK,Bare rock,1,Zone I
+Egregia,2017,6,EGRMEN,Egregia menziesii,18,Zone I
+Egregia,2017,6,OTHRED,Other red algae,6,Zone I
+Egregia,2017,6,PHYALL,Phyllospadix spp,75,Zone I
+Egregia,2017,6,ROCK,Bare rock,1,Zone I
+Egregia,2019,5,ARTCOR,Articulated corallines,3,Zone I
+Egregia,2019,5,OTHBRO,Other brown algae,1,Zone I
+Egregia,2019,5,OTHRED,Other red algae,11,Zone I
+Egregia,2019,5,PHYALL,Phyllospadix spp,83,Zone I
+Egregia,2019,5,ROCK,Bare rock,2,Zone I
+Egregia,2019,6,ARTCOR,Articulated corallines,1,Zone I
+Egregia,2019,6,EGRMEN,Egregia menziesii,5,Zone I
+Egregia,2019,6,OTHRED,Other red algae,11,Zone I
+Egregia,2019,6,PHYALL,Phyllospadix spp,74,Zone I
+Egregia,2019,6,ROCK,Bare rock,9,Zone I
+Egregia,2020,5,ARTCOR,Articulated corallines,1,Zone I
+Egregia,2020,5,OTHRED,Other red algae,9,Zone I
+Egregia,2020,5,PHYALL,Phyllospadix spp,89,Zone I
+Egregia,2020,5,SAND,Sand,1,Zone I
+Egregia,2020,6,OTHBRO,Other brown algae,3,Zone I
+Egregia,2020,6,OTHRED,Other red algae,11,Zone I
+Egregia,2020,6,PHYALL,Phyllospadix spp,84,Zone I
+Egregia,2020,6,ROCK,Bare rock,2,Zone I
+Egregia,2021,5,OTHRED,Other red algae,3,Zone I
+Egregia,2021,5,PHYALL,Phyllospadix spp,97,Zone I
+Egregia,2021,6,OTHBRO,Other brown algae,8,Zone I
+Egregia,2021,6,OTHRED,Other red algae,13,Zone I
+Egregia,2021,6,PHYALL,Phyllospadix spp,77,Zone I
+Egregia,2021,6,SAND,Sand,2,Zone I
+Phyllospadix,1990,3,PHYALL,Phyllospadix spp,57.099999999999994,Zone I
+Phyllospadix,1990,4,EGRMEN,Egregia menziesii,28.999999999999996,Zone I
+Phyllospadix,1990,4,PHYALL,Phyllospadix spp,27.1,Zone I
+Phyllospadix,1991,3,EGRMEN,Egregia menziesii,1.9,Zone I
+Phyllospadix,1991,3,PHYALL,Phyllospadix spp,66.7,Zone I
+Phyllospadix,1991,4,EGRMEN,Egregia menziesii,17.299999999999997,Zone I
+Phyllospadix,1991,4,PHYALL,Phyllospadix spp,75.4,Zone I
+Phyllospadix,1992,4,EGRMEN,Egregia menziesii,2.4,Zone I
+Phyllospadix,1992,4,PHYALL,Phyllospadix spp,91.8,Zone I
+Phyllospadix,1992,3,PHYALL,Phyllospadix spp,80.30000000000001,Zone I
+Phyllospadix,1993,3,PHYALL,Phyllospadix spp,84.6,Zone I
+Phyllospadix,1993,4,EGRMEN,Egregia menziesii,0.7000000000000001,Zone I
+Phyllospadix,1993,4,PHYALL,Phyllospadix spp,95.7,Zone I
+Phyllospadix,1994,3,PHYALL,Phyllospadix spp,83.7,Zone I
+Phyllospadix,1994,4,PHYALL,Phyllospadix spp,97.3,Zone I
+Phyllospadix,1994,4,SARMUT,Sargassum muticum,1.6,Zone I
+Phyllospadix,1995,3,PHYALL,Phyllospadix spp,77.8,Zone I
+Phyllospadix,1995,4,EGRMEN,Egregia menziesii,1.6,Zone I
+Phyllospadix,1995,4,PHYALL,Phyllospadix spp,82,Zone I
+Phyllospadix,1995,4,SARMUT,Sargassum muticum,2.3,Zone I
+Phyllospadix,1996,3,PHYALL,Phyllospadix spp,72.1,Zone I
+Phyllospadix,1996,4,PHYALL,Phyllospadix spp,78,Zone I
+Phyllospadix,1996,4,SARMUT,Sargassum muticum,2.1,Zone I
+Phyllospadix,1997,3,PHYALL,Phyllospadix spp,69.89999999999999,Zone I
+Phyllospadix,1997,4,PHYALL,Phyllospadix spp,78.4,Zone I
+Phyllospadix,1998,3,PHYALL,Phyllospadix spp,86.1,Zone I
+Phyllospadix,1998,4,EGRMEN,Egregia menziesii,0.1,Zone I
+Phyllospadix,1998,4,PHYALL,Phyllospadix spp,97.1,Zone I
+Phyllospadix,1998,4,SARMUT,Sargassum muticum,0.2,Zone I
+Phyllospadix,1999,3,EGRMEN,Egregia menziesii,8,Zone I
+Phyllospadix,1999,3,PHYALL,Phyllospadix spp,78.3,Zone I
+Phyllospadix,1999,4,EGRMEN,Egregia menziesii,0.7000000000000001,Zone I
+Phyllospadix,1999,4,PHYALL,Phyllospadix spp,97.1,Zone I
+Phyllospadix,2000,3,PHYALL,Phyllospadix spp,77,Zone I
+Phyllospadix,2000,4,PHYALL,Phyllospadix spp,84,Zone I
+Phyllospadix,2001,3,PHYALL,Phyllospadix spp,71,Zone I
+Phyllospadix,2001,4,EGRMEN,Egregia menziesii,3,Zone I
+Phyllospadix,2001,4,PHYALL,Phyllospadix spp,71,Zone I
+Phyllospadix,2001,4,SARMUT,Sargassum muticum,1,Zone I
+Phyllospadix,2002,3,PHYALL,Phyllospadix spp,65,Zone I
+Phyllospadix,2002,4,PHYALL,Phyllospadix spp,87,Zone I
+Phyllospadix,2002,4,SARMUT,Sargassum muticum,1,Zone I
+Phyllospadix,2003,3,ARTCOR,Articulated corallines,4,Zone I
+Phyllospadix,2003,3,OTHRED,Other red algae,16,Zone I
+Phyllospadix,2003,3,PHYALL,Phyllospadix spp,72,Zone I
+Phyllospadix,2003,3,ROCK,Bare rock,3,Zone I
+Phyllospadix,2003,3,SARMUT,Sargassum muticum,2,Zone I
+Phyllospadix,2003,4,ARTCOR,Articulated corallines,2,Zone I
+Phyllospadix,2003,4,CRUCOR,Crustose corallines,1,Zone I
+Phyllospadix,2003,4,EGRMEN,Egregia menziesii,3,Zone I
+Phyllospadix,2003,4,HALCYS,Halidrys dioica/cystoseira spp,6,Zone I
+Phyllospadix,2003,4,OTHBRO,Other brown algae,3,Zone I
+Phyllospadix,2003,4,OTHRED,Other red algae,47,Zone I
+Phyllospadix,2003,4,PHYALL,Phyllospadix spp,33,Zone I
+Phyllospadix,2003,4,ROCK,Bare rock,3,Zone I
+Phyllospadix,2004,3,ARTCOR,Articulated corallines,3,Zone I
+Phyllospadix,2004,3,HALCYS,Halidrys dioica/cystoseira spp,1,Zone I
+Phyllospadix,2004,3,OTHRED,Other red algae,23,Zone I
+Phyllospadix,2004,3,PHYALL,Phyllospadix spp,68,Zone I
+Phyllospadix,2004,3,ROCK,Bare rock,1,Zone I
+Phyllospadix,2004,3,SAND,Sand,4,Zone I
+Phyllospadix,2004,4,ARTCOR,Articulated corallines,1,Zone I
+Phyllospadix,2004,4,EGRMEN,Egregia menziesii,2,Zone I
+Phyllospadix,2004,4,HALCYS,Halidrys dioica/cystoseira spp,1,Zone I
+Phyllospadix,2004,4,OTHRED,Other red algae,3,Zone I
+Phyllospadix,2004,4,PHYALL,Phyllospadix spp,93,Zone I
+Phyllospadix,2005,4,OTHBRO,Other brown algae,1,Zone I
+Phyllospadix,2005,4,PHYALL,Phyllospadix spp,99,Zone I
+Phyllospadix,2005,3,ARTCOR,Articulated corallines,10,Zone I
+Phyllospadix,2005,3,OTHRED,Other red algae,10,Zone I
+Phyllospadix,2005,3,PHYALL,Phyllospadix spp,73,Zone I
+Phyllospadix,2005,3,ROCK,Bare rock,7.000000000000001,Zone I
+Phyllospadix,2006,3,ARTCOR,Articulated corallines,7.000000000000001,Zone I
+Phyllospadix,2006,3,OTHRED,Other red algae,15,Zone I
+Phyllospadix,2006,3,PHYALL,Phyllospadix spp,78,Zone I
+Phyllospadix,2006,4,ARTCOR,Articulated corallines,2,Zone I
+Phyllospadix,2006,4,EGRMEN,Egregia menziesii,9,Zone I
+Phyllospadix,2006,4,HALCYS,Halidrys dioica/cystoseira spp,1,Zone I
+Phyllospadix,2006,4,OTHBRO,Other brown algae,1,Zone I
+Phyllospadix,2006,4,OTHRED,Other red algae,1,Zone I
+Phyllospadix,2006,4,PHYALL,Phyllospadix spp,85,Zone I
+Phyllospadix,2006,4,SAND,Sand,1,Zone I
+Phyllospadix,2007,3,ARTCOR,Articulated corallines,17,Zone I
+Phyllospadix,2007,3,CRUCOR,Crustose corallines,1,Zone I
+Phyllospadix,2007,3,NONCRU,Non-coralline crust,1,Zone I
+Phyllospadix,2007,3,OTHRED,Other red algae,23,Zone I
+Phyllospadix,2007,3,PHYALL,Phyllospadix spp,51,Zone I
+Phyllospadix,2007,3,ROCK,Bare rock,3,Zone I
+Phyllospadix,2007,3,SAND,Sand,4,Zone I
+Phyllospadix,2007,4,ARTCOR,Articulated corallines,15,Zone I
+Phyllospadix,2007,4,HALCYS,Halidrys dioica/cystoseira spp,1,Zone I
+Phyllospadix,2007,4,OTHRED,Other red algae,13,Zone I
+Phyllospadix,2007,4,PHYALL,Phyllospadix spp,65,Zone I
+Phyllospadix,2007,4,ROCK,Bare rock,6,Zone I
+Phyllospadix,2008,3,ARTCOR,Articulated corallines,16,Zone I
+Phyllospadix,2008,3,NONCRU,Non-coralline crust,1,Zone I
+Phyllospadix,2008,3,OTHGRE,Other green algae,1,Zone I
+Phyllospadix,2008,3,OTHRED,Other red algae,12,Zone I
+Phyllospadix,2008,3,PHYALL,Phyllospadix spp,63,Zone I
+Phyllospadix,2008,3,ROCK,Bare rock,6,Zone I
+Phyllospadix,2008,3,SAND,Sand,1,Zone I
+Phyllospadix,2008,4,ARTCOR,Articulated corallines,7.000000000000001,Zone I
+Phyllospadix,2008,4,EGRMEN,Egregia menziesii,1,Zone I
+Phyllospadix,2008,4,OTHRED,Other red algae,7.000000000000001,Zone I
+Phyllospadix,2008,4,PHYALL,Phyllospadix spp,77,Zone I
+Phyllospadix,2008,4,ROCK,Bare rock,7.000000000000001,Zone I
+Phyllospadix,2009,3,ARTCOR,Articulated corallines,16,Zone I
+Phyllospadix,2009,3,OTHGRE,Other green algae,3,Zone I
+Phyllospadix,2009,3,OTHRED,Other red algae,15,Zone I
+Phyllospadix,2009,3,PHYALL,Phyllospadix spp,60,Zone I
+Phyllospadix,2009,3,SAND,Sand,6,Zone I
+Phyllospadix,2009,4,ARTCOR,Articulated corallines,16,Zone I
+Phyllospadix,2009,4,PHYALL,Phyllospadix spp,83,Zone I
+Phyllospadix,2009,4,SAND,Sand,1,Zone I
+Phyllospadix,2010,3,ARTCOR,Articulated corallines,13,Zone I
+Phyllospadix,2010,3,CRUCOR,Crustose corallines,1,Zone I
+Phyllospadix,2010,3,EGRMEN,Egregia menziesii,7.000000000000001,Zone I
+Phyllospadix,2010,3,OTHRED,Other red algae,7.000000000000001,Zone I
+Phyllospadix,2010,3,PHYALL,Phyllospadix spp,70,Zone I
+Phyllospadix,2010,3,ROCK,Bare rock,1,Zone I
+Phyllospadix,2010,3,SAND,Sand,1,Zone I
+Phyllospadix,2010,4,ARTCOR,Articulated corallines,3,Zone I
+Phyllospadix,2010,4,EGRMEN,Egregia menziesii,9,Zone I
+Phyllospadix,2010,4,OTHRED,Other red algae,3,Zone I
+Phyllospadix,2010,4,PHYALL,Phyllospadix spp,79,Zone I
+Phyllospadix,2010,4,ROCK,Bare rock,1,Zone I
+Phyllospadix,2010,4,SAND,Sand,5,Zone I
+Phyllospadix,2011,3,ARTCOR,Articulated corallines,11,Zone I
+Phyllospadix,2011,3,EGRMEN,Egregia menziesii,16,Zone I
+Phyllospadix,2011,3,OTHBRO,Other brown algae,1,Zone I
+Phyllospadix,2011,3,OTHGRE,Other green algae,2,Zone I
+Phyllospadix,2011,3,OTHRED,Other red algae,11,Zone I
+Phyllospadix,2011,3,PHYALL,Phyllospadix spp,52,Zone I
+Phyllospadix,2011,3,ROCK,Bare rock,3,Zone I
+Phyllospadix,2011,3,SAND,Sand,4,Zone I
+Phyllospadix,2011,4,ARTCOR,Articulated corallines,4,Zone I
+Phyllospadix,2011,4,EGRMEN,Egregia menziesii,22,Zone I
+Phyllospadix,2011,4,OTHRED,Other red algae,1,Zone I
+Phyllospadix,2011,4,PHYALL,Phyllospadix spp,70,Zone I
+Phyllospadix,2011,4,ROCK,Bare rock,2,Zone I
+Phyllospadix,2011,4,SAND,Sand,1,Zone I
+Phyllospadix,2012,3,ARTCOR,Articulated corallines,7.000000000000001,Zone I
+Phyllospadix,2012,3,OTHBRO,Other brown algae,1,Zone I
+Phyllospadix,2012,3,OTHRED,Other red algae,11,Zone I
+Phyllospadix,2012,3,PHYALL,Phyllospadix spp,73,Zone I
+Phyllospadix,2012,3,SARMUT,Sargassum muticum,8,Zone I
+Phyllospadix,2012,4,ARTCOR,Articulated corallines,2,Zone I
+Phyllospadix,2012,4,EGRMEN,Egregia menziesii,3,Zone I
+Phyllospadix,2012,4,OTHRED,Other red algae,1,Zone I
+Phyllospadix,2012,4,PHYALL,Phyllospadix spp,94,Zone I
+Phyllospadix,2013,3,ARTCOR,Articulated corallines,1,Zone I
+Phyllospadix,2013,3,OTHRED,Other red algae,21,Zone I
+Phyllospadix,2013,3,PHYALL,Phyllospadix spp,72,Zone I
+Phyllospadix,2013,3,ROCK,Bare rock,2,Zone I
+Phyllospadix,2013,3,SAND,Sand,4,Zone I
+Phyllospadix,2013,4,ARTCOR,Articulated corallines,2,Zone I
+Phyllospadix,2013,4,EGRMEN,Egregia menziesii,7.000000000000001,Zone I
+Phyllospadix,2013,4,OTHBRO,Other brown algae,2,Zone I
+Phyllospadix,2013,4,PHYALL,Phyllospadix spp,88,Zone I
+Phyllospadix,2013,4,ROCK,Bare rock,1,Zone I
+Phyllospadix,2014,3,ARTCOR,Articulated corallines,7.000000000000001,Zone I
+Phyllospadix,2014,3,CRUCOR,Crustose corallines,1,Zone I
+Phyllospadix,2014,3,OTHGRE,Other green algae,11,Zone I
+Phyllospadix,2014,3,OTHRED,Other red algae,30,Zone I
+Phyllospadix,2014,3,PHYALL,Phyllospadix spp,46,Zone I
+Phyllospadix,2014,3,ROCK,Bare rock,1,Zone I
+Phyllospadix,2014,3,SAND,Sand,4,Zone I
+Phyllospadix,2014,4,ARTCOR,Articulated corallines,4,Zone I
+Phyllospadix,2014,4,EGRMEN,Egregia menziesii,1,Zone I
+Phyllospadix,2014,4,OTHBRO,Other brown algae,3,Zone I
+Phyllospadix,2014,4,OTHRED,Other red algae,10,Zone I
+Phyllospadix,2014,4,PHYALL,Phyllospadix spp,81,Zone I
+Phyllospadix,2014,4,ROCK,Bare rock,1,Zone I
+Phyllospadix,2015,3,OTHRED,Other red algae,28.000000000000004,Zone I
+Phyllospadix,2015,3,PHYALL,Phyllospadix spp,68,Zone I
+Phyllospadix,2015,3,ROCK,Bare rock,1,Zone I
+Phyllospadix,2015,3,SAND,Sand,3,Zone I
+Phyllospadix,2015,4,ARTCOR,Articulated corallines,12,Zone I
+Phyllospadix,2015,4,OTHBRO,Other brown algae,2,Zone I
+Phyllospadix,2015,4,OTHRED,Other red algae,7.000000000000001,Zone I
+Phyllospadix,2015,4,PHYALL,Phyllospadix spp,74,Zone I
+Phyllospadix,2015,4,ROCK,Bare rock,1,Zone I
+Phyllospadix,2015,4,SAND,Sand,2,Zone I
+Phyllospadix,2015,4,SARMUT,Sargassum muticum,1,Zone I
+Phyllospadix,2016,4,ARTCOR,Articulated corallines,1,Zone I
+Phyllospadix,2016,4,OTHRED,Other red algae,7.000000000000001,Zone I
+Phyllospadix,2016,4,PHYALL,Phyllospadix spp,87,Zone I
+Phyllospadix,2016,4,SAND,Sand,3,Zone I
+Phyllospadix,2016,3,OTHRED,Other red algae,21,Zone I
+Phyllospadix,2016,3,PHYALL,Phyllospadix spp,76,Zone I
+Phyllospadix,2016,3,SAND,Sand,3,Zone I
+Phyllospadix,2017,3,ARTCOR,Articulated corallines,9,Zone I
+Phyllospadix,2017,3,OTHRED,Other red algae,12,Zone I
+Phyllospadix,2017,3,PHYALL,Phyllospadix spp,76,Zone I
+Phyllospadix,2017,3,SAND,Sand,2,Zone I
+Phyllospadix,2017,4,ARTCOR,Articulated corallines,2,Zone I
+Phyllospadix,2017,4,EGRMEN,Egregia menziesii,5,Zone I
+Phyllospadix,2017,4,OTHRED,Other red algae,1,Zone I
+Phyllospadix,2017,4,PHYALL,Phyllospadix spp,89,Zone I
+Phyllospadix,2017,4,ROCK,Bare rock,2,Zone I
+Phyllospadix,2017,4,SAND,Sand,1,Zone I
+Phyllospadix,2019,3,ARTCOR,Articulated corallines,6,Zone I
+Phyllospadix,2019,3,OTHRED,Other red algae,27,Zone I
+Phyllospadix,2019,3,PHYALL,Phyllospadix spp,62,Zone I
+Phyllospadix,2019,3,ROCK,Bare rock,2,Zone I
+Phyllospadix,2019,3,SAND,Sand,3,Zone I
+Phyllospadix,2019,4,ARTCOR,Articulated corallines,2,Zone I
+Phyllospadix,2019,4,OTHRED,Other red algae,6,Zone I
+Phyllospadix,2019,4,PHYALL,Phyllospadix spp,87,Zone I
+Phyllospadix,2019,4,SAND,Sand,5,Zone I
+Phyllospadix,2020,3,ARTCOR,Articulated corallines,6,Zone I
+Phyllospadix,2020,3,OTHRED,Other red algae,21,Zone I
+Phyllospadix,2020,3,PHYALL,Phyllospadix spp,63,Zone I
+Phyllospadix,2020,3,ROCK,Bare rock,3,Zone I
+Phyllospadix,2020,3,SAND,Sand,7.000000000000001,Zone I
+Phyllospadix,2020,4,ARTCOR,Articulated corallines,3,Zone I
+Phyllospadix,2020,4,CRUCOR,Crustose corallines,1,Zone I
+Phyllospadix,2020,4,OTHRED,Other red algae,11,Zone I
+Phyllospadix,2020,4,PHYALL,Phyllospadix spp,78,Zone I
+Phyllospadix,2020,4,ROCK,Bare rock,2,Zone I
+Phyllospadix,2020,4,SAND,Sand,5,Zone I
+Phyllospadix,2021,3,ARTCOR,Articulated corallines,1,Zone I
+Phyllospadix,2021,3,OTHRED,Other red algae,28.000000000000004,Zone I
+Phyllospadix,2021,3,PHYALL,Phyllospadix spp,67,Zone I
+Phyllospadix,2021,3,ROCK,Bare rock,2,Zone I
+Phyllospadix,2021,3,SAND,Sand,1,Zone I
+Phyllospadix,2021,4,ARTCOR,Articulated corallines,3,Zone I
+Phyllospadix,2021,4,OTHRED,Other red algae,20,Zone I
+Phyllospadix,2021,4,PHYALL,Phyllospadix spp,69,Zone I
+Phyllospadix,2021,4,SAND,Sand,4,Zone I
+Red algae,1990,2,EGRMEN,Egregia menziesii,0.2,Zone I
+Red algae,1990,2,PHYALL,Phyllospadix spp,27.6,Zone I
+Red algae,1991,2,EGRMEN,Egregia menziesii,2.8000000000000003,Zone I
+Red algae,1991,2,PHYALL,Phyllospadix spp,28.299999999999997,Zone I
+Red algae,1992,2,EGRMEN,Egregia menziesii,0.2,Zone I
+Red algae,1992,2,PHYALL,Phyllospadix spp,32.800000000000004,Zone I
+Red algae,1993,2,EGRMEN,Egregia menziesii,7.1,Zone I
+Red algae,1993,2,PHYALL,Phyllospadix spp,31.6,Zone I
+Red algae,1993,2,SARMUT,Sargassum muticum,1.5,Zone I
+Red algae,1994,2,EGRMEN,Egregia menziesii,0.3,Zone I
+Red algae,1994,2,HALCYS,Halidrys dioica/cystoseira spp,0.8,Zone I
+Red algae,1994,2,PHYALL,Phyllospadix spp,40.1,Zone I
+Red algae,1995,2,EGRMEN,Egregia menziesii,3.3000000000000003,Zone I
+Red algae,1995,2,PHYALL,Phyllospadix spp,38.6,Zone I
+Red algae,1996,1,PHYALL,Phyllospadix spp,0.2,Zone I
+Red algae,1996,2,EGRMEN,Egregia menziesii,0.8999999999999999,Zone I
+Red algae,1996,2,PHYALL,Phyllospadix spp,41.5,Zone I
+Red algae,1997,2,PHYALL,Phyllospadix spp,42.699999999999996,Zone I
+Red algae,1998,2,HALCYS,Halidrys dioica/cystoseira spp,0.8,Zone I
+Red algae,1998,2,PHYALL,Phyllospadix spp,41,Zone I
+Red algae,1999,2,EGRMEN,Egregia menziesii,8.6,Zone I
+Red algae,1999,2,PHYALL,Phyllospadix spp,35.5,Zone I
+Red algae,2000,2,EGRMEN,Egregia menziesii,8,Zone I
+Red algae,2000,2,PHYALL,Phyllospadix spp,25,Zone I
+Red algae,2001,2,EGRMEN,Egregia menziesii,7.000000000000001,Zone I
+Red algae,2001,2,PHYALL,Phyllospadix spp,25,Zone I
+Red algae,2002,1,EGRMEN,Egregia menziesii,2,Zone I
+Red algae,2002,2,EGRMEN,Egregia menziesii,1,Zone I
+Red algae,2002,2,PHYALL,Phyllospadix spp,24,Zone I
+Red algae,2003,1,ARTCOR,Articulated corallines,3,Zone I
+Red algae,2003,1,OTHRED,Other red algae,89,Zone I
+Red algae,2003,1,ROCK,Bare rock,2,Zone I
+Red algae,2003,1,SARMUT,Sargassum muticum,3,Zone I
+Red algae,2003,2,ARTCOR,Articulated corallines,18,Zone I
+Red algae,2003,2,EGRMEN,Egregia menziesii,1,Zone I
+Red algae,2003,2,HALCYS,Halidrys dioica/cystoseira spp,7.000000000000001,Zone I
+Red algae,2003,2,NONCRU,Non-coralline crust,1,Zone I
+Red algae,2003,2,OTHGRE,Other green algae,2,Zone I
+Red algae,2003,2,OTHRED,Other red algae,36,Zone I
+Red algae,2003,2,PHYALL,Phyllospadix spp,34,Zone I
+Red algae,2003,2,SARMUT,Sargassum muticum,1,Zone I
+Red algae,2004,1,ARTCOR,Articulated corallines,2,Zone I
+Red algae,2004,1,OTHRED,Other red algae,93,Zone I
+Red algae,2004,1,ROCK,Bare rock,3,Zone I
+Red algae,2004,1,SAND,Sand,2,Zone I
+Red algae,2004,2,ARTCOR,Articulated corallines,3,Zone I
+Red algae,2004,2,EGRMEN,Egregia menziesii,3,Zone I
+Red algae,2004,2,HALCYS,Halidrys dioica/cystoseira spp,4,Zone I
+Red algae,2004,2,OTHGRE,Other green algae,1,Zone I
+Red algae,2004,2,OTHRED,Other red algae,53,Zone I
+Red algae,2004,2,PHYALL,Phyllospadix spp,34,Zone I
+Red algae,2004,2,ROCK,Bare rock,2,Zone I
+Red algae,2005,2,ARTCOR,Articulated corallines,6,Zone I
+Red algae,2005,2,CRUCOR,Crustose corallines,1,Zone I
+Red algae,2005,2,EGRMEN,Egregia menziesii,1,Zone I
+Red algae,2005,2,OTHGRE,Other green algae,2,Zone I
+Red algae,2005,2,OTHRED,Other red algae,48,Zone I
+Red algae,2005,2,PHYALL,Phyllospadix spp,31,Zone I
+Red algae,2005,2,ROCK,Bare rock,1,Zone I
+Red algae,2005,2,SAND,Sand,7.000000000000001,Zone I
+Red algae,2005,2,SARMUT,Sargassum muticum,3,Zone I
+Red algae,2005,1,ANEMON,Anemones (generic),1,Zone I
+Red algae,2005,1,ARTCOR,Articulated corallines,25,Zone I
+Red algae,2005,1,OTHRED,Other red algae,64,Zone I
+Red algae,2005,1,ROCK,Bare rock,5,Zone I
+Red algae,2005,1,SAND,Sand,5,Zone I
+Red algae,2006,1,ARTCOR,Articulated corallines,16,Zone I
+Red algae,2006,1,COLPOM,Colpomenia,1,Zone I
+Red algae,2006,1,OTHRED,Other red algae,82,Zone I
+Red algae,2006,1,SAND,Sand,1,Zone I
+Red algae,2006,2,ARTCOR,Articulated corallines,8,Zone I
+Red algae,2006,2,EGRMEN,Egregia menziesii,27,Zone I
+Red algae,2006,2,HALCYS,Halidrys dioica/cystoseira spp,1,Zone I
+Red algae,2006,2,OTHGRE,Other green algae,1,Zone I
+Red algae,2006,2,OTHRED,Other red algae,42,Zone I
+Red algae,2006,2,PHYALL,Phyllospadix spp,20,Zone I
+Red algae,2006,2,SAND,Sand,1,Zone I
+Red algae,2007,1,ARTCOR,Articulated corallines,24,Zone I
+Red algae,2007,1,OTHRED,Other red algae,74,Zone I
+Red algae,2007,1,ROCK,Bare rock,2,Zone I
+Red algae,2007,2,ARTCOR,Articulated corallines,27,Zone I
+Red algae,2007,2,HALCYS,Halidrys dioica/cystoseira spp,2,Zone I
+Red algae,2007,2,OTHRED,Other red algae,45,Zone I
+Red algae,2007,2,PHYALL,Phyllospadix spp,26,Zone I
+Red algae,2008,1,ARTCOR,Articulated corallines,27,Zone I
+Red algae,2008,1,OTHGRE,Other green algae,5,Zone I
+Red algae,2008,1,OTHRED,Other red algae,55.00000000000001,Zone I
+Red algae,2008,1,ROCK,Bare rock,12,Zone I
+Red algae,2008,2,ARTCOR,Articulated corallines,26,Zone I
+Red algae,2008,2,EGRMEN,Egregia menziesii,2,Zone I
+Red algae,2008,2,OTHGRE,Other green algae,1,Zone I
+Red algae,2008,2,OTHRED,Other red algae,38,Zone I
+Red algae,2008,2,PHYALL,Phyllospadix spp,27,Zone I
+Red algae,2008,2,ROCK,Bare rock,5,Zone I
+Red algae,2008,2,SAND,Sand,1,Zone I
+Red algae,2009,1,ARTCOR,Articulated corallines,39,Zone I
+Red algae,2009,1,CRUCOR,Crustose corallines,1,Zone I
+Red algae,2009,1,OTHGRE,Other green algae,1,Zone I
+Red algae,2009,1,OTHRED,Other red algae,48,Zone I
+Red algae,2009,1,ROCK,Bare rock,2,Zone I
+Red algae,2009,1,SAND,Sand,9,Zone I
+Red algae,2009,2,ARTCOR,Articulated corallines,25,Zone I
+Red algae,2009,2,CRUCOR,Crustose corallines,1,Zone I
+Red algae,2009,2,EGRMEN,Egregia menziesii,3,Zone I
+Red algae,2009,2,OTHGRE,Other green algae,2,Zone I
+Red algae,2009,2,OTHRED,Other red algae,31,Zone I
+Red algae,2009,2,PHYALL,Phyllospadix spp,33,Zone I
+Red algae,2009,2,ROCK,Bare rock,3,Zone I
+Red algae,2010,1,ARTCOR,Articulated corallines,20,Zone I
+Red algae,2010,1,OTHGRE,Other green algae,2,Zone I
+Red algae,2010,1,OTHRED,Other red algae,55.00000000000001,Zone I
+Red algae,2010,1,ROCK,Bare rock,15,Zone I
+Red algae,2010,1,SARMUT,Sargassum muticum,7.000000000000001,Zone I
+Red algae,2010,2,ARTCOR,Articulated corallines,25,Zone I
+Red algae,2010,2,CRUCOR,Crustose corallines,1,Zone I
+Red algae,2010,2,EGRMEN,Egregia menziesii,6,Zone I
+Red algae,2010,2,NONCRU,Non-coralline crust,2,Zone I
+Red algae,2010,2,OTHGRE,Other green algae,1,Zone I
+Red algae,2010,2,OTHRED,Other red algae,28.999999999999996,Zone I
+Red algae,2010,2,PHYALL,Phyllospadix spp,30,Zone I
+Red algae,2010,2,ROCK,Bare rock,4,Zone I
+Red algae,2010,2,SAND,Sand,2,Zone I
+Red algae,2011,1,ARTCOR,Articulated corallines,20,Zone I
+Red algae,2011,1,EGRMEN,Egregia menziesii,5,Zone I
+Red algae,2011,1,NONCRU,Non-coralline crust,1,Zone I
+Red algae,2011,1,OTHGRE,Other green algae,2,Zone I
+Red algae,2011,1,OTHRED,Other red algae,60,Zone I
+Red algae,2011,1,ROCK,Bare rock,9,Zone I
+Red algae,2011,1,SAND,Sand,2,Zone I
+Red algae,2011,2,ARTCOR,Articulated corallines,22,Zone I
+Red algae,2011,2,EGRMEN,Egregia menziesii,32,Zone I
+Red algae,2011,2,OTHBRO,Other brown algae,3,Zone I
+Red algae,2011,2,OTHGRE,Other green algae,2,Zone I
+Red algae,2011,2,OTHRED,Other red algae,24,Zone I
+Red algae,2011,2,PHYALL,Phyllospadix spp,13,Zone I
+Red algae,2011,2,ROCK,Bare rock,4,Zone I
+Red algae,2012,1,ARTCOR,Articulated corallines,4,Zone I
+Red algae,2012,1,OTHBRO,Other brown algae,3,Zone I
+Red algae,2012,1,OTHGRE,Other green algae,1,Zone I
+Red algae,2012,1,OTHRED,Other red algae,85,Zone I
+Red algae,2012,1,SAND,Sand,6,Zone I
+Red algae,2012,2,ARTCOR,Articulated corallines,7.000000000000001,Zone I
+Red algae,2012,2,EGRMEN,Egregia menziesii,6,Zone I
+Red algae,2012,2,OTHBRO,Other brown algae,2,Zone I
+Red algae,2012,2,OTHGRE,Other green algae,3,Zone I
+Red algae,2012,2,OTHRED,Other red algae,44,Zone I
+Red algae,2012,2,PHYALL,Phyllospadix spp,33,Zone I
+Red algae,2012,2,ROCK,Bare rock,1,Zone I
+Red algae,2012,2,SAND,Sand,4,Zone I
+Red algae,2013,1,ARTCOR,Articulated corallines,4,Zone I
+Red algae,2013,1,OTHRED,Other red algae,91,Zone I
+Red algae,2013,1,ROCK,Bare rock,1,Zone I
+Red algae,2013,1,SAND,Sand,3,Zone I
+Red algae,2013,2,ARTCOR,Articulated corallines,15,Zone I
+Red algae,2013,2,CRUCOR,Crustose corallines,1,Zone I
+Red algae,2013,2,EGRMEN,Egregia menziesii,8,Zone I
+Red algae,2013,2,OTHBRO,Other brown algae,3,Zone I
+Red algae,2013,2,OTHGRE,Other green algae,1,Zone I
+Red algae,2013,2,OTHRED,Other red algae,48,Zone I
+Red algae,2013,2,PHYALL,Phyllospadix spp,23,Zone I
+Red algae,2013,2,ROCK,Bare rock,1,Zone I
+Red algae,2014,1,ARTCOR,Articulated corallines,4,Zone I
+Red algae,2014,1,OTHRED,Other red algae,95,Zone I
+Red algae,2014,1,ROCK,Bare rock,1,Zone I
+Red algae,2014,2,EGRMEN,Egregia menziesii,5,Zone I
+Red algae,2014,2,OTHBRO,Other brown algae,1,Zone I
+Red algae,2014,2,OTHRED,Other red algae,66,Zone I
+Red algae,2014,2,PHYALL,Phyllospadix spp,28.000000000000004,Zone I
+Red algae,2015,1,OTHRED,Other red algae,98,Zone I
+Red algae,2015,1,SAND,Sand,2,Zone I
+Red algae,2015,2,ARTCOR,Articulated corallines,10,Zone I
+Red algae,2015,2,OTHRED,Other red algae,35,Zone I
+Red algae,2015,2,PHYALL,Phyllospadix spp,53,Zone I
+Red algae,2015,2,ROCK,Bare rock,1,Zone I
+Red algae,2016,2,ARTCOR,Articulated corallines,6,Zone I
+Red algae,2016,2,OTHRED,Other red algae,16,Zone I
+Red algae,2016,2,PHYALL,Phyllospadix spp,77,Zone I
+Red algae,2016,2,ROCK,Bare rock,1,Zone I
+Red algae,2016,1,ARTCOR,Articulated corallines,3,Zone I
+Red algae,2016,1,OTHRED,Other red algae,93,Zone I
+Red algae,2016,1,SAND,Sand,3,Zone I
+Red algae,2017,1,ARTCOR,Articulated corallines,6,Zone I
+Red algae,2017,1,CRUCOR,Crustose corallines,1,Zone I
+Red algae,2017,1,OTHRED,Other red algae,28.999999999999996,Zone I
+Red algae,2017,1,SAND,Sand,4,Zone I
+Red algae,2017,2,ARTCOR,Articulated corallines,3,Zone I
+Red algae,2017,2,EGRMEN,Egregia menziesii,2,Zone I
+Red algae,2017,2,OTHRED,Other red algae,21,Zone I
+Red algae,2017,2,PHYALL,Phyllospadix spp,73,Zone I
+Red algae,2019,1,ARTCOR,Articulated corallines,1,Zone I
+Red algae,2019,1,OTHRED,Other red algae,87,Zone I
+Red algae,2019,1,PHYALL,Phyllospadix spp,6,Zone I
+Red algae,2019,1,SAND,Sand,5,Zone I
+Red algae,2019,2,CRUCOR,Crustose corallines,1,Zone I
+Red algae,2019,2,OTHRED,Other red algae,22,Zone I
+Red algae,2019,2,PHYALL,Phyllospadix spp,75,Zone I
+Red algae,2019,2,SAND,Sand,1,Zone I
+Red algae,2020,1,ARTCOR,Articulated corallines,10,Zone I
+Red algae,2020,1,CRUCOR,Crustose corallines,2,Zone I
+Red algae,2020,1,OTHRED,Other red algae,69,Zone I
+Red algae,2020,1,PHYALL,Phyllospadix spp,12,Zone I
+Red algae,2020,1,ROCK,Bare rock,5,Zone I
+Red algae,2020,1,SAND,Sand,2,Zone I
+Red algae,2020,2,ARTCOR,Articulated corallines,4,Zone I
+Red algae,2020,2,OTHRED,Other red algae,23,Zone I
+Red algae,2020,2,PHYALL,Phyllospadix spp,72,Zone I
+Red algae,2021,1,OTHRED,Other red algae,81,Zone I
+Red algae,2021,1,PHYALL,Phyllospadix spp,9,Zone I
+Red algae,2021,1,ROCK,Bare rock,8,Zone I
+Red algae,2021,1,SAND,Sand,1,Zone I
+Red algae,2021,2,OTHRED,Other red algae,17,Zone I
+Red algae,2021,2,PHYALL,Phyllospadix spp,83,Zone I
+Egregia,1990,5,EGRMEN,Egregia menziesii,52.1,Zone II
+Egregia,1990,5,PHYALL,Phyllospadix spp,12.6,Zone II
+Egregia,1990,6,EGRMEN,Egregia menziesii,31.6,Zone II
+Egregia,1990,6,PHYALL,Phyllospadix spp,21,Zone II
+Egregia,1991,6,EGRMEN,Egregia menziesii,26.6,Zone II
+Egregia,1991,6,PHYALL,Phyllospadix spp,51.7,Zone II
+Egregia,1991,5,EGRMEN,Egregia menziesii,31.2,Zone II
+Egregia,1991,5,PHYALL,Phyllospadix spp,25,Zone II
+Egregia,1991,5,SARMUT,Sargassum muticum,12.5,Zone II
+Egregia,1992,5,EGRMEN,Egregia menziesii,46.5,Zone II
+Egregia,1992,5,PHYALL,Phyllospadix spp,36.3,Zone II
+Egregia,1992,6,EGRMEN,Egregia menziesii,15.2,Zone II
+Egregia,1992,6,PHYALL,Phyllospadix spp,62.2,Zone II
+Egregia,1993,5,EGRMEN,Egregia menziesii,7.8,Zone II
+Egregia,1993,5,PHYALL,Phyllospadix spp,69.8,Zone II
+Egregia,1993,6,EGRMEN,Egregia menziesii,12.4,Zone II
+Egregia,1993,6,PHYALL,Phyllospadix spp,75.5,Zone II
+Egregia,1995,5,EGRMEN,Egregia menziesii,0.6,Zone II
+Egregia,1995,5,HALCYS,Halidrys dioica/cystoseira spp,5.4,Zone II
+Egregia,1995,5,PHYALL,Phyllospadix spp,93.2,Zone II
+Egregia,1995,6,PHYALL,Phyllospadix spp,64.4,Zone II
+Egregia,1996,6,EGRMEN,Egregia menziesii,16.400000000000002,Zone II
+Egregia,1996,6,PHYALL,Phyllospadix spp,64.2,Zone II
+Egregia,1996,6,SARMUT,Sargassum muticum,1.7999999999999998,Zone II
+Egregia,1996,5,PHYALL,Phyllospadix spp,96.89999999999999,Zone II
+Egregia,1996,5,SARMUT,Sargassum muticum,1.7999999999999998,Zone II
+Egregia,1997,5,PHYALL,Phyllospadix spp,86.3,Zone II
+Egregia,1997,5,SARMUT,Sargassum muticum,0.4,Zone II
+Egregia,1997,6,PHYALL,Phyllospadix spp,82.89999999999999,Zone II
+Egregia,1998,5,EGRMEN,Egregia menziesii,1,Zone II
+Egregia,1998,5,HALCYS,Halidrys dioica/cystoseira spp,2.9000000000000004,Zone II
+Egregia,1998,5,PHYALL,Phyllospadix spp,96.1,Zone II
+Egregia,1998,6,ANEMON,Anemones (generic),0.1,Zone II
+Egregia,1998,6,EGRMEN,Egregia menziesii,17.7,Zone II
+Egregia,1998,6,PHYALL,Phyllospadix spp,58.4,Zone II
+Egregia,1999,6,EGRMEN,Egregia menziesii,12.5,Zone II
+Egregia,1999,6,PHYALL,Phyllospadix spp,71.5,Zone II
+Egregia,1999,5,PHYALL,Phyllospadix spp,100,Zone II
+Egregia,2000,5,EGRMEN,Egregia menziesii,1,Zone II
+Egregia,2000,5,PHYALL,Phyllospadix spp,95,Zone II
+Egregia,2000,5,SARMUT,Sargassum muticum,3,Zone II
+Egregia,2000,6,EGRMEN,Egregia menziesii,10,Zone II
+Egregia,2000,6,PHYALL,Phyllospadix spp,75,Zone II
+Egregia,2001,5,PHYALL,Phyllospadix spp,80,Zone II
+Egregia,2001,6,EGRMEN,Egregia menziesii,10,Zone II
+Egregia,2001,6,PHYALL,Phyllospadix spp,68,Zone II
+Egregia,2002,5,OTHBRO,Other brown algae,8,Zone II
+Egregia,2002,5,PHYALL,Phyllospadix spp,84,Zone II
+Egregia,2002,6,OTHBRO,Other brown algae,1,Zone II
+Egregia,2002,6,PHYALL,Phyllospadix spp,74,Zone II
+Egregia,2002,6,SARMUT,Sargassum muticum,1,Zone II
+Egregia,2003,5,EGRMEN,Egregia menziesii,6,Zone II
+Egregia,2003,5,HALCYS,Halidrys dioica/cystoseira spp,19,Zone II
+Egregia,2003,5,PHYALL,Phyllospadix spp,75,Zone II
+Egregia,2003,6,EGRMEN,Egregia menziesii,11,Zone II
+Egregia,2003,6,OTHBRO,Other brown algae,1,Zone II
+Egregia,2003,6,OTHRED,Other red algae,7.000000000000001,Zone II
+Egregia,2003,6,PHYALL,Phyllospadix spp,81,Zone II
+Egregia,2004,5,EGRMEN,Egregia menziesii,3,Zone II
+Egregia,2004,5,HALCYS,Halidrys dioica/cystoseira spp,5,Zone II
+Egregia,2004,5,PHYALL,Phyllospadix spp,91,Zone II
+Egregia,2004,5,ROCK,Bare rock,1,Zone II
+Egregia,2004,6,ARTCOR,Articulated corallines,5,Zone II
+Egregia,2004,6,EGRMEN,Egregia menziesii,22,Zone II
+Egregia,2004,6,HALCYS,Halidrys dioica/cystoseira spp,1,Zone II
+Egregia,2004,6,OTHRED,Other red algae,12,Zone II
+Egregia,2004,6,PHYALL,Phyllospadix spp,60,Zone II
+Egregia,2005,5,EGRMEN,Egregia menziesii,4,Zone II
+Egregia,2005,5,HALCYS,Halidrys dioica/cystoseira spp,2,Zone II
+Egregia,2005,5,OTHRED,Other red algae,1,Zone II
+Egregia,2005,5,PHYALL,Phyllospadix spp,93,Zone II
+Egregia,2005,6,ARTCOR,Articulated corallines,2,Zone II
+Egregia,2005,6,EGRMEN,Egregia menziesii,11,Zone II
+Egregia,2005,6,HALCYS,Halidrys dioica/cystoseira spp,1,Zone II
+Egregia,2005,6,OTHRED,Other red algae,12,Zone II
+Egregia,2005,6,PHYALL,Phyllospadix spp,73,Zone II
+Egregia,2005,6,ROCK,Bare rock,1,Zone II
+Egregia,2006,5,EGRMEN,Egregia menziesii,6,Zone II
+Egregia,2006,5,HALCYS,Halidrys dioica/cystoseira spp,3,Zone II
+Egregia,2006,5,PHYALL,Phyllospadix spp,91,Zone II
+Egregia,2006,6,ARTCOR,Articulated corallines,4,Zone II
+Egregia,2006,6,EGRMEN,Egregia menziesii,13,Zone II
+Egregia,2006,6,OTHGRE,Other green algae,1,Zone II
+Egregia,2006,6,OTHRED,Other red algae,3,Zone II
+Egregia,2006,6,PHYALL,Phyllospadix spp,79,Zone II
+Egregia,2007,5,ARTCOR,Articulated corallines,9,Zone II
+Egregia,2007,5,EGRMEN,Egregia menziesii,1,Zone II
+Egregia,2007,5,HALCYS,Halidrys dioica/cystoseira spp,7.000000000000001,Zone II
+Egregia,2007,5,OTHGRE,Other green algae,2,Zone II
+Egregia,2007,5,OTHRED,Other red algae,6,Zone II
+Egregia,2007,5,PHYALL,Phyllospadix spp,70,Zone II
+Egregia,2007,5,ROCK,Bare rock,1,Zone II
+Egregia,2007,5,SAND,Sand,2,Zone II
+Egregia,2007,5,SARMUT,Sargassum muticum,2,Zone II
+Egregia,2007,6,ARTCOR,Articulated corallines,9,Zone II
+Egregia,2007,6,OTHGRE,Other green algae,3,Zone II
+Egregia,2007,6,OTHRED,Other red algae,22,Zone II
+Egregia,2007,6,PHYALL,Phyllospadix spp,61,Zone II
+Egregia,2007,6,ROCK,Bare rock,1,Zone II
+Egregia,2007,6,SAND,Sand,4,Zone II
+Egregia,2008,5,ARTCOR,Articulated corallines,8,Zone II
+Egregia,2008,5,EGRMEN,Egregia menziesii,9,Zone II
+Egregia,2008,5,OTHGRE,Other green algae,3,Zone II
+Egregia,2008,5,OTHRED,Other red algae,7.000000000000001,Zone II
+Egregia,2008,5,PHYALL,Phyllospadix spp,66,Zone II
+Egregia,2008,5,ROCK,Bare rock,2,Zone II
+Egregia,2008,5,SAND,Sand,5,Zone II
+Egregia,2008,6,ARTCOR,Articulated corallines,4,Zone II
+Egregia,2008,6,CRUCOR,Crustose corallines,1,Zone II
+Egregia,2008,6,EGRMEN,Egregia menziesii,46,Zone II
+Egregia,2008,6,OTHRED,Other red algae,12,Zone II
+Egregia,2008,6,PHYALL,Phyllospadix spp,33,Zone II
+Egregia,2008,6,ROCK,Bare rock,1,Zone II
+Egregia,2008,6,SARMUT,Sargassum muticum,2,Zone II
+Egregia,2009,5,ARTCOR,Articulated corallines,6,Zone II
+Egregia,2009,5,EGRMEN,Egregia menziesii,4,Zone II
+Egregia,2009,5,PHYALL,Phyllospadix spp,80,Zone II
+Egregia,2009,5,SARMUT,Sargassum muticum,7.000000000000001,Zone II
+Egregia,2009,6,ARTCOR,Articulated corallines,12,Zone II
+Egregia,2009,6,EGRMEN,Egregia menziesii,14.000000000000002,Zone II
+Egregia,2009,6,OTHRED,Other red algae,1,Zone II
+Egregia,2009,6,PHYALL,Phyllospadix spp,72,Zone II
+Egregia,2009,6,SAND,Sand,1,Zone II
+Egregia,2010,6,ARTCOR,Articulated corallines,5,Zone II
+Egregia,2010,6,CRUCOR,Crustose corallines,1,Zone II
+Egregia,2010,6,EGRMEN,Egregia menziesii,39,Zone II
+Egregia,2010,6,NONCRU,Non-coralline crust,1,Zone II
+Egregia,2010,6,OTHRED,Other red algae,14.000000000000002,Zone II
+Egregia,2010,6,PHYALL,Phyllospadix spp,31,Zone II
+Egregia,2010,6,ROCK,Bare rock,8,Zone II
+Egregia,2010,6,SAND,Sand,1,Zone II
+Egregia,2010,5,EGRMEN,Egregia menziesii,45,Zone II
+Egregia,2010,5,OTHRED,Other red algae,1,Zone II
+Egregia,2010,5,PHYALL,Phyllospadix spp,51,Zone II
+Egregia,2010,5,ROCK,Bare rock,1,Zone II
+Egregia,2011,5,EGRMEN,Egregia menziesii,52,Zone II
+Egregia,2011,5,OTHRED,Other red algae,3,Zone II
+Egregia,2011,5,PHYALL,Phyllospadix spp,44,Zone II
+Egregia,2011,5,SAND,Sand,1,Zone II
+Egregia,2011,6,ARTCOR,Articulated corallines,3,Zone II
+Egregia,2011,6,EGRMEN,Egregia menziesii,55.00000000000001,Zone II
+Egregia,2011,6,NONCRU,Non-coralline crust,1,Zone II
+Egregia,2011,6,OTHRED,Other red algae,14.000000000000002,Zone II
+Egregia,2011,6,PHYALL,Phyllospadix spp,21,Zone II
+Egregia,2011,6,ROCK,Bare rock,4,Zone II
+Egregia,2011,6,SAND,Sand,2,Zone II
+Egregia,2012,5,EGRMEN,Egregia menziesii,22,Zone II
+Egregia,2012,5,OTHRED,Other red algae,1,Zone II
+Egregia,2012,5,PHYALL,Phyllospadix spp,76,Zone II
+Egregia,2012,6,ARTCOR,Articulated corallines,1,Zone II
+Egregia,2012,6,CRUCOR,Crustose corallines,1,Zone II
+Egregia,2012,6,EGRMEN,Egregia menziesii,46,Zone II
+Egregia,2012,6,OTHRED,Other red algae,31,Zone II
+Egregia,2012,6,PHYALL,Phyllospadix spp,19,Zone II
+Egregia,2012,6,ROCK,Bare rock,1,Zone II
+Egregia,2012,6,SAND,Sand,1,Zone II
+Egregia,2013,6,EGRMEN,Egregia menziesii,69,Zone II
+Egregia,2013,6,OTHBRO,Other brown algae,2,Zone II
+Egregia,2013,6,OTHRED,Other red algae,20,Zone II
+Egregia,2013,6,PHYALL,Phyllospadix spp,9,Zone II
+Egregia,2013,5,EGRMEN,Egregia menziesii,8,Zone II
+Egregia,2013,5,PHYALL,Phyllospadix spp,83,Zone II
+Egregia,2014,5,OTHBRO,Other brown algae,1,Zone II
+Egregia,2014,5,OTHRED,Other red algae,2,Zone II
+Egregia,2014,5,PHYALL,Phyllospadix spp,97,Zone II
+Egregia,2014,6,CRUCOR,Crustose corallines,1,Zone II
+Egregia,2014,6,EGRMEN,Egregia menziesii,5,Zone II
+Egregia,2014,6,OTHGRE,Other green algae,1,Zone II
+Egregia,2014,6,OTHRED,Other red algae,56.00000000000001,Zone II
+Egregia,2014,6,PHYALL,Phyllospadix spp,34,Zone II
+Egregia,2014,6,ROCK,Bare rock,1,Zone II
+Egregia,2014,6,SAND,Sand,1,Zone II
+Egregia,2015,5,ARTCOR,Articulated corallines,1,Zone II
+Egregia,2015,5,OTHRED,Other red algae,1,Zone II
+Egregia,2015,5,PHYALL,Phyllospadix spp,96,Zone II
+Egregia,2015,5,ROCK,Bare rock,2,Zone II
+Egregia,2015,6,ARTCOR,Articulated corallines,11,Zone II
+Egregia,2015,6,CRUCOR,Crustose corallines,2,Zone II
+Egregia,2015,6,OTHRED,Other red algae,43,Zone II
+Egregia,2015,6,PHYALL,Phyllospadix spp,41,Zone II
+Egregia,2015,6,SAND,Sand,3,Zone II
+Egregia,2016,5,EGRMEN,Egregia menziesii,2,Zone II
+Egregia,2016,5,OTHBRO,Other brown algae,2,Zone II
+Egregia,2016,5,PHYALL,Phyllospadix spp,96,Zone II
+Egregia,2016,6,ARTCOR,Articulated corallines,2,Zone II
+Egregia,2016,6,OTHBRO,Other brown algae,1,Zone II
+Egregia,2016,6,OTHRED,Other red algae,28.000000000000004,Zone II
+Egregia,2016,6,PHYALL,Phyllospadix spp,67,Zone II
+Egregia,2016,6,ROCK,Bare rock,1,Zone II
+Egregia,2016,6,SAND,Sand,1,Zone II
+Egregia,2017,5,EGRMEN,Egregia menziesii,2,Zone II
+Egregia,2017,5,PHYALL,Phyllospadix spp,98,Zone II
+Egregia,2017,6,ARTCOR,Articulated corallines,1,Zone II
+Egregia,2017,6,EGRMEN,Egregia menziesii,34,Zone II
+Egregia,2017,6,OTHRED,Other red algae,7.000000000000001,Zone II
+Egregia,2017,6,PHYALL,Phyllospadix spp,57.99999999999999,Zone II
+Egregia,2019,5,OTHRED,Other red algae,1,Zone II
+Egregia,2019,5,PHYALL,Phyllospadix spp,99,Zone II
+Egregia,2019,6,ARTCOR,Articulated corallines,3,Zone II
+Egregia,2019,6,OTHRED,Other red algae,26,Zone II
+Egregia,2019,6,PHYALL,Phyllospadix spp,59,Zone II
+Egregia,2019,6,ROCK,Bare rock,8,Zone II
+Egregia,2019,6,SAND,Sand,2,Zone II
+Egregia,2020,5,PHYALL,Phyllospadix spp,100,Zone II
+Egregia,2020,6,ARTCOR,Articulated corallines,6,Zone II
+Egregia,2020,6,OTHRED,Other red algae,17,Zone II
+Egregia,2020,6,PHYALL,Phyllospadix spp,75,Zone II
+Egregia,2020,6,ROCK,Bare rock,1,Zone II
+Egregia,2020,6,SAND,Sand,1,Zone II
+Egregia,2021,5,OTHBRO,Other brown algae,1,Zone II
+Egregia,2021,5,PHYALL,Phyllospadix spp,99,Zone II
+Egregia,2021,6,ARTCOR,Articulated corallines,1,Zone II
+Egregia,2021,6,EGRMEN,Egregia menziesii,11,Zone II
+Egregia,2021,6,OTHRED,Other red algae,10,Zone II
+Egregia,2021,6,PHYALL,Phyllospadix spp,77,Zone II
+Egregia,2021,6,SAND,Sand,1,Zone II
+Phyllospadix,1990,3,EGRMEN,Egregia menziesii,1,Zone II
+Phyllospadix,1990,3,PHYALL,Phyllospadix spp,77.5,Zone II
+Phyllospadix,1990,4,EGRMEN,Egregia menziesii,14.499999999999998,Zone II
+Phyllospadix,1990,4,PHYALL,Phyllospadix spp,61.1,Zone II
+Phyllospadix,1991,4,EGRMEN,Egregia menziesii,30.4,Zone II
+Phyllospadix,1991,4,PHYALL,Phyllospadix spp,46.5,Zone II
+Phyllospadix,1991,3,EGRMEN,Egregia menziesii,3.3000000000000003,Zone II
+Phyllospadix,1991,3,PHYALL,Phyllospadix spp,94.69999999999999,Zone II
+Phyllospadix,1992,3,EGRMEN,Egregia menziesii,7.000000000000001,Zone II
+Phyllospadix,1992,3,PHYALL,Phyllospadix spp,92,Zone II
+Phyllospadix,1992,4,EGRMEN,Egregia menziesii,19.6,Zone II
+Phyllospadix,1992,4,PHYALL,Phyllospadix spp,63,Zone II
+Phyllospadix,1992,4,SARMUT,Sargassum muticum,4.3999999999999995,Zone II
+Phyllospadix,1993,3,PHYALL,Phyllospadix spp,98.6,Zone II
+Phyllospadix,1993,4,EGRMEN,Egregia menziesii,6.5,Zone II
+Phyllospadix,1993,4,PHYALL,Phyllospadix spp,70.6,Zone II
+Phyllospadix,1995,4,PHYALL,Phyllospadix spp,92.80000000000001,Zone II
+Phyllospadix,1996,4,EGRMEN,Egregia menziesii,0.6,Zone II
+Phyllospadix,1996,4,PHYALL,Phyllospadix spp,87,Zone II
+Phyllospadix,1996,4,SARMUT,Sargassum muticum,1.7000000000000002,Zone II
+Phyllospadix,1996,3,PHYALL,Phyllospadix spp,93.7,Zone II
+Phyllospadix,1996,3,SARMUT,Sargassum muticum,5.2,Zone II
+Phyllospadix,1997,3,PHYALL,Phyllospadix spp,95.39999999999999,Zone II
+Phyllospadix,1997,3,SARMUT,Sargassum muticum,3,Zone II
+Phyllospadix,1997,4,PHYALL,Phyllospadix spp,83.2,Zone II
+Phyllospadix,1998,3,EGRMEN,Egregia menziesii,2.3,Zone II
+Phyllospadix,1998,3,HALCYS,Halidrys dioica/cystoseira spp,1.4000000000000001,Zone II
+Phyllospadix,1998,3,OTHBRO,Other brown algae,1.4000000000000001,Zone II
+Phyllospadix,1998,3,PHYALL,Phyllospadix spp,75.7,Zone II
+Phyllospadix,1998,4,EGRMEN,Egregia menziesii,5,Zone II
+Phyllospadix,1998,4,PHYALL,Phyllospadix spp,76.8,Zone II
+Phyllospadix,1999,4,PHYALL,Phyllospadix spp,93,Zone II
+Phyllospadix,1999,3,PHYALL,Phyllospadix spp,88,Zone II
+Phyllospadix,2000,3,EGRMEN,Egregia menziesii,12,Zone II
+Phyllospadix,2000,3,OTHRED,Other red algae,1,Zone II
+Phyllospadix,2000,3,PHYALL,Phyllospadix spp,85,Zone II
+Phyllospadix,2000,4,EGRMEN,Egregia menziesii,8,Zone II
+Phyllospadix,2000,4,PHYALL,Phyllospadix spp,79,Zone II
+Phyllospadix,2001,3,PHYALL,Phyllospadix spp,94,Zone II
+Phyllospadix,2001,4,EGRMEN,Egregia menziesii,5,Zone II
+Phyllospadix,2001,4,OTHBRO,Other brown algae,1,Zone II
+Phyllospadix,2001,4,PHYALL,Phyllospadix spp,75,Zone II
+Phyllospadix,2002,3,EGRMEN,Egregia menziesii,1,Zone II
+Phyllospadix,2002,3,PHYALL,Phyllospadix spp,91,Zone II
+Phyllospadix,2002,4,PHYALL,Phyllospadix spp,94,Zone II
+Phyllospadix,2003,3,EGRMEN,Egregia menziesii,3,Zone II
+Phyllospadix,2003,3,OTHRED,Other red algae,1,Zone II
+Phyllospadix,2003,3,PHYALL,Phyllospadix spp,96,Zone II
+Phyllospadix,2003,4,ARTCOR,Articulated corallines,1,Zone II
+Phyllospadix,2003,4,EGRMEN,Egregia menziesii,7.000000000000001,Zone II
+Phyllospadix,2003,4,HALCYS,Halidrys dioica/cystoseira spp,1,Zone II
+Phyllospadix,2003,4,OTHRED,Other red algae,1,Zone II
+Phyllospadix,2003,4,PHYALL,Phyllospadix spp,89,Zone II
+Phyllospadix,2003,4,UNIDEN,Unidentified,1,Zone II
+Phyllospadix,2004,3,ARTCOR,Articulated corallines,1,Zone II
+Phyllospadix,2004,3,HALCYS,Halidrys dioica/cystoseira spp,3,Zone II
+Phyllospadix,2004,3,OTHRED,Other red algae,1,Zone II
+Phyllospadix,2004,3,PHYALL,Phyllospadix spp,94,Zone II
+Phyllospadix,2004,3,SARMUT,Sargassum muticum,1,Zone II
+Phyllospadix,2004,4,ARTCOR,Articulated corallines,1,Zone II
+Phyllospadix,2004,4,EGRMEN,Egregia menziesii,1,Zone II
+Phyllospadix,2004,4,OTHRED,Other red algae,6,Zone II
+Phyllospadix,2004,4,PHYALL,Phyllospadix spp,92,Zone II
+Phyllospadix,2005,3,ARTCOR,Articulated corallines,2,Zone II
+Phyllospadix,2005,3,EGRMEN,Egregia menziesii,2,Zone II
+Phyllospadix,2005,3,HALCYS,Halidrys dioica/cystoseira spp,5,Zone II
+Phyllospadix,2005,3,OTHRED,Other red algae,1,Zone II
+Phyllospadix,2005,3,PHYALL,Phyllospadix spp,88,Zone II
+Phyllospadix,2005,3,ROCK,Bare rock,1,Zone II
+Phyllospadix,2005,3,SARMUT,Sargassum muticum,1,Zone II
+Phyllospadix,2005,4,ARTCOR,Articulated corallines,1,Zone II
+Phyllospadix,2005,4,EGRMEN,Egregia menziesii,22,Zone II
+Phyllospadix,2005,4,OTHRED,Other red algae,5,Zone II
+Phyllospadix,2005,4,PHYALL,Phyllospadix spp,72,Zone II
+Phyllospadix,2006,3,EGRMEN,Egregia menziesii,2,Zone II
+Phyllospadix,2006,3,HALCYS,Halidrys dioica/cystoseira spp,5,Zone II
+Phyllospadix,2006,3,PHYALL,Phyllospadix spp,93,Zone II
+Phyllospadix,2006,4,ARTCOR,Articulated corallines,2,Zone II
+Phyllospadix,2006,4,EGRMEN,Egregia menziesii,1,Zone II
+Phyllospadix,2006,4,OTHRED,Other red algae,1,Zone II
+Phyllospadix,2006,4,PHYALL,Phyllospadix spp,95,Zone II
+Phyllospadix,2006,4,SAND,Sand,1,Zone II
+Phyllospadix,2007,3,ARTCOR,Articulated corallines,1,Zone II
+Phyllospadix,2007,3,HALCYS,Halidrys dioica/cystoseira spp,4,Zone II
+Phyllospadix,2007,3,OTHGRE,Other green algae,3,Zone II
+Phyllospadix,2007,3,OTHRED,Other red algae,10,Zone II
+Phyllospadix,2007,3,PHYALL,Phyllospadix spp,78,Zone II
+Phyllospadix,2007,3,ROCK,Bare rock,1,Zone II
+Phyllospadix,2007,3,SAND,Sand,3,Zone II
+Phyllospadix,2007,4,ARTCOR,Articulated corallines,7.000000000000001,Zone II
+Phyllospadix,2007,4,OTHRED,Other red algae,13,Zone II
+Phyllospadix,2007,4,PHYALL,Phyllospadix spp,77,Zone II
+Phyllospadix,2007,4,SAND,Sand,3,Zone II
+Phyllospadix,2008,3,ARTCOR,Articulated corallines,2,Zone II
+Phyllospadix,2008,3,CRUCOR,Crustose corallines,1,Zone II
+Phyllospadix,2008,3,NONCRU,Non-coralline crust,2,Zone II
+Phyllospadix,2008,3,OTHGRE,Other green algae,1,Zone II
+Phyllospadix,2008,3,OTHRED,Other red algae,9,Zone II
+Phyllospadix,2008,3,PHYALL,Phyllospadix spp,78,Zone II
+Phyllospadix,2008,3,ROCK,Bare rock,3,Zone II
+Phyllospadix,2008,3,SAND,Sand,2,Zone II
+Phyllospadix,2008,4,ARTCOR,Articulated corallines,6,Zone II
+Phyllospadix,2008,4,CRUCOR,Crustose corallines,1,Zone II
+Phyllospadix,2008,4,EGRMEN,Egregia menziesii,24,Zone II
+Phyllospadix,2008,4,OTHRED,Other red algae,5,Zone II
+Phyllospadix,2008,4,PHYALL,Phyllospadix spp,56.00000000000001,Zone II
+Phyllospadix,2008,4,ROCK,Bare rock,3,Zone II
+Phyllospadix,2008,4,SAND,Sand,5,Zone II
+Phyllospadix,2009,3,ARTCOR,Articulated corallines,6,Zone II
+Phyllospadix,2009,3,EGRMEN,Egregia menziesii,3,Zone II
+Phyllospadix,2009,3,PHYALL,Phyllospadix spp,84,Zone II
+Phyllospadix,2009,3,ROCK,Bare rock,2,Zone II
+Phyllospadix,2009,4,ARTCOR,Articulated corallines,4,Zone II
+Phyllospadix,2009,4,CRUCOR,Crustose corallines,1,Zone II
+Phyllospadix,2009,4,EGRMEN,Egregia menziesii,9,Zone II
+Phyllospadix,2009,4,OTHRED,Other red algae,2,Zone II
+Phyllospadix,2009,4,PHYALL,Phyllospadix spp,83,Zone II
+Phyllospadix,2009,4,ROCK,Bare rock,1,Zone II
+Phyllospadix,2010,4,EGRMEN,Egregia menziesii,19,Zone II
+Phyllospadix,2010,4,OTHBRO,Other brown algae,4,Zone II
+Phyllospadix,2010,4,OTHRED,Other red algae,1,Zone II
+Phyllospadix,2010,4,PHYALL,Phyllospadix spp,75,Zone II
+Phyllospadix,2010,4,SAND,Sand,1,Zone II
+Phyllospadix,2010,3,EGRMEN,Egregia menziesii,12,Zone II
+Phyllospadix,2010,3,PHYALL,Phyllospadix spp,84,Zone II
+Phyllospadix,2010,3,ROCK,Bare rock,1,Zone II
+Phyllospadix,2011,3,EGRMEN,Egregia menziesii,8,Zone II
+Phyllospadix,2011,3,OTHRED,Other red algae,1,Zone II
+Phyllospadix,2011,3,PHRCAL,Phragmatopoma californica,1,Zone II
+Phyllospadix,2011,3,PHYALL,Phyllospadix spp,88,Zone II
+Phyllospadix,2011,4,ARTCOR,Articulated corallines,1,Zone II
+Phyllospadix,2011,4,EGRMEN,Egregia menziesii,27,Zone II
+Phyllospadix,2011,4,OTHBRO,Other brown algae,2,Zone II
+Phyllospadix,2011,4,OTHGRE,Other green algae,1,Zone II
+Phyllospadix,2011,4,OTHRED,Other red algae,8,Zone II
+Phyllospadix,2011,4,PHYALL,Phyllospadix spp,55.00000000000001,Zone II
+Phyllospadix,2011,4,ROCK,Bare rock,6,Zone II
+Phyllospadix,2012,3,EGRMEN,Egregia menziesii,6,Zone II
+Phyllospadix,2012,3,PHYALL,Phyllospadix spp,93,Zone II
+Phyllospadix,2012,4,ARTCOR,Articulated corallines,2,Zone II
+Phyllospadix,2012,4,EGRMEN,Egregia menziesii,18,Zone II
+Phyllospadix,2012,4,OTHRED,Other red algae,9,Zone II
+Phyllospadix,2012,4,PHYALL,Phyllospadix spp,70,Zone II
+Phyllospadix,2012,4,SAND,Sand,1,Zone II
+Phyllospadix,2013,4,EGRMEN,Egregia menziesii,9,Zone II
+Phyllospadix,2013,4,OTHRED,Other red algae,13,Zone II
+Phyllospadix,2013,4,PHYALL,Phyllospadix spp,72,Zone II
+Phyllospadix,2013,3,EGRMEN,Egregia menziesii,3,Zone II
+Phyllospadix,2013,3,OTHRED,Other red algae,3,Zone II
+Phyllospadix,2013,3,PHYALL,Phyllospadix spp,88,Zone II
+Phyllospadix,2014,3,OTHBRO,Other brown algae,2,Zone II
+Phyllospadix,2014,3,OTHRED,Other red algae,4,Zone II
+Phyllospadix,2014,3,PHYALL,Phyllospadix spp,94,Zone II
+Phyllospadix,2014,4,EGRMEN,Egregia menziesii,2,Zone II
+Phyllospadix,2014,4,OTHBRO,Other brown algae,3,Zone II
+Phyllospadix,2014,4,OTHGRE,Other green algae,1,Zone II
+Phyllospadix,2014,4,OTHRED,Other red algae,22,Zone II
+Phyllospadix,2014,4,PHYALL,Phyllospadix spp,62,Zone II
+Phyllospadix,2014,4,ROCK,Bare rock,7.000000000000001,Zone II
+Phyllospadix,2014,4,SAND,Sand,1,Zone II
+Phyllospadix,2014,4,SARMUT,Sargassum muticum,2,Zone II
+Phyllospadix,2015,4,ARTCOR,Articulated corallines,1,Zone II
+Phyllospadix,2015,4,OTHBRO,Other brown algae,4,Zone II
+Phyllospadix,2015,4,OTHRED,Other red algae,11,Zone II
+Phyllospadix,2015,4,PHYALL,Phyllospadix spp,52,Zone II
+Phyllospadix,2015,4,ROCK,Bare rock,15,Zone II
+Phyllospadix,2015,4,SAND,Sand,17,Zone II
+Phyllospadix,2015,3,OTHRED,Other red algae,1,Zone II
+Phyllospadix,2015,3,PHYALL,Phyllospadix spp,88,Zone II
+Phyllospadix,2015,3,ROCK,Bare rock,2,Zone II
+Phyllospadix,2015,3,SAND,Sand,6,Zone II
+Phyllospadix,2016,3,OTHBRO,Other brown algae,2,Zone II
+Phyllospadix,2016,3,OTHRED,Other red algae,5,Zone II
+Phyllospadix,2016,3,PHYALL,Phyllospadix spp,91,Zone II
+Phyllospadix,2016,3,SAND,Sand,2,Zone II
+Phyllospadix,2016,4,ARTCOR,Articulated corallines,2,Zone II
+Phyllospadix,2016,4,CRUCOR,Crustose corallines,1,Zone II
+Phyllospadix,2016,4,EGRMEN,Egregia menziesii,18,Zone II
+Phyllospadix,2016,4,OTHRED,Other red algae,14.000000000000002,Zone II
+Phyllospadix,2016,4,PHYALL,Phyllospadix spp,56.00000000000001,Zone II
+Phyllospadix,2016,4,ROCK,Bare rock,4,Zone II
+Phyllospadix,2016,4,SAND,Sand,2,Zone II
+Phyllospadix,2017,4,ARTCOR,Articulated corallines,3,Zone II
+Phyllospadix,2017,4,CRUCOR,Crustose corallines,1,Zone II
+Phyllospadix,2017,4,EGRMEN,Egregia menziesii,42,Zone II
+Phyllospadix,2017,4,OTHRED,Other red algae,15,Zone II
+Phyllospadix,2017,4,PHYALL,Phyllospadix spp,26,Zone II
+Phyllospadix,2017,4,ROCK,Bare rock,13,Zone II
+Phyllospadix,2017,3,PHYALL,Phyllospadix spp,100,Zone II
+Phyllospadix,2019,3,EGRMEN,Egregia menziesii,2,Zone II
+Phyllospadix,2019,3,PHYALL,Phyllospadix spp,98,Zone II
+Phyllospadix,2019,4,ARTCOR,Articulated corallines,1,Zone II
+Phyllospadix,2019,4,CRUCOR,Crustose corallines,2,Zone II
+Phyllospadix,2019,4,EGRMEN,Egregia menziesii,3,Zone II
+Phyllospadix,2019,4,OTHBRO,Other brown algae,1,Zone II
+Phyllospadix,2019,4,OTHRED,Other red algae,16,Zone II
+Phyllospadix,2019,4,PHYALL,Phyllospadix spp,66,Zone II
+Phyllospadix,2019,4,ROCK,Bare rock,4,Zone II
+Phyllospadix,2019,4,SAND,Sand,3,Zone II
+Phyllospadix,2019,4,SARMUT,Sargassum muticum,4,Zone II
+Phyllospadix,2020,3,OTHBRO,Other brown algae,3,Zone II
+Phyllospadix,2020,3,OTHRED,Other red algae,2,Zone II
+Phyllospadix,2020,3,PHYALL,Phyllospadix spp,88,Zone II
+Phyllospadix,2020,3,ROCK,Bare rock,7.000000000000001,Zone II
+Phyllospadix,2020,4,ARTCOR,Articulated corallines,1,Zone II
+Phyllospadix,2020,4,OTHRED,Other red algae,3,Zone II
+Phyllospadix,2020,4,PHYALL,Phyllospadix spp,95,Zone II
+Phyllospadix,2020,4,SAND,Sand,1,Zone II
+Phyllospadix,2021,3,PHYALL,Phyllospadix spp,100,Zone II
+Phyllospadix,2021,4,ARTCOR,Articulated corallines,4,Zone II
+Phyllospadix,2021,4,OTHGRE,Other green algae,1,Zone II
+Phyllospadix,2021,4,OTHRED,Other red algae,15,Zone II
+Phyllospadix,2021,4,PHYALL,Phyllospadix spp,77,Zone II
+Phyllospadix,2021,4,SAND,Sand,3,Zone II
+Red algae,1990,1,PHYALL,Phyllospadix spp,2,Zone II
+Red algae,1990,2,EGRMEN,Egregia menziesii,5.800000000000001,Zone II
+Red algae,1990,2,PHYALL,Phyllospadix spp,7.000000000000001,Zone II
+Red algae,1991,1,EGRMEN,Egregia menziesii,1.5,Zone II
+Red algae,1991,2,PHYALL,Phyllospadix spp,15.9,Zone II
+Red algae,1991,2,SARMUT,Sargassum muticum,1.5,Zone II
+Red algae,1992,1,EGRMEN,Egregia menziesii,0.2,Zone II
+Red algae,1992,1,PHYALL,Phyllospadix spp,3.8,Zone II
+Red algae,1992,2,EGRMEN,Egregia menziesii,7.6,Zone II
+Red algae,1992,2,PHYALL,Phyllospadix spp,24.8,Zone II
+Red algae,1992,2,SARMUT,Sargassum muticum,0.1,Zone II
+Red algae,1993,1,PHYALL,Phyllospadix spp,8.4,Zone II
+Red algae,1993,2,EGRMEN,Egregia menziesii,3.4000000000000004,Zone II
+Red algae,1993,2,PHYALL,Phyllospadix spp,29.4,Zone II
+Red algae,1995,1,PHYALL,Phyllospadix spp,3,Zone II
+Red algae,1995,2,EGRMEN,Egregia menziesii,3.4000000000000004,Zone II
+Red algae,1995,2,PHYALL,Phyllospadix spp,33.800000000000004,Zone II
+Red algae,1996,1,PHYALL,Phyllospadix spp,8.799999999999999,Zone II
+Red algae,1996,2,EGRMEN,Egregia menziesii,3.5000000000000004,Zone II
+Red algae,1996,2,PHYALL,Phyllospadix spp,33.2,Zone II
+Red algae,1997,2,PHYALL,Phyllospadix spp,9.8,Zone II
+Red algae,1997,1,PHYALL,Phyllospadix spp,13.200000000000001,Zone II
+Red algae,1998,1,PHYALL,Phyllospadix spp,30.9,Zone II
+Red algae,1998,2,EGRMEN,Egregia menziesii,7.3,Zone II
+Red algae,1998,2,OTHINV,Other invertebrates,0.1,Zone II
+Red algae,1998,2,PHYALL,Phyllospadix spp,42.199999999999996,Zone II
+Red algae,1999,1,PHYALL,Phyllospadix spp,11.4,Zone II
+Red algae,1999,2,PHYALL,Phyllospadix spp,61.5,Zone II
+Red algae,2000,1,PHYALL,Phyllospadix spp,5,Zone II
+Red algae,2000,2,PHYALL,Phyllospadix spp,50,Zone II
+Red algae,2000,2,SARMUT,Sargassum muticum,5,Zone II
+Red algae,2001,1,ANEMON,Anemones (generic),2,Zone II
+Red algae,2001,1,PHYALL,Phyllospadix spp,1,Zone II
+Red algae,2001,2,PHYALL,Phyllospadix spp,46,Zone II
+Red algae,2002,1,PHYALL,Phyllospadix spp,1,Zone II
+Red algae,2002,2,HALCYS,Halidrys dioica/cystoseira spp,2,Zone II
+Red algae,2002,2,PHYALL,Phyllospadix spp,62,Zone II
+Red algae,2002,2,SARMUT,Sargassum muticum,2,Zone II
+Red algae,2003,1,ANEMON,Anemones (generic),1,Zone II
+Red algae,2003,1,ARTCOR,Articulated corallines,54,Zone II
+Red algae,2003,1,OTHGRE,Other green algae,2,Zone II
+Red algae,2003,1,OTHRED,Other red algae,34,Zone II
+Red algae,2003,1,PHYALL,Phyllospadix spp,1,Zone II
+Red algae,2003,1,ROCK,Bare rock,2,Zone II
+Red algae,2003,1,SARMUT,Sargassum muticum,6,Zone II
+Red algae,2003,2,ARTCOR,Articulated corallines,12,Zone II
+Red algae,2003,2,EGRMEN,Egregia menziesii,1,Zone II
+Red algae,2003,2,OTHGRE,Other green algae,1,Zone II
+Red algae,2003,2,OTHRED,Other red algae,20,Zone II
+Red algae,2003,2,PHRCAL,Phragmatopoma californica,2,Zone II
+Red algae,2003,2,PHYALL,Phyllospadix spp,57.99999999999999,Zone II
+Red algae,2003,2,ROCK,Bare rock,2,Zone II
+Red algae,2003,2,SARMUT,Sargassum muticum,4,Zone II
+Red algae,2004,1,ARTCOR,Articulated corallines,21,Zone II
+Red algae,2004,1,OTHGRE,Other green algae,2,Zone II
+Red algae,2004,1,OTHINV,Other invertebrates,1,Zone II
+Red algae,2004,1,OTHRED,Other red algae,65,Zone II
+Red algae,2004,1,PHYALL,Phyllospadix spp,5,Zone II
+Red algae,2004,1,SAND,Sand,6,Zone II
+Red algae,2004,2,ARTCOR,Articulated corallines,11,Zone II
+Red algae,2004,2,CRUCOR,Crustose corallines,1,Zone II
+Red algae,2004,2,EGRMEN,Egregia menziesii,4,Zone II
+Red algae,2004,2,OTHGRE,Other green algae,3,Zone II
+Red algae,2004,2,OTHRED,Other red algae,42,Zone II
+Red algae,2004,2,PHYALL,Phyllospadix spp,32,Zone II
+Red algae,2004,2,SAND,Sand,7.000000000000001,Zone II
+Red algae,2005,2,ARTCOR,Articulated corallines,3,Zone II
+Red algae,2005,2,EGRMEN,Egregia menziesii,4,Zone II
+Red algae,2005,2,NONCRU,Non-coralline crust,1,Zone II
+Red algae,2005,2,OTHGRE,Other green algae,1,Zone II
+Red algae,2005,2,OTHRED,Other red algae,17,Zone II
+Red algae,2005,2,PHYALL,Phyllospadix spp,69,Zone II
+Red algae,2005,2,SAND,Sand,4,Zone II
+Red algae,2005,2,SARMUT,Sargassum muticum,1,Zone II
+Red algae,2005,1,ANEMON,Anemones (generic),2,Zone II
+Red algae,2005,1,ARTCOR,Articulated corallines,62,Zone II
+Red algae,2005,1,EGRMEN,Egregia menziesii,1,Zone II
+Red algae,2005,1,OTHRED,Other red algae,19,Zone II
+Red algae,2005,1,PHYALL,Phyllospadix spp,1,Zone II
+Red algae,2005,1,ROCK,Bare rock,6,Zone II
+Red algae,2005,1,SAND,Sand,9,Zone II
+Red algae,2006,1,ANEMON,Anemones (generic),1,Zone II
+Red algae,2006,1,ARTCOR,Articulated corallines,23,Zone II
+Red algae,2006,1,OTHGRE,Other green algae,1,Zone II
+Red algae,2006,1,OTHRED,Other red algae,52,Zone II
+Red algae,2006,1,PHYALL,Phyllospadix spp,14.000000000000002,Zone II
+Red algae,2006,1,SAND,Sand,9,Zone II
+Red algae,2006,2,ARTCOR,Articulated corallines,4,Zone II
+Red algae,2006,2,OTHRED,Other red algae,9,Zone II
+Red algae,2006,2,PHYALL,Phyllospadix spp,82,Zone II
+Red algae,2006,2,SAND,Sand,5,Zone II
+Red algae,2007,1,ARTCOR,Articulated corallines,34,Zone II
+Red algae,2007,1,OTHGRE,Other green algae,3,Zone II
+Red algae,2007,1,OTHRED,Other red algae,40,Zone II
+Red algae,2007,1,PHYALL,Phyllospadix spp,3,Zone II
+Red algae,2007,1,ROCK,Bare rock,2,Zone II
+Red algae,2007,1,SAND,Sand,18,Zone II
+Red algae,2007,2,ARTCOR,Articulated corallines,14.000000000000002,Zone II
+Red algae,2007,2,CRUCOR,Crustose corallines,3,Zone II
+Red algae,2007,2,NONCRU,Non-coralline crust,1,Zone II
+Red algae,2007,2,OTHGRE,Other green algae,4,Zone II
+Red algae,2007,2,OTHRED,Other red algae,21,Zone II
+Red algae,2007,2,PHYALL,Phyllospadix spp,41,Zone II
+Red algae,2007,2,ROCK,Bare rock,2,Zone II
+Red algae,2007,2,SAND,Sand,14.000000000000002,Zone II
+Red algae,2008,1,ARTCOR,Articulated corallines,65,Zone II
+Red algae,2008,1,OTHBRO,Other brown algae,1,Zone II
+Red algae,2008,1,OTHGRE,Other green algae,1,Zone II
+Red algae,2008,1,OTHRED,Other red algae,24,Zone II
+Red algae,2008,1,PHYALL,Phyllospadix spp,3,Zone II
+Red algae,2008,1,ROCK,Bare rock,3,Zone II
+Red algae,2008,1,SAND,Sand,1,Zone II
+Red algae,2008,2,ARTCOR,Articulated corallines,22,Zone II
+Red algae,2008,2,EGRMEN,Egregia menziesii,1,Zone II
+Red algae,2008,2,OTHGRE,Other green algae,5,Zone II
+Red algae,2008,2,OTHRED,Other red algae,30,Zone II
+Red algae,2008,2,PHYALL,Phyllospadix spp,33,Zone II
+Red algae,2008,2,ROCK,Bare rock,1,Zone II
+Red algae,2008,2,SAND,Sand,7.000000000000001,Zone II
+Red algae,2009,1,ARTCOR,Articulated corallines,64,Zone II
+Red algae,2009,1,NONCRU,Non-coralline crust,1,Zone II
+Red algae,2009,1,OTHGRE,Other green algae,2,Zone II
+Red algae,2009,1,OTHRED,Other red algae,13,Zone II
+Red algae,2009,1,PHYALL,Phyllospadix spp,4,Zone II
+Red algae,2009,1,ROCK,Bare rock,1,Zone II
+Red algae,2009,1,SAND,Sand,15,Zone II
+Red algae,2009,2,ARTCOR,Articulated corallines,27,Zone II
+Red algae,2009,2,OTHRED,Other red algae,19,Zone II
+Red algae,2009,2,PHYALL,Phyllospadix spp,40,Zone II
+Red algae,2009,2,SAND,Sand,14.000000000000002,Zone II
+Red algae,2010,1,ARTCOR,Articulated corallines,57.99999999999999,Zone II
+Red algae,2010,1,EGRMEN,Egregia menziesii,1,Zone II
+Red algae,2010,1,OTHGRE,Other green algae,1,Zone II
+Red algae,2010,1,OTHRED,Other red algae,10,Zone II
+Red algae,2010,1,PHYALL,Phyllospadix spp,11,Zone II
+Red algae,2010,1,SAND,Sand,16,Zone II
+Red algae,2010,2,ARTCOR,Articulated corallines,12,Zone II
+Red algae,2010,2,EGRMEN,Egregia menziesii,14.000000000000002,Zone II
+Red algae,2010,2,OTHGRE,Other green algae,1,Zone II
+Red algae,2010,2,OTHRED,Other red algae,5,Zone II
+Red algae,2010,2,PHYALL,Phyllospadix spp,57.99999999999999,Zone II
+Red algae,2010,2,ROCK,Bare rock,1,Zone II
+Red algae,2010,2,SAND,Sand,8,Zone II
+Red algae,2010,2,SARMUT,Sargassum muticum,1,Zone II
+Red algae,2011,1,ARTCOR,Articulated corallines,38,Zone II
+Red algae,2011,1,OTHGRE,Other green algae,5,Zone II
+Red algae,2011,1,OTHRED,Other red algae,17,Zone II
+Red algae,2011,1,PHYALL,Phyllospadix spp,20,Zone II
+Red algae,2011,1,ROCK,Bare rock,5,Zone II
+Red algae,2011,1,SAND,Sand,12,Zone II
+Red algae,2011,2,ARTCOR,Articulated corallines,13,Zone II
+Red algae,2011,2,EGRMEN,Egregia menziesii,10,Zone II
+Red algae,2011,2,NONCRU,Non-coralline crust,1,Zone II
+Red algae,2011,2,OTHBRO,Other brown algae,2,Zone II
+Red algae,2011,2,OTHGRE,Other green algae,1,Zone II
+Red algae,2011,2,OTHRED,Other red algae,10,Zone II
+Red algae,2011,2,PHYALL,Phyllospadix spp,56.99999999999999,Zone II
+Red algae,2011,2,ROCK,Bare rock,2,Zone II
+Red algae,2011,2,SAND,Sand,4,Zone II
+Red algae,2012,2,ARTCOR,Articulated corallines,10,Zone II
+Red algae,2012,2,EGRMEN,Egregia menziesii,2,Zone II
+Red algae,2012,2,OTHGRE,Other green algae,1,Zone II
+Red algae,2012,2,OTHRED,Other red algae,8,Zone II
+Red algae,2012,2,PHYALL,Phyllospadix spp,74,Zone II
+Red algae,2012,2,ROCK,Bare rock,2,Zone II
+Red algae,2012,2,SAND,Sand,3,Zone II
+Red algae,2012,1,ARTCOR,Articulated corallines,7.000000000000001,Zone II
+Red algae,2012,1,OTHGRE,Other green algae,1,Zone II
+Red algae,2012,1,OTHRED,Other red algae,59,Zone II
+Red algae,2012,1,PHYALL,Phyllospadix spp,22,Zone II
+Red algae,2012,1,ROCK,Bare rock,1,Zone II
+Red algae,2012,1,SAND,Sand,9,Zone II
+Red algae,2013,2,EGRMEN,Egregia menziesii,12,Zone II
+Red algae,2013,2,OTHRED,Other red algae,10,Zone II
+Red algae,2013,2,PHYALL,Phyllospadix spp,75,Zone II
+Red algae,2013,2,ROCK,Bare rock,1,Zone II
+Red algae,2013,2,SARMUT,Sargassum muticum,2,Zone II
+Red algae,2013,1,ARTCOR,Articulated corallines,41,Zone II
+Red algae,2013,1,OTHBRO,Other brown algae,14.000000000000002,Zone II
+Red algae,2013,1,OTHGRE,Other green algae,2,Zone II
+Red algae,2013,1,OTHRED,Other red algae,14.000000000000002,Zone II
+Red algae,2013,1,PHYALL,Phyllospadix spp,26,Zone II
+Red algae,2013,1,SAND,Sand,3,Zone II
+Red algae,2014,2,CRUCOR,Crustose corallines,1,Zone II
+Red algae,2014,2,OTHRED,Other red algae,23,Zone II
+Red algae,2014,2,PHYALL,Phyllospadix spp,70,Zone II
+Red algae,2014,2,ROCK,Bare rock,4,Zone II
+Red algae,2014,2,SAND,Sand,2,Zone II
+Red algae,2014,1,ARTCOR,Articulated corallines,1,Zone II
+Red algae,2014,1,OTHGRE,Other green algae,3,Zone II
+Red algae,2014,1,OTHRED,Other red algae,74,Zone II
+Red algae,2014,1,PHYALL,Phyllospadix spp,14.000000000000002,Zone II
+Red algae,2014,1,SAND,Sand,7.000000000000001,Zone II
+Red algae,2015,1,ARTCOR,Articulated corallines,22,Zone II
+Red algae,2015,1,OTHBRO,Other brown algae,43,Zone II
+Red algae,2015,1,PHYALL,Phyllospadix spp,20,Zone II
+Red algae,2015,1,ROCK,Bare rock,2,Zone II
+Red algae,2015,1,SAND,Sand,10,Zone II
+Red algae,2015,1,SARMUT,Sargassum muticum,3,Zone II
+Red algae,2015,2,ARTCOR,Articulated corallines,1,Zone II
+Red algae,2015,2,OTHRED,Other red algae,24,Zone II
+Red algae,2015,2,PHYALL,Phyllospadix spp,62,Zone II
+Red algae,2015,2,ROCK,Bare rock,1,Zone II
+Red algae,2015,2,SAND,Sand,10,Zone II
+Red algae,2015,2,SARMUT,Sargassum muticum,2,Zone II
+Red algae,2016,1,ARTCOR,Articulated corallines,5,Zone II
+Red algae,2016,1,OTHRED,Other red algae,40,Zone II
+Red algae,2016,1,PHYALL,Phyllospadix spp,41,Zone II
+Red algae,2016,1,SAND,Sand,14.000000000000002,Zone II
+Red algae,2016,2,ARTCOR,Articulated corallines,2,Zone II
+Red algae,2016,2,EGRMEN,Egregia menziesii,2,Zone II
+Red algae,2016,2,OTHBRO,Other brown algae,8,Zone II
+Red algae,2016,2,OTHGRE,Other green algae,4,Zone II
+Red algae,2016,2,OTHRED,Other red algae,25,Zone II
+Red algae,2016,2,PHYALL,Phyllospadix spp,57.99999999999999,Zone II
+Red algae,2016,2,SAND,Sand,1,Zone II
+Red algae,2017,1,ARTCOR,Articulated corallines,7.000000000000001,Zone II
+Red algae,2017,1,OTHRED,Other red algae,38,Zone II
+Red algae,2017,1,PHYALL,Phyllospadix spp,39,Zone II
+Red algae,2017,1,SAND,Sand,15,Zone II
+Red algae,2017,2,ARTCOR,Articulated corallines,4,Zone II
+Red algae,2017,2,EGRMEN,Egregia menziesii,38,Zone II
+Red algae,2017,2,OTHRED,Other red algae,7.000000000000001,Zone II
+Red algae,2017,2,PHYALL,Phyllospadix spp,46,Zone II
+Red algae,2017,2,ROCK,Bare rock,1,Zone II
+Red algae,2017,2,SAND,Sand,3,Zone II
+Red algae,2019,1,ARTCOR,Articulated corallines,8,Zone II
+Red algae,2019,1,CRUCOR,Crustose corallines,1,Zone II
+Red algae,2019,1,OTHBRO,Other brown algae,2,Zone II
+Red algae,2019,1,OTHRED,Other red algae,45,Zone II
+Red algae,2019,1,PHYALL,Phyllospadix spp,38,Zone II
+Red algae,2019,1,ROCK,Bare rock,4,Zone II
+Red algae,2019,1,SAND,Sand,2,Zone II
+Red algae,2019,2,ARTCOR,Articulated corallines,2,Zone II
+Red algae,2019,2,EGRMEN,Egregia menziesii,4,Zone II
+Red algae,2019,2,OTHRED,Other red algae,14.000000000000002,Zone II
+Red algae,2019,2,PHYALL,Phyllospadix spp,72,Zone II
+Red algae,2019,2,ROCK,Bare rock,3,Zone II
+Red algae,2019,2,SARMUT,Sargassum muticum,5,Zone II
+Red algae,2020,1,ARTCOR,Articulated corallines,26,Zone II
+Red algae,2020,1,OTHGRE,Other green algae,2,Zone II
+Red algae,2020,1,OTHRED,Other red algae,42,Zone II
+Red algae,2020,1,PHYALL,Phyllospadix spp,20,Zone II
+Red algae,2020,1,ROCK,Bare rock,5,Zone II
+Red algae,2020,1,SAND,Sand,4,Zone II
+Red algae,2020,2,ARTCOR,Articulated corallines,4,Zone II
+Red algae,2020,2,CRUCOR,Crustose corallines,2,Zone II
+Red algae,2020,2,OTHRED,Other red algae,13,Zone II
+Red algae,2020,2,PHYALL,Phyllospadix spp,72,Zone II
+Red algae,2020,2,ROCK,Bare rock,5,Zone II
+Red algae,2020,2,SAND,Sand,2,Zone II
+Red algae,2020,2,SARMUT,Sargassum muticum,2,Zone II
+Red algae,2021,1,ARTCOR,Articulated corallines,22,Zone II
+Red algae,2021,1,OTHGRE,Other green algae,3,Zone II
+Red algae,2021,1,OTHRED,Other red algae,34,Zone II
+Red algae,2021,1,PHYALL,Phyllospadix spp,30,Zone II
+Red algae,2021,1,SAND,Sand,11,Zone II
+Red algae,2021,2,ARTCOR,Articulated corallines,4,Zone II
+Red algae,2021,2,CRUCOR,Crustose corallines,1,Zone II
+Red algae,2021,2,EGRMEN,Egregia menziesii,23,Zone II
+Red algae,2021,2,OTHGRE,Other green algae,4,Zone II
+Red algae,2021,2,OTHRED,Other red algae,15,Zone II
+Red algae,2021,2,PHYALL,Phyllospadix spp,47,Zone II
+Red algae,2021,2,SAND,Sand,6,Zone II
+Egregia,1990,5,EGRMEN,Egregia menziesii,28.499999999999996,Zone III
+Egregia,1990,5,PHYALL,Phyllospadix spp,14.099999999999998,Zone III
+Egregia,1990,6,EGRMEN,Egregia menziesii,44.1,Zone III
+Egregia,1991,5,EGRMEN,Egregia menziesii,22.8,Zone III
+Egregia,1991,5,PHYALL,Phyllospadix spp,17.4,Zone III
+Egregia,1991,5,SARMUT,Sargassum muticum,0.7000000000000001,Zone III
+Egregia,1991,6,EGRMEN,Egregia menziesii,27.500000000000004,Zone III
+Egregia,1991,6,PHYALL,Phyllospadix spp,10.7,Zone III
+Egregia,1991,6,SARMUT,Sargassum muticum,6.6000000000000005,Zone III
+Egregia,1992,5,EGRMEN,Egregia menziesii,17.4,Zone III
+Egregia,1992,5,PHYALL,Phyllospadix spp,16.900000000000002,Zone III
+Egregia,1992,5,SARMUT,Sargassum muticum,2.1,Zone III
+Egregia,1992,6,EGRMEN,Egregia menziesii,27.800000000000004,Zone III
+Egregia,1992,6,PHYALL,Phyllospadix spp,17.5,Zone III
+Egregia,1992,6,SARMUT,Sargassum muticum,6.6000000000000005,Zone III
+Egregia,1993,5,EGRMEN,Egregia menziesii,6.6000000000000005,Zone III
+Egregia,1993,5,PHYALL,Phyllospadix spp,23.599999999999998,Zone III
+Egregia,1993,5,SARMUT,Sargassum muticum,2.1,Zone III
+Egregia,1993,6,EGRMEN,Egregia menziesii,1.5,Zone III
+Egregia,1993,6,PHYALL,Phyllospadix spp,22.8,Zone III
+Egregia,1993,6,SARMUT,Sargassum muticum,0.7000000000000001,Zone III
+Egregia,1994,5,HALCYS,Halidrys dioica/cystoseira spp,18.3,Zone III
+Egregia,1994,5,PHYALL,Phyllospadix spp,27.6,Zone III
+Egregia,1994,6,HALCYS,Halidrys dioica/cystoseira spp,19.1,Zone III
+Egregia,1994,6,PHYALL,Phyllospadix spp,27.1,Zone III
+Egregia,1994,6,SARMUT,Sargassum muticum,1.6,Zone III
+Egregia,1995,5,EGRMEN,Egregia menziesii,12.1,Zone III
+Egregia,1995,5,PHYALL,Phyllospadix spp,24.3,Zone III
+Egregia,1995,6,EGRMEN,Egregia menziesii,2.7,Zone III
+Egregia,1995,6,PHYALL,Phyllospadix spp,42.6,Zone III
+Egregia,1996,5,EGRMEN,Egregia menziesii,6.9,Zone III
+Egregia,1996,5,PHYALL,Phyllospadix spp,22.400000000000002,Zone III
+Egregia,1996,5,SARMUT,Sargassum muticum,0.1,Zone III
+Egregia,1996,6,PHYALL,Phyllospadix spp,59.5,Zone III
+Egregia,1997,5,PHYALL,Phyllospadix spp,21.7,Zone III
+Egregia,1997,5,SARMUT,Sargassum muticum,7.3999999999999995,Zone III
+Egregia,1997,6,PHYALL,Phyllospadix spp,38.6,Zone III
+Egregia,1998,5,EGRMEN,Egregia menziesii,2.6,Zone III
+Egregia,1998,5,PHYALL,Phyllospadix spp,18.7,Zone III
+Egregia,1998,5,SARMUT,Sargassum muticum,3.5999999999999996,Zone III
+Egregia,1998,6,EGRMEN,Egregia menziesii,13.3,Zone III
+Egregia,1998,6,PHYALL,Phyllospadix spp,23.200000000000003,Zone III
+Egregia,1999,5,PHYALL,Phyllospadix spp,54.300000000000004,Zone III
+Egregia,1999,5,SARMUT,Sargassum muticum,4.7,Zone III
+Egregia,1999,6,PHYALL,Phyllospadix spp,81,Zone III
+Egregia,2000,5,OTHBRO,Other brown algae,1,Zone III
+Egregia,2000,5,PHYALL,Phyllospadix spp,44,Zone III
+Egregia,2000,5,SARMUT,Sargassum muticum,12,Zone III
+Egregia,2000,6,PHYALL,Phyllospadix spp,63,Zone III
+Egregia,2001,5,HALCYS,Halidrys dioica/cystoseira spp,22,Zone III
+Egregia,2001,5,PHYALL,Phyllospadix spp,32,Zone III
+Egregia,2001,6,HALCYS,Halidrys dioica/cystoseira spp,6,Zone III
+Egregia,2001,6,PHYALL,Phyllospadix spp,62,Zone III
+Egregia,2001,6,SARMUT,Sargassum muticum,1,Zone III
+Egregia,2002,5,HALCYS,Halidrys dioica/cystoseira spp,23,Zone III
+Egregia,2002,5,PHYALL,Phyllospadix spp,52,Zone III
+Egregia,2002,6,PHYALL,Phyllospadix spp,72,Zone III
+Egregia,2003,5,ARTCOR,Articulated corallines,24,Zone III
+Egregia,2003,5,CRUCOR,Crustose corallines,1,Zone III
+Egregia,2003,5,OTHBRO,Other brown algae,41,Zone III
+Egregia,2003,5,OTHGRE,Other green algae,2,Zone III
+Egregia,2003,5,OTHRED,Other red algae,8,Zone III
+Egregia,2003,5,ROCK,Bare rock,11,Zone III
+Egregia,2003,5,SARMUT,Sargassum muticum,13,Zone III
+Egregia,2003,6,ARTCOR,Articulated corallines,12,Zone III
+Egregia,2003,6,HALCYS,Halidrys dioica/cystoseira spp,6,Zone III
+Egregia,2003,6,OTHGRE,Other green algae,1,Zone III
+Egregia,2003,6,OTHRED,Other red algae,16,Zone III
+Egregia,2003,6,PHYALL,Phyllospadix spp,64,Zone III
+Egregia,2003,6,SARMUT,Sargassum muticum,1,Zone III
+Egregia,2004,5,ARTCOR,Articulated corallines,14.000000000000002,Zone III
+Egregia,2004,5,HALCYS,Halidrys dioica/cystoseira spp,8,Zone III
+Egregia,2004,5,OTHRED,Other red algae,11,Zone III
+Egregia,2004,5,PHYALL,Phyllospadix spp,61,Zone III
+Egregia,2004,5,SAND,Sand,3,Zone III
+Egregia,2004,5,SARMUT,Sargassum muticum,3,Zone III
+Egregia,2004,6,ARTCOR,Articulated corallines,12,Zone III
+Egregia,2004,6,HALCYS,Halidrys dioica/cystoseira spp,3,Zone III
+Egregia,2004,6,OTHRED,Other red algae,18,Zone III
+Egregia,2004,6,PHYALL,Phyllospadix spp,65,Zone III
+Egregia,2004,6,SAND,Sand,2,Zone III
+Egregia,2005,5,ARTCOR,Articulated corallines,11,Zone III
+Egregia,2005,5,EGRMEN,Egregia menziesii,10,Zone III
+Egregia,2005,5,HALCYS,Halidrys dioica/cystoseira spp,5,Zone III
+Egregia,2005,5,NONCRU,Non-coralline crust,1,Zone III
+Egregia,2005,5,OTHRED,Other red algae,19,Zone III
+Egregia,2005,5,PHYALL,Phyllospadix spp,48,Zone III
+Egregia,2005,5,ROCK,Bare rock,2,Zone III
+Egregia,2005,5,SAND,Sand,4,Zone III
+Egregia,2005,6,ARTCOR,Articulated corallines,10,Zone III
+Egregia,2005,6,EGRMEN,Egregia menziesii,4,Zone III
+Egregia,2005,6,OTHBRO,Other brown algae,1,Zone III
+Egregia,2005,6,OTHRED,Other red algae,13,Zone III
+Egregia,2005,6,PHYALL,Phyllospadix spp,69,Zone III
+Egregia,2005,6,ROCK,Bare rock,1,Zone III
+Egregia,2005,6,SAND,Sand,2,Zone III
+Egregia,2006,5,ARTCOR,Articulated corallines,9,Zone III
+Egregia,2006,5,EGRMEN,Egregia menziesii,13,Zone III
+Egregia,2006,5,HALCYS,Halidrys dioica/cystoseira spp,16,Zone III
+Egregia,2006,5,OTHGRE,Other green algae,1,Zone III
+Egregia,2006,5,OTHRED,Other red algae,6,Zone III
+Egregia,2006,5,PHYALL,Phyllospadix spp,55.00000000000001,Zone III
+Egregia,2006,6,ARTCOR,Articulated corallines,9,Zone III
+Egregia,2006,6,HALCYS,Halidrys dioica/cystoseira spp,1,Zone III
+Egregia,2006,6,OTHGRE,Other green algae,1,Zone III
+Egregia,2006,6,OTHRED,Other red algae,4,Zone III
+Egregia,2006,6,PHYALL,Phyllospadix spp,85,Zone III
+Egregia,2007,5,ARTCOR,Articulated corallines,15,Zone III
+Egregia,2007,5,CRUCOR,Crustose corallines,1,Zone III
+Egregia,2007,5,HALCYS,Halidrys dioica/cystoseira spp,12,Zone III
+Egregia,2007,5,NONCRU,Non-coralline crust,2,Zone III
+Egregia,2007,5,OTHRED,Other red algae,5,Zone III
+Egregia,2007,5,PHYALL,Phyllospadix spp,47,Zone III
+Egregia,2007,5,ROCK,Bare rock,5,Zone III
+Egregia,2007,5,SAND,Sand,13,Zone III
+Egregia,2007,6,ARTCOR,Articulated corallines,22,Zone III
+Egregia,2007,6,NONCRU,Non-coralline crust,1,Zone III
+Egregia,2007,6,OTHRED,Other red algae,13,Zone III
+Egregia,2007,6,PHYALL,Phyllospadix spp,61,Zone III
+Egregia,2007,6,ROCK,Bare rock,1,Zone III
+Egregia,2007,6,SAND,Sand,2,Zone III
+Egregia,2008,5,ARTCOR,Articulated corallines,10,Zone III
+Egregia,2008,5,EGRMEN,Egregia menziesii,15,Zone III
+Egregia,2008,5,OTHBRO,Other brown algae,3,Zone III
+Egregia,2008,5,OTHRED,Other red algae,13,Zone III
+Egregia,2008,5,PHYALL,Phyllospadix spp,51,Zone III
+Egregia,2008,5,ROCK,Bare rock,2,Zone III
+Egregia,2008,5,SAND,Sand,3,Zone III
+Egregia,2008,6,ARTCOR,Articulated corallines,17,Zone III
+Egregia,2008,6,EGRMEN,Egregia menziesii,25,Zone III
+Egregia,2008,6,OTHBRO,Other brown algae,9,Zone III
+Egregia,2008,6,OTHGRE,Other green algae,1,Zone III
+Egregia,2008,6,OTHRED,Other red algae,7.000000000000001,Zone III
+Egregia,2008,6,PHYALL,Phyllospadix spp,35,Zone III
+Egregia,2008,6,SAND,Sand,2,Zone III
+Egregia,2009,5,ARTCOR,Articulated corallines,18,Zone III
+Egregia,2009,5,EGRMEN,Egregia menziesii,1,Zone III
+Egregia,2009,5,OTHRED,Other red algae,14.000000000000002,Zone III
+Egregia,2009,5,PHYALL,Phyllospadix spp,62,Zone III
+Egregia,2009,5,SAND,Sand,2,Zone III
+Egregia,2009,5,SARMUT,Sargassum muticum,3,Zone III
+Egregia,2009,6,ARTCOR,Articulated corallines,14.000000000000002,Zone III
+Egregia,2009,6,EGRMEN,Egregia menziesii,5,Zone III
+Egregia,2009,6,OTHRED,Other red algae,15,Zone III
+Egregia,2009,6,PHYALL,Phyllospadix spp,60,Zone III
+Egregia,2009,6,SAND,Sand,5,Zone III
+Egregia,2009,6,SARMUT,Sargassum muticum,1,Zone III
+Egregia,2010,5,ARTCOR,Articulated corallines,2,Zone III
+Egregia,2010,5,CRUCOR,Crustose corallines,1,Zone III
+Egregia,2010,5,EGRMEN,Egregia menziesii,28.000000000000004,Zone III
+Egregia,2010,5,OTHBRO,Other brown algae,2,Zone III
+Egregia,2010,5,OTHGRE,Other green algae,2,Zone III
+Egregia,2010,5,OTHRED,Other red algae,12,Zone III
+Egregia,2010,5,PHYALL,Phyllospadix spp,50,Zone III
+Egregia,2010,5,ROCK,Bare rock,2,Zone III
+Egregia,2010,6,ARTCOR,Articulated corallines,8,Zone III
+Egregia,2010,6,EGRMEN,Egregia menziesii,16,Zone III
+Egregia,2010,6,OTHRED,Other red algae,3,Zone III
+Egregia,2010,6,PHYALL,Phyllospadix spp,71,Zone III
+Egregia,2011,5,ARTCOR,Articulated corallines,2,Zone III
+Egregia,2011,5,EGRMEN,Egregia menziesii,25,Zone III
+Egregia,2011,5,OTHBRO,Other brown algae,22,Zone III
+Egregia,2011,5,OTHRED,Other red algae,11,Zone III
+Egregia,2011,5,PHYALL,Phyllospadix spp,37,Zone III
+Egregia,2011,5,SAND,Sand,1,Zone III
+Egregia,2011,6,ARTCOR,Articulated corallines,9,Zone III
+Egregia,2011,6,EGRMEN,Egregia menziesii,9,Zone III
+Egregia,2011,6,OTHBRO,Other brown algae,1,Zone III
+Egregia,2011,6,OTHRED,Other red algae,9,Zone III
+Egregia,2011,6,PHYALL,Phyllospadix spp,69,Zone III
+Egregia,2011,6,SAND,Sand,1,Zone III
+Egregia,2012,5,EGRMEN,Egregia menziesii,5,Zone III
+Egregia,2012,5,OTHRED,Other red algae,18,Zone III
+Egregia,2012,5,PHYALL,Phyllospadix spp,74,Zone III
+Egregia,2012,5,SARMUT,Sargassum muticum,1,Zone III
+Egregia,2012,6,EGRMEN,Egregia menziesii,3,Zone III
+Egregia,2012,6,OTHRED,Other red algae,4,Zone III
+Egregia,2012,6,PHYALL,Phyllospadix spp,86,Zone III
+Egregia,2012,6,SARMUT,Sargassum muticum,1,Zone III
+Egregia,2013,5,EGRMEN,Egregia menziesii,7.000000000000001,Zone III
+Egregia,2013,5,OTHBRO,Other brown algae,2,Zone III
+Egregia,2013,5,OTHRED,Other red algae,17,Zone III
+Egregia,2013,5,PHYALL,Phyllospadix spp,56.00000000000001,Zone III
+Egregia,2013,5,ROCK,Bare rock,2,Zone III
+Egregia,2013,6,EGRMEN,Egregia menziesii,18,Zone III
+Egregia,2013,6,OTHBRO,Other brown algae,1,Zone III
+Egregia,2013,6,OTHRED,Other red algae,13,Zone III
+Egregia,2013,6,PHYALL,Phyllospadix spp,61,Zone III
+Egregia,2014,5,ARTCOR,Articulated corallines,7.000000000000001,Zone III
+Egregia,2014,5,CRUCOR,Crustose corallines,1,Zone III
+Egregia,2014,5,EGRMEN,Egregia menziesii,13,Zone III
+Egregia,2014,5,OTHBRO,Other brown algae,7.000000000000001,Zone III
+Egregia,2014,5,OTHRED,Other red algae,8,Zone III
+Egregia,2014,5,PHYALL,Phyllospadix spp,59,Zone III
+Egregia,2014,6,ARTCOR,Articulated corallines,4,Zone III
+Egregia,2014,6,CRUCOR,Crustose corallines,1,Zone III
+Egregia,2014,6,EGRMEN,Egregia menziesii,4,Zone III
+Egregia,2014,6,OTHRED,Other red algae,6,Zone III
+Egregia,2014,6,PHYALL,Phyllospadix spp,82,Zone III
+Egregia,2014,6,ROCK,Bare rock,2,Zone III
+Egregia,2014,6,SAND,Sand,1,Zone III
+Egregia,2015,5,ARTCOR,Articulated corallines,4,Zone III
+Egregia,2015,5,CRUCOR,Crustose corallines,3,Zone III
+Egregia,2015,5,OTHRED,Other red algae,15,Zone III
+Egregia,2015,5,PHYALL,Phyllospadix spp,59,Zone III
+Egregia,2015,5,ROCK,Bare rock,1,Zone III
+Egregia,2015,5,SAND,Sand,2,Zone III
+Egregia,2015,5,SARMUT,Sargassum muticum,6,Zone III
+Egregia,2015,6,ARTCOR,Articulated corallines,6,Zone III
+Egregia,2015,6,OTHRED,Other red algae,9,Zone III
+Egregia,2015,6,PHYALL,Phyllospadix spp,78,Zone III
+Egregia,2015,6,SAND,Sand,2,Zone III
+Egregia,2015,6,SARMUT,Sargassum muticum,1,Zone III
+Egregia,2016,5,ARTCOR,Articulated corallines,1,Zone III
+Egregia,2016,5,CRUCOR,Crustose corallines,1,Zone III
+Egregia,2016,5,EGRMEN,Egregia menziesii,6,Zone III
+Egregia,2016,5,OTHINV,Other invertebrates,1,Zone III
+Egregia,2016,5,OTHRED,Other red algae,10,Zone III
+Egregia,2016,5,PHYALL,Phyllospadix spp,69,Zone III
+Egregia,2016,5,SAND,Sand,2,Zone III
+Egregia,2016,6,PHYALL,Phyllospadix spp,100,Zone III
+Egregia,2017,6,OTHRED,Other red algae,2,Zone III
+Egregia,2017,6,PHYALL,Phyllospadix spp,98,Zone III
+Egregia,2017,5,ARTCOR,Articulated corallines,1,Zone III
+Egregia,2017,5,EGRMEN,Egregia menziesii,2,Zone III
+Egregia,2017,5,OTHRED,Other red algae,1,Zone III
+Egregia,2017,5,PHYALL,Phyllospadix spp,78,Zone III
+Egregia,2017,5,ROCK,Bare rock,2,Zone III
+Egregia,2017,5,SAND,Sand,1,Zone III
+Egregia,2019,5,ARTCOR,Articulated corallines,1,Zone III
+Egregia,2019,5,EGRMEN,Egregia menziesii,5,Zone III
+Egregia,2019,5,OTHRED,Other red algae,15,Zone III
+Egregia,2019,5,PHYALL,Phyllospadix spp,76,Zone III
+Egregia,2019,5,ROCK,Bare rock,2,Zone III
+Egregia,2019,5,SAND,Sand,1,Zone III
+Egregia,2019,6,ARTCOR,Articulated corallines,1,Zone III
+Egregia,2019,6,OTHRED,Other red algae,4,Zone III
+Egregia,2019,6,PHYALL,Phyllospadix spp,95,Zone III
+Egregia,2020,5,OTHBRO,Other brown algae,3,Zone III
+Egregia,2020,5,OTHRED,Other red algae,7.000000000000001,Zone III
+Egregia,2020,5,PHYALL,Phyllospadix spp,89,Zone III
+Egregia,2020,5,SAND,Sand,1,Zone III
+Egregia,2020,6,OTHBRO,Other brown algae,1,Zone III
+Egregia,2020,6,OTHRED,Other red algae,8,Zone III
+Egregia,2020,6,PHYALL,Phyllospadix spp,84,Zone III
+Egregia,2020,6,SAND,Sand,7.000000000000001,Zone III
+Egregia,2021,5,ARTCOR,Articulated corallines,1,Zone III
+Egregia,2021,5,OTHRED,Other red algae,20,Zone III
+Egregia,2021,5,PHYALL,Phyllospadix spp,78,Zone III
+Egregia,2021,5,SAND,Sand,1,Zone III
+Egregia,2021,6,ARTCOR,Articulated corallines,1,Zone III
+Egregia,2021,6,OTHRED,Other red algae,1,Zone III
+Egregia,2021,6,PHYALL,Phyllospadix spp,98,Zone III
+Phyllospadix,1990,3,PHYALL,Phyllospadix spp,67.5,Zone III
+Phyllospadix,1990,3,SARMUT,Sargassum muticum,4.8,Zone III
+Phyllospadix,1990,4,EGRMEN,Egregia menziesii,7.1,Zone III
+Phyllospadix,1990,4,PHYALL,Phyllospadix spp,75.5,Zone III
+Phyllospadix,1991,3,PHYALL,Phyllospadix spp,66.3,Zone III
+Phyllospadix,1991,3,SARMUT,Sargassum muticum,5.7,Zone III
+Phyllospadix,1991,4,EGRMEN,Egregia menziesii,7.3,Zone III
+Phyllospadix,1991,4,PHYALL,Phyllospadix spp,74.3,Zone III
+Phyllospadix,1992,3,EGRMEN,Egregia menziesii,1.5,Zone III
+Phyllospadix,1992,3,PHYALL,Phyllospadix spp,74.5,Zone III
+Phyllospadix,1992,4,EGRMEN,Egregia menziesii,2.3,Zone III
+Phyllospadix,1992,4,PHYALL,Phyllospadix spp,80,Zone III
+Phyllospadix,1992,4,SARMUT,Sargassum muticum,2,Zone III
+Phyllospadix,1993,3,PHYALL,Phyllospadix spp,72.2,Zone III
+Phyllospadix,1993,3,SARMUT,Sargassum muticum,1.4000000000000001,Zone III
+Phyllospadix,1993,4,PHYALL,Phyllospadix spp,54.1,Zone III
+Phyllospadix,1993,4,SARMUT,Sargassum muticum,9.700000000000001,Zone III
+Phyllospadix,1994,3,PHYALL,Phyllospadix spp,64.3,Zone III
+Phyllospadix,1994,3,SARMUT,Sargassum muticum,5.3,Zone III
+Phyllospadix,1995,3,EGRMEN,Egregia menziesii,5.5,Zone III
+Phyllospadix,1995,3,PHYALL,Phyllospadix spp,47.9,Zone III
+Phyllospadix,1995,3,SARMUT,Sargassum muticum,5.8999999999999995,Zone III
+Phyllospadix,1995,4,EGRMEN,Egregia menziesii,3.6999999999999997,Zone III
+Phyllospadix,1995,4,PHYALL,Phyllospadix spp,74.7,Zone III
+Phyllospadix,1995,4,SARMUT,Sargassum muticum,6.800000000000001,Zone III
+Phyllospadix,1996,3,EGRMEN,Egregia menziesii,5.4,Zone III
+Phyllospadix,1996,3,PHYALL,Phyllospadix spp,66.4,Zone III
+Phyllospadix,1996,3,SARMUT,Sargassum muticum,14.7,Zone III
+Phyllospadix,1996,4,EGRMEN,Egregia menziesii,0.2,Zone III
+Phyllospadix,1996,4,PHYALL,Phyllospadix spp,86,Zone III
+Phyllospadix,1997,3,PHYALL,Phyllospadix spp,77.60000000000001,Zone III
+Phyllospadix,1997,3,SARMUT,Sargassum muticum,8.5,Zone III
+Phyllospadix,1997,4,PHYALL,Phyllospadix spp,91.5,Zone III
+Phyllospadix,1998,3,PHYALL,Phyllospadix spp,45.5,Zone III
+Phyllospadix,1998,3,SARMUT,Sargassum muticum,4.9,Zone III
+Phyllospadix,1998,4,EGRMEN,Egregia menziesii,0.2,Zone III
+Phyllospadix,1998,4,PHYALL,Phyllospadix spp,84.3,Zone III
+Phyllospadix,1999,3,PHYALL,Phyllospadix spp,91.2,Zone III
+Phyllospadix,1999,4,PHYALL,Phyllospadix spp,98.7,Zone III
+Phyllospadix,1999,4,SARMUT,Sargassum muticum,0.1,Zone III
+Phyllospadix,2000,3,PHYALL,Phyllospadix spp,78,Zone III
+Phyllospadix,2000,4,EGRMEN,Egregia menziesii,1,Zone III
+Phyllospadix,2000,4,PHYALL,Phyllospadix spp,86,Zone III
+Phyllospadix,2001,3,EGRMEN,Egregia menziesii,1,Zone III
+Phyllospadix,2001,3,HALCYS,Halidrys dioica/cystoseira spp,2,Zone III
+Phyllospadix,2001,3,PHYALL,Phyllospadix spp,78,Zone III
+Phyllospadix,2001,3,SARMUT,Sargassum muticum,3,Zone III
+Phyllospadix,2001,4,PHYALL,Phyllospadix spp,76,Zone III
+Phyllospadix,2001,4,SARMUT,Sargassum muticum,8,Zone III
+Phyllospadix,2002,3,PHYALL,Phyllospadix spp,73,Zone III
+Phyllospadix,2002,3,SARMUT,Sargassum muticum,3,Zone III
+Phyllospadix,2002,4,PHYALL,Phyllospadix spp,71,Zone III
+Phyllospadix,2002,4,SARMUT,Sargassum muticum,5,Zone III
+Phyllospadix,2003,3,ARTCOR,Articulated corallines,8,Zone III
+Phyllospadix,2003,3,NONCRU,Non-coralline crust,1,Zone III
+Phyllospadix,2003,3,OTHRED,Other red algae,3,Zone III
+Phyllospadix,2003,3,PHYALL,Phyllospadix spp,79,Zone III
+Phyllospadix,2003,3,ROCK,Bare rock,1,Zone III
+Phyllospadix,2003,3,SARMUT,Sargassum muticum,8,Zone III
+Phyllospadix,2003,4,ARTCOR,Articulated corallines,11,Zone III
+Phyllospadix,2003,4,EGRMEN,Egregia menziesii,4,Zone III
+Phyllospadix,2003,4,NONCRU,Non-coralline crust,2,Zone III
+Phyllospadix,2003,4,OTHRED,Other red algae,2,Zone III
+Phyllospadix,2003,4,PHYALL,Phyllospadix spp,67,Zone III
+Phyllospadix,2003,4,ROCK,Bare rock,6,Zone III
+Phyllospadix,2003,4,SARMUT,Sargassum muticum,8,Zone III
+Phyllospadix,2004,3,ARTCOR,Articulated corallines,3,Zone III
+Phyllospadix,2004,3,CRUCOR,Crustose corallines,1,Zone III
+Phyllospadix,2004,3,NONCRU,Non-coralline crust,4,Zone III
+Phyllospadix,2004,3,OTHRED,Other red algae,5,Zone III
+Phyllospadix,2004,3,PHYALL,Phyllospadix spp,84,Zone III
+Phyllospadix,2004,3,ROCK,Bare rock,2,Zone III
+Phyllospadix,2004,3,SAND,Sand,1,Zone III
+Phyllospadix,2004,4,ARTCOR,Articulated corallines,4,Zone III
+Phyllospadix,2004,4,OTHRED,Other red algae,12,Zone III
+Phyllospadix,2004,4,PHYALL,Phyllospadix spp,66,Zone III
+Phyllospadix,2004,4,SAND,Sand,5,Zone III
+Phyllospadix,2004,4,SARMUT,Sargassum muticum,13,Zone III
+Phyllospadix,2005,3,ARTCOR,Articulated corallines,10,Zone III
+Phyllospadix,2005,3,CRUCOR,Crustose corallines,2,Zone III
+Phyllospadix,2005,3,EGRMEN,Egregia menziesii,4,Zone III
+Phyllospadix,2005,3,NONCRU,Non-coralline crust,3,Zone III
+Phyllospadix,2005,3,OTHGRE,Other green algae,2,Zone III
+Phyllospadix,2005,3,OTHRED,Other red algae,6,Zone III
+Phyllospadix,2005,3,PHYALL,Phyllospadix spp,65,Zone III
+Phyllospadix,2005,3,ROCK,Bare rock,3,Zone III
+Phyllospadix,2005,3,SAND,Sand,4,Zone III
+Phyllospadix,2005,3,SARMUT,Sargassum muticum,1,Zone III
+Phyllospadix,2005,4,ARTCOR,Articulated corallines,15,Zone III
+Phyllospadix,2005,4,EGRMEN,Egregia menziesii,7.000000000000001,Zone III
+Phyllospadix,2005,4,OTHGRE,Other green algae,2,Zone III
+Phyllospadix,2005,4,OTHRED,Other red algae,11,Zone III
+Phyllospadix,2005,4,PHYALL,Phyllospadix spp,63,Zone III
+Phyllospadix,2005,4,ROCK,Bare rock,1,Zone III
+Phyllospadix,2005,4,SARMUT,Sargassum muticum,1,Zone III
+Phyllospadix,2006,3,ARTCOR,Articulated corallines,3,Zone III
+Phyllospadix,2006,3,CRUCOR,Crustose corallines,1,Zone III
+Phyllospadix,2006,3,EGRMEN,Egregia menziesii,3,Zone III
+Phyllospadix,2006,3,OTHGRE,Other green algae,1,Zone III
+Phyllospadix,2006,3,OTHRED,Other red algae,9,Zone III
+Phyllospadix,2006,3,PHYALL,Phyllospadix spp,77,Zone III
+Phyllospadix,2006,3,ROCK,Bare rock,1,Zone III
+Phyllospadix,2006,3,SAND,Sand,5,Zone III
+Phyllospadix,2006,4,EGRMEN,Egregia menziesii,5,Zone III
+Phyllospadix,2006,4,PHYALL,Phyllospadix spp,92,Zone III
+Phyllospadix,2006,4,SAND,Sand,1,Zone III
+Phyllospadix,2006,4,SARMUT,Sargassum muticum,2,Zone III
+Phyllospadix,2007,3,ARTCOR,Articulated corallines,10,Zone III
+Phyllospadix,2007,3,CRUCOR,Crustose corallines,1,Zone III
+Phyllospadix,2007,3,NONCRU,Non-coralline crust,2,Zone III
+Phyllospadix,2007,3,OTHGRE,Other green algae,1,Zone III
+Phyllospadix,2007,3,OTHRED,Other red algae,3,Zone III
+Phyllospadix,2007,3,PHYALL,Phyllospadix spp,73,Zone III
+Phyllospadix,2007,3,ROCK,Bare rock,1,Zone III
+Phyllospadix,2007,3,SAND,Sand,7.000000000000001,Zone III
+Phyllospadix,2007,3,SARMUT,Sargassum muticum,2,Zone III
+Phyllospadix,2007,4,ARTCOR,Articulated corallines,11,Zone III
+Phyllospadix,2007,4,HALCYS,Halidrys dioica/cystoseira spp,1,Zone III
+Phyllospadix,2007,4,OTHGRE,Other green algae,1,Zone III
+Phyllospadix,2007,4,OTHRED,Other red algae,6,Zone III
+Phyllospadix,2007,4,PHYALL,Phyllospadix spp,73,Zone III
+Phyllospadix,2007,4,ROCK,Bare rock,1,Zone III
+Phyllospadix,2007,4,SAND,Sand,6,Zone III
+Phyllospadix,2007,4,SARMUT,Sargassum muticum,1,Zone III
+Phyllospadix,2008,3,ARTCOR,Articulated corallines,16,Zone III
+Phyllospadix,2008,3,CRUCOR,Crustose corallines,1,Zone III
+Phyllospadix,2008,3,OTHGRE,Other green algae,4,Zone III
+Phyllospadix,2008,3,OTHRED,Other red algae,2,Zone III
+Phyllospadix,2008,3,PHYALL,Phyllospadix spp,60,Zone III
+Phyllospadix,2008,3,ROCK,Bare rock,5,Zone III
+Phyllospadix,2008,3,SAND,Sand,3,Zone III
+Phyllospadix,2008,3,SARMUT,Sargassum muticum,9,Zone III
+Phyllospadix,2008,4,ARTCOR,Articulated corallines,5,Zone III
+Phyllospadix,2008,4,EGRMEN,Egregia menziesii,2,Zone III
+Phyllospadix,2008,4,NONCRU,Non-coralline crust,1,Zone III
+Phyllospadix,2008,4,OTHGRE,Other green algae,3,Zone III
+Phyllospadix,2008,4,OTHRED,Other red algae,5,Zone III
+Phyllospadix,2008,4,PHYALL,Phyllospadix spp,80,Zone III
+Phyllospadix,2008,4,SAND,Sand,3,Zone III
+Phyllospadix,2009,3,ARTCOR,Articulated corallines,7.000000000000001,Zone III
+Phyllospadix,2009,3,OTHRED,Other red algae,6,Zone III
+Phyllospadix,2009,3,PHYALL,Phyllospadix spp,71,Zone III
+Phyllospadix,2009,3,ROCK,Bare rock,2,Zone III
+Phyllospadix,2009,3,SAND,Sand,10,Zone III
+Phyllospadix,2009,3,SARMUT,Sargassum muticum,4,Zone III
+Phyllospadix,2009,4,ARTCOR,Articulated corallines,3,Zone III
+Phyllospadix,2009,4,OTHRED,Other red algae,11,Zone III
+Phyllospadix,2009,4,PHYALL,Phyllospadix spp,74,Zone III
+Phyllospadix,2009,4,ROCK,Bare rock,3,Zone III
+Phyllospadix,2009,4,SAND,Sand,7.000000000000001,Zone III
+Phyllospadix,2009,4,SARMUT,Sargassum muticum,2,Zone III
+Phyllospadix,2010,3,ARTCOR,Articulated corallines,7.000000000000001,Zone III
+Phyllospadix,2010,3,EGRMEN,Egregia menziesii,4,Zone III
+Phyllospadix,2010,3,OTHRED,Other red algae,3,Zone III
+Phyllospadix,2010,3,PHYALL,Phyllospadix spp,70,Zone III
+Phyllospadix,2010,3,ROCK,Bare rock,6,Zone III
+Phyllospadix,2010,3,SAND,Sand,10,Zone III
+Phyllospadix,2010,4,ARTCOR,Articulated corallines,9,Zone III
+Phyllospadix,2010,4,CRUCOR,Crustose corallines,1,Zone III
+Phyllospadix,2010,4,EGRMEN,Egregia menziesii,33,Zone III
+Phyllospadix,2010,4,OTHBRO,Other brown algae,2,Zone III
+Phyllospadix,2010,4,OTHRED,Other red algae,1,Zone III
+Phyllospadix,2010,4,PHYALL,Phyllospadix spp,37,Zone III
+Phyllospadix,2010,4,ROCK,Bare rock,11,Zone III
+Phyllospadix,2010,4,SARMUT,Sargassum muticum,6,Zone III
+Phyllospadix,2011,3,ARTCOR,Articulated corallines,8,Zone III
+Phyllospadix,2011,3,EGRMEN,Egregia menziesii,20,Zone III
+Phyllospadix,2011,3,OTHRED,Other red algae,1,Zone III
+Phyllospadix,2011,3,PHYALL,Phyllospadix spp,68,Zone III
+Phyllospadix,2011,3,ROCK,Bare rock,2,Zone III
+Phyllospadix,2011,3,SAND,Sand,1,Zone III
+Phyllospadix,2011,4,ARTCOR,Articulated corallines,4,Zone III
+Phyllospadix,2011,4,EGRMEN,Egregia menziesii,51,Zone III
+Phyllospadix,2011,4,OTHRED,Other red algae,5,Zone III
+Phyllospadix,2011,4,PHYALL,Phyllospadix spp,35,Zone III
+Phyllospadix,2011,4,ROCK,Bare rock,3,Zone III
+Phyllospadix,2011,4,SAND,Sand,2,Zone III
+Phyllospadix,2012,3,ARTCOR,Articulated corallines,4,Zone III
+Phyllospadix,2012,3,OTHRED,Other red algae,4,Zone III
+Phyllospadix,2012,3,PHYALL,Phyllospadix spp,90,Zone III
+Phyllospadix,2012,3,ROCK,Bare rock,1,Zone III
+Phyllospadix,2012,3,SAND,Sand,1,Zone III
+Phyllospadix,2012,4,CRUCOR,Crustose corallines,1,Zone III
+Phyllospadix,2012,4,EGRMEN,Egregia menziesii,16,Zone III
+Phyllospadix,2012,4,OTHBRO,Other brown algae,1,Zone III
+Phyllospadix,2012,4,OTHGRE,Other green algae,1,Zone III
+Phyllospadix,2012,4,OTHRED,Other red algae,12,Zone III
+Phyllospadix,2012,4,PHYALL,Phyllospadix spp,53,Zone III
+Phyllospadix,2012,4,ROCK,Bare rock,9,Zone III
+Phyllospadix,2012,4,SAND,Sand,2,Zone III
+Phyllospadix,2013,3,OTHRED,Other red algae,7.000000000000001,Zone III
+Phyllospadix,2013,3,PHYALL,Phyllospadix spp,92,Zone III
+Phyllospadix,2013,3,SAND,Sand,1,Zone III
+Phyllospadix,2013,4,ARTCOR,Articulated corallines,4,Zone III
+Phyllospadix,2013,4,OTHRED,Other red algae,4,Zone III
+Phyllospadix,2013,4,PHYALL,Phyllospadix spp,70,Zone III
+Phyllospadix,2013,4,ROCK,Bare rock,6,Zone III
+Phyllospadix,2013,4,SAND,Sand,11,Zone III
+Phyllospadix,2013,4,SARMUT,Sargassum muticum,1,Zone III
+Phyllospadix,2014,3,OTHRED,Other red algae,8,Zone III
+Phyllospadix,2014,3,PHYALL,Phyllospadix spp,85,Zone III
+Phyllospadix,2014,3,SAND,Sand,7.000000000000001,Zone III
+Phyllospadix,2014,4,ARTCOR,Articulated corallines,4,Zone III
+Phyllospadix,2014,4,CRUCOR,Crustose corallines,1,Zone III
+Phyllospadix,2014,4,OTHBRO,Other brown algae,5,Zone III
+Phyllospadix,2014,4,OTHGRE,Other green algae,1,Zone III
+Phyllospadix,2014,4,OTHRED,Other red algae,8,Zone III
+Phyllospadix,2014,4,PHYALL,Phyllospadix spp,69,Zone III
+Phyllospadix,2014,4,ROCK,Bare rock,5,Zone III
+Phyllospadix,2014,4,SAND,Sand,4,Zone III
+Phyllospadix,2014,4,SARMUT,Sargassum muticum,3,Zone III
+Phyllospadix,2015,3,ARTCOR,Articulated corallines,4,Zone III
+Phyllospadix,2015,3,OTHBRO,Other brown algae,6,Zone III
+Phyllospadix,2015,3,PHYALL,Phyllospadix spp,71,Zone III
+Phyllospadix,2015,3,ROCK,Bare rock,11,Zone III
+Phyllospadix,2015,3,SAND,Sand,3,Zone III
+Phyllospadix,2015,3,SARMUT,Sargassum muticum,5,Zone III
+Phyllospadix,2015,4,ARTCOR,Articulated corallines,3,Zone III
+Phyllospadix,2015,4,OTHRED,Other red algae,9,Zone III
+Phyllospadix,2015,4,PHYALL,Phyllospadix spp,65,Zone III
+Phyllospadix,2015,4,ROCK,Bare rock,1,Zone III
+Phyllospadix,2015,4,SAND,Sand,11,Zone III
+Phyllospadix,2015,4,SARMUT,Sargassum muticum,10,Zone III
+Phyllospadix,2016,3,CRUCOR,Crustose corallines,1,Zone III
+Phyllospadix,2016,3,OTHBRO,Other brown algae,4,Zone III
+Phyllospadix,2016,3,OTHRED,Other red algae,6,Zone III
+Phyllospadix,2016,3,PHYALL,Phyllospadix spp,43,Zone III
+Phyllospadix,2016,3,ROCK,Bare rock,13,Zone III
+Phyllospadix,2016,3,SAND,Sand,19,Zone III
+Phyllospadix,2016,3,SARMUT,Sargassum muticum,14.000000000000002,Zone III
+Phyllospadix,2016,4,OTHRED,Other red algae,7.000000000000001,Zone III
+Phyllospadix,2016,4,PHYALL,Phyllospadix spp,88,Zone III
+Phyllospadix,2016,4,ROCK,Bare rock,1,Zone III
+Phyllospadix,2016,4,SAND,Sand,1,Zone III
+Phyllospadix,2017,3,ARTCOR,Articulated corallines,1,Zone III
+Phyllospadix,2017,3,EGRMEN,Egregia menziesii,1,Zone III
+Phyllospadix,2017,3,OTHRED,Other red algae,5,Zone III
+Phyllospadix,2017,3,PHYALL,Phyllospadix spp,64,Zone III
+Phyllospadix,2017,3,ROCK,Bare rock,1,Zone III
+Phyllospadix,2017,3,SAND,Sand,10,Zone III
+Phyllospadix,2017,3,SARMUT,Sargassum muticum,17,Zone III
+Phyllospadix,2017,4,ARTCOR,Articulated corallines,4,Zone III
+Phyllospadix,2017,4,EGRMEN,Egregia menziesii,10,Zone III
+Phyllospadix,2017,4,OTHRED,Other red algae,3,Zone III
+Phyllospadix,2017,4,PHYALL,Phyllospadix spp,73,Zone III
+Phyllospadix,2017,4,SAND,Sand,7.000000000000001,Zone III
+Phyllospadix,2017,4,SARMUT,Sargassum muticum,3,Zone III
+Phyllospadix,2019,3,CRUCOR,Crustose corallines,1,Zone III
+Phyllospadix,2019,3,OTHRED,Other red algae,9,Zone III
+Phyllospadix,2019,3,PHYALL,Phyllospadix spp,77,Zone III
+Phyllospadix,2019,3,ROCK,Bare rock,5,Zone III
+Phyllospadix,2019,3,SAND,Sand,2,Zone III
+Phyllospadix,2019,3,SARMUT,Sargassum muticum,6,Zone III
+Phyllospadix,2019,4,ARTCOR,Articulated corallines,1,Zone III
+Phyllospadix,2019,4,EGRMEN,Egregia menziesii,1,Zone III
+Phyllospadix,2019,4,OTHRED,Other red algae,4,Zone III
+Phyllospadix,2019,4,PHYALL,Phyllospadix spp,88,Zone III
+Phyllospadix,2019,4,SAND,Sand,1,Zone III
+Phyllospadix,2019,4,SARMUT,Sargassum muticum,5,Zone III
+Phyllospadix,2020,3,ARTCOR,Articulated corallines,1,Zone III
+Phyllospadix,2020,3,CRUCOR,Crustose corallines,1,Zone III
+Phyllospadix,2020,3,OTHBRO,Other brown algae,3,Zone III
+Phyllospadix,2020,3,OTHGRE,Other green algae,2,Zone III
+Phyllospadix,2020,3,OTHRED,Other red algae,7.000000000000001,Zone III
+Phyllospadix,2020,3,PHYALL,Phyllospadix spp,78,Zone III
+Phyllospadix,2020,3,SAND,Sand,7.000000000000001,Zone III
+Phyllospadix,2020,3,SARMUT,Sargassum muticum,1,Zone III
+Phyllospadix,2020,4,ARTCOR,Articulated corallines,1,Zone III
+Phyllospadix,2020,4,OTHRED,Other red algae,5,Zone III
+Phyllospadix,2020,4,PHYALL,Phyllospadix spp,86,Zone III
+Phyllospadix,2020,4,SAND,Sand,3,Zone III
+Phyllospadix,2020,4,SARMUT,Sargassum muticum,5,Zone III
+Phyllospadix,2021,3,ARTCOR,Articulated corallines,2,Zone III
+Phyllospadix,2021,3,OTHRED,Other red algae,7.000000000000001,Zone III
+Phyllospadix,2021,3,PHYALL,Phyllospadix spp,85,Zone III
+Phyllospadix,2021,3,ROCK,Bare rock,1,Zone III
+Phyllospadix,2021,3,SAND,Sand,1,Zone III
+Phyllospadix,2021,3,SARMUT,Sargassum muticum,4,Zone III
+Phyllospadix,2021,4,OTHBRO,Other brown algae,1,Zone III
+Phyllospadix,2021,4,PHYALL,Phyllospadix spp,97,Zone III
+Phyllospadix,2021,4,SAND,Sand,1,Zone III
+Phyllospadix,2021,4,SARMUT,Sargassum muticum,1,Zone III
+Red algae,1990,1,PHYALL,Phyllospadix spp,7.5,Zone III
+Red algae,1991,1,PHYALL,Phyllospadix spp,11.3,Zone III
+Red algae,1992,1,PHYALL,Phyllospadix spp,11.5,Zone III
+Red algae,1993,1,PHYALL,Phyllospadix spp,9.8,Zone III
+Red algae,1995,1,PHYALL,Phyllospadix spp,6.9,Zone III
+Red algae,1996,1,PHYALL,Phyllospadix spp,5,Zone III
+Red algae,1996,1,SARMUT,Sargassum muticum,0.3,Zone III
+Red algae,1997,1,PHYALL,Phyllospadix spp,9.8,Zone III
+Red algae,1998,1,OTHINV,Other invertebrates,0.3,Zone III
+Red algae,1998,1,PHYALL,Phyllospadix spp,17.2,Zone III
+Red algae,1998,2,OTHINV,Other invertebrates,0.1,Zone III
+Red algae,1999,1,PHYALL,Phyllospadix spp,19.8,Zone III
+Red algae,2000,1,OTHINV,Other invertebrates,1,Zone III
+Red algae,2000,1,PHYALL,Phyllospadix spp,17,Zone III
+Red algae,2001,1,CRUCOR,Crustose corallines,3,Zone III
+Red algae,2001,1,PHYALL,Phyllospadix spp,13,Zone III
+Red algae,2002,1,PHYALL,Phyllospadix spp,11,Zone III
+Red algae,2003,1,ANEMON,Anemones (generic),3,Zone III
+Red algae,2003,1,ARTCOR,Articulated corallines,49,Zone III
+Red algae,2003,1,CRUCOR,Crustose corallines,1,Zone III
+Red algae,2003,1,NONCRU,Non-coralline crust,1,Zone III
+Red algae,2003,1,OTHGRE,Other green algae,3,Zone III
+Red algae,2003,1,OTHRED,Other red algae,22,Zone III
+Red algae,2003,1,PHYALL,Phyllospadix spp,11,Zone III
+Red algae,2003,1,ROCK,Bare rock,2,Zone III
+Red algae,2003,1,SARMUT,Sargassum muticum,8,Zone III
+Red algae,2003,2,ARTCOR,Articulated corallines,60,Zone III
+Red algae,2003,2,OTHGRE,Other green algae,7.000000000000001,Zone III
+Red algae,2003,2,OTHINV,Other invertebrates,1,Zone III
+Red algae,2003,2,OTHRED,Other red algae,5,Zone III
+Red algae,2003,2,SARMUT,Sargassum muticum,27,Zone III
+Red algae,2004,1,ANEMON,Anemones (generic),2,Zone III
+Red algae,2004,1,ARTCOR,Articulated corallines,28.000000000000004,Zone III
+Red algae,2004,1,CRUCOR,Crustose corallines,1,Zone III
+Red algae,2004,1,OTHGRE,Other green algae,1,Zone III
+Red algae,2004,1,OTHRED,Other red algae,48,Zone III
+Red algae,2004,1,PHYALL,Phyllospadix spp,15,Zone III
+Red algae,2004,1,ROCK,Bare rock,2,Zone III
+Red algae,2004,1,SAND,Sand,3,Zone III
+Red algae,2004,2,ARTCOR,Articulated corallines,24,Zone III
+Red algae,2004,2,COLPOM,Colpomenia,1,Zone III
+Red algae,2004,2,OTHRED,Other red algae,43,Zone III
+Red algae,2004,2,ROCK,Bare rock,1,Zone III
+Red algae,2004,2,SAND,Sand,31,Zone III
+Red algae,2005,1,ANEMON,Anemones (generic),2,Zone III
+Red algae,2005,1,ARTCOR,Articulated corallines,25,Zone III
+Red algae,2005,1,CRUCOR,Crustose corallines,2,Zone III
+Red algae,2005,1,NONCRU,Non-coralline crust,1,Zone III
+Red algae,2005,1,OTHRED,Other red algae,42,Zone III
+Red algae,2005,1,PHYALL,Phyllospadix spp,16,Zone III
+Red algae,2005,1,ROCK,Bare rock,4,Zone III
+Red algae,2005,1,SAND,Sand,8,Zone III
+Red algae,2005,2,ARTCOR,Articulated corallines,56.00000000000001,Zone III
+Red algae,2005,2,OTHRED,Other red algae,37,Zone III
+Red algae,2005,2,ROCK,Bare rock,4,Zone III
+Red algae,2005,2,SAND,Sand,2,Zone III
+Red algae,2006,1,ANEMON,Anemones (generic),2,Zone III
+Red algae,2006,1,ARTCOR,Articulated corallines,31,Zone III
+Red algae,2006,1,OTHGRE,Other green algae,1,Zone III
+Red algae,2006,1,OTHRED,Other red algae,34,Zone III
+Red algae,2006,1,PHYALL,Phyllospadix spp,20,Zone III
+Red algae,2006,1,ROCK,Bare rock,2,Zone III
+Red algae,2006,1,SAND,Sand,10,Zone III
+Red algae,2006,2,ARTCOR,Articulated corallines,43,Zone III
+Red algae,2006,2,CRUCOR,Crustose corallines,1,Zone III
+Red algae,2006,2,OTHGRE,Other green algae,2,Zone III
+Red algae,2006,2,OTHRED,Other red algae,33,Zone III
+Red algae,2006,2,SAND,Sand,21,Zone III
+Red algae,2007,1,ARTCOR,Articulated corallines,44,Zone III
+Red algae,2007,1,CRUCOR,Crustose corallines,3,Zone III
+Red algae,2007,1,NONCRU,Non-coralline crust,1,Zone III
+Red algae,2007,1,OTHGRE,Other green algae,3,Zone III
+Red algae,2007,1,OTHRED,Other red algae,15,Zone III
+Red algae,2007,1,PHYALL,Phyllospadix spp,15,Zone III
+Red algae,2007,1,ROCK,Bare rock,4,Zone III
+Red algae,2007,1,SAND,Sand,15,Zone III
+Red algae,2007,2,ARTCOR,Articulated corallines,59,Zone III
+Red algae,2007,2,OTHGRE,Other green algae,5,Zone III
+Red algae,2007,2,OTHRED,Other red algae,15,Zone III
+Red algae,2007,2,SAND,Sand,21,Zone III
+Red algae,2008,1,ARTCOR,Articulated corallines,35,Zone III
+Red algae,2008,1,CRUCOR,Crustose corallines,3,Zone III
+Red algae,2008,1,OTHGRE,Other green algae,4,Zone III
+Red algae,2008,1,OTHINV,Other invertebrates,1,Zone III
+Red algae,2008,1,OTHRED,Other red algae,35,Zone III
+Red algae,2008,1,PHYALL,Phyllospadix spp,12,Zone III
+Red algae,2008,1,ROCK,Bare rock,2,Zone III
+Red algae,2008,1,SAND,Sand,6,Zone III
+Red algae,2008,2,ARTCOR,Articulated corallines,67,Zone III
+Red algae,2008,2,NONCRU,Non-coralline crust,1,Zone III
+Red algae,2008,2,OTHGRE,Other green algae,1,Zone III
+Red algae,2008,2,OTHRED,Other red algae,12,Zone III
+Red algae,2008,2,ROCK,Bare rock,1,Zone III
+Red algae,2008,2,SAND,Sand,18,Zone III
+Red algae,2009,1,ARTCOR,Articulated corallines,22,Zone III
+Red algae,2009,1,OTHRED,Other red algae,47,Zone III
+Red algae,2009,1,PHYALL,Phyllospadix spp,18,Zone III
+Red algae,2009,1,ROCK,Bare rock,2,Zone III
+Red algae,2009,1,SAND,Sand,10,Zone III
+Red algae,2009,2,ARTCOR,Articulated corallines,25,Zone III
+Red algae,2009,2,OTHRED,Other red algae,25,Zone III
+Red algae,2009,2,SAND,Sand,50,Zone III
+Red algae,2010,1,ARTCOR,Articulated corallines,22,Zone III
+Red algae,2010,1,CRUCOR,Crustose corallines,1,Zone III
+Red algae,2010,1,OTHGRE,Other green algae,1,Zone III
+Red algae,2010,1,OTHRED,Other red algae,36,Zone III
+Red algae,2010,1,PHYALL,Phyllospadix spp,21,Zone III
+Red algae,2010,1,ROCK,Bare rock,2,Zone III
+Red algae,2010,1,SAND,Sand,15,Zone III
+Red algae,2010,2,ARTCOR,Articulated corallines,79,Zone III
+Red algae,2010,2,ROCK,Bare rock,4,Zone III
+Red algae,2010,2,SAND,Sand,17,Zone III
+Red algae,2011,1,ARTCOR,Articulated corallines,36,Zone III
+Red algae,2011,1,CRUCOR,Crustose corallines,2,Zone III
+Red algae,2011,1,EGRMEN,Egregia menziesii,1,Zone III
+Red algae,2011,1,OTHBRO,Other brown algae,2,Zone III
+Red algae,2011,1,OTHGRE,Other green algae,2,Zone III
+Red algae,2011,1,OTHRED,Other red algae,30,Zone III
+Red algae,2011,1,PHYALL,Phyllospadix spp,22,Zone III
+Red algae,2011,1,ROCK,Bare rock,1,Zone III
+Red algae,2011,1,SAND,Sand,4,Zone III
+Red algae,2011,2,ARTCOR,Articulated corallines,56.99999999999999,Zone III
+Red algae,2011,2,OTHGRE,Other green algae,3,Zone III
+Red algae,2011,2,OTHRED,Other red algae,16,Zone III
+Red algae,2011,2,ROCK,Bare rock,13,Zone III
+Red algae,2011,2,SARMUT,Sargassum muticum,11,Zone III
+Red algae,2012,1,ARTCOR,Articulated corallines,4,Zone III
+Red algae,2012,1,EGRMEN,Egregia menziesii,1,Zone III
+Red algae,2012,1,OTHRED,Other red algae,57.99999999999999,Zone III
+Red algae,2012,1,PHYALL,Phyllospadix spp,26,Zone III
+Red algae,2012,1,ROCK,Bare rock,3,Zone III
+Red algae,2012,1,SAND,Sand,7.000000000000001,Zone III
+Red algae,2012,2,ARTCOR,Articulated corallines,31,Zone III
+Red algae,2012,2,OTHRED,Other red algae,56.00000000000001,Zone III
+Red algae,2012,2,ROCK,Bare rock,1,Zone III
+Red algae,2012,2,SAND,Sand,12,Zone III
+Red algae,2013,1,ARTCOR,Articulated corallines,1,Zone III
+Red algae,2013,1,CRUCOR,Crustose corallines,2,Zone III
+Red algae,2013,1,OTHGRE,Other green algae,1,Zone III
+Red algae,2013,1,OTHRED,Other red algae,70,Zone III
+Red algae,2013,1,PHYALL,Phyllospadix spp,16,Zone III
+Red algae,2013,1,ROCK,Bare rock,3,Zone III
+Red algae,2013,1,SAND,Sand,5,Zone III
+Red algae,2013,2,ARTCOR,Articulated corallines,35,Zone III
+Red algae,2013,2,OTHBRO,Other brown algae,6,Zone III
+Red algae,2013,2,OTHGRE,Other green algae,2,Zone III
+Red algae,2013,2,OTHRED,Other red algae,28.000000000000004,Zone III
+Red algae,2013,2,SAND,Sand,28.999999999999996,Zone III
+Red algae,2014,2,ARTCOR,Articulated corallines,15,Zone III
+Red algae,2014,2,OTHRED,Other red algae,63,Zone III
+Red algae,2014,2,SAND,Sand,22,Zone III
+Red algae,2014,1,ANEMON,Anemones (generic),2,Zone III
+Red algae,2014,1,ARTCOR,Articulated corallines,4,Zone III
+Red algae,2014,1,CRUCOR,Crustose corallines,2,Zone III
+Red algae,2014,1,OTHRED,Other red algae,69,Zone III
+Red algae,2014,1,PHYALL,Phyllospadix spp,15,Zone III
+Red algae,2014,1,ROCK,Bare rock,3,Zone III
+Red algae,2014,1,SAND,Sand,5,Zone III
+Red algae,2015,1,ARTCOR,Articulated corallines,8,Zone III
+Red algae,2015,1,OTHRED,Other red algae,54,Zone III
+Red algae,2015,1,PHYALL,Phyllospadix spp,22,Zone III
+Red algae,2015,1,ROCK,Bare rock,2,Zone III
+Red algae,2015,1,SAND,Sand,13,Zone III
+Red algae,2015,2,ARTCOR,Articulated corallines,31,Zone III
+Red algae,2015,2,OTHBRO,Other brown algae,46,Zone III
+Red algae,2015,2,OTHINV,Other invertebrates,1,Zone III
+Red algae,2015,2,ROCK,Bare rock,1,Zone III
+Red algae,2015,2,SAND,Sand,20,Zone III
+Red algae,2016,1,ARTCOR,Articulated corallines,5,Zone III
+Red algae,2016,1,OTHRED,Other red algae,48,Zone III
+Red algae,2016,1,PHYALL,Phyllospadix spp,32,Zone III
+Red algae,2016,1,ROCK,Bare rock,7.000000000000001,Zone III
+Red algae,2016,1,SAND,Sand,7.000000000000001,Zone III
+Red algae,2016,1,SARMUT,Sargassum muticum,1,Zone III
+Red algae,2016,2,ARTCOR,Articulated corallines,13,Zone III
+Red algae,2016,2,OTHRED,Other red algae,66,Zone III
+Red algae,2016,2,SAND,Sand,21,Zone III
+Red algae,2017,1,ARTCOR,Articulated corallines,17,Zone III
+Red algae,2017,1,OTHRED,Other red algae,44,Zone III
+Red algae,2017,1,PHYALL,Phyllospadix spp,26,Zone III
+Red algae,2017,1,ROCK,Bare rock,6,Zone III
+Red algae,2017,1,SAND,Sand,5,Zone III
+Red algae,2017,2,ARTCOR,Articulated corallines,6,Zone III
+Red algae,2017,2,OTHRED,Other red algae,19,Zone III
+Red algae,2017,2,SAND,Sand,51,Zone III
+Red algae,2019,1,ARTCOR,Articulated corallines,5,Zone III
+Red algae,2019,1,CRUCOR,Crustose corallines,1,Zone III
+Red algae,2019,1,OTHRED,Other red algae,56.99999999999999,Zone III
+Red algae,2019,1,PHYALL,Phyllospadix spp,20,Zone III
+Red algae,2019,1,ROCK,Bare rock,6,Zone III
+Red algae,2019,1,SAND,Sand,5,Zone III
+Red algae,2019,1,SARMUT,Sargassum muticum,4,Zone III
+Red algae,2019,2,ARTCOR,Articulated corallines,6,Zone III
+Red algae,2019,2,OTHINV,Other invertebrates,1,Zone III
+Red algae,2019,2,OTHRED,Other red algae,70,Zone III
+Red algae,2019,2,ROCK,Bare rock,2,Zone III
+Red algae,2019,2,SAND,Sand,18,Zone III
+Red algae,2020,1,ARTCOR,Articulated corallines,16,Zone III
+Red algae,2020,1,CRUCOR,Crustose corallines,2,Zone III
+Red algae,2020,1,OTHGRE,Other green algae,1,Zone III
+Red algae,2020,1,OTHRED,Other red algae,51,Zone III
+Red algae,2020,1,PHYALL,Phyllospadix spp,21,Zone III
+Red algae,2020,1,ROCK,Bare rock,2,Zone III
+Red algae,2020,1,SAND,Sand,4,Zone III
+Red algae,2020,1,SARMUT,Sargassum muticum,3,Zone III
+Red algae,2020,2,ARTCOR,Articulated corallines,16,Zone III
+Red algae,2020,2,OTHGRE,Other green algae,2,Zone III
+Red algae,2020,2,OTHRED,Other red algae,63,Zone III
+Red algae,2020,2,ROCK,Bare rock,2,Zone III
+Red algae,2020,2,SAND,Sand,17,Zone III
+Red algae,2021,1,ARTCOR,Articulated corallines,14.000000000000002,Zone III
+Red algae,2021,1,CRUCOR,Crustose corallines,3,Zone III
+Red algae,2021,1,OTHRED,Other red algae,50,Zone III
+Red algae,2021,1,PHYALL,Phyllospadix spp,26,Zone III
+Red algae,2021,1,ROCK,Bare rock,2,Zone III
+Red algae,2021,1,SAND,Sand,5,Zone III
+Red algae,2021,2,ARTCOR,Articulated corallines,21,Zone III
+Red algae,2021,2,OTHRED,Other red algae,46,Zone III
+Red algae,2021,2,SAND,Sand,33,Zone III
