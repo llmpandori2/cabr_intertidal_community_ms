@@ -17,8 +17,8 @@ library(viridis)
 library(tidyverse)
 
 ##### load data #####
-# set wd to folder with data for year of interest
-setwd("D:/LP_Files/RStudio_Files/cabr_ri/data/MEDN_RI_DB_JAN21")
+# set wd to folder with data for year of interest (must change for computers)
+setwd("D:/LP_Files/RStudio_Files/cabr_intertidal_community_ms/data/MEDN_RI_DB_JAN21")
 
 # owl limpet data
 
@@ -33,12 +33,12 @@ transect <- read_excel('Line_transect_summary.xlsx')
 target <- read_excel('Photoplot_summary_by_plot.xlsx')
 
 # target scoring type (from MARINe db exports)
-target_scoretype <- read_csv("D:/LP_Files/RStudio_Files/cabr_ri/data/MARINe_db_CABR_RockyIntertidal_FA21_csv_20220414/CABR_RockyIntertidal_FA21_csv_20220405/qryEMLPhotoPlots.csv")
+target_scoretype <- read_csv('qryEMLPhotoPlots.csv')
 
 # timed search
 timed_search <- read_excel("TimedSearch_plot_counts.xlsx")
 
-setwd("D:/LP_Files/RStudio_Files/cabr_ri")
+setwd("D:/LP_Files/RStudio_Files/cabr_intertidal_community_ms")
 
 # alignment info for target data 
 taxa_crosswalk <- read_excel("data/crosswalk/crosswalk_lt_trend_report_photoplot.xlsx")
@@ -46,7 +46,7 @@ taxa_crosswalk <- read_excel("data/crosswalk/crosswalk_lt_trend_report_photoplot
 # summary: took species lists for 1990 and 2000, applied to all unique spp.
 
 # visitation data from shorebird/people counts
-people_count <- read_excel("data/Shorebird_People_Data_LS_to_2020.xlsx")
+people_count <- read_excel("data/Shorebird_People_Data/Shorebird_People_Data_LS_to_2020.xlsx")
 
 ##### presets #####
 # lists of commonly filtered-for items
