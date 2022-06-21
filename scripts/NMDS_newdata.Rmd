@@ -1,0 +1,300 @@
+---
+title: "NMDS_newdata"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+#packages
+```{r}
+library(readxl)
+library(grDevices)
+library(tidyverse)
+library(patchwork)
+library(janitor)
+library(ggdark)
+library(Hmisc)
+library(broom)
+library(viridis)
+library(lubridate)
+library(vegan) #for RDA
+library(ggpubr)
+library(rstatix)
+library(broom)
+library(purrr)
+library(labdsv) #hellinger transformation
+install.packages("StatMatch")
+library(StatMatch)
+```
+
+#load data
+```{r}
+####load shorebird data up to 2020 (people counts)####
+shorebird<-read_excel("../data/Shorebird_People_Data/Shorebird_People_Data_LS_to_2020.xlsx")
+
+####load target_90 data ####
+target_90<-read_csv("../data/lt_trend_report_tidy_data/target_90.csv")
+```
+
+#tidy: shorebird data
+```{r}
+#add column with just years
+shorebird$Year=format(shorebird$SurveyDate, "%Y")
+
+#filter for just people
+shorebird<- ungroup(shorebird) %>% 
+  mutate(SurveyYear=year(SurveyDate))%>%
+  filter(DataType=="People")%>%
+  group_by(SurveyYear, ZoneClass) %>% #separate by year and zone
+  summarise(people=mean(DataCount)) %>% #get average counts
+  mutate(ZoneName= paste('Zone', ZoneClass),
+         Panel = if_else(ZoneName == 'Zone I', 'A', 
+                         if_else(ZoneName == 'Zone II', 'B', 'C'))) %>%
+  mutate(ZoneName = paste('(', Panel, ') ', ZoneName, sep = '')) %>%
+  select(-c(Panel))%>%
+  drop_na()
+```
+
+#tidy: target_90 data
+```{r}
+#rotate from long to wide
+target_new <- select(target_90, -scientific_name) %>% pivot_wider(names_from = taxa_code, values_from = pct_cover)%>%
+  mutate_all(~replace(., is.na(.), 0))
+```
+
+#presets
+```{r}
+# lists of commonly filtered-for items
+cabrsites <- c('CAB1', 'CAB2', 'CAB3') 
+zonelist <- c('CHT', unique(target$Zone)[1:4])
+zonenames <- c('Balanus/Chthamalus', 'Tetraclita rubescens', 'Mussel', 'Silvetia compressa', 'Pollicipes polymerus')
+targetlist <- c('CHTBAL', 'TETRUB', 'MUSSEL', 'SILCOM', 'POLPOL')
+
+# theme
+lltheme_dark <- dark_theme_bw() + theme(text = element_text(size = 20),
+                              # add more space between panels
+                              panel.spacing = unit(1, 'lines'),
+                              # no background to wrap panels
+                              strip.background = element_blank(),
+                              strip.text = element_text(size = 20, hjust = 0),
+                              # panel labels outside x axis labels
+                              strip.placement = 'outside',
+                              # adjust x axis labels
+                              axis.text.y = element_text(size = 20),
+                              axis.text.x = element_text(size = 20, angle = 45, hjust = 1))
+
+lltheme_light <- theme_bw() + theme(text = element_text(size = 12),
+                              # add more space between panels
+                              panel.spacing = unit(1, 'lines'),
+                              # no background to wrap panels
+                              strip.background = element_blank(),
+                              strip.text = element_text(size = 12, hjust = 0),
+                              # panel labels outside x axis labels
+                              strip.placement = 'outside',
+                              # adjust x axis labels
+                              axis.text.y = element_text(size = 12),
+                              axis.text.x = element_text(size = 12, angle = 45, hjust = 1))
+```
+
+```{r}
+
+```
+
+
+
+#NMDS zone 1 
+```{r}
+#make matrix
+#9445 first row of zone3, 14028
+#zone3.matrix<-as.matrix(select(species[which(species$ZoneName=="(C) Zone III")], -c("SiteCode","SiteName","ZoneName")))
+
+zone1.matrix<-ungroup(target_new)%>% #ungroup b/c r wants to group first 3 columns
+  filter(zone=="Zone I")%>% #filter out zone 2/3
+  select(-c(1:4))%>% #take out non-num variables to be able to square (first 4 columns- survey year, type, plot_code, and taxa_code)
+  as.matrix() #make matrix
+
+#standardize with sqrt
+zone1.mat<-sqrt(zone1.matrix)
+
+#remove matrix rows with all 0s to run MDS? Error
+#zone1.matrix=zone1.matrix[, colSums(count != 0) > 0]
+
+zone1MDS<-metaMDS(zone1.mat, distance="bray", k=3, trymax = 35, autotransform = T) #stress=0.1208393
+zone1MDS
+
+stressplot(zone1MDS) #Non-metric fit R2=0.985, Linear fit R2=0.911
+
+
+
+```
+
+#get species and environ variables
+```{r}
+#separate out year, type, plot_code, zone from target_shore
+#zone1environ<-target_new%>%
+ # select(c(1:4))%>%
+ # mutate(zone=as.factor(zone))%>%
+ # filter(zone=="Zone I")
+
+#separate out species matrix, including linking factors
+#zone1species<-target_new%>%
+ # select(c(2:4,5:13))%>%
+ # filter(zone=="Zone I")
+
+target_new1<-target_new%>%
+  filter(zone=="Zone I")%>%
+  mutate(survey_year=as.factor(survey_year), type=as.factor(type))
+
+#write.csv(target_new1, "target_new1.csv")
+```
+
+#graphing NMDS
+```{r}
+#pull out right columns
+NMDS1zone1<-zone1MDS$points[,1]
+NMDS2zone1<-zone1MDS$points[,2]
+
+#zone1species<-species[which(species$zone=="Zone I"),]
+#zone3environ<-environ[which(environ$ZoneName=="(C) Zone III"),]
+zone1species.plot<-cbind(target_new1, NMDS1zone1, NMDS2zone1)
+#remove repeating columns
+#zone1species.plot<-zone1species.plot[-c(15:17)]
+
+#color<-tibble(ZoneName=unique(species$ZoneName), Colors=c("green", "red", "blue"))
+
+#zone1species.plot<-left_join(zone1species.plot, color)
+
+#make diff shapes for each plot type
+ggplot(zone1species.plot, aes(NMDS1zone1, NMDS2zone1, color=type))+
+  stat_ellipse(type='t',size = 1)+ ##draws 95% confidence interval ellipses
+  theme_minimal()+
+  annotate("text", x=min(NMDS1zone1), y=min(NMDS2zone1), label=paste('Stress =',round(zone1MDS$stress,3)))+ #add stress to plot
+  geom_point(data=zone1species.plot, aes(NMDS1zone1, NMDS2zone1, shape=type))+
+  scale_shape_manual(values=c(3,16,17,18))
+
+#graph with arrows as environmental variables
+ggplot(zone1species.plot, aes(NMDS1zone1, NMDS2zone1))+
+  stat_ellipse(aes(fill=type), alpha=.2,type='t',size =1, geom="polygon")+
+  theme_minimal()+
+   geom_segment(data=arrow.pzone3, aes(x=0, y=0, xend=NMDS1, yend=NMDS2, label=FG, lty=FG), arrowzone3=arrow(length=unit(.2, "cm")*arrow.pzone3$R))+ ##add arrows (scaled by R-squared value)
+  annotate("text", x=min(NMDS1zone3), y=min(NMDS2zone3), label=paste('Stress =',round(zone3MDS$stress,3)))+ #add stress to plot
+  geom_point(data=zone3species.plot, aes(NMDS1zone3, NMDS2zone3, shape=Zone))+
+  scale_shape_manual(values=c(3,16,17,18))
+ggsave("NMDS_zone3.png", width=6, height=4)
+
+#graph with ellipses as zone
+ggplot(zone3species.plot, aes(NMDS1zone3, NMDS2zone3))+
+  #geom_point(data=zone3species.plot, aes(NMDS1zone3, NMDS2zone3, color=Zone),position=position_jitter(.1))+##separates overlapping points
+  stat_ellipse(aes(fill=ZoneName), alpha=.2,type='t',size =1, geom="polygon")+
+  theme_minimal()+
+   geom_segment(data=arrow.pzone3, aes(x=0, y=0, xend=NMDS1, yend=NMDS2, label=FG, lty=FG), arrowzone3=arrow(length=unit(.2, "cm")*arrow.pzone3$R))+ ##add arrows (scaled by R-squared value)
+  annotate("text", x=min(NMDS1zone3), y=min(NMDS2zone3), label=paste('Stress =',round(zone3MDS$stress,3)))+ #add stress to plot
+  geom_point(data=zone3species.plot, aes(NMDS1zone3, NMDS2zone3, shape=Zone))+
+  scale_shape_manual(values=c(3,16,17,18))+
+  scale_fill_manual(values=zone3species.plot$Colors)
+ggsave("NMDS_zone3ellip.png", width=6, height=4)
+```
+
+#NMDS trying again
+```{r}
+#make community matrix- extract columns with abundance info
+community=target_new1[,5:ncol(target_new1)]
+
+#turn abundance data frame into a matrix
+m_com=as.matrix(community)
+
+#run metaMDS
+nmds=metaMDS(m_com, distance="bray")
+nmds #stress=0.18671
+
+plot(nmds) #messy
+
+#prep for ggplot
+#extract NMDS scores (x and y coordinates)
+data.scores=as.data.frame(scores(nmds))
+
+#add columns to data frame
+data.scores$Year=target_new1$survey_year
+data.scores$Type=target_new1$type
+
+ggplot(data.scores, aes(x = NMDS1, y = NMDS2)) + 
+    geom_point(size = 4, aes( shape = Year, colour = Type))+ 
+    theme(axis.text.y = element_text(colour = "black", size = 12, face = "bold"), 
+    axis.text.x = element_text(colour = "black", face = "bold", size = 12), 
+    legend.text = element_text(size = 12, face ="bold", colour ="black"), 
+    legend.position = "right", axis.title.y = element_text(face = "bold", size = 14), 
+    axis.title.x = element_text(face = "bold", size = 14, colour = "black"), 
+    legend.title = element_text(size = 14, colour = "black", face = "bold"), 
+    panel.background = element_blank(), panel.border = element_rect(colour = "black", fill = NA, size = 1.2),
+    legend.key=element_blank()) + 
+    labs(x = "NMDS1", colour = "Year", y = "NMDS2", shape = "Type")  #+ 
+    #scale_colour_manual(values = c("#009E73", "#E69F00")) 
+```
+
+#NMDS trying again round 2, non ggplot version
+```{r}
+
+ord<-metaMDS(target_new1[,5:ncol(target_new1)])
+ord #stress=0.1888
+
+plot(ord, type="n") #n=empty plot for better control of graphics. Can also do p for points, or t for text
+points(ord, display="sites", cex = 0.8, pch=21, col="red", bg="yellow")
+text(ord, display="spec", cex=0.7, col="blue")
+
+data(dune.env)
+target_env=target_new1[,1:4]
+attach(target_env)
+
+ord.constrained<-cca(target_new1[,5:ncol(target_new1)]~survey_year+type, data=target_env)
+ord.constrained
+
+plot(ord.constrained)
+
+```
+
+#NMDS attempt following Pete's directions
+```{r}
+#make variable TypeYear that is combo of type and year
+target_new1$typeyear=paste(target_new1$survey_year,"_" ,target_new1$type)
+
+#make community matrix- extract columns with abundance info
+matrix1=target_new1[,-c(2:4, 14)]
+
+#turn abundance data frame into a matrix
+matrix1=as.matrix(matrix1)
+#gower_dist=gower.dist(matrix1)
+matrix2=daisy(matrix1[,-1], metric="gower")
+summary(matrix2)
+#calculate centroid matrix from matrix 1 using typeyear (matrix of distances between centroids for each plot type and year)
+gower_mat=as.matrix(matrix2)
+
+#output most similar pair
+target_new1[which(gower_mat==min(gower_mat[gower_mat != min(gower_mat)]),
+        arr.ind = TRUE)[1, ], ]
+
+#output most dissimilar pair
+target_new1[
+  which(gower_mat == max(gower_mat[gower_mat != max(gower_mat)]),
+        arr.ind = TRUE)[1, ], ]
+
+#calculate mean values for all species for all plot types and years from target_new1
+data2=target_new1%>%
+  group_by(survey_year,type)%>%
+  summarise_at(vars("BARESUB","CHTBAL","OTHANI","OTHPLA","TETRUB","MYTCAL","POLPOL","SILCOM","UNSCORE"),mean)
+
+#ordinate gower_mat and overlay trajectory connecting the points within a type by year
+MDS1=metaMDS(gower_dist, distance="bray")
+MDS1
+
+plot(MDS1)
+
+data.scores=as.data.frame(scores(MDS1))
+data.scores$Year=target_new1$survey_year
+data.scores$Type=target_new1$type
+head(data.scores)
+
+#then I used Data2 as the data set for vectors on MDS1
+ggplot(data.scores, aes(x=NMDS1, y=NMDS2))+
+  geom_point(size=4, aes(shape=Type, color=Year))
+```
+
