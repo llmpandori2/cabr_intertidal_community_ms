@@ -7,12 +7,14 @@
 ##################################################
 
 ##### packages #####
-library(ggdark)     # dark field versions of ggplot2 themes
-library(janitor)    # snake case col names and remove duplicates
-library(broom)      # glance fn for linregs
-library(calecopal)  # color palettes
-library(ggrepel)    # flying labels 
-library(tidyverse)  # tidyverse packages
+library(ggdark)       # dark field versions of ggplot2 themes
+library(janitor)      # snake case col names and remove duplicates
+library(broom)        # glance fn for linregs
+library(calecopal)    # color palettes
+library(ggrepel)      # flying labels 
+library(vegan)        # community analyses
+library(PNWColors)    # color palettes
+library(tidyverse)    # tidyverse packages
 
 ##### places & themes #####
 # 3 color palette
@@ -244,9 +246,165 @@ linreg_plot_fn(transect_home, 'transect', group = type)
 # remove excess datasets 
 remove(target_home, transect_home)
 
-##### limpet size & density linreg #####
+##### community change photoplot - stacked bar #####
+
+area_fn <- function(plot_type, spp_code, sort_spp){
+  
+  # wrangle data
+  dataset <- target_90 %>%
+    filter(type == plot_type) %>%
+    # calculate cover of each taxa across plot replicates
+    group_by(survey_year, zone, taxa_code, scientific_name) %>%
+    summarize(pct_cover = sum(pct_cover)) %>%
+    ungroup() %>%
+    # get sum of cover for each year
+    group_by(survey_year, zone) %>%
+    mutate(cover_sum = sum(pct_cover)) %>%
+    ungroup() %>%
+    # calculate % cover 
+    mutate(pct_cover = (pct_cover/cover_sum)*100) %>%
+    # make pretty label columns, nicer spp names
+    mutate(scientific_name = case_when(
+                      scientific_name =='Tetraclita rubescens' ~ 'Tetraclita',
+                      scientific_name =='Pollicipes polymerus' ~ 'Pollicipes',
+                      scientific_name =='Silvetia compressa' ~ 'Silvetia',
+                      scientific_name == 'Balanus/Chthamalus' ~ 'Balanus Chthamalus',
+                      TRUE ~ scientific_name))
+  
+  # step 2 - plotting function, with specified plot number and type
+  ggplot(data = dataset,
+         mapping = aes(x = survey_year, y = pct_cover, 
+                       # make target spp last (bottom bar on plots)
+                       fill = fct_relevel(scientific_name, sort_spp, after = Inf))) +
+    # bar stacked by spp group (Scientific_name)
+    geom_bar(stat = 'identity', width = 1) + 
+    # axis and plot labels
+    xlab('Year') + 
+    ylab('Percent Cover') + 
+    ggtitle(paste0(sort_spp, ' photo-plots')) +
+    # colors
+    scale_fill_manual(name = 'Taxon',
+                        values = c(pnw_palette('Sailboat', 8, type = 'continuous'), 'gray20')) +
+    facet_wrap(~zone) +
+    light_theme + 
+    theme(aspect.ratio = 1)
+  
+  # save plot
+  
+  ggsave(paste(saveplace, '/stackedbar/stackedbar_', sort_spp, '.png', sep = ''), width = 7)
+}
+
+# run for target spp 
+area_fn(plot_type = 'MYT', spp_code = 'MYTCAL', sort_spp = 'Mytilus')
+area_fn(plot_type = 'CHT', spp_code = 'CHTBAL', sort_spp = 'Balanus Chthamalus')
+area_fn(plot_type = 'CHT', spp_code = 'TETRUB', sort_spp = 'Tetraclita')
+area_fn(plot_type = 'POL', spp_code = 'POLPOL', sort_spp = 'Pollicipes')
+area_fn(plot_type = 'SIL', spp_code = 'SILCOM', sort_spp = 'Silvetia')
+
+##### community dynamics - multivariate #####
+
+# pivot from long to wide format for community analyses
+target_new <- select(target_90, -scientific_name) %>% 
+  pivot_wider(names_from = taxa_code, values_from = pct_cover) %>%
+  # fill in NA's with 0's
+  mutate_all(~replace(., is.na(.), 0))
+
+# PERMANOVA - do plots and zones differ in composition? 
+permanova_fn <- function(plot_type, zone_name){
+
+# make spp and env datasets
+target_spp <- target_new %>% filter(type == plot_type, zone == zone_name) %>%
+                             select(-c(survey_year:zone))
+target_env <- target_new %>% filter(type == plot_type, zone == zone_name) %>%
+                             select(survey_year:zone)
+
+# run PERMANOVA to detect time & plot code (run each factor alone first) - save results as csv
+  # year
+  write_csv(adonis(target_spp ~ survey_year, 
+                   data = target_env, permutations = 999)$aov.tab,
+            paste0(saveplace, 'stats_tables/permanova_yr_', zone_name, '_', 
+                   plot_type, '.csv'))
+  # code
+  write_csv(adonis(target_spp ~ plot_code, 
+                   data = target_env, permutations = 999)$aov.tab,
+            paste0(saveplace, 'stats_tables/permanova_plotcode_', zone_name,
+                   '_', plot_type, '.csv'))
+  # both (+ interaction)
+  write_csv(adonis(target_spp ~ survey_year*plot_code, 
+                   data = target_env, permutations = 999)$aov.tab,
+                   paste0(saveplace, 'stats_tables/permanova_yr_plot_', 
+                          zone_name, '_', plot_type, '.csv'))
+
+# plot results
+# tutorial: https://chrischizinski.github.io/rstats/adonis/
+mds <- metaMDS(target_spp)
+
+# make new df with nmds 1 and 2 and id info
+scores <- cbind(as_tibble(scores(mds)), target_env) %>%
+  rename(`Plot code` = plot_code)
 
 
+# calculate distance matrix
+dist_matrix <- vegdist(target_spp)
+
+# calculate dispersions (survey year, plot code, zone)
+disper <- betadisper(dist_matrix, target_env$plot_code)
+
+# get mds vectors
+vectors <- as_tibble(scores(mds, 'species')) %>%
+  mutate(spp = colnames(target_spp)) %>%
+  filter(!is.na(NMDS1))
+
+# plot mod results with ggplot2
+ggplot() +
+  stat_ellipse(data = scores,
+               aes(x = NMDS1, y = NMDS2, color = `Plot code`)) + 
+  geom_point(data = scores,
+             aes(x = NMDS1, y = NMDS2, color = `Plot code`)) +
+  geom_segment(data = vectors, mapping = aes(x = 0, xend = NMDS1, y = 0, yend = NMDS2),
+               color = 'black') + 
+  geom_text(data = vectors, mapping = aes(x = NMDS1, y = NMDS2, label = spp), color = 'black') +
+  ggtitle(paste(scores$zone[1], scores$type[1])) +
+  coord_equal() + 
+  light_theme 
+
+ggsave(filename = 'ord_plot1.png')
+
+ggplot(data = scores,
+       aes(x = survey_year, y = NMDS1, color = `Plot code`)) + 
+  geom_smooth(method = 'lm') +
+  geom_point(aes(color = `Plot code`)) +
+  light_theme
+
+ggsave(filename = 'linreg_ord1.png')
+}
 
 
+# write test results
+write_csv(print(ad1$names), paste0(saveplace, 'stats_tables/permanova_yr_', plot_type, '_', zone_name))
+# run MDS for each plot type, separated by zone
+
+# start w zone 1
+
+function(plot_type, ...) {
+
+# tidy data
+ord_data <- target_new %>%
+  # filter for zonename of choice
+  filter(type == 'CHT') %>%
+  # select columns with numeric values
+  select(-c(survey_year:zone))
+
+# generate MDS
+mds <- metaMDS(ord_data, distance = 'bray', autotransform = T)
+
+}
+
+
+allzone<-metaMDS(select(target_new, BARESUB:MEXLUG), distance="bray", k=3, trymax = 35, autotransform = T) #stress=0.13
+zone1MDS
+
+stressplot(zone1MDS)
+
+plot(allzone, type = 't')
 
