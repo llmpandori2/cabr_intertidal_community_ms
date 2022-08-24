@@ -78,32 +78,43 @@ people_count <- ungroup(people_count) %>%
   # un-nest data w/ linreg summary
   unnest(c(data, summary)) %>%
   clean_names() %>%
-  select(-c(adj_r_squared, sigma, statistic, df:nobs, fit))
+  select(-c(adj_r_squared, sigma, statistic, df:nobs, fit)) %>%
+  rename(Zone = zone)
 
 # save stats table
-write_csv(select(people_count, zone, r_squared, p_value) %>% distinct(), 
+write_csv(select(people_count, Zone, r_squared, p_value) %>% distinct(), 
           paste0(saveplace, 'stats_tables/people_linreg.csv'))
 
 # make paneled figure to present results
 visit_plot <- ggplot(data = people_count, 
-                     mapping = aes(x = survey_year, y = mean_count, color = zone)) + 
-  # points + lines for all panels (people ~ year)
-  geom_smooth(method = 'lm') + 
+                     mapping = aes(x = survey_year, y = mean_count, color = Zone)) + 
+  # points + shading for all panels (people ~ year)
+  geom_smooth(aes(color = Zone, fill = Zone),
+              method = 'lm', linetype = 0) + 
   geom_point() + 
+  # line for zone 1 (only significant with r2 value > 0.4)
+  geom_smooth(data = filter(people_count, r_squared > 0.4),
+              mapping = aes(x = survey_year, y = mean_count, color = Zone),
+              method = 'lm') + 
   xlab('Year') + 
   ylab('Visitors per survey') + 
   scale_color_manual(values = ecopal_3) + 
-  facet_wrap(~zone)
+  scale_fill_manual(values = ecopal_3)
 
 # save light theme version
 ggsave(filename = paste0(saveplace, 'visit_linreg_light.png'),
-       plot = visit_plot + light_theme + theme(legend.position = 'none'),
-       dpi = 300, width = 4, height = 4)
+       plot = visit_plot + light_theme,
+       dpi = 300, width = 6, height = 4)
 
 # save dark theme version
 ggsave(filename = paste0(saveplace, 'visit_linreg_dark.png'),
-       plot = visit_plot + dark_theme + theme(legend.position = 'none'),
-       dpi = 300, width = 4, height = 4)
+       plot = visit_plot + 
+         geom_point(size = 4) + 
+         dark_theme + 
+         theme(text = element_text(size = 28),
+              axis.text.x = element_text(size = 28),
+              axis.text.y = element_text(size = 28)),
+       dpi = 300, width = 12, height = 6)
 
 remove(visit_plot)
 
@@ -128,6 +139,7 @@ ggsave(filename = paste0(saveplace, 'visit_linreg_z1_dark.png'),
 
 # get % of all visitors observed in each zone
 donut_data <- people_count %>%
+  rename(zone = Zone) %>%
   group_by(zone) %>%
   summarize(n = sum(mean_count)) %>%
   ungroup() %>%
@@ -265,6 +277,7 @@ remove(target_home, transect_home)
 
 ##### community change photoplot - stacked bar #####
 
+
 area_fn <- function(plot_type, spp_code, sort_spp){
   
   # wrangle data
@@ -288,7 +301,15 @@ area_fn <- function(plot_type, spp_code, sort_spp){
                       scientific_name == 'Balanus/Chthamalus' ~ 'Balanus Chthamalus',
                       TRUE ~ scientific_name))
   
-  # step 2 - plotting function, with specified plot number and type
+  
+  # step 2 - generate colors associated with taxa for consistent color assignment
+  consistent_colors = setNames(object = c('#fde725', '#addc30', '#5ec962', 
+                                          '#28ae80', '#21918c', '#2c728e',
+                                          '#3b528b', '#472d7b', '#440154'), 
+                               nm = sort(unique(target_90$scientific_name)))
+
+  
+  # step 3 - plotting function, with specified plot number and type
   ggplot(data = dataset,
          mapping = aes(x = survey_year, y = pct_cover, 
                        # make target spp last (bottom bar on plots)
@@ -301,7 +322,7 @@ area_fn <- function(plot_type, spp_code, sort_spp){
     ggtitle(paste0(sort_spp, ' photo-plots')) +
     # colors
     scale_fill_manual(name = 'Taxon',
-                        values = c(pnw_palette('Sailboat', 8, type = 'continuous'), 'gray20')) +
+                      values = consistent_colors) +
     facet_wrap(~zone) +
     light_theme + 
     theme(aspect.ratio = 1)
