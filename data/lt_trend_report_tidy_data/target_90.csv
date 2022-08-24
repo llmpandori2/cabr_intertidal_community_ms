@@ -442,7 +442,8 @@ survey_year,type,plot_code,taxa_code,scientific_name,pct_cover,zone
 1996,POL,POL-03,BARESUB,Substrate,73,Zone I
 1996,POL,POL-03,OTHPLA,Algae/plants,11,Zone I
 1996,POL,POL-03,POLPOL,Pollicipes polymerus,16,Zone I
-1996,POL,POL-04,BARESUB,Substrate,94,Zone I
+1996,POL,POL-04,BARESUB,Substrate,93,Zone I
+1996,POL,POL-04,OTHANI,Animals,1,Zone I
 1996,POL,POL-04,OTHPLA,Algae/plants,2,Zone I
 1996,POL,POL-04,POLPOL,Pollicipes polymerus,4,Zone I
 1996,POL,POL-05,BARESUB,Substrate,93,Zone I
@@ -614,9 +615,9 @@ survey_year,type,plot_code,taxa_code,scientific_name,pct_cover,zone
 1998,POL,POL-05,OTHANI,Animals,2,Zone I
 1998,POL,POL-05,OTHPLA,Algae/plants,29,Zone I
 1998,POL,POL-05,POLPOL,Pollicipes polymerus,11,Zone I
-1998,POL,POL-06,BARESUB,Substrate,41,Zone I
+1998,POL,POL-06,BARESUB,Substrate,40,Zone I
 1998,POL,POL-06,CHTBAL,Balanus/Chthamalus,1,Zone I
-1998,POL,POL-06,OTHANI,Animals,2,Zone I
+1998,POL,POL-06,OTHANI,Animals,3,Zone I
 1998,POL,POL-06,OTHPLA,Algae/plants,38,Zone I
 1998,POL,POL-06,POLPOL,Pollicipes polymerus,18,Zone I
 1998,SIL,SIL-01,OTHPLA,Algae/plants,55,Zone I
@@ -2430,6 +2431,195 @@ survey_year,type,plot_code,taxa_code,scientific_name,pct_cover,zone
 2008,SIL,SIL-05,SILCOM,Silvetia compressa,67,Zone I
 2008,SIL,SIL-05,TETRUB,Tetraclita rubescens,0,Zone I
 2008,SIL,SIL-05,UNSCORE,Unscorable,0,Zone I
+2009,CHT,CHT-01,BARESUB,Substrate,30,Zone I
+2009,CHT,CHT-01,CHTBAL,Balanus/Chthamalus,1,Zone I
+2009,CHT,CHT-01,MYTCAL,Mytilus,1,Zone I
+2009,CHT,CHT-01,OTHANI,Animals,15,Zone I
+2009,CHT,CHT-01,OTHPLA,Algae/plants,39,Zone I
+2009,CHT,CHT-01,POLPOL,Pollicipes polymerus,0,Zone I
+2009,CHT,CHT-01,SILCOM,Silvetia compressa,0,Zone I
+2009,CHT,CHT-01,TETRUB,Tetraclita rubescens,7,Zone I
+2009,CHT,CHT-01,UNSCORE,Unscorable,7,Zone I
+2009,CHT,CHT-02,BARESUB,Substrate,77,Zone I
+2009,CHT,CHT-02,CHTBAL,Balanus/Chthamalus,5,Zone I
+2009,CHT,CHT-02,MYTCAL,Mytilus,0,Zone I
+2009,CHT,CHT-02,OTHANI,Animals,5,Zone I
+2009,CHT,CHT-02,OTHPLA,Algae/plants,7,Zone I
+2009,CHT,CHT-02,POLPOL,Pollicipes polymerus,0,Zone I
+2009,CHT,CHT-02,SILCOM,Silvetia compressa,0,Zone I
+2009,CHT,CHT-02,TETRUB,Tetraclita rubescens,4,Zone I
+2009,CHT,CHT-02,UNSCORE,Unscorable,2,Zone I
+2009,CHT,CHT-03,BARESUB,Substrate,0,Zone I
+2009,CHT,CHT-03,CHTBAL,Balanus/Chthamalus,2,Zone I
+2009,CHT,CHT-03,MYTCAL,Mytilus,4,Zone I
+2009,CHT,CHT-03,OTHANI,Animals,0,Zone I
+2009,CHT,CHT-03,OTHPLA,Algae/plants,89,Zone I
+2009,CHT,CHT-03,POLPOL,Pollicipes polymerus,1,Zone I
+2009,CHT,CHT-03,SILCOM,Silvetia compressa,0,Zone I
+2009,CHT,CHT-03,TETRUB,Tetraclita rubescens,3,Zone I
+2009,CHT,CHT-03,UNSCORE,Unscorable,1,Zone I
+2009,CHT,CHT-04,BARESUB,Substrate,24,Zone I
+2009,CHT,CHT-04,CHTBAL,Balanus/Chthamalus,1,Zone I
+2009,CHT,CHT-04,MYTCAL,Mytilus,1,Zone I
+2009,CHT,CHT-04,OTHANI,Animals,0,Zone I
+2009,CHT,CHT-04,OTHPLA,Algae/plants,59,Zone I
+2009,CHT,CHT-04,POLPOL,Pollicipes polymerus,0,Zone I
+2009,CHT,CHT-04,SILCOM,Silvetia compressa,1,Zone I
+2009,CHT,CHT-04,TETRUB,Tetraclita rubescens,7,Zone I
+2009,CHT,CHT-04,UNSCORE,Unscorable,7,Zone I
+2009,CHT,CHT-05,BARESUB,Substrate,60,Zone I
+2009,CHT,CHT-05,CHTBAL,Balanus/Chthamalus,0,Zone I
+2009,CHT,CHT-05,MYTCAL,Mytilus,0,Zone I
+2009,CHT,CHT-05,OTHANI,Animals,6,Zone I
+2009,CHT,CHT-05,OTHPLA,Algae/plants,23,Zone I
+2009,CHT,CHT-05,POLPOL,Pollicipes polymerus,1,Zone I
+2009,CHT,CHT-05,SILCOM,Silvetia compressa,0,Zone I
+2009,CHT,CHT-05,TETRUB,Tetraclita rubescens,6,Zone I
+2009,CHT,CHT-05,UNSCORE,Unscorable,4,Zone I
+2009,MYT,MYT-01,BARESUB,Substrate,20,Zone I
+2009,MYT,MYT-01,CHTBAL,Balanus/Chthamalus,0,Zone I
+2009,MYT,MYT-01,MYTCAL,Mytilus,41,Zone I
+2009,MYT,MYT-01,OTHANI,Animals,2,Zone I
+2009,MYT,MYT-01,OTHPLA,Algae/plants,28,Zone I
+2009,MYT,MYT-01,POLPOL,Pollicipes polymerus,7,Zone I
+2009,MYT,MYT-01,SILCOM,Silvetia compressa,0,Zone I
+2009,MYT,MYT-01,TETRUB,Tetraclita rubescens,0,Zone I
+2009,MYT,MYT-01,UNSCORE,Unscorable,2,Zone I
+2009,MYT,MYT-02,BARESUB,Substrate,20,Zone I
+2009,MYT,MYT-02,CHTBAL,Balanus/Chthamalus,0,Zone I
+2009,MYT,MYT-02,MYTCAL,Mytilus,50,Zone I
+2009,MYT,MYT-02,OTHANI,Animals,0,Zone I
+2009,MYT,MYT-02,OTHPLA,Algae/plants,29,Zone I
+2009,MYT,MYT-02,POLPOL,Pollicipes polymerus,0,Zone I
+2009,MYT,MYT-02,SILCOM,Silvetia compressa,0,Zone I
+2009,MYT,MYT-02,TETRUB,Tetraclita rubescens,0,Zone I
+2009,MYT,MYT-02,UNSCORE,Unscorable,1,Zone I
+2009,MYT,MYT-03,BARESUB,Substrate,20,Zone I
+2009,MYT,MYT-03,CHTBAL,Balanus/Chthamalus,1,Zone I
+2009,MYT,MYT-03,MYTCAL,Mytilus,36,Zone I
+2009,MYT,MYT-03,OTHANI,Animals,2,Zone I
+2009,MYT,MYT-03,OTHPLA,Algae/plants,36,Zone I
+2009,MYT,MYT-03,POLPOL,Pollicipes polymerus,5,Zone I
+2009,MYT,MYT-03,SILCOM,Silvetia compressa,0,Zone I
+2009,MYT,MYT-03,TETRUB,Tetraclita rubescens,0,Zone I
+2009,MYT,MYT-03,UNSCORE,Unscorable,0,Zone I
+2009,MYT,MYT-04,BARESUB,Substrate,4,Zone I
+2009,MYT,MYT-04,CHTBAL,Balanus/Chthamalus,1,Zone I
+2009,MYT,MYT-04,MYTCAL,Mytilus,0,Zone I
+2009,MYT,MYT-04,OTHANI,Animals,0,Zone I
+2009,MYT,MYT-04,OTHPLA,Algae/plants,92,Zone I
+2009,MYT,MYT-04,POLPOL,Pollicipes polymerus,0,Zone I
+2009,MYT,MYT-04,SILCOM,Silvetia compressa,0,Zone I
+2009,MYT,MYT-04,TETRUB,Tetraclita rubescens,1,Zone I
+2009,MYT,MYT-04,UNSCORE,Unscorable,2,Zone I
+2009,MYT,MYT-05,BARESUB,Substrate,22,Zone I
+2009,MYT,MYT-05,CHTBAL,Balanus/Chthamalus,0,Zone I
+2009,MYT,MYT-05,MYTCAL,Mytilus,31,Zone I
+2009,MYT,MYT-05,OTHANI,Animals,2,Zone I
+2009,MYT,MYT-05,OTHPLA,Algae/plants,36,Zone I
+2009,MYT,MYT-05,POLPOL,Pollicipes polymerus,7,Zone I
+2009,MYT,MYT-05,SILCOM,Silvetia compressa,0,Zone I
+2009,MYT,MYT-05,TETRUB,Tetraclita rubescens,1,Zone I
+2009,MYT,MYT-05,UNSCORE,Unscorable,1,Zone I
+2009,POL,POL-01,BARESUB,Substrate,57,Zone I
+2009,POL,POL-01,CHTBAL,Balanus/Chthamalus,0,Zone I
+2009,POL,POL-01,MYTCAL,Mytilus,0,Zone I
+2009,POL,POL-01,OTHANI,Animals,2,Zone I
+2009,POL,POL-01,OTHPLA,Algae/plants,34,Zone I
+2009,POL,POL-01,POLPOL,Pollicipes polymerus,7,Zone I
+2009,POL,POL-01,SILCOM,Silvetia compressa,0,Zone I
+2009,POL,POL-01,TETRUB,Tetraclita rubescens,0,Zone I
+2009,POL,POL-01,UNSCORE,Unscorable,0,Zone I
+2009,POL,POL-02,BARESUB,Substrate,51,Zone I
+2009,POL,POL-02,CHTBAL,Balanus/Chthamalus,0,Zone I
+2009,POL,POL-02,MYTCAL,Mytilus,3,Zone I
+2009,POL,POL-02,OTHANI,Animals,0,Zone I
+2009,POL,POL-02,OTHPLA,Algae/plants,24,Zone I
+2009,POL,POL-02,POLPOL,Pollicipes polymerus,22,Zone I
+2009,POL,POL-02,SILCOM,Silvetia compressa,0,Zone I
+2009,POL,POL-02,TETRUB,Tetraclita rubescens,0,Zone I
+2009,POL,POL-02,UNSCORE,Unscorable,0,Zone I
+2009,POL,POL-03,BARESUB,Substrate,47,Zone I
+2009,POL,POL-03,CHTBAL,Balanus/Chthamalus,2,Zone I
+2009,POL,POL-03,MYTCAL,Mytilus,0,Zone I
+2009,POL,POL-03,OTHANI,Animals,1,Zone I
+2009,POL,POL-03,OTHPLA,Algae/plants,28,Zone I
+2009,POL,POL-03,POLPOL,Pollicipes polymerus,22,Zone I
+2009,POL,POL-03,SILCOM,Silvetia compressa,0,Zone I
+2009,POL,POL-03,TETRUB,Tetraclita rubescens,0,Zone I
+2009,POL,POL-03,UNSCORE,Unscorable,0,Zone I
+2009,POL,POL-04,BARESUB,Substrate,96,Zone I
+2009,POL,POL-04,CHTBAL,Balanus/Chthamalus,0,Zone I
+2009,POL,POL-04,MYTCAL,Mytilus,0,Zone I
+2009,POL,POL-04,OTHANI,Animals,1,Zone I
+2009,POL,POL-04,OTHPLA,Algae/plants,1,Zone I
+2009,POL,POL-04,POLPOL,Pollicipes polymerus,2,Zone I
+2009,POL,POL-04,SILCOM,Silvetia compressa,0,Zone I
+2009,POL,POL-04,TETRUB,Tetraclita rubescens,0,Zone I
+2009,POL,POL-04,UNSCORE,Unscorable,0,Zone I
+2009,POL,POL-05,BARESUB,Substrate,80,Zone I
+2009,POL,POL-05,CHTBAL,Balanus/Chthamalus,0,Zone I
+2009,POL,POL-05,MYTCAL,Mytilus,2,Zone I
+2009,POL,POL-05,OTHANI,Animals,1,Zone I
+2009,POL,POL-05,OTHPLA,Algae/plants,2,Zone I
+2009,POL,POL-05,POLPOL,Pollicipes polymerus,15,Zone I
+2009,POL,POL-05,SILCOM,Silvetia compressa,0,Zone I
+2009,POL,POL-05,TETRUB,Tetraclita rubescens,0,Zone I
+2009,POL,POL-05,UNSCORE,Unscorable,0,Zone I
+2009,POL,POL-06,BARESUB,Substrate,53,Zone I
+2009,POL,POL-06,CHTBAL,Balanus/Chthamalus,0,Zone I
+2009,POL,POL-06,MYTCAL,Mytilus,0,Zone I
+2009,POL,POL-06,OTHANI,Animals,3,Zone I
+2009,POL,POL-06,OTHPLA,Algae/plants,30,Zone I
+2009,POL,POL-06,POLPOL,Pollicipes polymerus,14,Zone I
+2009,POL,POL-06,SILCOM,Silvetia compressa,0,Zone I
+2009,POL,POL-06,TETRUB,Tetraclita rubescens,0,Zone I
+2009,POL,POL-06,UNSCORE,Unscorable,0,Zone I
+2009,SIL,SIL-01,BARESUB,Substrate,3,Zone I
+2009,SIL,SIL-01,CHTBAL,Balanus/Chthamalus,0,Zone I
+2009,SIL,SIL-01,MYTCAL,Mytilus,0,Zone I
+2009,SIL,SIL-01,OTHANI,Animals,0,Zone I
+2009,SIL,SIL-01,OTHPLA,Algae/plants,70,Zone I
+2009,SIL,SIL-01,POLPOL,Pollicipes polymerus,0,Zone I
+2009,SIL,SIL-01,SILCOM,Silvetia compressa,27,Zone I
+2009,SIL,SIL-01,TETRUB,Tetraclita rubescens,0,Zone I
+2009,SIL,SIL-01,UNSCORE,Unscorable,0,Zone I
+2009,SIL,SIL-02,BARESUB,Substrate,10,Zone I
+2009,SIL,SIL-02,CHTBAL,Balanus/Chthamalus,0,Zone I
+2009,SIL,SIL-02,MYTCAL,Mytilus,0,Zone I
+2009,SIL,SIL-02,OTHANI,Animals,2,Zone I
+2009,SIL,SIL-02,OTHPLA,Algae/plants,22,Zone I
+2009,SIL,SIL-02,POLPOL,Pollicipes polymerus,0,Zone I
+2009,SIL,SIL-02,SILCOM,Silvetia compressa,66,Zone I
+2009,SIL,SIL-02,TETRUB,Tetraclita rubescens,0,Zone I
+2009,SIL,SIL-02,UNSCORE,Unscorable,0,Zone I
+2009,SIL,SIL-03,BARESUB,Substrate,0,Zone I
+2009,SIL,SIL-03,CHTBAL,Balanus/Chthamalus,0,Zone I
+2009,SIL,SIL-03,MYTCAL,Mytilus,0,Zone I
+2009,SIL,SIL-03,OTHANI,Animals,0,Zone I
+2009,SIL,SIL-03,OTHPLA,Algae/plants,89,Zone I
+2009,SIL,SIL-03,POLPOL,Pollicipes polymerus,0,Zone I
+2009,SIL,SIL-03,SILCOM,Silvetia compressa,11,Zone I
+2009,SIL,SIL-03,TETRUB,Tetraclita rubescens,0,Zone I
+2009,SIL,SIL-03,UNSCORE,Unscorable,0,Zone I
+2009,SIL,SIL-04,BARESUB,Substrate,2,Zone I
+2009,SIL,SIL-04,CHTBAL,Balanus/Chthamalus,0,Zone I
+2009,SIL,SIL-04,MYTCAL,Mytilus,0,Zone I
+2009,SIL,SIL-04,OTHANI,Animals,1,Zone I
+2009,SIL,SIL-04,OTHPLA,Algae/plants,60,Zone I
+2009,SIL,SIL-04,POLPOL,Pollicipes polymerus,0,Zone I
+2009,SIL,SIL-04,SILCOM,Silvetia compressa,37,Zone I
+2009,SIL,SIL-04,TETRUB,Tetraclita rubescens,0,Zone I
+2009,SIL,SIL-04,UNSCORE,Unscorable,0,Zone I
+2009,SIL,SIL-05,BARESUB,Substrate,14,Zone I
+2009,SIL,SIL-05,CHTBAL,Balanus/Chthamalus,0,Zone I
+2009,SIL,SIL-05,MYTCAL,Mytilus,0,Zone I
+2009,SIL,SIL-05,OTHANI,Animals,2,Zone I
+2009,SIL,SIL-05,OTHPLA,Algae/plants,19,Zone I
+2009,SIL,SIL-05,POLPOL,Pollicipes polymerus,0,Zone I
+2009,SIL,SIL-05,SILCOM,Silvetia compressa,64,Zone I
+2009,SIL,SIL-05,TETRUB,Tetraclita rubescens,0,Zone I
+2009,SIL,SIL-05,UNSCORE,Unscorable,1,Zone I
 2010,CHT,CHT-01,BARESUB,Substrate,30,Zone I
 2010,CHT,CHT-01,CHTBAL,Balanus/Chthamalus,1,Zone I
 2010,CHT,CHT-01,MYTCAL,Mytilus,1,Zone I
@@ -3942,6 +4132,195 @@ survey_year,type,plot_code,taxa_code,scientific_name,pct_cover,zone
 2017,SIL,SIL-05,SILCOM,Silvetia compressa,69,Zone I
 2017,SIL,SIL-05,TETRUB,Tetraclita rubescens,0,Zone I
 2017,SIL,SIL-05,UNSCORE,Unscorable,0,Zone I
+2018,CHT,CHT-01,BARESUB,Substrate,7,Zone I
+2018,CHT,CHT-01,CHTBAL,Balanus/Chthamalus,7,Zone I
+2018,CHT,CHT-01,MYTCAL,Mytilus,0,Zone I
+2018,CHT,CHT-01,OTHANI,Animals,11,Zone I
+2018,CHT,CHT-01,OTHPLA,Algae/plants,36,Zone I
+2018,CHT,CHT-01,POLPOL,Pollicipes polymerus,0,Zone I
+2018,CHT,CHT-01,SILCOM,Silvetia compressa,0,Zone I
+2018,CHT,CHT-01,TETRUB,Tetraclita rubescens,39,Zone I
+2018,CHT,CHT-01,UNSCORE,Unscorable,0,Zone I
+2018,CHT,CHT-02,BARESUB,Substrate,63,Zone I
+2018,CHT,CHT-02,CHTBAL,Balanus/Chthamalus,6,Zone I
+2018,CHT,CHT-02,MYTCAL,Mytilus,0,Zone I
+2018,CHT,CHT-02,OTHANI,Animals,12,Zone I
+2018,CHT,CHT-02,OTHPLA,Algae/plants,0,Zone I
+2018,CHT,CHT-02,POLPOL,Pollicipes polymerus,0,Zone I
+2018,CHT,CHT-02,SILCOM,Silvetia compressa,0,Zone I
+2018,CHT,CHT-02,TETRUB,Tetraclita rubescens,19,Zone I
+2018,CHT,CHT-02,UNSCORE,Unscorable,0,Zone I
+2018,CHT,CHT-03,BARESUB,Substrate,2,Zone I
+2018,CHT,CHT-03,CHTBAL,Balanus/Chthamalus,0,Zone I
+2018,CHT,CHT-03,MYTCAL,Mytilus,0,Zone I
+2018,CHT,CHT-03,OTHANI,Animals,0,Zone I
+2018,CHT,CHT-03,OTHPLA,Algae/plants,90,Zone I
+2018,CHT,CHT-03,POLPOL,Pollicipes polymerus,0,Zone I
+2018,CHT,CHT-03,SILCOM,Silvetia compressa,0,Zone I
+2018,CHT,CHT-03,TETRUB,Tetraclita rubescens,8,Zone I
+2018,CHT,CHT-03,UNSCORE,Unscorable,0,Zone I
+2018,CHT,CHT-04,BARESUB,Substrate,3,Zone I
+2018,CHT,CHT-04,CHTBAL,Balanus/Chthamalus,0,Zone I
+2018,CHT,CHT-04,MYTCAL,Mytilus,0,Zone I
+2018,CHT,CHT-04,OTHANI,Animals,0,Zone I
+2018,CHT,CHT-04,OTHPLA,Algae/plants,95,Zone I
+2018,CHT,CHT-04,POLPOL,Pollicipes polymerus,0,Zone I
+2018,CHT,CHT-04,SILCOM,Silvetia compressa,0,Zone I
+2018,CHT,CHT-04,TETRUB,Tetraclita rubescens,2,Zone I
+2018,CHT,CHT-04,UNSCORE,Unscorable,0,Zone I
+2018,CHT,CHT-05,BARESUB,Substrate,59,Zone I
+2018,CHT,CHT-05,CHTBAL,Balanus/Chthamalus,0,Zone I
+2018,CHT,CHT-05,MYTCAL,Mytilus,1,Zone I
+2018,CHT,CHT-05,OTHANI,Animals,4,Zone I
+2018,CHT,CHT-05,OTHPLA,Algae/plants,6,Zone I
+2018,CHT,CHT-05,POLPOL,Pollicipes polymerus,0,Zone I
+2018,CHT,CHT-05,SILCOM,Silvetia compressa,0,Zone I
+2018,CHT,CHT-05,TETRUB,Tetraclita rubescens,30,Zone I
+2018,CHT,CHT-05,UNSCORE,Unscorable,0,Zone I
+2018,MYT,MYT-01,BARESUB,Substrate,52,Zone I
+2018,MYT,MYT-01,CHTBAL,Balanus/Chthamalus,0,Zone I
+2018,MYT,MYT-01,MYTCAL,Mytilus,0,Zone I
+2018,MYT,MYT-01,OTHANI,Animals,4,Zone I
+2018,MYT,MYT-01,OTHPLA,Algae/plants,22,Zone I
+2018,MYT,MYT-01,POLPOL,Pollicipes polymerus,0,Zone I
+2018,MYT,MYT-01,SILCOM,Silvetia compressa,0,Zone I
+2018,MYT,MYT-01,TETRUB,Tetraclita rubescens,22,Zone I
+2018,MYT,MYT-01,UNSCORE,Unscorable,0,Zone I
+2018,MYT,MYT-02,BARESUB,Substrate,25,Zone I
+2018,MYT,MYT-02,CHTBAL,Balanus/Chthamalus,8,Zone I
+2018,MYT,MYT-02,MYTCAL,Mytilus,0,Zone I
+2018,MYT,MYT-02,OTHANI,Animals,5,Zone I
+2018,MYT,MYT-02,OTHPLA,Algae/plants,41,Zone I
+2018,MYT,MYT-02,POLPOL,Pollicipes polymerus,0,Zone I
+2018,MYT,MYT-02,SILCOM,Silvetia compressa,0,Zone I
+2018,MYT,MYT-02,TETRUB,Tetraclita rubescens,21,Zone I
+2018,MYT,MYT-02,UNSCORE,Unscorable,0,Zone I
+2018,MYT,MYT-03,BARESUB,Substrate,33,Zone I
+2018,MYT,MYT-03,CHTBAL,Balanus/Chthamalus,11,Zone I
+2018,MYT,MYT-03,MYTCAL,Mytilus,0,Zone I
+2018,MYT,MYT-03,OTHANI,Animals,3,Zone I
+2018,MYT,MYT-03,OTHPLA,Algae/plants,20,Zone I
+2018,MYT,MYT-03,POLPOL,Pollicipes polymerus,8,Zone I
+2018,MYT,MYT-03,SILCOM,Silvetia compressa,0,Zone I
+2018,MYT,MYT-03,TETRUB,Tetraclita rubescens,25,Zone I
+2018,MYT,MYT-03,UNSCORE,Unscorable,0,Zone I
+2018,MYT,MYT-04,BARESUB,Substrate,2,Zone I
+2018,MYT,MYT-04,CHTBAL,Balanus/Chthamalus,0,Zone I
+2018,MYT,MYT-04,MYTCAL,Mytilus,0,Zone I
+2018,MYT,MYT-04,OTHANI,Animals,0,Zone I
+2018,MYT,MYT-04,OTHPLA,Algae/plants,98,Zone I
+2018,MYT,MYT-04,POLPOL,Pollicipes polymerus,0,Zone I
+2018,MYT,MYT-04,SILCOM,Silvetia compressa,0,Zone I
+2018,MYT,MYT-04,TETRUB,Tetraclita rubescens,0,Zone I
+2018,MYT,MYT-04,UNSCORE,Unscorable,0,Zone I
+2018,MYT,MYT-05,BARESUB,Substrate,24,Zone I
+2018,MYT,MYT-05,CHTBAL,Balanus/Chthamalus,0,Zone I
+2018,MYT,MYT-05,MYTCAL,Mytilus,8,Zone I
+2018,MYT,MYT-05,OTHANI,Animals,0,Zone I
+2018,MYT,MYT-05,OTHPLA,Algae/plants,65,Zone I
+2018,MYT,MYT-05,POLPOL,Pollicipes polymerus,1,Zone I
+2018,MYT,MYT-05,SILCOM,Silvetia compressa,0,Zone I
+2018,MYT,MYT-05,TETRUB,Tetraclita rubescens,2,Zone I
+2018,MYT,MYT-05,UNSCORE,Unscorable,0,Zone I
+2018,POL,POL-01,BARESUB,Substrate,57,Zone I
+2018,POL,POL-01,CHTBAL,Balanus/Chthamalus,4,Zone I
+2018,POL,POL-01,MYTCAL,Mytilus,0,Zone I
+2018,POL,POL-01,OTHANI,Animals,8,Zone I
+2018,POL,POL-01,OTHPLA,Algae/plants,20,Zone I
+2018,POL,POL-01,POLPOL,Pollicipes polymerus,10,Zone I
+2018,POL,POL-01,SILCOM,Silvetia compressa,0,Zone I
+2018,POL,POL-01,TETRUB,Tetraclita rubescens,1,Zone I
+2018,POL,POL-01,UNSCORE,Unscorable,0,Zone I
+2018,POL,POL-02,BARESUB,Substrate,41,Zone I
+2018,POL,POL-02,CHTBAL,Balanus/Chthamalus,8,Zone I
+2018,POL,POL-02,MYTCAL,Mytilus,0,Zone I
+2018,POL,POL-02,OTHANI,Animals,1,Zone I
+2018,POL,POL-02,OTHPLA,Algae/plants,14,Zone I
+2018,POL,POL-02,POLPOL,Pollicipes polymerus,35,Zone I
+2018,POL,POL-02,SILCOM,Silvetia compressa,0,Zone I
+2018,POL,POL-02,TETRUB,Tetraclita rubescens,1,Zone I
+2018,POL,POL-02,UNSCORE,Unscorable,0,Zone I
+2018,POL,POL-03,BARESUB,Substrate,54,Zone I
+2018,POL,POL-03,CHTBAL,Balanus/Chthamalus,5,Zone I
+2018,POL,POL-03,MYTCAL,Mytilus,0,Zone I
+2018,POL,POL-03,OTHANI,Animals,3,Zone I
+2018,POL,POL-03,OTHPLA,Algae/plants,33,Zone I
+2018,POL,POL-03,POLPOL,Pollicipes polymerus,5,Zone I
+2018,POL,POL-03,SILCOM,Silvetia compressa,0,Zone I
+2018,POL,POL-03,TETRUB,Tetraclita rubescens,0,Zone I
+2018,POL,POL-03,UNSCORE,Unscorable,0,Zone I
+2018,POL,POL-04,BARESUB,Substrate,79,Zone I
+2018,POL,POL-04,CHTBAL,Balanus/Chthamalus,3,Zone I
+2018,POL,POL-04,MYTCAL,Mytilus,0,Zone I
+2018,POL,POL-04,OTHANI,Animals,0,Zone I
+2018,POL,POL-04,OTHPLA,Algae/plants,6,Zone I
+2018,POL,POL-04,POLPOL,Pollicipes polymerus,12,Zone I
+2018,POL,POL-04,SILCOM,Silvetia compressa,0,Zone I
+2018,POL,POL-04,TETRUB,Tetraclita rubescens,0,Zone I
+2018,POL,POL-04,UNSCORE,Unscorable,0,Zone I
+2018,POL,POL-05,BARESUB,Substrate,68,Zone I
+2018,POL,POL-05,CHTBAL,Balanus/Chthamalus,0,Zone I
+2018,POL,POL-05,MYTCAL,Mytilus,0,Zone I
+2018,POL,POL-05,OTHANI,Animals,3,Zone I
+2018,POL,POL-05,OTHPLA,Algae/plants,4,Zone I
+2018,POL,POL-05,POLPOL,Pollicipes polymerus,25,Zone I
+2018,POL,POL-05,SILCOM,Silvetia compressa,0,Zone I
+2018,POL,POL-05,TETRUB,Tetraclita rubescens,0,Zone I
+2018,POL,POL-05,UNSCORE,Unscorable,0,Zone I
+2018,POL,POL-06,BARESUB,Substrate,48,Zone I
+2018,POL,POL-06,CHTBAL,Balanus/Chthamalus,3,Zone I
+2018,POL,POL-06,MYTCAL,Mytilus,0,Zone I
+2018,POL,POL-06,OTHANI,Animals,9,Zone I
+2018,POL,POL-06,OTHPLA,Algae/plants,26,Zone I
+2018,POL,POL-06,POLPOL,Pollicipes polymerus,13,Zone I
+2018,POL,POL-06,SILCOM,Silvetia compressa,0,Zone I
+2018,POL,POL-06,TETRUB,Tetraclita rubescens,1,Zone I
+2018,POL,POL-06,UNSCORE,Unscorable,0,Zone I
+2018,SIL,SIL-01,BARESUB,Substrate,0,Zone I
+2018,SIL,SIL-01,CHTBAL,Balanus/Chthamalus,0,Zone I
+2018,SIL,SIL-01,MYTCAL,Mytilus,0,Zone I
+2018,SIL,SIL-01,OTHANI,Animals,0,Zone I
+2018,SIL,SIL-01,OTHPLA,Algae/plants,100,Zone I
+2018,SIL,SIL-01,POLPOL,Pollicipes polymerus,0,Zone I
+2018,SIL,SIL-01,SILCOM,Silvetia compressa,0,Zone I
+2018,SIL,SIL-01,TETRUB,Tetraclita rubescens,0,Zone I
+2018,SIL,SIL-01,UNSCORE,Unscorable,0,Zone I
+2018,SIL,SIL-02,BARESUB,Substrate,3,Zone I
+2018,SIL,SIL-02,CHTBAL,Balanus/Chthamalus,0,Zone I
+2018,SIL,SIL-02,MYTCAL,Mytilus,0,Zone I
+2018,SIL,SIL-02,OTHANI,Animals,0,Zone I
+2018,SIL,SIL-02,OTHPLA,Algae/plants,92,Zone I
+2018,SIL,SIL-02,POLPOL,Pollicipes polymerus,0,Zone I
+2018,SIL,SIL-02,SILCOM,Silvetia compressa,5,Zone I
+2018,SIL,SIL-02,TETRUB,Tetraclita rubescens,0,Zone I
+2018,SIL,SIL-02,UNSCORE,Unscorable,0,Zone I
+2018,SIL,SIL-03,BARESUB,Substrate,2,Zone I
+2018,SIL,SIL-03,CHTBAL,Balanus/Chthamalus,0,Zone I
+2018,SIL,SIL-03,MYTCAL,Mytilus,0,Zone I
+2018,SIL,SIL-03,OTHANI,Animals,0,Zone I
+2018,SIL,SIL-03,OTHPLA,Algae/plants,98,Zone I
+2018,SIL,SIL-03,POLPOL,Pollicipes polymerus,0,Zone I
+2018,SIL,SIL-03,SILCOM,Silvetia compressa,0,Zone I
+2018,SIL,SIL-03,TETRUB,Tetraclita rubescens,0,Zone I
+2018,SIL,SIL-03,UNSCORE,Unscorable,0,Zone I
+2018,SIL,SIL-04,BARESUB,Substrate,0,Zone I
+2018,SIL,SIL-04,CHTBAL,Balanus/Chthamalus,0,Zone I
+2018,SIL,SIL-04,MYTCAL,Mytilus,0,Zone I
+2018,SIL,SIL-04,OTHANI,Animals,1,Zone I
+2018,SIL,SIL-04,OTHPLA,Algae/plants,97,Zone I
+2018,SIL,SIL-04,POLPOL,Pollicipes polymerus,0,Zone I
+2018,SIL,SIL-04,SILCOM,Silvetia compressa,0,Zone I
+2018,SIL,SIL-04,TETRUB,Tetraclita rubescens,2,Zone I
+2018,SIL,SIL-04,UNSCORE,Unscorable,0,Zone I
+2018,SIL,SIL-05,BARESUB,Substrate,4,Zone I
+2018,SIL,SIL-05,CHTBAL,Balanus/Chthamalus,0,Zone I
+2018,SIL,SIL-05,MYTCAL,Mytilus,0,Zone I
+2018,SIL,SIL-05,OTHANI,Animals,5,Zone I
+2018,SIL,SIL-05,OTHPLA,Algae/plants,60,Zone I
+2018,SIL,SIL-05,POLPOL,Pollicipes polymerus,0,Zone I
+2018,SIL,SIL-05,SILCOM,Silvetia compressa,30,Zone I
+2018,SIL,SIL-05,TETRUB,Tetraclita rubescens,1,Zone I
+2018,SIL,SIL-05,UNSCORE,Unscorable,0,Zone I
 2019,CHT,CHT-01,BARESUB,Substrate,12,Zone I
 2019,CHT,CHT-01,CHTBAL,Balanus/Chthamalus,2,Zone I
 2019,CHT,CHT-01,MYTCAL,Mytilus,0,Zone I
@@ -6745,6 +7124,195 @@ survey_year,type,plot_code,taxa_code,scientific_name,pct_cover,zone
 2008,SIL,SIL-05,SILCOM,Silvetia compressa,73,Zone II
 2008,SIL,SIL-05,TETRUB,Tetraclita rubescens,0,Zone II
 2008,SIL,SIL-05,UNSCORE,Unscorable,0,Zone II
+2009,CHT,CHT-01,BARESUB,Substrate,68,Zone II
+2009,CHT,CHT-01,CHTBAL,Balanus/Chthamalus,1,Zone II
+2009,CHT,CHT-01,MYTCAL,Mytilus,0,Zone II
+2009,CHT,CHT-01,OTHANI,Animals,2,Zone II
+2009,CHT,CHT-01,OTHPLA,Algae/plants,20,Zone II
+2009,CHT,CHT-01,POLPOL,Pollicipes polymerus,0,Zone II
+2009,CHT,CHT-01,SILCOM,Silvetia compressa,0,Zone II
+2009,CHT,CHT-01,TETRUB,Tetraclita rubescens,9,Zone II
+2009,CHT,CHT-01,UNSCORE,Unscorable,0,Zone II
+2009,CHT,CHT-02,BARESUB,Substrate,46,Zone II
+2009,CHT,CHT-02,CHTBAL,Balanus/Chthamalus,3,Zone II
+2009,CHT,CHT-02,MYTCAL,Mytilus,0,Zone II
+2009,CHT,CHT-02,OTHANI,Animals,16,Zone II
+2009,CHT,CHT-02,OTHPLA,Algae/plants,19,Zone II
+2009,CHT,CHT-02,POLPOL,Pollicipes polymerus,0,Zone II
+2009,CHT,CHT-02,SILCOM,Silvetia compressa,1,Zone II
+2009,CHT,CHT-02,TETRUB,Tetraclita rubescens,15,Zone II
+2009,CHT,CHT-02,UNSCORE,Unscorable,0,Zone II
+2009,CHT,CHT-03,BARESUB,Substrate,24,Zone II
+2009,CHT,CHT-03,CHTBAL,Balanus/Chthamalus,0,Zone II
+2009,CHT,CHT-03,MYTCAL,Mytilus,12,Zone II
+2009,CHT,CHT-03,OTHANI,Animals,9,Zone II
+2009,CHT,CHT-03,OTHPLA,Algae/plants,22,Zone II
+2009,CHT,CHT-03,POLPOL,Pollicipes polymerus,0,Zone II
+2009,CHT,CHT-03,SILCOM,Silvetia compressa,27,Zone II
+2009,CHT,CHT-03,TETRUB,Tetraclita rubescens,5,Zone II
+2009,CHT,CHT-03,UNSCORE,Unscorable,1,Zone II
+2009,CHT,CHT-04,BARESUB,Substrate,15,Zone II
+2009,CHT,CHT-04,CHTBAL,Balanus/Chthamalus,0,Zone II
+2009,CHT,CHT-04,MYTCAL,Mytilus,0,Zone II
+2009,CHT,CHT-04,OTHANI,Animals,3,Zone II
+2009,CHT,CHT-04,OTHPLA,Algae/plants,13,Zone II
+2009,CHT,CHT-04,POLPOL,Pollicipes polymerus,0,Zone II
+2009,CHT,CHT-04,SILCOM,Silvetia compressa,68,Zone II
+2009,CHT,CHT-04,TETRUB,Tetraclita rubescens,1,Zone II
+2009,CHT,CHT-04,UNSCORE,Unscorable,0,Zone II
+2009,CHT,CHT-05,BARESUB,Substrate,51,Zone II
+2009,CHT,CHT-05,CHTBAL,Balanus/Chthamalus,1,Zone II
+2009,CHT,CHT-05,MYTCAL,Mytilus,0,Zone II
+2009,CHT,CHT-05,OTHANI,Animals,5,Zone II
+2009,CHT,CHT-05,OTHPLA,Algae/plants,14,Zone II
+2009,CHT,CHT-05,POLPOL,Pollicipes polymerus,0,Zone II
+2009,CHT,CHT-05,SILCOM,Silvetia compressa,15,Zone II
+2009,CHT,CHT-05,TETRUB,Tetraclita rubescens,11,Zone II
+2009,CHT,CHT-05,UNSCORE,Unscorable,3,Zone II
+2009,MYT,MYT-01,BARESUB,Substrate,7,Zone II
+2009,MYT,MYT-01,CHTBAL,Balanus/Chthamalus,0,Zone II
+2009,MYT,MYT-01,MYTCAL,Mytilus,2,Zone II
+2009,MYT,MYT-01,OTHANI,Animals,1,Zone II
+2009,MYT,MYT-01,OTHPLA,Algae/plants,90,Zone II
+2009,MYT,MYT-01,POLPOL,Pollicipes polymerus,0,Zone II
+2009,MYT,MYT-01,SILCOM,Silvetia compressa,0,Zone II
+2009,MYT,MYT-01,TETRUB,Tetraclita rubescens,0,Zone II
+2009,MYT,MYT-01,UNSCORE,Unscorable,0,Zone II
+2009,MYT,MYT-02,BARESUB,Substrate,13,Zone II
+2009,MYT,MYT-02,CHTBAL,Balanus/Chthamalus,5,Zone II
+2009,MYT,MYT-02,MYTCAL,Mytilus,2,Zone II
+2009,MYT,MYT-02,OTHANI,Animals,2,Zone II
+2009,MYT,MYT-02,OTHPLA,Algae/plants,57,Zone II
+2009,MYT,MYT-02,POLPOL,Pollicipes polymerus,0,Zone II
+2009,MYT,MYT-02,SILCOM,Silvetia compressa,1,Zone II
+2009,MYT,MYT-02,TETRUB,Tetraclita rubescens,20,Zone II
+2009,MYT,MYT-02,UNSCORE,Unscorable,0,Zone II
+2009,MYT,MYT-03,BARESUB,Substrate,1,Zone II
+2009,MYT,MYT-03,CHTBAL,Balanus/Chthamalus,3,Zone II
+2009,MYT,MYT-03,MYTCAL,Mytilus,15,Zone II
+2009,MYT,MYT-03,OTHANI,Animals,24,Zone II
+2009,MYT,MYT-03,OTHPLA,Algae/plants,37,Zone II
+2009,MYT,MYT-03,POLPOL,Pollicipes polymerus,0,Zone II
+2009,MYT,MYT-03,SILCOM,Silvetia compressa,0,Zone II
+2009,MYT,MYT-03,TETRUB,Tetraclita rubescens,20,Zone II
+2009,MYT,MYT-03,UNSCORE,Unscorable,0,Zone II
+2009,MYT,MYT-04,BARESUB,Substrate,4,Zone II
+2009,MYT,MYT-04,CHTBAL,Balanus/Chthamalus,2,Zone II
+2009,MYT,MYT-04,MYTCAL,Mytilus,1,Zone II
+2009,MYT,MYT-04,OTHANI,Animals,6,Zone II
+2009,MYT,MYT-04,OTHPLA,Algae/plants,74,Zone II
+2009,MYT,MYT-04,POLPOL,Pollicipes polymerus,0,Zone II
+2009,MYT,MYT-04,SILCOM,Silvetia compressa,0,Zone II
+2009,MYT,MYT-04,TETRUB,Tetraclita rubescens,13,Zone II
+2009,MYT,MYT-04,UNSCORE,Unscorable,0,Zone II
+2009,MYT,MYT-05,BARESUB,Substrate,0,Zone II
+2009,MYT,MYT-05,CHTBAL,Balanus/Chthamalus,1,Zone II
+2009,MYT,MYT-05,MYTCAL,Mytilus,2,Zone II
+2009,MYT,MYT-05,OTHANI,Animals,0,Zone II
+2009,MYT,MYT-05,OTHPLA,Algae/plants,94,Zone II
+2009,MYT,MYT-05,POLPOL,Pollicipes polymerus,0,Zone II
+2009,MYT,MYT-05,SILCOM,Silvetia compressa,0,Zone II
+2009,MYT,MYT-05,TETRUB,Tetraclita rubescens,3,Zone II
+2009,MYT,MYT-05,UNSCORE,Unscorable,0,Zone II
+2009,POL,POL-01,BARESUB,Substrate,67,Zone II
+2009,POL,POL-01,CHTBAL,Balanus/Chthamalus,1,Zone II
+2009,POL,POL-01,MYTCAL,Mytilus,0,Zone II
+2009,POL,POL-01,OTHANI,Animals,1,Zone II
+2009,POL,POL-01,OTHPLA,Algae/plants,27,Zone II
+2009,POL,POL-01,POLPOL,Pollicipes polymerus,3,Zone II
+2009,POL,POL-01,SILCOM,Silvetia compressa,0,Zone II
+2009,POL,POL-01,TETRUB,Tetraclita rubescens,1,Zone II
+2009,POL,POL-01,UNSCORE,Unscorable,0,Zone II
+2009,POL,POL-02,BARESUB,Substrate,74,Zone II
+2009,POL,POL-02,CHTBAL,Balanus/Chthamalus,0,Zone II
+2009,POL,POL-02,MYTCAL,Mytilus,0,Zone II
+2009,POL,POL-02,OTHANI,Animals,3,Zone II
+2009,POL,POL-02,OTHPLA,Algae/plants,22,Zone II
+2009,POL,POL-02,POLPOL,Pollicipes polymerus,1,Zone II
+2009,POL,POL-02,SILCOM,Silvetia compressa,0,Zone II
+2009,POL,POL-02,TETRUB,Tetraclita rubescens,0,Zone II
+2009,POL,POL-02,UNSCORE,Unscorable,0,Zone II
+2009,POL,POL-03,BARESUB,Substrate,91,Zone II
+2009,POL,POL-03,CHTBAL,Balanus/Chthamalus,0,Zone II
+2009,POL,POL-03,MYTCAL,Mytilus,0,Zone II
+2009,POL,POL-03,OTHANI,Animals,4,Zone II
+2009,POL,POL-03,OTHPLA,Algae/plants,5,Zone II
+2009,POL,POL-03,POLPOL,Pollicipes polymerus,0,Zone II
+2009,POL,POL-03,SILCOM,Silvetia compressa,0,Zone II
+2009,POL,POL-03,TETRUB,Tetraclita rubescens,0,Zone II
+2009,POL,POL-03,UNSCORE,Unscorable,0,Zone II
+2009,POL,POL-04,BARESUB,Substrate,87,Zone II
+2009,POL,POL-04,CHTBAL,Balanus/Chthamalus,1,Zone II
+2009,POL,POL-04,MYTCAL,Mytilus,0,Zone II
+2009,POL,POL-04,OTHANI,Animals,4,Zone II
+2009,POL,POL-04,OTHPLA,Algae/plants,8,Zone II
+2009,POL,POL-04,POLPOL,Pollicipes polymerus,0,Zone II
+2009,POL,POL-04,SILCOM,Silvetia compressa,0,Zone II
+2009,POL,POL-04,TETRUB,Tetraclita rubescens,0,Zone II
+2009,POL,POL-04,UNSCORE,Unscorable,0,Zone II
+2009,POL,POL-05,BARESUB,Substrate,50,Zone II
+2009,POL,POL-05,CHTBAL,Balanus/Chthamalus,1,Zone II
+2009,POL,POL-05,MYTCAL,Mytilus,0,Zone II
+2009,POL,POL-05,OTHANI,Animals,17,Zone II
+2009,POL,POL-05,OTHPLA,Algae/plants,23,Zone II
+2009,POL,POL-05,POLPOL,Pollicipes polymerus,9,Zone II
+2009,POL,POL-05,SILCOM,Silvetia compressa,0,Zone II
+2009,POL,POL-05,TETRUB,Tetraclita rubescens,0,Zone II
+2009,POL,POL-05,UNSCORE,Unscorable,0,Zone II
+2009,POL,POL-06,BARESUB,Substrate,81,Zone II
+2009,POL,POL-06,CHTBAL,Balanus/Chthamalus,0,Zone II
+2009,POL,POL-06,MYTCAL,Mytilus,0,Zone II
+2009,POL,POL-06,OTHANI,Animals,12,Zone II
+2009,POL,POL-06,OTHPLA,Algae/plants,4,Zone II
+2009,POL,POL-06,POLPOL,Pollicipes polymerus,3,Zone II
+2009,POL,POL-06,SILCOM,Silvetia compressa,0,Zone II
+2009,POL,POL-06,TETRUB,Tetraclita rubescens,0,Zone II
+2009,POL,POL-06,UNSCORE,Unscorable,0,Zone II
+2009,SIL,SIL-01,BARESUB,Substrate,12,Zone II
+2009,SIL,SIL-01,CHTBAL,Balanus/Chthamalus,0,Zone II
+2009,SIL,SIL-01,MYTCAL,Mytilus,0,Zone II
+2009,SIL,SIL-01,OTHANI,Animals,4,Zone II
+2009,SIL,SIL-01,OTHPLA,Algae/plants,16,Zone II
+2009,SIL,SIL-01,POLPOL,Pollicipes polymerus,0,Zone II
+2009,SIL,SIL-01,SILCOM,Silvetia compressa,68,Zone II
+2009,SIL,SIL-01,TETRUB,Tetraclita rubescens,0,Zone II
+2009,SIL,SIL-01,UNSCORE,Unscorable,0,Zone II
+2009,SIL,SIL-02,BARESUB,Substrate,0,Zone II
+2009,SIL,SIL-02,CHTBAL,Balanus/Chthamalus,0,Zone II
+2009,SIL,SIL-02,MYTCAL,Mytilus,0,Zone II
+2009,SIL,SIL-02,OTHANI,Animals,1,Zone II
+2009,SIL,SIL-02,OTHPLA,Algae/plants,97,Zone II
+2009,SIL,SIL-02,POLPOL,Pollicipes polymerus,0,Zone II
+2009,SIL,SIL-02,SILCOM,Silvetia compressa,1,Zone II
+2009,SIL,SIL-02,TETRUB,Tetraclita rubescens,0,Zone II
+2009,SIL,SIL-02,UNSCORE,Unscorable,1,Zone II
+2009,SIL,SIL-03,BARESUB,Substrate,1,Zone II
+2009,SIL,SIL-03,CHTBAL,Balanus/Chthamalus,1,Zone II
+2009,SIL,SIL-03,MYTCAL,Mytilus,0,Zone II
+2009,SIL,SIL-03,OTHANI,Animals,0,Zone II
+2009,SIL,SIL-03,OTHPLA,Algae/plants,66,Zone II
+2009,SIL,SIL-03,POLPOL,Pollicipes polymerus,0,Zone II
+2009,SIL,SIL-03,SILCOM,Silvetia compressa,32,Zone II
+2009,SIL,SIL-03,TETRUB,Tetraclita rubescens,0,Zone II
+2009,SIL,SIL-03,UNSCORE,Unscorable,0,Zone II
+2009,SIL,SIL-04,BARESUB,Substrate,15,Zone II
+2009,SIL,SIL-04,CHTBAL,Balanus/Chthamalus,0,Zone II
+2009,SIL,SIL-04,MYTCAL,Mytilus,0,Zone II
+2009,SIL,SIL-04,OTHANI,Animals,0,Zone II
+2009,SIL,SIL-04,OTHPLA,Algae/plants,30,Zone II
+2009,SIL,SIL-04,POLPOL,Pollicipes polymerus,0,Zone II
+2009,SIL,SIL-04,SILCOM,Silvetia compressa,55,Zone II
+2009,SIL,SIL-04,TETRUB,Tetraclita rubescens,0,Zone II
+2009,SIL,SIL-04,UNSCORE,Unscorable,0,Zone II
+2009,SIL,SIL-05,BARESUB,Substrate,19,Zone II
+2009,SIL,SIL-05,CHTBAL,Balanus/Chthamalus,4,Zone II
+2009,SIL,SIL-05,MYTCAL,Mytilus,0,Zone II
+2009,SIL,SIL-05,OTHANI,Animals,2,Zone II
+2009,SIL,SIL-05,OTHPLA,Algae/plants,15,Zone II
+2009,SIL,SIL-05,POLPOL,Pollicipes polymerus,0,Zone II
+2009,SIL,SIL-05,SILCOM,Silvetia compressa,58,Zone II
+2009,SIL,SIL-05,TETRUB,Tetraclita rubescens,2,Zone II
+2009,SIL,SIL-05,UNSCORE,Unscorable,0,Zone II
 2010,CHT,CHT-01,BARESUB,Substrate,63,Zone II
 2010,CHT,CHT-01,CHTBAL,Balanus/Chthamalus,2,Zone II
 2010,CHT,CHT-01,MYTCAL,Mytilus,0,Zone II
@@ -8257,6 +8825,195 @@ survey_year,type,plot_code,taxa_code,scientific_name,pct_cover,zone
 2017,SIL,SIL-05,SILCOM,Silvetia compressa,67,Zone II
 2017,SIL,SIL-05,TETRUB,Tetraclita rubescens,1,Zone II
 2017,SIL,SIL-05,UNSCORE,Unscorable,0,Zone II
+2018,CHT,CHT-01,BARESUB,Substrate,55,Zone II
+2018,CHT,CHT-01,CHTBAL,Balanus/Chthamalus,0,Zone II
+2018,CHT,CHT-01,MYTCAL,Mytilus,0,Zone II
+2018,CHT,CHT-01,OTHANI,Animals,11,Zone II
+2018,CHT,CHT-01,OTHPLA,Algae/plants,10,Zone II
+2018,CHT,CHT-01,POLPOL,Pollicipes polymerus,0,Zone II
+2018,CHT,CHT-01,SILCOM,Silvetia compressa,0,Zone II
+2018,CHT,CHT-01,TETRUB,Tetraclita rubescens,24,Zone II
+2018,CHT,CHT-01,UNSCORE,Unscorable,0,Zone II
+2018,CHT,CHT-02,BARESUB,Substrate,39,Zone II
+2018,CHT,CHT-02,CHTBAL,Balanus/Chthamalus,5,Zone II
+2018,CHT,CHT-02,MYTCAL,Mytilus,1,Zone II
+2018,CHT,CHT-02,OTHANI,Animals,28,Zone II
+2018,CHT,CHT-02,OTHPLA,Algae/plants,16,Zone II
+2018,CHT,CHT-02,POLPOL,Pollicipes polymerus,0,Zone II
+2018,CHT,CHT-02,SILCOM,Silvetia compressa,0,Zone II
+2018,CHT,CHT-02,TETRUB,Tetraclita rubescens,11,Zone II
+2018,CHT,CHT-02,UNSCORE,Unscorable,0,Zone II
+2018,CHT,CHT-03,BARESUB,Substrate,27,Zone II
+2018,CHT,CHT-03,CHTBAL,Balanus/Chthamalus,9,Zone II
+2018,CHT,CHT-03,MYTCAL,Mytilus,2,Zone II
+2018,CHT,CHT-03,OTHANI,Animals,0,Zone II
+2018,CHT,CHT-03,OTHPLA,Algae/plants,53,Zone II
+2018,CHT,CHT-03,POLPOL,Pollicipes polymerus,0,Zone II
+2018,CHT,CHT-03,SILCOM,Silvetia compressa,7,Zone II
+2018,CHT,CHT-03,TETRUB,Tetraclita rubescens,2,Zone II
+2018,CHT,CHT-03,UNSCORE,Unscorable,0,Zone II
+2018,CHT,CHT-04,BARESUB,Substrate,1,Zone II
+2018,CHT,CHT-04,CHTBAL,Balanus/Chthamalus,0,Zone II
+2018,CHT,CHT-04,MYTCAL,Mytilus,0,Zone II
+2018,CHT,CHT-04,OTHANI,Animals,0,Zone II
+2018,CHT,CHT-04,OTHPLA,Algae/plants,95,Zone II
+2018,CHT,CHT-04,POLPOL,Pollicipes polymerus,0,Zone II
+2018,CHT,CHT-04,SILCOM,Silvetia compressa,4,Zone II
+2018,CHT,CHT-04,TETRUB,Tetraclita rubescens,0,Zone II
+2018,CHT,CHT-04,UNSCORE,Unscorable,0,Zone II
+2018,CHT,CHT-05,BARESUB,Substrate,38,Zone II
+2018,CHT,CHT-05,CHTBAL,Balanus/Chthamalus,17,Zone II
+2018,CHT,CHT-05,MYTCAL,Mytilus,0,Zone II
+2018,CHT,CHT-05,OTHANI,Animals,5,Zone II
+2018,CHT,CHT-05,OTHPLA,Algae/plants,15,Zone II
+2018,CHT,CHT-05,POLPOL,Pollicipes polymerus,0,Zone II
+2018,CHT,CHT-05,SILCOM,Silvetia compressa,8,Zone II
+2018,CHT,CHT-05,TETRUB,Tetraclita rubescens,17,Zone II
+2018,CHT,CHT-05,UNSCORE,Unscorable,0,Zone II
+2018,MYT,MYT-01,BARESUB,Substrate,13,Zone II
+2018,MYT,MYT-01,CHTBAL,Balanus/Chthamalus,0,Zone II
+2018,MYT,MYT-01,MYTCAL,Mytilus,0,Zone II
+2018,MYT,MYT-01,OTHANI,Animals,0,Zone II
+2018,MYT,MYT-01,OTHPLA,Algae/plants,72,Zone II
+2018,MYT,MYT-01,POLPOL,Pollicipes polymerus,0,Zone II
+2018,MYT,MYT-01,SILCOM,Silvetia compressa,0,Zone II
+2018,MYT,MYT-01,TETRUB,Tetraclita rubescens,15,Zone II
+2018,MYT,MYT-01,UNSCORE,Unscorable,0,Zone II
+2018,MYT,MYT-02,BARESUB,Substrate,38,Zone II
+2018,MYT,MYT-02,CHTBAL,Balanus/Chthamalus,0,Zone II
+2018,MYT,MYT-02,MYTCAL,Mytilus,2,Zone II
+2018,MYT,MYT-02,OTHANI,Animals,3,Zone II
+2018,MYT,MYT-02,OTHPLA,Algae/plants,31,Zone II
+2018,MYT,MYT-02,POLPOL,Pollicipes polymerus,0,Zone II
+2018,MYT,MYT-02,SILCOM,Silvetia compressa,0,Zone II
+2018,MYT,MYT-02,TETRUB,Tetraclita rubescens,26,Zone II
+2018,MYT,MYT-02,UNSCORE,Unscorable,0,Zone II
+2018,MYT,MYT-03,BARESUB,Substrate,30,Zone II
+2018,MYT,MYT-03,CHTBAL,Balanus/Chthamalus,1,Zone II
+2018,MYT,MYT-03,MYTCAL,Mytilus,4,Zone II
+2018,MYT,MYT-03,OTHANI,Animals,3,Zone II
+2018,MYT,MYT-03,OTHPLA,Algae/plants,41,Zone II
+2018,MYT,MYT-03,POLPOL,Pollicipes polymerus,0,Zone II
+2018,MYT,MYT-03,SILCOM,Silvetia compressa,0,Zone II
+2018,MYT,MYT-03,TETRUB,Tetraclita rubescens,21,Zone II
+2018,MYT,MYT-03,UNSCORE,Unscorable,0,Zone II
+2018,MYT,MYT-04,BARESUB,Substrate,10,Zone II
+2018,MYT,MYT-04,CHTBAL,Balanus/Chthamalus,0,Zone II
+2018,MYT,MYT-04,MYTCAL,Mytilus,0,Zone II
+2018,MYT,MYT-04,OTHANI,Animals,2,Zone II
+2018,MYT,MYT-04,OTHPLA,Algae/plants,85,Zone II
+2018,MYT,MYT-04,POLPOL,Pollicipes polymerus,0,Zone II
+2018,MYT,MYT-04,SILCOM,Silvetia compressa,0,Zone II
+2018,MYT,MYT-04,TETRUB,Tetraclita rubescens,3,Zone II
+2018,MYT,MYT-04,UNSCORE,Unscorable,0,Zone II
+2018,MYT,MYT-05,BARESUB,Substrate,2,Zone II
+2018,MYT,MYT-05,CHTBAL,Balanus/Chthamalus,0,Zone II
+2018,MYT,MYT-05,MYTCAL,Mytilus,0,Zone II
+2018,MYT,MYT-05,OTHANI,Animals,0,Zone II
+2018,MYT,MYT-05,OTHPLA,Algae/plants,98,Zone II
+2018,MYT,MYT-05,POLPOL,Pollicipes polymerus,0,Zone II
+2018,MYT,MYT-05,SILCOM,Silvetia compressa,0,Zone II
+2018,MYT,MYT-05,TETRUB,Tetraclita rubescens,0,Zone II
+2018,MYT,MYT-05,UNSCORE,Unscorable,0,Zone II
+2018,POL,POL-01,BARESUB,Substrate,61,Zone II
+2018,POL,POL-01,CHTBAL,Balanus/Chthamalus,1,Zone II
+2018,POL,POL-01,MYTCAL,Mytilus,1,Zone II
+2018,POL,POL-01,OTHANI,Animals,7,Zone II
+2018,POL,POL-01,OTHPLA,Algae/plants,24,Zone II
+2018,POL,POL-01,POLPOL,Pollicipes polymerus,6,Zone II
+2018,POL,POL-01,SILCOM,Silvetia compressa,0,Zone II
+2018,POL,POL-01,TETRUB,Tetraclita rubescens,0,Zone II
+2018,POL,POL-01,UNSCORE,Unscorable,0,Zone II
+2018,POL,POL-02,BARESUB,Substrate,91,Zone II
+2018,POL,POL-02,CHTBAL,Balanus/Chthamalus,0,Zone II
+2018,POL,POL-02,MYTCAL,Mytilus,0,Zone II
+2018,POL,POL-02,OTHANI,Animals,2,Zone II
+2018,POL,POL-02,OTHPLA,Algae/plants,7,Zone II
+2018,POL,POL-02,POLPOL,Pollicipes polymerus,0,Zone II
+2018,POL,POL-02,SILCOM,Silvetia compressa,0,Zone II
+2018,POL,POL-02,TETRUB,Tetraclita rubescens,0,Zone II
+2018,POL,POL-02,UNSCORE,Unscorable,0,Zone II
+2018,POL,POL-03,BARESUB,Substrate,41,Zone II
+2018,POL,POL-03,CHTBAL,Balanus/Chthamalus,0,Zone II
+2018,POL,POL-03,MYTCAL,Mytilus,0,Zone II
+2018,POL,POL-03,OTHANI,Animals,40,Zone II
+2018,POL,POL-03,OTHPLA,Algae/plants,19,Zone II
+2018,POL,POL-03,POLPOL,Pollicipes polymerus,0,Zone II
+2018,POL,POL-03,SILCOM,Silvetia compressa,0,Zone II
+2018,POL,POL-03,TETRUB,Tetraclita rubescens,0,Zone II
+2018,POL,POL-03,UNSCORE,Unscorable,0,Zone II
+2018,POL,POL-04,BARESUB,Substrate,0,Zone II
+2018,POL,POL-04,CHTBAL,Balanus/Chthamalus,0,Zone II
+2018,POL,POL-04,MYTCAL,Mytilus,0,Zone II
+2018,POL,POL-04,OTHANI,Animals,0,Zone II
+2018,POL,POL-04,OTHPLA,Algae/plants,0,Zone II
+2018,POL,POL-04,POLPOL,Pollicipes polymerus,0,Zone II
+2018,POL,POL-04,SILCOM,Silvetia compressa,0,Zone II
+2018,POL,POL-04,TETRUB,Tetraclita rubescens,0,Zone II
+2018,POL,POL-04,UNSCORE,Unscorable,100,Zone II
+2018,POL,POL-05,BARESUB,Substrate,49,Zone II
+2018,POL,POL-05,CHTBAL,Balanus/Chthamalus,3,Zone II
+2018,POL,POL-05,MYTCAL,Mytilus,0,Zone II
+2018,POL,POL-05,OTHANI,Animals,14,Zone II
+2018,POL,POL-05,OTHPLA,Algae/plants,17,Zone II
+2018,POL,POL-05,POLPOL,Pollicipes polymerus,17,Zone II
+2018,POL,POL-05,SILCOM,Silvetia compressa,0,Zone II
+2018,POL,POL-05,TETRUB,Tetraclita rubescens,0,Zone II
+2018,POL,POL-05,UNSCORE,Unscorable,0,Zone II
+2018,POL,POL-06,BARESUB,Substrate,21,Zone II
+2018,POL,POL-06,CHTBAL,Balanus/Chthamalus,0,Zone II
+2018,POL,POL-06,MYTCAL,Mytilus,0,Zone II
+2018,POL,POL-06,OTHANI,Animals,69,Zone II
+2018,POL,POL-06,OTHPLA,Algae/plants,10,Zone II
+2018,POL,POL-06,POLPOL,Pollicipes polymerus,0,Zone II
+2018,POL,POL-06,SILCOM,Silvetia compressa,0,Zone II
+2018,POL,POL-06,TETRUB,Tetraclita rubescens,0,Zone II
+2018,POL,POL-06,UNSCORE,Unscorable,0,Zone II
+2018,SIL,SIL-01,BARESUB,Substrate,6,Zone II
+2018,SIL,SIL-01,CHTBAL,Balanus/Chthamalus,1,Zone II
+2018,SIL,SIL-01,MYTCAL,Mytilus,0,Zone II
+2018,SIL,SIL-01,OTHANI,Animals,0,Zone II
+2018,SIL,SIL-01,OTHPLA,Algae/plants,41,Zone II
+2018,SIL,SIL-01,POLPOL,Pollicipes polymerus,0,Zone II
+2018,SIL,SIL-01,SILCOM,Silvetia compressa,52,Zone II
+2018,SIL,SIL-01,TETRUB,Tetraclita rubescens,0,Zone II
+2018,SIL,SIL-01,UNSCORE,Unscorable,0,Zone II
+2018,SIL,SIL-02,BARESUB,Substrate,0,Zone II
+2018,SIL,SIL-02,CHTBAL,Balanus/Chthamalus,0,Zone II
+2018,SIL,SIL-02,MYTCAL,Mytilus,0,Zone II
+2018,SIL,SIL-02,OTHANI,Animals,1,Zone II
+2018,SIL,SIL-02,OTHPLA,Algae/plants,99,Zone II
+2018,SIL,SIL-02,POLPOL,Pollicipes polymerus,0,Zone II
+2018,SIL,SIL-02,SILCOM,Silvetia compressa,0,Zone II
+2018,SIL,SIL-02,TETRUB,Tetraclita rubescens,0,Zone II
+2018,SIL,SIL-02,UNSCORE,Unscorable,0,Zone II
+2018,SIL,SIL-03,BARESUB,Substrate,0,Zone II
+2018,SIL,SIL-03,CHTBAL,Balanus/Chthamalus,0,Zone II
+2018,SIL,SIL-03,MYTCAL,Mytilus,0,Zone II
+2018,SIL,SIL-03,OTHANI,Animals,0,Zone II
+2018,SIL,SIL-03,OTHPLA,Algae/plants,100,Zone II
+2018,SIL,SIL-03,POLPOL,Pollicipes polymerus,0,Zone II
+2018,SIL,SIL-03,SILCOM,Silvetia compressa,0,Zone II
+2018,SIL,SIL-03,TETRUB,Tetraclita rubescens,0,Zone II
+2018,SIL,SIL-03,UNSCORE,Unscorable,0,Zone II
+2018,SIL,SIL-04,BARESUB,Substrate,5,Zone II
+2018,SIL,SIL-04,CHTBAL,Balanus/Chthamalus,1,Zone II
+2018,SIL,SIL-04,MYTCAL,Mytilus,0,Zone II
+2018,SIL,SIL-04,OTHANI,Animals,1,Zone II
+2018,SIL,SIL-04,OTHPLA,Algae/plants,83,Zone II
+2018,SIL,SIL-04,POLPOL,Pollicipes polymerus,0,Zone II
+2018,SIL,SIL-04,SILCOM,Silvetia compressa,9,Zone II
+2018,SIL,SIL-04,TETRUB,Tetraclita rubescens,1,Zone II
+2018,SIL,SIL-04,UNSCORE,Unscorable,0,Zone II
+2018,SIL,SIL-05,BARESUB,Substrate,2,Zone II
+2018,SIL,SIL-05,CHTBAL,Balanus/Chthamalus,1,Zone II
+2018,SIL,SIL-05,MYTCAL,Mytilus,0,Zone II
+2018,SIL,SIL-05,OTHANI,Animals,0,Zone II
+2018,SIL,SIL-05,OTHPLA,Algae/plants,44,Zone II
+2018,SIL,SIL-05,POLPOL,Pollicipes polymerus,0,Zone II
+2018,SIL,SIL-05,SILCOM,Silvetia compressa,52,Zone II
+2018,SIL,SIL-05,TETRUB,Tetraclita rubescens,1,Zone II
+2018,SIL,SIL-05,UNSCORE,Unscorable,0,Zone II
 2019,CHT,CHT-01,BARESUB,Substrate,13,Zone II
 2019,CHT,CHT-01,CHTBAL,Balanus/Chthamalus,0,Zone II
 2019,CHT,CHT-01,MYTCAL,Mytilus,1,Zone II
@@ -11133,6 +11890,195 @@ survey_year,type,plot_code,taxa_code,scientific_name,pct_cover,zone
 2008,SIL,SIL-05,SILCOM,Silvetia compressa,84,Zone III
 2008,SIL,SIL-05,TETRUB,Tetraclita rubescens,0,Zone III
 2008,SIL,SIL-05,UNSCORE,Unscorable,0,Zone III
+2009,CHT,CHT-01,BARESUB,Substrate,21,Zone III
+2009,CHT,CHT-01,CHTBAL,Balanus/Chthamalus,17,Zone III
+2009,CHT,CHT-01,MYTCAL,Mytilus,0,Zone III
+2009,CHT,CHT-01,OTHANI,Animals,5,Zone III
+2009,CHT,CHT-01,OTHPLA,Algae/plants,53,Zone III
+2009,CHT,CHT-01,POLPOL,Pollicipes polymerus,0,Zone III
+2009,CHT,CHT-01,SILCOM,Silvetia compressa,2,Zone III
+2009,CHT,CHT-01,TETRUB,Tetraclita rubescens,2,Zone III
+2009,CHT,CHT-01,UNSCORE,Unscorable,0,Zone III
+2009,CHT,CHT-02,BARESUB,Substrate,26,Zone III
+2009,CHT,CHT-02,CHTBAL,Balanus/Chthamalus,15,Zone III
+2009,CHT,CHT-02,MYTCAL,Mytilus,0,Zone III
+2009,CHT,CHT-02,OTHANI,Animals,6,Zone III
+2009,CHT,CHT-02,OTHPLA,Algae/plants,48,Zone III
+2009,CHT,CHT-02,POLPOL,Pollicipes polymerus,0,Zone III
+2009,CHT,CHT-02,SILCOM,Silvetia compressa,0,Zone III
+2009,CHT,CHT-02,TETRUB,Tetraclita rubescens,5,Zone III
+2009,CHT,CHT-02,UNSCORE,Unscorable,0,Zone III
+2009,CHT,CHT-03,BARESUB,Substrate,32,Zone III
+2009,CHT,CHT-03,CHTBAL,Balanus/Chthamalus,26,Zone III
+2009,CHT,CHT-03,MYTCAL,Mytilus,0,Zone III
+2009,CHT,CHT-03,OTHANI,Animals,2,Zone III
+2009,CHT,CHT-03,OTHPLA,Algae/plants,15,Zone III
+2009,CHT,CHT-03,POLPOL,Pollicipes polymerus,0,Zone III
+2009,CHT,CHT-03,SILCOM,Silvetia compressa,19,Zone III
+2009,CHT,CHT-03,TETRUB,Tetraclita rubescens,6,Zone III
+2009,CHT,CHT-03,UNSCORE,Unscorable,0,Zone III
+2009,CHT,CHT-04,BARESUB,Substrate,2,Zone III
+2009,CHT,CHT-04,CHTBAL,Balanus/Chthamalus,15,Zone III
+2009,CHT,CHT-04,MYTCAL,Mytilus,1,Zone III
+2009,CHT,CHT-04,OTHANI,Animals,6,Zone III
+2009,CHT,CHT-04,OTHPLA,Algae/plants,55,Zone III
+2009,CHT,CHT-04,POLPOL,Pollicipes polymerus,0,Zone III
+2009,CHT,CHT-04,SILCOM,Silvetia compressa,13,Zone III
+2009,CHT,CHT-04,TETRUB,Tetraclita rubescens,8,Zone III
+2009,CHT,CHT-04,UNSCORE,Unscorable,0,Zone III
+2009,CHT,CHT-05,BARESUB,Substrate,43,Zone III
+2009,CHT,CHT-05,CHTBAL,Balanus/Chthamalus,22,Zone III
+2009,CHT,CHT-05,MYTCAL,Mytilus,0,Zone III
+2009,CHT,CHT-05,OTHANI,Animals,4,Zone III
+2009,CHT,CHT-05,OTHPLA,Algae/plants,10,Zone III
+2009,CHT,CHT-05,POLPOL,Pollicipes polymerus,0,Zone III
+2009,CHT,CHT-05,SILCOM,Silvetia compressa,0,Zone III
+2009,CHT,CHT-05,TETRUB,Tetraclita rubescens,21,Zone III
+2009,CHT,CHT-05,UNSCORE,Unscorable,0,Zone III
+2009,MYT,MYT-01,BARESUB,Substrate,20,Zone III
+2009,MYT,MYT-01,CHTBAL,Balanus/Chthamalus,0,Zone III
+2009,MYT,MYT-01,MYTCAL,Mytilus,0,Zone III
+2009,MYT,MYT-01,OTHANI,Animals,13,Zone III
+2009,MYT,MYT-01,OTHPLA,Algae/plants,16,Zone III
+2009,MYT,MYT-01,POLPOL,Pollicipes polymerus,0,Zone III
+2009,MYT,MYT-01,SILCOM,Silvetia compressa,48,Zone III
+2009,MYT,MYT-01,TETRUB,Tetraclita rubescens,3,Zone III
+2009,MYT,MYT-01,UNSCORE,Unscorable,0,Zone III
+2009,MYT,MYT-02,BARESUB,Substrate,7,Zone III
+2009,MYT,MYT-02,CHTBAL,Balanus/Chthamalus,12,Zone III
+2009,MYT,MYT-02,MYTCAL,Mytilus,3,Zone III
+2009,MYT,MYT-02,OTHANI,Animals,6,Zone III
+2009,MYT,MYT-02,OTHPLA,Algae/plants,42,Zone III
+2009,MYT,MYT-02,POLPOL,Pollicipes polymerus,0,Zone III
+2009,MYT,MYT-02,SILCOM,Silvetia compressa,16,Zone III
+2009,MYT,MYT-02,TETRUB,Tetraclita rubescens,13,Zone III
+2009,MYT,MYT-02,UNSCORE,Unscorable,1,Zone III
+2009,MYT,MYT-03,BARESUB,Substrate,9,Zone III
+2009,MYT,MYT-03,CHTBAL,Balanus/Chthamalus,14,Zone III
+2009,MYT,MYT-03,MYTCAL,Mytilus,2,Zone III
+2009,MYT,MYT-03,OTHANI,Animals,8,Zone III
+2009,MYT,MYT-03,OTHPLA,Algae/plants,40,Zone III
+2009,MYT,MYT-03,POLPOL,Pollicipes polymerus,0,Zone III
+2009,MYT,MYT-03,SILCOM,Silvetia compressa,0,Zone III
+2009,MYT,MYT-03,TETRUB,Tetraclita rubescens,27,Zone III
+2009,MYT,MYT-03,UNSCORE,Unscorable,0,Zone III
+2009,MYT,MYT-04,BARESUB,Substrate,7,Zone III
+2009,MYT,MYT-04,CHTBAL,Balanus/Chthamalus,16,Zone III
+2009,MYT,MYT-04,MYTCAL,Mytilus,0,Zone III
+2009,MYT,MYT-04,OTHANI,Animals,11,Zone III
+2009,MYT,MYT-04,OTHPLA,Algae/plants,14,Zone III
+2009,MYT,MYT-04,POLPOL,Pollicipes polymerus,0,Zone III
+2009,MYT,MYT-04,SILCOM,Silvetia compressa,36,Zone III
+2009,MYT,MYT-04,TETRUB,Tetraclita rubescens,16,Zone III
+2009,MYT,MYT-04,UNSCORE,Unscorable,0,Zone III
+2009,MYT,MYT-05,BARESUB,Substrate,21,Zone III
+2009,MYT,MYT-05,CHTBAL,Balanus/Chthamalus,11,Zone III
+2009,MYT,MYT-05,MYTCAL,Mytilus,1,Zone III
+2009,MYT,MYT-05,OTHANI,Animals,13,Zone III
+2009,MYT,MYT-05,OTHPLA,Algae/plants,25,Zone III
+2009,MYT,MYT-05,POLPOL,Pollicipes polymerus,0,Zone III
+2009,MYT,MYT-05,SILCOM,Silvetia compressa,6,Zone III
+2009,MYT,MYT-05,TETRUB,Tetraclita rubescens,20,Zone III
+2009,MYT,MYT-05,UNSCORE,Unscorable,3,Zone III
+2009,POL,POL-01,BARESUB,Substrate,85,Zone III
+2009,POL,POL-01,CHTBAL,Balanus/Chthamalus,4,Zone III
+2009,POL,POL-01,MYTCAL,Mytilus,0,Zone III
+2009,POL,POL-01,OTHANI,Animals,0,Zone III
+2009,POL,POL-01,OTHPLA,Algae/plants,0,Zone III
+2009,POL,POL-01,POLPOL,Pollicipes polymerus,11,Zone III
+2009,POL,POL-01,SILCOM,Silvetia compressa,0,Zone III
+2009,POL,POL-01,TETRUB,Tetraclita rubescens,0,Zone III
+2009,POL,POL-01,UNSCORE,Unscorable,0,Zone III
+2009,POL,POL-02,BARESUB,Substrate,85,Zone III
+2009,POL,POL-02,CHTBAL,Balanus/Chthamalus,1,Zone III
+2009,POL,POL-02,MYTCAL,Mytilus,0,Zone III
+2009,POL,POL-02,OTHANI,Animals,7,Zone III
+2009,POL,POL-02,OTHPLA,Algae/plants,0,Zone III
+2009,POL,POL-02,POLPOL,Pollicipes polymerus,4,Zone III
+2009,POL,POL-02,SILCOM,Silvetia compressa,0,Zone III
+2009,POL,POL-02,TETRUB,Tetraclita rubescens,0,Zone III
+2009,POL,POL-02,UNSCORE,Unscorable,3,Zone III
+2009,POL,POL-03,BARESUB,Substrate,89,Zone III
+2009,POL,POL-03,CHTBAL,Balanus/Chthamalus,5,Zone III
+2009,POL,POL-03,MYTCAL,Mytilus,0,Zone III
+2009,POL,POL-03,OTHANI,Animals,3,Zone III
+2009,POL,POL-03,OTHPLA,Algae/plants,2,Zone III
+2009,POL,POL-03,POLPOL,Pollicipes polymerus,1,Zone III
+2009,POL,POL-03,SILCOM,Silvetia compressa,0,Zone III
+2009,POL,POL-03,TETRUB,Tetraclita rubescens,0,Zone III
+2009,POL,POL-03,UNSCORE,Unscorable,0,Zone III
+2009,POL,POL-04,BARESUB,Substrate,74,Zone III
+2009,POL,POL-04,CHTBAL,Balanus/Chthamalus,1,Zone III
+2009,POL,POL-04,MYTCAL,Mytilus,0,Zone III
+2009,POL,POL-04,OTHANI,Animals,3,Zone III
+2009,POL,POL-04,OTHPLA,Algae/plants,20,Zone III
+2009,POL,POL-04,POLPOL,Pollicipes polymerus,0,Zone III
+2009,POL,POL-04,SILCOM,Silvetia compressa,0,Zone III
+2009,POL,POL-04,TETRUB,Tetraclita rubescens,0,Zone III
+2009,POL,POL-04,UNSCORE,Unscorable,2,Zone III
+2009,POL,POL-05,BARESUB,Substrate,96,Zone III
+2009,POL,POL-05,CHTBAL,Balanus/Chthamalus,2,Zone III
+2009,POL,POL-05,MYTCAL,Mytilus,0,Zone III
+2009,POL,POL-05,OTHANI,Animals,0,Zone III
+2009,POL,POL-05,OTHPLA,Algae/plants,0,Zone III
+2009,POL,POL-05,POLPOL,Pollicipes polymerus,1,Zone III
+2009,POL,POL-05,SILCOM,Silvetia compressa,0,Zone III
+2009,POL,POL-05,TETRUB,Tetraclita rubescens,0,Zone III
+2009,POL,POL-05,UNSCORE,Unscorable,1,Zone III
+2009,POL,POL-06,BARESUB,Substrate,82,Zone III
+2009,POL,POL-06,CHTBAL,Balanus/Chthamalus,14,Zone III
+2009,POL,POL-06,MYTCAL,Mytilus,0,Zone III
+2009,POL,POL-06,OTHANI,Animals,0,Zone III
+2009,POL,POL-06,OTHPLA,Algae/plants,1,Zone III
+2009,POL,POL-06,POLPOL,Pollicipes polymerus,3,Zone III
+2009,POL,POL-06,SILCOM,Silvetia compressa,0,Zone III
+2009,POL,POL-06,TETRUB,Tetraclita rubescens,0,Zone III
+2009,POL,POL-06,UNSCORE,Unscorable,0,Zone III
+2009,SIL,SIL-01,BARESUB,Substrate,27,Zone III
+2009,SIL,SIL-01,CHTBAL,Balanus/Chthamalus,7,Zone III
+2009,SIL,SIL-01,MYTCAL,Mytilus,0,Zone III
+2009,SIL,SIL-01,OTHANI,Animals,8,Zone III
+2009,SIL,SIL-01,OTHPLA,Algae/plants,12,Zone III
+2009,SIL,SIL-01,POLPOL,Pollicipes polymerus,0,Zone III
+2009,SIL,SIL-01,SILCOM,Silvetia compressa,45,Zone III
+2009,SIL,SIL-01,TETRUB,Tetraclita rubescens,0,Zone III
+2009,SIL,SIL-01,UNSCORE,Unscorable,1,Zone III
+2009,SIL,SIL-02,BARESUB,Substrate,0,Zone III
+2009,SIL,SIL-02,CHTBAL,Balanus/Chthamalus,0,Zone III
+2009,SIL,SIL-02,MYTCAL,Mytilus,0,Zone III
+2009,SIL,SIL-02,OTHANI,Animals,0,Zone III
+2009,SIL,SIL-02,OTHPLA,Algae/plants,62,Zone III
+2009,SIL,SIL-02,POLPOL,Pollicipes polymerus,0,Zone III
+2009,SIL,SIL-02,SILCOM,Silvetia compressa,38,Zone III
+2009,SIL,SIL-02,TETRUB,Tetraclita rubescens,0,Zone III
+2009,SIL,SIL-02,UNSCORE,Unscorable,0,Zone III
+2009,SIL,SIL-03,BARESUB,Substrate,0,Zone III
+2009,SIL,SIL-03,CHTBAL,Balanus/Chthamalus,0,Zone III
+2009,SIL,SIL-03,MYTCAL,Mytilus,0,Zone III
+2009,SIL,SIL-03,OTHANI,Animals,0,Zone III
+2009,SIL,SIL-03,OTHPLA,Algae/plants,74,Zone III
+2009,SIL,SIL-03,POLPOL,Pollicipes polymerus,0,Zone III
+2009,SIL,SIL-03,SILCOM,Silvetia compressa,26,Zone III
+2009,SIL,SIL-03,TETRUB,Tetraclita rubescens,0,Zone III
+2009,SIL,SIL-03,UNSCORE,Unscorable,0,Zone III
+2009,SIL,SIL-04,BARESUB,Substrate,1,Zone III
+2009,SIL,SIL-04,CHTBAL,Balanus/Chthamalus,2,Zone III
+2009,SIL,SIL-04,MYTCAL,Mytilus,0,Zone III
+2009,SIL,SIL-04,OTHANI,Animals,4,Zone III
+2009,SIL,SIL-04,OTHPLA,Algae/plants,24,Zone III
+2009,SIL,SIL-04,POLPOL,Pollicipes polymerus,0,Zone III
+2009,SIL,SIL-04,SILCOM,Silvetia compressa,69,Zone III
+2009,SIL,SIL-04,TETRUB,Tetraclita rubescens,0,Zone III
+2009,SIL,SIL-04,UNSCORE,Unscorable,0,Zone III
+2009,SIL,SIL-05,BARESUB,Substrate,1,Zone III
+2009,SIL,SIL-05,CHTBAL,Balanus/Chthamalus,0,Zone III
+2009,SIL,SIL-05,MYTCAL,Mytilus,0,Zone III
+2009,SIL,SIL-05,OTHANI,Animals,0,Zone III
+2009,SIL,SIL-05,OTHPLA,Algae/plants,23,Zone III
+2009,SIL,SIL-05,POLPOL,Pollicipes polymerus,0,Zone III
+2009,SIL,SIL-05,SILCOM,Silvetia compressa,76,Zone III
+2009,SIL,SIL-05,TETRUB,Tetraclita rubescens,0,Zone III
+2009,SIL,SIL-05,UNSCORE,Unscorable,0,Zone III
 2010,CHT,CHT-01,BARESUB,Substrate,19,Zone III
 2010,CHT,CHT-01,CHTBAL,Balanus/Chthamalus,19,Zone III
 2010,CHT,CHT-01,MYTCAL,Mytilus,0,Zone III
@@ -12636,6 +13582,195 @@ survey_year,type,plot_code,taxa_code,scientific_name,pct_cover,zone
 2017,SIL,SIL-05,SILCOM,Silvetia compressa,80,Zone III
 2017,SIL,SIL-05,TETRUB,Tetraclita rubescens,0,Zone III
 2017,SIL,SIL-05,UNSCORE,Unscorable,0,Zone III
+2018,CHT,CHT-01,BARESUB,Substrate,52,Zone III
+2018,CHT,CHT-01,CHTBAL,Balanus/Chthamalus,0,Zone III
+2018,CHT,CHT-01,MYTCAL,Mytilus,0,Zone III
+2018,CHT,CHT-01,OTHANI,Animals,8,Zone III
+2018,CHT,CHT-01,OTHPLA,Algae/plants,28,Zone III
+2018,CHT,CHT-01,POLPOL,Pollicipes polymerus,0,Zone III
+2018,CHT,CHT-01,SILCOM,Silvetia compressa,0,Zone III
+2018,CHT,CHT-01,TETRUB,Tetraclita rubescens,12,Zone III
+2018,CHT,CHT-01,UNSCORE,Unscorable,0,Zone III
+2018,CHT,CHT-02,BARESUB,Substrate,36,Zone III
+2018,CHT,CHT-02,CHTBAL,Balanus/Chthamalus,0,Zone III
+2018,CHT,CHT-02,MYTCAL,Mytilus,0,Zone III
+2018,CHT,CHT-02,OTHANI,Animals,12,Zone III
+2018,CHT,CHT-02,OTHPLA,Algae/plants,30,Zone III
+2018,CHT,CHT-02,POLPOL,Pollicipes polymerus,0,Zone III
+2018,CHT,CHT-02,SILCOM,Silvetia compressa,0,Zone III
+2018,CHT,CHT-02,TETRUB,Tetraclita rubescens,22,Zone III
+2018,CHT,CHT-02,UNSCORE,Unscorable,0,Zone III
+2018,CHT,CHT-03,BARESUB,Substrate,20,Zone III
+2018,CHT,CHT-03,CHTBAL,Balanus/Chthamalus,32,Zone III
+2018,CHT,CHT-03,MYTCAL,Mytilus,0,Zone III
+2018,CHT,CHT-03,OTHANI,Animals,1,Zone III
+2018,CHT,CHT-03,OTHPLA,Algae/plants,2,Zone III
+2018,CHT,CHT-03,POLPOL,Pollicipes polymerus,0,Zone III
+2018,CHT,CHT-03,SILCOM,Silvetia compressa,8,Zone III
+2018,CHT,CHT-03,TETRUB,Tetraclita rubescens,37,Zone III
+2018,CHT,CHT-03,UNSCORE,Unscorable,0,Zone III
+2018,CHT,CHT-04,BARESUB,Substrate,10,Zone III
+2018,CHT,CHT-04,CHTBAL,Balanus/Chthamalus,13,Zone III
+2018,CHT,CHT-04,MYTCAL,Mytilus,3,Zone III
+2018,CHT,CHT-04,OTHANI,Animals,4,Zone III
+2018,CHT,CHT-04,OTHPLA,Algae/plants,24,Zone III
+2018,CHT,CHT-04,POLPOL,Pollicipes polymerus,0,Zone III
+2018,CHT,CHT-04,SILCOM,Silvetia compressa,0,Zone III
+2018,CHT,CHT-04,TETRUB,Tetraclita rubescens,46,Zone III
+2018,CHT,CHT-04,UNSCORE,Unscorable,0,Zone III
+2018,CHT,CHT-05,BARESUB,Substrate,19,Zone III
+2018,CHT,CHT-05,CHTBAL,Balanus/Chthamalus,24,Zone III
+2018,CHT,CHT-05,MYTCAL,Mytilus,0,Zone III
+2018,CHT,CHT-05,OTHANI,Animals,6,Zone III
+2018,CHT,CHT-05,OTHPLA,Algae/plants,8,Zone III
+2018,CHT,CHT-05,POLPOL,Pollicipes polymerus,0,Zone III
+2018,CHT,CHT-05,SILCOM,Silvetia compressa,0,Zone III
+2018,CHT,CHT-05,TETRUB,Tetraclita rubescens,43,Zone III
+2018,CHT,CHT-05,UNSCORE,Unscorable,0,Zone III
+2018,MYT,MYT-01,BARESUB,Substrate,20,Zone III
+2018,MYT,MYT-01,CHTBAL,Balanus/Chthamalus,2,Zone III
+2018,MYT,MYT-01,MYTCAL,Mytilus,0,Zone III
+2018,MYT,MYT-01,OTHANI,Animals,0,Zone III
+2018,MYT,MYT-01,OTHPLA,Algae/plants,49,Zone III
+2018,MYT,MYT-01,POLPOL,Pollicipes polymerus,0,Zone III
+2018,MYT,MYT-01,SILCOM,Silvetia compressa,28,Zone III
+2018,MYT,MYT-01,TETRUB,Tetraclita rubescens,1,Zone III
+2018,MYT,MYT-01,UNSCORE,Unscorable,0,Zone III
+2018,MYT,MYT-02,BARESUB,Substrate,7,Zone III
+2018,MYT,MYT-02,CHTBAL,Balanus/Chthamalus,15,Zone III
+2018,MYT,MYT-02,MYTCAL,Mytilus,0,Zone III
+2018,MYT,MYT-02,OTHANI,Animals,2,Zone III
+2018,MYT,MYT-02,OTHPLA,Algae/plants,26,Zone III
+2018,MYT,MYT-02,POLPOL,Pollicipes polymerus,0,Zone III
+2018,MYT,MYT-02,SILCOM,Silvetia compressa,30,Zone III
+2018,MYT,MYT-02,TETRUB,Tetraclita rubescens,20,Zone III
+2018,MYT,MYT-02,UNSCORE,Unscorable,0,Zone III
+2018,MYT,MYT-03,BARESUB,Substrate,14,Zone III
+2018,MYT,MYT-03,CHTBAL,Balanus/Chthamalus,9,Zone III
+2018,MYT,MYT-03,MYTCAL,Mytilus,3,Zone III
+2018,MYT,MYT-03,OTHANI,Animals,12,Zone III
+2018,MYT,MYT-03,OTHPLA,Algae/plants,7,Zone III
+2018,MYT,MYT-03,POLPOL,Pollicipes polymerus,0,Zone III
+2018,MYT,MYT-03,SILCOM,Silvetia compressa,0,Zone III
+2018,MYT,MYT-03,TETRUB,Tetraclita rubescens,55,Zone III
+2018,MYT,MYT-03,UNSCORE,Unscorable,0,Zone III
+2018,MYT,MYT-04,BARESUB,Substrate,5,Zone III
+2018,MYT,MYT-04,CHTBAL,Balanus/Chthamalus,1,Zone III
+2018,MYT,MYT-04,MYTCAL,Mytilus,0,Zone III
+2018,MYT,MYT-04,OTHANI,Animals,1,Zone III
+2018,MYT,MYT-04,OTHPLA,Algae/plants,30,Zone III
+2018,MYT,MYT-04,POLPOL,Pollicipes polymerus,0,Zone III
+2018,MYT,MYT-04,SILCOM,Silvetia compressa,61,Zone III
+2018,MYT,MYT-04,TETRUB,Tetraclita rubescens,2,Zone III
+2018,MYT,MYT-04,UNSCORE,Unscorable,0,Zone III
+2018,MYT,MYT-05,BARESUB,Substrate,3,Zone III
+2018,MYT,MYT-05,CHTBAL,Balanus/Chthamalus,16,Zone III
+2018,MYT,MYT-05,MYTCAL,Mytilus,3,Zone III
+2018,MYT,MYT-05,OTHANI,Animals,19,Zone III
+2018,MYT,MYT-05,OTHPLA,Algae/plants,17,Zone III
+2018,MYT,MYT-05,POLPOL,Pollicipes polymerus,0,Zone III
+2018,MYT,MYT-05,SILCOM,Silvetia compressa,6,Zone III
+2018,MYT,MYT-05,TETRUB,Tetraclita rubescens,36,Zone III
+2018,MYT,MYT-05,UNSCORE,Unscorable,0,Zone III
+2018,POL,POL-01,BARESUB,Substrate,75,Zone III
+2018,POL,POL-01,CHTBAL,Balanus/Chthamalus,1,Zone III
+2018,POL,POL-01,MYTCAL,Mytilus,0,Zone III
+2018,POL,POL-01,OTHANI,Animals,11,Zone III
+2018,POL,POL-01,OTHPLA,Algae/plants,0,Zone III
+2018,POL,POL-01,POLPOL,Pollicipes polymerus,13,Zone III
+2018,POL,POL-01,SILCOM,Silvetia compressa,0,Zone III
+2018,POL,POL-01,TETRUB,Tetraclita rubescens,0,Zone III
+2018,POL,POL-01,UNSCORE,Unscorable,0,Zone III
+2018,POL,POL-02,BARESUB,Substrate,60,Zone III
+2018,POL,POL-02,CHTBAL,Balanus/Chthamalus,10,Zone III
+2018,POL,POL-02,MYTCAL,Mytilus,2,Zone III
+2018,POL,POL-02,OTHANI,Animals,10,Zone III
+2018,POL,POL-02,OTHPLA,Algae/plants,0,Zone III
+2018,POL,POL-02,POLPOL,Pollicipes polymerus,18,Zone III
+2018,POL,POL-02,SILCOM,Silvetia compressa,0,Zone III
+2018,POL,POL-02,TETRUB,Tetraclita rubescens,0,Zone III
+2018,POL,POL-02,UNSCORE,Unscorable,0,Zone III
+2018,POL,POL-03,BARESUB,Substrate,51,Zone III
+2018,POL,POL-03,CHTBAL,Balanus/Chthamalus,33,Zone III
+2018,POL,POL-03,MYTCAL,Mytilus,0,Zone III
+2018,POL,POL-03,OTHANI,Animals,2,Zone III
+2018,POL,POL-03,OTHPLA,Algae/plants,0,Zone III
+2018,POL,POL-03,POLPOL,Pollicipes polymerus,11,Zone III
+2018,POL,POL-03,SILCOM,Silvetia compressa,0,Zone III
+2018,POL,POL-03,TETRUB,Tetraclita rubescens,0,Zone III
+2018,POL,POL-03,UNSCORE,Unscorable,3,Zone III
+2018,POL,POL-04,BARESUB,Substrate,0,Zone III
+2018,POL,POL-04,CHTBAL,Balanus/Chthamalus,0,Zone III
+2018,POL,POL-04,MYTCAL,Mytilus,0,Zone III
+2018,POL,POL-04,OTHANI,Animals,0,Zone III
+2018,POL,POL-04,OTHPLA,Algae/plants,0,Zone III
+2018,POL,POL-04,POLPOL,Pollicipes polymerus,0,Zone III
+2018,POL,POL-04,SILCOM,Silvetia compressa,0,Zone III
+2018,POL,POL-04,TETRUB,Tetraclita rubescens,0,Zone III
+2018,POL,POL-04,UNSCORE,Unscorable,100,Zone III
+2018,POL,POL-05,BARESUB,Substrate,87,Zone III
+2018,POL,POL-05,CHTBAL,Balanus/Chthamalus,12,Zone III
+2018,POL,POL-05,MYTCAL,Mytilus,0,Zone III
+2018,POL,POL-05,OTHANI,Animals,1,Zone III
+2018,POL,POL-05,OTHPLA,Algae/plants,0,Zone III
+2018,POL,POL-05,POLPOL,Pollicipes polymerus,0,Zone III
+2018,POL,POL-05,SILCOM,Silvetia compressa,0,Zone III
+2018,POL,POL-05,TETRUB,Tetraclita rubescens,0,Zone III
+2018,POL,POL-05,UNSCORE,Unscorable,0,Zone III
+2018,POL,POL-06,BARESUB,Substrate,64,Zone III
+2018,POL,POL-06,CHTBAL,Balanus/Chthamalus,5,Zone III
+2018,POL,POL-06,MYTCAL,Mytilus,0,Zone III
+2018,POL,POL-06,OTHANI,Animals,0,Zone III
+2018,POL,POL-06,OTHPLA,Algae/plants,0,Zone III
+2018,POL,POL-06,POLPOL,Pollicipes polymerus,12,Zone III
+2018,POL,POL-06,SILCOM,Silvetia compressa,0,Zone III
+2018,POL,POL-06,TETRUB,Tetraclita rubescens,0,Zone III
+2018,POL,POL-06,UNSCORE,Unscorable,19,Zone III
+2018,SIL,SIL-01,BARESUB,Substrate,17,Zone III
+2018,SIL,SIL-01,CHTBAL,Balanus/Chthamalus,0,Zone III
+2018,SIL,SIL-01,MYTCAL,Mytilus,0,Zone III
+2018,SIL,SIL-01,OTHANI,Animals,0,Zone III
+2018,SIL,SIL-01,OTHPLA,Algae/plants,63,Zone III
+2018,SIL,SIL-01,POLPOL,Pollicipes polymerus,0,Zone III
+2018,SIL,SIL-01,SILCOM,Silvetia compressa,13,Zone III
+2018,SIL,SIL-01,TETRUB,Tetraclita rubescens,7,Zone III
+2018,SIL,SIL-01,UNSCORE,Unscorable,0,Zone III
+2018,SIL,SIL-02,BARESUB,Substrate,0,Zone III
+2018,SIL,SIL-02,CHTBAL,Balanus/Chthamalus,0,Zone III
+2018,SIL,SIL-02,MYTCAL,Mytilus,0,Zone III
+2018,SIL,SIL-02,OTHANI,Animals,8,Zone III
+2018,SIL,SIL-02,OTHPLA,Algae/plants,92,Zone III
+2018,SIL,SIL-02,POLPOL,Pollicipes polymerus,0,Zone III
+2018,SIL,SIL-02,SILCOM,Silvetia compressa,0,Zone III
+2018,SIL,SIL-02,TETRUB,Tetraclita rubescens,0,Zone III
+2018,SIL,SIL-02,UNSCORE,Unscorable,0,Zone III
+2018,SIL,SIL-03,BARESUB,Substrate,17,Zone III
+2018,SIL,SIL-03,CHTBAL,Balanus/Chthamalus,0,Zone III
+2018,SIL,SIL-03,MYTCAL,Mytilus,0,Zone III
+2018,SIL,SIL-03,OTHANI,Animals,0,Zone III
+2018,SIL,SIL-03,OTHPLA,Algae/plants,80,Zone III
+2018,SIL,SIL-03,POLPOL,Pollicipes polymerus,0,Zone III
+2018,SIL,SIL-03,SILCOM,Silvetia compressa,0,Zone III
+2018,SIL,SIL-03,TETRUB,Tetraclita rubescens,3,Zone III
+2018,SIL,SIL-03,UNSCORE,Unscorable,0,Zone III
+2018,SIL,SIL-04,BARESUB,Substrate,14,Zone III
+2018,SIL,SIL-04,CHTBAL,Balanus/Chthamalus,2,Zone III
+2018,SIL,SIL-04,MYTCAL,Mytilus,0,Zone III
+2018,SIL,SIL-04,OTHANI,Animals,0,Zone III
+2018,SIL,SIL-04,OTHPLA,Algae/plants,73,Zone III
+2018,SIL,SIL-04,POLPOL,Pollicipes polymerus,0,Zone III
+2018,SIL,SIL-04,SILCOM,Silvetia compressa,7,Zone III
+2018,SIL,SIL-04,TETRUB,Tetraclita rubescens,4,Zone III
+2018,SIL,SIL-04,UNSCORE,Unscorable,0,Zone III
+2018,SIL,SIL-05,BARESUB,Substrate,3,Zone III
+2018,SIL,SIL-05,CHTBAL,Balanus/Chthamalus,0,Zone III
+2018,SIL,SIL-05,MYTCAL,Mytilus,0,Zone III
+2018,SIL,SIL-05,OTHANI,Animals,0,Zone III
+2018,SIL,SIL-05,OTHPLA,Algae/plants,72,Zone III
+2018,SIL,SIL-05,POLPOL,Pollicipes polymerus,0,Zone III
+2018,SIL,SIL-05,SILCOM,Silvetia compressa,25,Zone III
+2018,SIL,SIL-05,TETRUB,Tetraclita rubescens,0,Zone III
+2018,SIL,SIL-05,UNSCORE,Unscorable,0,Zone III
 2019,CHT,CHT-01,BARESUB,Substrate,14,Zone III
 2019,CHT,CHT-01,CHTBAL,Balanus/Chthamalus,16,Zone III
 2019,CHT,CHT-01,MYTCAL,Mytilus,0,Zone III
