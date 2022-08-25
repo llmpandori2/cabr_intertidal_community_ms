@@ -277,7 +277,6 @@ remove(target_home, transect_home)
 
 ##### community change photoplot - stacked bar #####
 
-
 area_fn <- function(plot_type, spp_code, sort_spp){
   
   # wrangle data
@@ -303,13 +302,14 @@ area_fn <- function(plot_type, spp_code, sort_spp){
   
   
   # step 2 - generate colors associated with taxa for consistent color assignment
-  consistent_colors = setNames(object = c('#fde725', '#addc30', '#5ec962', 
-                                          '#28ae80', '#21918c', '#2c728e',
-                                          '#3b528b', '#472d7b', '#440154'), 
-                               nm = sort(unique(target_90$scientific_name)))
-
+  consistent_colors = setNames(object = viridis::viridis(9, alpha = 1, begin = 0, 
+                                                         end = 1, direction = -1), 
+                               nm = sort(unique(dataset$scientific_name)))
   
-  # step 3 - plotting function, with specified plot number and type
+  # change the sort spp to 'black'
+  consistent_colors[sort_spp] = 'black'
+  
+  # step 3 - light theme stacked bar, with specified plot number and type
   ggplot(data = dataset,
          mapping = aes(x = survey_year, y = pct_cover, 
                        # make target spp last (bottom bar on plots)
@@ -319,7 +319,7 @@ area_fn <- function(plot_type, spp_code, sort_spp){
     # axis and plot labels
     xlab('Year') + 
     ylab('Percent Cover') + 
-    ggtitle(paste0(sort_spp, ' photo-plots')) +
+    ggtitle(paste0(sort_spp, ' plot composition')) +
     # colors
     scale_fill_manual(name = 'Taxon',
                       values = consistent_colors) +
@@ -328,8 +328,39 @@ area_fn <- function(plot_type, spp_code, sort_spp){
     theme(aspect.ratio = 1)
   
   # save plot
+  ggsave(paste(saveplace, '/stackedbar/stackedbar_', sort_spp, '.png', sep = ''), 
+         width = 7)
   
-  ggsave(paste(saveplace, '/stackedbar/stackedbar_', sort_spp, '.png', sep = ''), width = 7)
+  # step 5 - dark theme stacked bar 
+  
+  # change target spp color to "white"
+  consistent_colors[sort_spp] = 'white'
+  
+  # dark theme plot
+  ggplot(data = dataset,
+         mapping = aes(x = survey_year, y = pct_cover, 
+                       # make target spp last (bottom bar on plots)
+                       fill = fct_relevel(scientific_name, sort_spp, after = Inf))) +
+    # bar stacked by spp group (Scientific_name)
+    geom_bar(stat = 'identity', width = 1) + 
+    # axis and plot labels
+    xlab('Year') + 
+    ylab('Percent Cover') + 
+    ggtitle(paste0(sort_spp, ' plot composition')) +
+    # colors
+    scale_fill_manual(name = 'Taxon',
+                      values = consistent_colors) +
+    facet_wrap(~zone) +
+    dark_theme + 
+    theme(
+          text = element_text(size = 26, color = 'white'),
+          axis.text.x = element_text(size = 24, color = 'white'),
+          axis.text.y = element_text(size = 24, color = 'white'),
+          strip.text.x = element_text(size = 24, color = 'white'))
+  
+  # save
+  ggsave(paste(saveplace, '/stackedbar/stackedbar_dark_', sort_spp, '.png', sep = ''), 
+         width = 12)
 }
 
 # run for target spp 
@@ -339,62 +370,72 @@ area_fn(plot_type = 'CHT', spp_code = 'TETRUB', sort_spp = 'Tetraclita')
 area_fn(plot_type = 'POL', spp_code = 'POLPOL', sort_spp = 'Pollicipes')
 area_fn(plot_type = 'SIL', spp_code = 'SILCOM', sort_spp = 'Silvetia')
 
-# make one panel per plot type
-
-area_dark_fn <- function(plot_type, spp_code, sort_spp){
+### common name plot versions
+area_fn <- function(plot_type, spp_code, sort_spp){
+  
   # wrangle data
   dataset <- target_90 %>%
     filter(type == plot_type) %>%
     # calculate cover of each taxa across plot replicates
-    group_by(survey_year, taxa_code, scientific_name) %>%
+    group_by(survey_year, zone, taxa_code, scientific_name) %>%
     summarize(pct_cover = sum(pct_cover)) %>%
     ungroup() %>%
     # get sum of cover for each year
-    group_by(survey_year) %>%
+    group_by(survey_year, zone) %>%
     mutate(cover_sum = sum(pct_cover)) %>%
     ungroup() %>%
     # calculate % cover 
     mutate(pct_cover = (pct_cover/cover_sum)*100) %>%
     # make pretty label columns, nicer spp names
-    mutate(scientific_name = case_when(
-      scientific_name =='Tetraclita rubescens' ~ 'Tetraclita',
-      scientific_name =='Pollicipes polymerus' ~ 'Pollicipes',
-      scientific_name =='Silvetia compressa' ~ 'Silvetia',
-      scientific_name == 'Balanus/Chthamalus' ~ 'Balanus Chthamalus',
+    mutate(common_name = case_when(
+      scientific_name == 'Mytilus' ~ 'Mussel',
+      scientific_name =='Tetraclita rubescens' ~ 'Volcano barnacle',
+      scientific_name =='Pollicipes polymerus' ~ 'Goose barnacle',
+      scientific_name =='Silvetia compressa' ~ 'Golden rockweed',
+      scientific_name == 'Balanus/Chthamalus' ~ 'Acorn barnacles',
       TRUE ~ scientific_name))
   
-  # step 2 - plotting function, with specified plot number and type
+  
+  # step 2 - generate colors associated with taxa for consistent color assignment
+  consistent_colors = setNames(object = viridis::viridis(9, alpha = 1, begin = 0, 
+                                                         end = 1, direction = -1), 
+                               nm = sort(unique(dataset$common_name)))
+  
+  # change target spp color to "white"
+  consistent_colors[sort_spp] = 'white'
+  
+  # dark theme plot
   ggplot(data = dataset,
          mapping = aes(x = survey_year, y = pct_cover, 
                        # make target spp last (bottom bar on plots)
-                       fill = fct_relevel(scientific_name, sort_spp, after = Inf))) +
+                       fill = fct_relevel(common_name, sort_spp, after = Inf))) +
     # bar stacked by spp group (Scientific_name)
     geom_bar(stat = 'identity', width = 1) + 
     # axis and plot labels
     xlab('Year') + 
     ylab('Percent Cover') + 
-    ggtitle(paste0(sort_spp, ' photo-plots')) +
+    ggtitle(paste0(sort_spp, ' plot composition')) +
     # colors
     scale_fill_manual(name = 'Taxon',
-                      values = c(pnw_palette('Sailboat', 8, type = 'continuous'), 'gray30')) +
+                      values = consistent_colors) +
     facet_wrap(~zone) +
     dark_theme + 
-    theme(aspect.ratio = 1,
-          text = element_text(size = 16, color = 'white'),
-          axis.text.x = element_text(size = 16, color = 'white'),
-          axis.text.y = element_text(size = 16, color = 'white'))
+    theme(
+      text = element_text(size = 26, color = 'white'),
+      axis.text.x = element_text(size = 24, color = 'white'),
+      axis.text.y = element_text(size = 24, color = 'white'),
+      strip.text.x = element_text(size = 24, color = 'white'))
   
-  # save plot
-  
-  ggsave(paste(saveplace, '/stackedbar/stackedbar_dark_', sort_spp, '.png', sep = ''), width = 10)
+  # save
+  ggsave(paste(saveplace, '/stackedbar/stackedbar_common_dark_', sort_spp, 
+               '.png', sep = ''), width = 12)
 }
 
-
-area_dark_fn(plot_type = 'MYT', spp_code = 'MYTCAL', sort_spp = 'Mytilus')
-area_dark_fn(plot_type = 'CHT', spp_code = 'CHTBAL', sort_spp = 'Balanus Chthamalus')
-area_dark_fn(plot_type = 'CHT', spp_code = 'TETRUB', sort_spp = 'Tetraclita')
-area_dark_fn(plot_type = 'POL', spp_code = 'POLPOL', sort_spp = 'Pollicipes')
-area_dark_fn(plot_type = 'SIL', spp_code = 'SILCOM', sort_spp = 'Silvetia')
+area_fn(plot_type = 'MYT', spp_code = 'MYTCAL', sort_spp = 'Mussel')
+area_fn(plot_type = 'CHT', spp_code = 'CHTBAL', sort_spp = 'Acorn barnacles')
+area_fn(plot_type = 'CHT', spp_code = 'TETRUB', sort_spp = 'Volcano barnacle')
+area_fn(plot_type = 'POL', spp_code = 'POLPOL', sort_spp = 'Goose barnacle')
+area_fn(plot_type = 'SIL', spp_code = 'SILCOM', sort_spp = 'Golden rockweed')
 
 ##### community dynamics - multivariate #####
 
