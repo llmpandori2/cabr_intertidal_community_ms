@@ -502,80 +502,98 @@ ordplot <- ggplot() +
              aes(x = NMDS1, y = NMDS2, color = Site), alpha = 0.3) +
   geom_segment(data = vectors, mapping = aes(x = 0, xend = NMDS1, y = 0, yend = NMDS2),
                color = 'black') + 
-  scale_color_manual(values = ecopal_3) + 
+  scale_color_manual(name = 'Zone', values = ecopal_3) + 
   geom_text(data = filter(vectors, NMDS1 > 0),
             mapping = aes(x = NMDS1, y = NMDS2, label = spp, 
                                           hjust = 0), color = 'black') +
   geom_text(data = filter(vectors, NMDS1 < 0),
             mapping = aes(x = NMDS1, y = NMDS2, label = spp, 
                                           hjust = 1), color = 'black') +
-  labs(title = case_when(plot_type == 'MYT' ~ 'Mussel',
+  labs(title = case_when(plot_type == 'MYT' ~ 'Mytilus',
                          plot_type == 'CHT' ~ 'Chthamalus/Balanus',
                          plot_type == 'SIL' ~ 'Silvetia',
                          plot_type == 'POL' ~ 'Pollicipes',
                          T ~ 'You messed up'), 
-       subtitle = paste0('(A) Stress = ', round(mds$stress, digits = 2))) + 
+       subtitle = paste0('Stress = ', round(mds$stress, digits = 2))) + 
   light_theme +
   xlim(c(-1.5,1.5)) + 
   coord_equal() + 
-  theme(axis.text.x = element_text(angle = 0, hjust = 0.5))
+  theme(aspect.ratio = 1,
+        axis.text.x = element_text(angle = 0, hjust = 0.5))
 
-ggsave(ordplot, filename = paste0(saveplace, 'ordination/', plot_type, '_nmds.png'))
+ggsave(ordplot, filename = paste0(saveplace, 'ordination/', plot_type, '_nmds.png'),
+       width = 5)
 
-# linreg - does NMDS1 change over time?
-  # run separate model for each zone
+# ord without arrows 
+ordplot <- ggplot() +
+  stat_ellipse(data = scores,
+               aes(x = NMDS1, y = NMDS2, color = Site), size = 1) + 
+  geom_point(data = scores,
+             aes(x = NMDS1, y = NMDS2, color = Site), alpha = 0.5) +
+  scale_color_manual(name = 'Zone', values = ecopal_3) + 
+  labs(title = case_when(plot_type == 'MYT' ~ 'Mytilus',
+                         plot_type == 'CHT' ~ 'Chthamalus/Balanus',
+                         plot_type == 'SIL' ~ 'Silvetia',
+                         plot_type == 'POL' ~ 'Pollicipes',
+                         T ~ 'You messed up'), 
+       subtitle = paste0('Stress = ', round(mds$stress, digits = 2))) + 
+  light_theme +
+  xlim(c(-1.5,1.5)) + 
+  coord_equal() + 
+  theme(aspect.ratio = 1,
+        axis.text.x = element_text(angle = 0, hjust = 0.5))
 
-# datasmithing + linreg
-linreg_data <- tibble(NMDS1 = scores$NMDS1, 
-                         survey_year = target_env$survey_year, 
-                         zone = target_env$zone) %>%
-  ungroup() %>%
-  group_by(zone) %>%
-  nest() %>%
-  mutate(fit = map(data, ~lm(.$NMDS1 ~ .$survey_year)),
-         summary = map(fit, glance)) %>%
-  unnest(c(data, summary)) %>%
-  clean_names() %>%
-  select(-c(adj_r_squared, sigma, statistic, df:nobs, fit)) %>%
-  rename(Site = zone)
+ggsave(ordplot, filename = paste0(saveplace, 'ordination/', plot_type, '_no_arrow_nmds.png'),
+       width = 5)
 
-# save stats table
-write_csv(select(linreg_data, Site, r_squared, p_value) %>% distinct(), 
-          paste0(saveplace, 'stats_tables/', plot_type,'_nmds_linreg.csv'))
+# dark theme ord plots
+ordplot <- ggplot() +
+  stat_ellipse(data = scores,
+               aes(x = NMDS1, y = NMDS2, color = Site), size = 2) + 
+  geom_point(data = scores,
+             aes(x = NMDS1, y = NMDS2, color = Site), alpha = 0.3, size = 3) +
+  geom_segment(data = vectors, mapping = aes(x = 0, xend = NMDS1, y = 0, yend = NMDS2),
+               color = 'white', size = 1.5) + 
+  scale_color_manual(name = 'Zone', values = ecopal_3) + 
+  geom_text(data = filter(vectors, NMDS1 > 0),
+            mapping = aes(x = NMDS1, y = NMDS2, label = spp, 
+                          hjust = 0), color = 'white', size = 4) +
+  geom_text(data = filter(vectors, NMDS1 < 0),
+            mapping = aes(x = NMDS1, y = NMDS2, label = spp, 
+                          hjust = 1), color = 'white', size = 4) +
+  labs(subtitle = paste0('Stress = ', round(mds$stress, digits = 2))) + 
+  dark_theme +
+  xlim(c(-1.5,1.5)) + 
+  coord_equal() + 
+  theme(aspect.ratio = 1,
+        text = element_text(size = 18, color = 'white'),
+        axis.text.x = element_text(angle = 0, hjust = 0, size = 18, color = 'white'),
+        axis.text.y = element_text(size = 18, color = 'white'),
+        strip.text.x = element_text(size = 18, color = 'white'))
 
-# figure w/ results
-linplot <- ggplot(data = linreg_data,
-       aes(x = survey_year, y = nmds1, color = Site, fill = Site)) + 
-  geom_hline(yintercept = 0, size = 1, linetype = 'dashed', color = 'gray70') + 
-  geom_smooth(method = 'lm', size = 1) +
-  geom_point(alpha = 0.3) +
-  geom_text(
-    data = linreg_data %>% 
-            filter(p_value < 0.05) %>%
-            group_by(Site) %>%
-            summarize(r_squared = unique(r_squared),
-                      p_value = unique(p_value), 
-                      yval = mean(nmds1)),
-    mapping = aes(x = 2010, y = yval, hjust = 0, 
-                  label = paste0('R2 = ', round(r_squared, digits = 2))), color = 'black') +
-  scale_color_manual(values = ecopal_3) +
-  scale_fill_manual(values = ecopal_3) + 
-  labs(subtitle = '(B)') +
-  xlab('Survey year') +
-  ylab('NMDS1') + 
-  light_theme + 
-  theme(axis.text.x = element_text(angle = 0, hjust = 0.5))
+ggsave(ordplot, filename = paste0(saveplace, 'ordination/', plot_type, 
+                                  '_dark_nmds.png'), width = 5)
 
-ggsave(linplot, 
-       filename = paste0(saveplace, 'ordination/', plot_type, '_nmds1_time_lirneg.png'))
+# dark theme, no arrows
+ordplot <- ggplot() +
+stat_ellipse(data = scores,
+             aes(x = NMDS1, y = NMDS2, color = Site), size = 2) + 
+  geom_point(data = scores,
+             aes(x = NMDS1, y = NMDS2, color = Site), alpha = 0.7, size = 2) +
+  scale_color_manual(name = 'Zone', values = ecopal_3) + 
+  labs(subtitle = paste0('Stress = ', round(mds$stress, digits = 2))) + 
+  dark_theme +
+  xlim(c(-1.5,1.5)) + 
+  coord_equal() + 
+  theme(aspect.ratio = 1,
+        text = element_text(size = 22, color = 'white'),
+        axis.text.x = element_text(angle = 0, hjust = 0, size = 22, color = 'white'),
+        axis.text.y = element_text(size = 22, color = 'white'),
+        strip.text.x = element_text(size = 22, color = 'white'))
 
-# remove legend from linplot
-linplot <- linplot + theme(legend.position = 'none')
 
-ggsave(ordplot + linplot, 
-       filename = paste0(saveplace, 'ordination/', plot_type, '_combo.png'),
-       width = 9, height = 7)
-
+ggsave(ordplot, filename = paste0(saveplace, 'ordination/', plot_type, 
+                                  '_dark_no_arrow_nmds.png'), height = 7)
 }
 
 permanova_fn(plot_type = 'MYT')
