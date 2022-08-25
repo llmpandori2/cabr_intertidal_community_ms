@@ -3,7 +3,7 @@
 # Purpose: adapted from LT report code + clean up code
 # Author: LP
 # Created: 5/2/22
-# Last edited: 5/2/22
+# Last edited: 8/25/22
 ##################################################
 
 ##### packages #####
@@ -14,13 +14,13 @@ library(calecopal)    # color palettes
 library(ggrepel)      # flying labels 
 library(vegan)        # community analyses
 library(PNWColors)    # color palettes
+library(viridis)      # color palettes
 library(tidyverse)    # tidyverse packages
 
 ##### places & themes #####
 # 3 color palette
 ecopal_3 <- c(cal_palette('chaparral3')[4], cal_palette('bigsur')[5], 
   cal_palette('bigsur')[4])
-
 
 ecopal_4 <- c(cal_palette('chaparral3')[4], cal_palette('bigsur')[5], 
               cal_palette('bigsur')[4], cal_palette('chaparral3')[1])
@@ -302,8 +302,12 @@ area_fn <- function(plot_type, spp_code, sort_spp){
   
   
   # step 2 - generate colors associated with taxa for consistent color assignment
-  consistent_colors = setNames(object = viridis::viridis(9, alpha = 1, begin = 0, 
-                                                         end = 1, direction = -1), 
+  # consistent_colors = setNames(object = viridis::viridis(9, alpha = 1, begin = 0, 
+                                                         #end = 1, direction = -1), 
+                               #nm = sort(unique(dataset$scientific_name)))
+  
+  consistent_colors = setNames(object = pnw_palette(name = 'Starfish',
+                                                    n = 9, type = 'continuous'), 
                                nm = sort(unique(dataset$scientific_name)))
   
   # change the sort spp to 'black'
@@ -397,8 +401,8 @@ area_fn <- function(plot_type, spp_code, sort_spp){
   
   
   # step 2 - generate colors associated with taxa for consistent color assignment
-  consistent_colors = setNames(object = viridis::viridis(9, alpha = 1, begin = 0, 
-                                                         end = 1, direction = -1), 
+  consistent_colors = setNames(object = pnw_palette(name = 'Starfish',
+                                                    n = 9, type = 'continuous'), 
                                nm = sort(unique(dataset$common_name)))
   
   # change target spp color to "white"
@@ -414,7 +418,6 @@ area_fn <- function(plot_type, spp_code, sort_spp){
     # axis and plot labels
     xlab('Year') + 
     ylab('Percent Cover') + 
-    ggtitle(paste0(sort_spp, ' plot composition')) +
     # colors
     scale_fill_manual(name = 'Taxon',
                       values = consistent_colors) +
