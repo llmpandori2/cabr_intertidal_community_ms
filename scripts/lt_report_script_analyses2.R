@@ -196,16 +196,12 @@ area_fn <- function(plot_type, spp_code, sort_spp){
   
   
   # step 2 - generate colors associated with taxa for consistent color assignment
-  # consistent_colors = setNames(object = viridis::viridis(9, alpha = 1, begin = 0, 
-                                                         #end = 1, direction = -1), 
-                               #nm = sort(unique(dataset$scientific_name)))
-  
-  consistent_colors = setNames(object = pnw_palette(name = 'Starfish',
-                                                    n = 9, type = 'continuous'), 
+  consistent_colors = setNames(object = cal_palette(name = "tidepool", 
+                                                    n = 9, type = "continuous"), 
                                nm = sort(unique(dataset$scientific_name)))
   
   # change the sort spp to 'black'
-  consistent_colors[sort_spp] = 'black'
+  consistent_colors[sort_spp] = 'gray90'
   
   # step 3 - light theme stacked bar, with specified plot number and type
   ggplot(data = dataset,
@@ -217,13 +213,12 @@ area_fn <- function(plot_type, spp_code, sort_spp){
     # axis and plot labels
     xlab('Year') + 
     ylab('Percent Cover') + 
-    ggtitle(paste0(sort_spp, ' plot composition')) +
     # colors
     scale_fill_manual(name = 'Taxon',
                       values = consistent_colors) +
     facet_wrap(~zone) +
-    light_theme + 
-    theme(aspect.ratio = 1)
+    light_theme +
+    theme(aspect.ratio = 1.3)
   
   # save plot
   ggsave(paste(saveplace, '/stackedbar/stackedbar_', sort_spp, '.png', sep = ''), 
@@ -295,8 +290,14 @@ area_fn <- function(plot_type, spp_code, sort_spp){
   
   
   # step 2 - generate colors associated with taxa for consistent color assignment
-  consistent_colors = setNames(object = pnw_palette(name = 'Starfish',
-                                                    n = 9, type = 'continuous'), 
+  #consistent_colors = setNames(object = pnw_palette(name = 'Starfish',
+                                                   # n = 9, type = 'continuous'), 
+                               #nm = sort(unique(dataset$common_name)))
+  
+  # tidepool color palette from calecopal
+  # https://github.com/an-bui/calecopal
+  consistent_colors = setNames(object = cal_palette(name = "tidepool", 
+                                                    n = 9, type = "continuous"), 
                                nm = sort(unique(dataset$common_name)))
   
   # change target spp color to "white"
@@ -403,12 +404,12 @@ ordplot <- ggplot() +
   geom_text(data = filter(vectors, NMDS1 < 0),
             mapping = aes(x = NMDS1, y = NMDS2, label = spp, 
                                           hjust = 1), color = 'black') +
-  labs(title = case_when(plot_type == 'MYT' ~ 'Mytilus',
-                         plot_type == 'CHT' ~ 'Chthamalus/Balanus',
-                         plot_type == 'SIL' ~ 'Silvetia',
-                         plot_type == 'POL' ~ 'Pollicipes',
-                         T ~ 'You messed up'), 
-       subtitle = paste0('Stress = ', round(mds$stress, digits = 2))) + 
+  labs(subtitle = paste0(case_when(plot_type == 'MYT' ~ 'Mytilus',
+                                   plot_type == 'CHT' ~ 'Chthamalus/Balanus',
+                                   plot_type == 'SIL' ~ 'Silvetia',
+                                   plot_type == 'POL' ~ 'Pollicipes',
+                                   T ~ 'You messed up'), 
+                         ', Stress = ', round(mds$stress, digits = 2))) + 
   light_theme +
   xlim(c(-1.5,1.5)) + 
   coord_equal() + 
@@ -425,12 +426,12 @@ ordplot <- ggplot() +
   geom_point(data = scores,
              aes(x = NMDS1, y = NMDS2, color = Site), alpha = 0.5) +
   scale_color_manual(name = 'Zone', values = ecopal_3) + 
-  labs(title = case_when(plot_type == 'MYT' ~ 'Mytilus',
-                         plot_type == 'CHT' ~ 'Chthamalus/Balanus',
-                         plot_type == 'SIL' ~ 'Silvetia',
-                         plot_type == 'POL' ~ 'Pollicipes',
-                         T ~ 'You messed up'), 
-       subtitle = paste0('Stress = ', round(mds$stress, digits = 2))) + 
+  labs(subtitle = paste0(case_when(plot_type == 'MYT' ~ 'Mytilus',
+                                   plot_type == 'CHT' ~ 'Chthamalus/Balanus',
+                                   plot_type == 'SIL' ~ 'Silvetia',
+                                   plot_type == 'POL' ~ 'Pollicipes',
+                                   T ~ 'You messed up'), 
+                         ', Stress = ', round(mds$stress, digits = 2))) + 
   light_theme +
   xlim(c(-1.5,1.5)) + 
   coord_equal() + 
@@ -438,7 +439,7 @@ ordplot <- ggplot() +
         axis.text.x = element_text(angle = 0, hjust = 0.5))
 
 ggsave(ordplot, filename = paste0(saveplace, 'ordination/', plot_type, '_no_arrow_nmds.png'),
-       width = 5)
+       width = 4)
 
 # dark theme ord plots
 ordplot <- ggplot() +

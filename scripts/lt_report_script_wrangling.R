@@ -3,7 +3,7 @@
 # Purpose: adapted from LT report code + clean up code
 # Author: LP
 # Created: 4/20/22
-# Last edited: 5/2/22
+# Last edited: 7/15/22
 ##################################################
 
 # save place
@@ -243,6 +243,22 @@ write_csv(select(target_00, -site_name), paste0(tidy_folder, 'target_00.csv'))
 # remove crosswalk table
 remove(taxa_crosswalk)
 
+# make taxonomic complexity graph for target plots #
+
+ggplot(data = target %>%
+         select(survey_year, species_code) %>%
+         distinct() %>%
+         group_by(survey_year) %>%
+         tally(),
+       mapping = aes(x = survey_year, y = n)) + 
+  geom_col(fill = cal_palette('chaparral3')[4]) +
+  xlab('Survey year') + 
+  ylab('Number of taxa') + 
+  theme_bw() + theme(panel.grid = element_blank(), aspect.ratio = 1)
+
+ggsave('./figs/lt_trend_report_figs/taxa_time.png', height = 4)
+
+
 ##### tidy: timed search #####
 
 timed_search <- timed_search %>%
@@ -354,7 +370,6 @@ people_count <- people_count %>%
   # remove missing data (1 instance where count is NA for z3 in december 1996)
   # survey year column
   mutate(survey_year = lubridate::year(survey_date)) %>%
-  filter(survey_year < 2021) %>%
   # calculate mean # of visitors per zone and # of surveys per year
   group_by(survey_year, zone_class) %>%
   summarize(mean_count = mean(data_count),

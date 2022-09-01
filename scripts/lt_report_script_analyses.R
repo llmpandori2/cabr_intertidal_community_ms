@@ -3,7 +3,7 @@
 # Purpose: adapted from LT report code + clean up code
 # Author: LP
 # Created: 5/2/22
-# Last edited: 5/2/22
+# Last edited: 8/25/22
 ##################################################
 
 ##### packages #####
@@ -14,13 +14,13 @@ library(calecopal)    # color palettes
 library(ggrepel)      # flying labels 
 library(vegan)        # community analyses
 library(PNWColors)    # color palettes
+library(viridis)      # color palettes
 library(tidyverse)    # tidyverse packages
 
 ##### places & themes #####
 # 3 color palette
 ecopal_3 <- c(cal_palette('chaparral3')[4], cal_palette('bigsur')[5], 
   cal_palette('bigsur')[4])
-
 
 ecopal_4 <- c(cal_palette('chaparral3')[4], cal_palette('bigsur')[5], 
               cal_palette('bigsur')[4], cal_palette('chaparral3')[1])
@@ -78,32 +78,43 @@ people_count <- ungroup(people_count) %>%
   # un-nest data w/ linreg summary
   unnest(c(data, summary)) %>%
   clean_names() %>%
-  select(-c(adj_r_squared, sigma, statistic, df:nobs, fit))
+  select(-c(adj_r_squared, sigma, statistic, df:nobs, fit)) %>%
+  rename(Zone = zone)
 
 # save stats table
-write_csv(select(people_count, zone, r_squared, p_value) %>% distinct(), 
+write_csv(select(people_count, Zone, r_squared, p_value) %>% distinct(), 
           paste0(saveplace, 'stats_tables/people_linreg.csv'))
 
 # make paneled figure to present results
 visit_plot <- ggplot(data = people_count, 
-                     mapping = aes(x = survey_year, y = mean_count, color = zone)) + 
-  # points + lines for all panels (people ~ year)
-  geom_smooth(method = 'lm') + 
+                     mapping = aes(x = survey_year, y = mean_count, color = Zone)) + 
+  # points + shading for all panels (people ~ year)
+  geom_smooth(aes(color = Zone, fill = Zone),
+              method = 'lm', linetype = 0) + 
   geom_point() + 
+  # line for zone 1 (only significant with r2 value > 0.4)
+  geom_smooth(data = filter(people_count, r_squared > 0.4),
+              mapping = aes(x = survey_year, y = mean_count, color = Zone),
+              method = 'lm') + 
   xlab('Year') + 
   ylab('Visitors per survey') + 
   scale_color_manual(values = ecopal_3) + 
-  facet_wrap(~zone)
+  scale_fill_manual(values = ecopal_3)
 
 # save light theme version
 ggsave(filename = paste0(saveplace, 'visit_linreg_light.png'),
-       plot = visit_plot + light_theme + theme(legend.position = 'none'),
-       dpi = 300, width = 4, height = 4)
+       plot = visit_plot + light_theme,
+       dpi = 300, width = 6, height = 4)
 
 # save dark theme version
 ggsave(filename = paste0(saveplace, 'visit_linreg_dark.png'),
-       plot = visit_plot + dark_theme + theme(legend.position = 'none'),
-       dpi = 300, width = 4, height = 4)
+       plot = visit_plot + 
+         geom_point(size = 4) + 
+         dark_theme + 
+         theme(text = element_text(size = 28),
+              axis.text.x = element_text(size = 28),
+              axis.text.y = element_text(size = 28)),
+       dpi = 300, width = 12, height = 6)
 
 remove(visit_plot)
 
@@ -128,6 +139,7 @@ ggsave(filename = paste0(saveplace, 'visit_linreg_z1_dark.png'),
 
 # get % of all visitors observed in each zone
 donut_data <- people_count %>%
+  rename(zone = Zone) %>%
   group_by(zone) %>%
   summarize(n = sum(mean_count)) %>%
   ungroup() %>%
@@ -157,112 +169,6 @@ ggsave(filename = paste0(saveplace, 'visit_pie.png'),
 
 remove(donut_plot, donut_data)
 
-##### linear trends - photoplot & transect #####
-
-# make plot w/ linreg function
-
-linreg_plot_fn <- function(dataset, savename, ...){
-
-# attach linreg results to data  
-linreg_data <- dataset %>%
-  group_by(zone, taxa_code, scientific_name) %>%
-  # make  sub-groups of data for each zone and target spp (scientific_name)
-  nest() %>%
-  # fit linreg to each sub-group + get results summary
-  mutate(fit = map(data, ~lm(.$pct_cover ~ .$survey_year)),
-         summary = map(fit, glance)) %>%
-  # un-nest data w/ linreg summary
-  unnest(c(data, summary)) %>%
-  clean_names() %>%
-  select(-c(adj_r_squared, sigma, statistic, df:nobs, fit))
-
-# make paneled figure to present results
-linreg_plot <- ggplot(data = linreg_data, 
-                      mapping = aes(x = survey_year, y = pct_cover, 
-                                    color = zone)) + 
-  # points + lines for all panels (people ~ year)
-  geom_point() + 
-  geom_smooth(data = filter(linreg_data, p_value < 0.05),
-              mapping = aes(x = survey_year, y = pct_cover,
-                            color = zone), method = 'lm') + 
-  scale_y_continuous(breaks = c(0, 20, 40, 60, 80, 100)) + 
-  scale_x_continuous(breaks = c(1990, 1995, 2000, 2005, 2010, 2015, 2020)) +
-  xlab('Year') + 
-  ylab('Abundance (% cover)') + 
-
-  scale_color_manual(values = ecopal_3) + 
-  facet_grid(scientific_name ~ zone) +
-  coord_cartesian(ylim = c(0,115))
-
-# save light theme version
-
-ggsave(plot = linreg_plot + 
-              # p-values + r2 values in all panels
-              geom_text(data = filter(linreg_data, p_value < 0.05),
-                   mapping = aes(x = 1990, y = 110), 
-                   label = paste('p = ', 
-                                 scales::pvalue(filter(linreg_data, p_value < 0.05)$p_value,
-                                                accuracy = 0.01), 
-                                 ', R2 = ', 
-                                 round(filter(linreg_data, p_value < 0.05)$r_squared, 
-                                       digits = 2),
-                                 sep = ''), color = 'black', size = 2.5, hjust = 0) + 
-              light_theme + 
-              theme(legend.position = 'none', 
-                    strip.text.y = element_text(face = 'italic')),
-       filename = paste0(saveplace, savename , '_linreg_light.png'), 
-       width = 7, height = 7)
-
-# save dark theme version
-ggsave(plot = linreg_plot + 
-  # p-values + r2 values in all panels
-  geom_text(data = filter(linreg_data, p_value < 0.05),
-            mapping = aes(x = 1990, y = 110), 
-            label = paste('p = ', 
-                          scales::pvalue(filter(linreg_data, p_value < 0.05)$p_value,
-                                         accuracy = 0.01), 
-                          ', R? = ', 
-                          round(filter(linreg_data, p_value < 0.05)$r_squared, 
-                                digits = 2),
-                          sep = ''), color = 'white', size = 2.5, hjust = 0) + 
-  dark_theme + 
-  theme(legend.position = 'none', strip.text.y = element_text(face = 'italic')),
-filename = paste0(saveplace, savename , '_linreg_dark.png'), 
-                  width = 7, height = 7)
-
-}
-
-# target species in home plots
-target_home <- target_90 %>%
-  filter(type == substr(taxa_code, 1,3)) %>%
-  # shorten taxa names
-  mutate(scientific_name = if_else(scientific_name == 'Balanus/Chthamalus', 'Cht/Bal',
-                                   word(scientific_name)))
-
-# run for photoplot data
-linreg_plot_fn(target_home, 'target')
-
-# tidy transect data 
-transect_home <- transect %>%
-  # filter for egregia and phyllospadix (1st 3 of taxa code match first 3 of  transect type)
-  filter(tolower(substr(type, 1, 3)) == tolower(substr(taxa_code, 1, 3)) |
-        # filter for ARTCOR and OTHRED in red algae plots
-         (type == 'Red algae' & taxa_code %in% c('ARTCOR', 'OTHRED'))) %>%
-  #shorten taxa names
-  mutate(scientific_name = 
-         if_else(scientific_name %in% c('Articulated corallines', 'Other red algae'),
-                 case_when(scientific_name == 'Articulated corallines' ~ 'Corallina*',
-                           scientific_name == 'Other red algae' ~ 'Other red*'),
-                 word(scientific_name))) %>%
-  # arrange so that artcor and othred are adjacent
-  mutate(scientific_name = factor(scientific_name, levels = c('Other red*', 'Corallina*', 'Egregia', 'Phyllospadix')))
-
-#run function for transect data
-linreg_plot_fn(transect_home, 'transect', group = type)
-
-# remove excess datasets 
-remove(target_home, transect_home)
-
 ##### community change photoplot - stacked bar #####
 
 area_fn <- function(plot_type, spp_code, sort_spp){
@@ -288,7 +194,16 @@ area_fn <- function(plot_type, spp_code, sort_spp){
                       scientific_name == 'Balanus/Chthamalus' ~ 'Balanus Chthamalus',
                       TRUE ~ scientific_name))
   
-  # step 2 - plotting function, with specified plot number and type
+  
+  # step 2 - generate colors associated with taxa for consistent color assignment
+  consistent_colors = setNames(object = cal_palette(name = "tidepool", 
+                                                    n = 9, type = "continuous"), 
+                               nm = sort(unique(dataset$scientific_name)))
+  
+  # change the sort spp to 'black'
+  consistent_colors[sort_spp] = 'gray90'
+  
+  # step 3 - light theme stacked bar, with specified plot number and type
   ggplot(data = dataset,
          mapping = aes(x = survey_year, y = pct_cover, 
                        # make target spp last (bottom bar on plots)
@@ -298,17 +213,47 @@ area_fn <- function(plot_type, spp_code, sort_spp){
     # axis and plot labels
     xlab('Year') + 
     ylab('Percent Cover') + 
-    ggtitle(paste0(sort_spp, ' photo-plots')) +
     # colors
     scale_fill_manual(name = 'Taxon',
-                        values = c(pnw_palette('Sailboat', 8, type = 'continuous'), 'gray20')) +
+                      values = consistent_colors) +
     facet_wrap(~zone) +
-    light_theme + 
-    theme(aspect.ratio = 1)
+    light_theme +
+    theme(aspect.ratio = 1.3)
   
   # save plot
+  ggsave(paste(saveplace, '/stackedbar/stackedbar_', sort_spp, '.png', sep = ''), 
+         width = 7)
   
-  ggsave(paste(saveplace, '/stackedbar/stackedbar_', sort_spp, '.png', sep = ''), width = 7)
+  # step 5 - dark theme stacked bar 
+  
+  # change target spp color to "white"
+  consistent_colors[sort_spp] = 'white'
+  
+  # dark theme plot
+  ggplot(data = dataset,
+         mapping = aes(x = survey_year, y = pct_cover, 
+                       # make target spp last (bottom bar on plots)
+                       fill = fct_relevel(scientific_name, sort_spp, after = Inf))) +
+    # bar stacked by spp group (Scientific_name)
+    geom_bar(stat = 'identity', width = 1) + 
+    # axis and plot labels
+    xlab('Year') + 
+    ylab('Percent Cover') + 
+    ggtitle(paste0(sort_spp, ' plot composition')) +
+    # colors
+    scale_fill_manual(name = 'Taxon',
+                      values = consistent_colors) +
+    facet_wrap(~zone) +
+    dark_theme + 
+    theme(
+          text = element_text(size = 26, color = 'white'),
+          axis.text.x = element_text(size = 24, color = 'white'),
+          axis.text.y = element_text(size = 24, color = 'white'),
+          strip.text.x = element_text(size = 24, color = 'white'))
+  
+  # save
+  ggsave(paste(saveplace, '/stackedbar/stackedbar_dark_', sort_spp, '.png', sep = ''), 
+         width = 12)
 }
 
 # run for target spp 
@@ -318,62 +263,77 @@ area_fn(plot_type = 'CHT', spp_code = 'TETRUB', sort_spp = 'Tetraclita')
 area_fn(plot_type = 'POL', spp_code = 'POLPOL', sort_spp = 'Pollicipes')
 area_fn(plot_type = 'SIL', spp_code = 'SILCOM', sort_spp = 'Silvetia')
 
-# make one panel per plot type
-
-area_dark_fn <- function(plot_type, spp_code, sort_spp){
+### common name plot versions
+area_fn <- function(plot_type, spp_code, sort_spp){
+  
   # wrangle data
   dataset <- target_90 %>%
     filter(type == plot_type) %>%
     # calculate cover of each taxa across plot replicates
-    group_by(survey_year, taxa_code, scientific_name) %>%
+    group_by(survey_year, zone, taxa_code, scientific_name) %>%
     summarize(pct_cover = sum(pct_cover)) %>%
     ungroup() %>%
     # get sum of cover for each year
-    group_by(survey_year) %>%
+    group_by(survey_year, zone) %>%
     mutate(cover_sum = sum(pct_cover)) %>%
     ungroup() %>%
     # calculate % cover 
     mutate(pct_cover = (pct_cover/cover_sum)*100) %>%
     # make pretty label columns, nicer spp names
-    mutate(scientific_name = case_when(
-      scientific_name =='Tetraclita rubescens' ~ 'Tetraclita',
-      scientific_name =='Pollicipes polymerus' ~ 'Pollicipes',
-      scientific_name =='Silvetia compressa' ~ 'Silvetia',
-      scientific_name == 'Balanus/Chthamalus' ~ 'Balanus Chthamalus',
+    mutate(common_name = case_when(
+      scientific_name == 'Mytilus' ~ 'Mussel',
+      scientific_name =='Tetraclita rubescens' ~ 'Volcano barnacle',
+      scientific_name =='Pollicipes polymerus' ~ 'Goose barnacle',
+      scientific_name =='Silvetia compressa' ~ 'Golden rockweed',
+      scientific_name == 'Balanus/Chthamalus' ~ 'Acorn barnacles',
       TRUE ~ scientific_name))
   
-  # step 2 - plotting function, with specified plot number and type
+  
+  # step 2 - generate colors associated with taxa for consistent color assignment
+  #consistent_colors = setNames(object = pnw_palette(name = 'Starfish',
+                                                   # n = 9, type = 'continuous'), 
+                               #nm = sort(unique(dataset$common_name)))
+  
+  # tidepool color palette from calecopal
+  # https://github.com/an-bui/calecopal
+  consistent_colors = setNames(object = cal_palette(name = "tidepool", 
+                                                    n = 9, type = "continuous"), 
+                               nm = sort(unique(dataset$common_name)))
+  
+  # change target spp color to "white"
+  consistent_colors[sort_spp] = 'white'
+  
+  # dark theme plot
   ggplot(data = dataset,
          mapping = aes(x = survey_year, y = pct_cover, 
                        # make target spp last (bottom bar on plots)
-                       fill = fct_relevel(scientific_name, sort_spp, after = Inf))) +
+                       fill = fct_relevel(common_name, sort_spp, after = Inf))) +
     # bar stacked by spp group (Scientific_name)
     geom_bar(stat = 'identity', width = 1) + 
     # axis and plot labels
     xlab('Year') + 
     ylab('Percent Cover') + 
-    ggtitle(paste0(sort_spp, ' photo-plots')) +
     # colors
     scale_fill_manual(name = 'Taxon',
-                      values = c(pnw_palette('Sailboat', 8, type = 'continuous'), 'gray30')) +
+                      values = consistent_colors) +
     facet_wrap(~zone) +
     dark_theme + 
-    theme(aspect.ratio = 1,
-          text = element_text(size = 16, color = 'white'),
-          axis.text.x = element_text(size = 16, color = 'white'),
-          axis.text.y = element_text(size = 16, color = 'white'))
+    theme(
+      text = element_text(size = 26, color = 'white'),
+      axis.text.x = element_text(size = 24, color = 'white'),
+      axis.text.y = element_text(size = 24, color = 'white'),
+      strip.text.x = element_text(size = 24, color = 'white'))
   
-  # save plot
-  
-  ggsave(paste(saveplace, '/stackedbar/stackedbar_dark_', sort_spp, '.png', sep = ''), width = 10)
+  # save
+  ggsave(paste(saveplace, '/stackedbar/stackedbar_common_dark_', sort_spp, 
+               '.png', sep = ''), width = 12)
 }
 
-
-area_dark_fn(plot_type = 'MYT', spp_code = 'MYTCAL', sort_spp = 'Mytilus')
-area_dark_fn(plot_type = 'CHT', spp_code = 'CHTBAL', sort_spp = 'Balanus Chthamalus')
-area_dark_fn(plot_type = 'CHT', spp_code = 'TETRUB', sort_spp = 'Tetraclita')
-area_dark_fn(plot_type = 'POL', spp_code = 'POLPOL', sort_spp = 'Pollicipes')
-area_dark_fn(plot_type = 'SIL', spp_code = 'SILCOM', sort_spp = 'Silvetia')
+area_fn(plot_type = 'MYT', spp_code = 'MYTCAL', sort_spp = 'Mussel')
+area_fn(plot_type = 'CHT', spp_code = 'CHTBAL', sort_spp = 'Acorn barnacles')
+area_fn(plot_type = 'CHT', spp_code = 'TETRUB', sort_spp = 'Volcano barnacle')
+area_fn(plot_type = 'POL', spp_code = 'POLPOL', sort_spp = 'Goose barnacle')
+area_fn(plot_type = 'SIL', spp_code = 'SILCOM', sort_spp = 'Golden rockweed')
 
 ##### community dynamics - multivariate #####
 
@@ -437,80 +397,98 @@ ordplot <- ggplot() +
              aes(x = NMDS1, y = NMDS2, color = Site), alpha = 0.3) +
   geom_segment(data = vectors, mapping = aes(x = 0, xend = NMDS1, y = 0, yend = NMDS2),
                color = 'black') + 
-  scale_color_manual(values = ecopal_3) + 
+  scale_color_manual(name = 'Zone', values = ecopal_3) + 
   geom_text(data = filter(vectors, NMDS1 > 0),
             mapping = aes(x = NMDS1, y = NMDS2, label = spp, 
                                           hjust = 0), color = 'black') +
   geom_text(data = filter(vectors, NMDS1 < 0),
             mapping = aes(x = NMDS1, y = NMDS2, label = spp, 
                                           hjust = 1), color = 'black') +
-  labs(title = case_when(plot_type == 'MYT' ~ 'Mussel',
-                         plot_type == 'CHT' ~ 'Chthamalus/Balanus',
-                         plot_type == 'SIL' ~ 'Silvetia',
-                         plot_type == 'POL' ~ 'Pollicipes',
-                         T ~ 'You messed up'), 
-       subtitle = paste0('(A) Stress = ', round(mds$stress, digits = 2))) + 
+  labs(subtitle = paste0(case_when(plot_type == 'MYT' ~ 'Mytilus',
+                                   plot_type == 'CHT' ~ 'Chthamalus/Balanus',
+                                   plot_type == 'SIL' ~ 'Silvetia',
+                                   plot_type == 'POL' ~ 'Pollicipes',
+                                   T ~ 'You messed up'), 
+                         ', Stress = ', round(mds$stress, digits = 2))) + 
   light_theme +
   xlim(c(-1.5,1.5)) + 
   coord_equal() + 
-  theme(axis.text.x = element_text(angle = 0, hjust = 0.5))
+  theme(aspect.ratio = 1,
+        axis.text.x = element_text(angle = 0, hjust = 0.5))
 
-ggsave(ordplot, filename = paste0(saveplace, 'ordination/', plot_type, '_nmds.png'))
+ggsave(ordplot, filename = paste0(saveplace, 'ordination/', plot_type, '_nmds.png'),
+       width = 5)
 
-# linreg - does NMDS1 change over time?
-  # run separate model for each zone
+# ord without arrows 
+ordplot <- ggplot() +
+  stat_ellipse(data = scores,
+               aes(x = NMDS1, y = NMDS2, color = Site), size = 1) + 
+  geom_point(data = scores,
+             aes(x = NMDS1, y = NMDS2, color = Site), alpha = 0.5) +
+  scale_color_manual(name = 'Zone', values = ecopal_3) + 
+  labs(subtitle = paste0(case_when(plot_type == 'MYT' ~ 'Mytilus',
+                                   plot_type == 'CHT' ~ 'Chthamalus/Balanus',
+                                   plot_type == 'SIL' ~ 'Silvetia',
+                                   plot_type == 'POL' ~ 'Pollicipes',
+                                   T ~ 'You messed up'), 
+                         ', Stress = ', round(mds$stress, digits = 2))) + 
+  light_theme +
+  xlim(c(-1.5,1.5)) + 
+  coord_equal() + 
+  theme(aspect.ratio = 1,
+        axis.text.x = element_text(angle = 0, hjust = 0.5))
 
-# datasmithing + linreg
-linreg_data <- tibble(NMDS1 = scores$NMDS1, 
-                         survey_year = target_env$survey_year, 
-                         zone = target_env$zone) %>%
-  ungroup() %>%
-  group_by(zone) %>%
-  nest() %>%
-  mutate(fit = map(data, ~lm(.$NMDS1 ~ .$survey_year)),
-         summary = map(fit, glance)) %>%
-  unnest(c(data, summary)) %>%
-  clean_names() %>%
-  select(-c(adj_r_squared, sigma, statistic, df:nobs, fit)) %>%
-  rename(Site = zone)
+ggsave(ordplot, filename = paste0(saveplace, 'ordination/', plot_type, '_no_arrow_nmds.png'),
+       width = 4)
 
-# save stats table
-write_csv(select(linreg_data, Site, r_squared, p_value) %>% distinct(), 
-          paste0(saveplace, 'stats_tables/', plot_type,'_nmds_linreg.csv'))
+# dark theme ord plots
+ordplot <- ggplot() +
+  stat_ellipse(data = scores,
+               aes(x = NMDS1, y = NMDS2, color = Site), size = 2) + 
+  geom_point(data = scores,
+             aes(x = NMDS1, y = NMDS2, color = Site), alpha = 0.3, size = 3) +
+  geom_segment(data = vectors, mapping = aes(x = 0, xend = NMDS1, y = 0, yend = NMDS2),
+               color = 'white', size = 1.5) + 
+  scale_color_manual(name = 'Zone', values = ecopal_3) + 
+  geom_text(data = filter(vectors, NMDS1 > 0),
+            mapping = aes(x = NMDS1, y = NMDS2, label = spp, 
+                          hjust = 0), color = 'white', size = 4) +
+  geom_text(data = filter(vectors, NMDS1 < 0),
+            mapping = aes(x = NMDS1, y = NMDS2, label = spp, 
+                          hjust = 1), color = 'white', size = 4) +
+  labs(subtitle = paste0('Stress = ', round(mds$stress, digits = 2))) + 
+  dark_theme +
+  xlim(c(-1.5,1.5)) + 
+  coord_equal() + 
+  theme(aspect.ratio = 1,
+        text = element_text(size = 18, color = 'white'),
+        axis.text.x = element_text(angle = 0, hjust = 0, size = 18, color = 'white'),
+        axis.text.y = element_text(size = 18, color = 'white'),
+        strip.text.x = element_text(size = 18, color = 'white'))
 
-# figure w/ results
-linplot <- ggplot(data = linreg_data,
-       aes(x = survey_year, y = nmds1, color = Site, fill = Site)) + 
-  geom_hline(yintercept = 0, size = 1, linetype = 'dashed', color = 'gray70') + 
-  geom_smooth(method = 'lm', size = 1) +
-  geom_point(alpha = 0.3) +
-  geom_text(
-    data = linreg_data %>% 
-            filter(p_value < 0.05) %>%
-            group_by(Site) %>%
-            summarize(r_squared = unique(r_squared),
-                      p_value = unique(p_value), 
-                      yval = mean(nmds1)),
-    mapping = aes(x = 2010, y = yval, hjust = 0, 
-                  label = paste0('R2 = ', round(r_squared, digits = 2))), color = 'black') +
-  scale_color_manual(values = ecopal_3) +
-  scale_fill_manual(values = ecopal_3) + 
-  labs(subtitle = '(B)') +
-  xlab('Survey year') +
-  ylab('NMDS1') + 
-  light_theme + 
-  theme(axis.text.x = element_text(angle = 0, hjust = 0.5))
+ggsave(ordplot, filename = paste0(saveplace, 'ordination/', plot_type, 
+                                  '_dark_nmds.png'), width = 5)
 
-ggsave(linplot, 
-       filename = paste0(saveplace, 'ordination/', plot_type, '_nmds1_time_lirneg.png'))
+# dark theme, no arrows
+ordplot <- ggplot() +
+stat_ellipse(data = scores,
+             aes(x = NMDS1, y = NMDS2, color = Site), size = 2) + 
+  geom_point(data = scores,
+             aes(x = NMDS1, y = NMDS2, color = Site), alpha = 0.7, size = 2) +
+  scale_color_manual(name = 'Zone', values = ecopal_3) + 
+  labs(subtitle = paste0('Stress = ', round(mds$stress, digits = 2))) + 
+  dark_theme +
+  xlim(c(-1.5,1.5)) + 
+  coord_equal() + 
+  theme(aspect.ratio = 1,
+        text = element_text(size = 22, color = 'white'),
+        axis.text.x = element_text(angle = 0, hjust = 0, size = 22, color = 'white'),
+        axis.text.y = element_text(size = 22, color = 'white'),
+        strip.text.x = element_text(size = 22, color = 'white'))
 
-# remove legend from linplot
-linplot <- linplot + theme(legend.position = 'none')
 
-ggsave(ordplot + linplot, 
-       filename = paste0(saveplace, 'ordination/', plot_type, '_combo.png'),
-       width = 9, height = 7)
-
+ggsave(ordplot, filename = paste0(saveplace, 'ordination/', plot_type, 
+                                  '_dark_no_arrow_nmds.png'), height = 7)
 }
 
 permanova_fn(plot_type = 'MYT')
