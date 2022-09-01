@@ -11,10 +11,7 @@ library(ggdark)       # dark field versions of ggplot2 themes
 library(janitor)      # snake case col names and remove duplicates
 library(broom)        # glance fn for linregs
 library(calecopal)    # color palettes
-library(ggrepel)      # flying labels 
 library(vegan)        # community analyses
-library(PNWColors)    # color palettes
-library(viridis)      # color palettes
 library(tidyverse)    # tidyverse packages
 
 ##### places & themes #####

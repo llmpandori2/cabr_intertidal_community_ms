@@ -9,6 +9,12 @@
 /data/crosswalk
 /data/MEDN_RI_DB_Jan21
 
+# data files
+/data
+
+# extras not for github
+/extras_not_on_github
+
 # User-specific files
 .Ruserdata
 
